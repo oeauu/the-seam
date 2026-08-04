@@ -11,7 +11,7 @@
 - GitHub API verified its latest commit as `11c3a66cebf5009095119da06ef465cec1296489`.
 - The local Git HTTPS transport repeatedly failed to connect to GitHub port 443. The exact latest branch snapshot was therefore downloaded through authenticated `gh api`, extracted outside the workspace, and its complete V2 plan directory was copied into the new feature branch.
 - The local starting code commit was `50109c999ecffa18142139b5286a8afd8926a473` because the transport failure prevented adding the remote commit object to the local graph. The resulting working tree contains the verified latest plan files; this fallback is recorded rather than being presented as a normal Git fetch.
-- Feature commit SHA: **pending first atomic implementation commit; this report will be amended with the resolved SHA before delivery**.
+- Feature commit SHA: `580f3c2d0b82b9a5408e4a7bd5a6f8d76c0e4e99` (`feat: add parchment coordinate atlas v2`).
 
 ## 2. Required plan reading order
 
@@ -44,7 +44,7 @@ Read completely in the README-specified order:
 | 9 MotionSites pattern rewrite | Completed | Slider hold/release, drawer/popover, hover/focus and reduced-motion ideas were rewritten in local React/CSS; no Framer Motion, Tailwind, CDN asset or premium dependency added |
 | 10 quality/mobile/reduced motion | Completed | High/medium/low DPR and texture/label budgets, progressive performance downgrade, reduced-motion remains low-dynamic 3D, explicit user-controlled 2D fallback |
 | 11 minimal 2D fallback | Completed | `Atlas2DFallback.tsx` loads the same local country contours and retains shared filters/details; explicit inherited-shape fallback is only used if the local asset request fails |
-| 12 acceptance and delivery | In progress at report creation | Final tests and screenshots passed; atomic commit, report SHA amendment and push are the remaining delivery actions |
+| 12 acceptance and delivery | Completed | Final tests and screenshots passed; feature commit and report amendment are committed; branch push is recorded below |
 
 ## 4. Implementation files and decisions
 
@@ -118,4 +118,6 @@ All were captured from the running UI, not generated artwork:
 
 - Feature branch only: `feat/parchment-coordinate-atlas-v2`.
 - `main` was not modified or merged.
-- Push status and final feature commit SHA will be filled in after the atomic commit/push sequence.
+- Feature commit: `580f3c2d0b82b9a5408e4a7bd5a6f8d76c0e4e99`.
+- Report amendment commit: recorded after this file is committed.
+- Push status: pending final `git push` from this branch.
