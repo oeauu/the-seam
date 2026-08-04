@@ -11,7 +11,7 @@
 - GitHub API verified its latest commit as `11c3a66cebf5009095119da06ef465cec1296489`.
 - The local Git HTTPS transport repeatedly failed to connect to GitHub port 443. The exact latest branch snapshot was therefore downloaded through authenticated `gh api`, extracted outside the workspace, and its complete V2 plan directory was copied into the new feature branch.
 - The local starting code commit was `50109c999ecffa18142139b5286a8afd8926a473` because the transport failure prevented adding the remote commit object to the local graph. The resulting working tree contains the verified latest plan files; this fallback is recorded rather than being presented as a normal Git fetch.
-- Feature commit SHA: `580f3c2d0b82b9a5408e4a7bd5a6f8d76c0e4e99` (`feat: add parchment coordinate atlas v2`).
+- Feature commit SHA: `580f3c2a6da0aa1e64201dea11bf0921401a7721` (`feat: add parchment coordinate atlas v2`).
 
 ## 2. Required plan reading order
 
@@ -118,6 +118,6 @@ All were captured from the running UI, not generated artwork:
 
 - Feature branch only: `feat/parchment-coordinate-atlas-v2`.
 - `main` was not modified or merged.
-- Feature commit: `580f3c2d0b82b9a5408e4a7bd5a6f8d76c0e4e99`.
-- Report amendment commit: recorded after this file is committed.
+- Feature commit: `580f3c2a6da0aa1e64201dea11bf0921401a7721`.
+- Report amendment commit: `fae82900c11c9f7c246ddf8835116ee878720c94`.
 - Push status: pending final `git push` from this branch.
