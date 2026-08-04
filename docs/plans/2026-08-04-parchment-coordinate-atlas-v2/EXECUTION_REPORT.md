@@ -120,4 +120,7 @@ All were captured from the running UI, not generated artwork:
 - `main` was not modified or merged.
 - Feature commit: `580f3c2a6da0aa1e64201dea11bf0921401a7721`.
 - Report amendment commit: `fae82900c11c9f7c246ddf8835116ee878720c94`.
-- Push status: pending final `git push` from this branch.
+- Git HTTPS push was blocked by the environment's connection to GitHub port 443. The verified tree was published through the authenticated GitHub Git Data API instead.
+- Remote functional mirror commit: `5ee2c303a06c2bb5a0b9ab88b94b9efb61cf1b20`.
+- Remote ref: `refs/heads/feat/parchment-coordinate-atlas-v2`.
+- Push status: completed through the GitHub API fallback; `main` was not modified.
