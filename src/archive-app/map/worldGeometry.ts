@@ -29,6 +29,15 @@ export function parseWorldFeatures(value: unknown): WorldFeature[] {
   return converted.type === "Feature" && "geometry" in converted && converted.geometry !== null ? [converted as unknown as WorldFeature] : [];
 }
 
+export async function loadWorldFeatures(signal?: AbortSignal): Promise<WorldFeature[]> {
+  const response = await fetch("/countries-110m.json", { signal });
+  if (!response.ok) throw new Error(`World boundary request failed: ${response.status}`);
+  const payload = await response.json() as unknown;
+  const features = parseWorldFeatures(payload);
+  if (features.length === 0) throw new Error("World boundary payload contains no features");
+  return features;
+}
+
 function coordinateRing(value: readonly number[]): readonly [number, number] | null {
   return value.length >= 2 && Number.isFinite(value[0]) && Number.isFinite(value[1]) ? [value[0], value[1]] : null;
 }

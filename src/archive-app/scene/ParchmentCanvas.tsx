@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import type { CameraState } from "../state/archiveAppReducer";
 import { CoordinateLayer } from "../coordinates/CoordinateLayer";
 import { WorldMapLayer } from "../map/WorldMapLayer";
+import type { WorldFeature } from "../map/worldGeometry";
 import { ParchmentScrollMesh } from "../parchment/ParchmentScrollMesh";
 import { SceneLighting } from "./SceneLighting";
 import type { ArchiveEntry, Language } from "../../domain/archive/types";
@@ -10,6 +11,7 @@ import type { ArchiveEntry, Language } from "../../domain/archive/types";
 interface ParchmentCanvasProps {
   camera: CameraState;
   entries: readonly ArchiveEntry[];
+  worldFeatures: readonly WorldFeature[];
   previewRange: { start: number | null; end: number | null };
   language: Language;
   motion: "full" | "reduced";
@@ -18,7 +20,6 @@ interface ParchmentCanvasProps {
   selectedGroupId: string | null;
   onPointerActivity: (dragging: boolean) => void;
   onMapReady: () => void;
-  onMapError: () => void;
 }
 
 function CameraStateSync({ camera }: { camera: CameraState }) {
@@ -32,7 +33,7 @@ function CameraStateSync({ camera }: { camera: CameraState }) {
   return null;
 }
 
-export function ParchmentCanvas({ camera, entries, previewRange, language, motion, quality, onSelectLocation, selectedGroupId, onPointerActivity, onMapReady, onMapError }: ParchmentCanvasProps) {
+export function ParchmentCanvas({ camera, entries, worldFeatures, previewRange, language, motion, quality, onSelectLocation, selectedGroupId, onPointerActivity, onMapReady }: ParchmentCanvasProps) {
   return (
     <Canvas
       camera={{ position: [0, 1.1, 7.2], fov: 32, near: 0.1, far: 100 }}
@@ -47,7 +48,7 @@ export function ParchmentCanvas({ camera, entries, previewRange, language, motio
       <CameraStateSync camera={camera} />
       <SceneLighting />
       <ParchmentScrollMesh quality={quality} />
-      <WorldMapLayer quality={quality} motion={motion} onReady={onMapReady} onError={onMapError} />
+      <WorldMapLayer features={worldFeatures} quality={quality} motion={motion} onReady={onMapReady} />
       <CoordinateLayer
         entries={entries}
         previewRange={previewRange}

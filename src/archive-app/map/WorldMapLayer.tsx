@@ -1,40 +1,26 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import type { BufferGeometry } from "three";
-import { createWorldBoundaryGeometry, isWorldTopology, parseWorldFeatures, type WorldFeature } from "./worldGeometry";
+import { createWorldBoundaryGeometry, type WorldFeature } from "./worldGeometry";
 import { createWorldProjection } from "./worldProjection";
 
 interface WorldMapLayerProps {
+  features: readonly WorldFeature[];
   quality: "high" | "medium" | "low";
   motion: "full" | "reduced";
   onReady: () => void;
-  onError: () => void;
 }
 
-export function WorldMapLayer({ quality, motion, onReady, onError }: WorldMapLayerProps) {
-  const [features, setFeatures] = useState<WorldFeature[]>([]);
+export function WorldMapLayer({ features, quality, motion, onReady }: WorldMapLayerProps) {
   const projection = useMemo(() => createWorldProjection(), []);
-  useEffect(() => {
-    let cancelled = false;
-    fetch("/countries-110m.json")
-      .then(response => {
-        if (!response.ok) throw new Error(`World boundary request failed: ${response.status}`);
-        return response.json() as Promise<unknown>;
-      })
-      .then(payload => {
-        if (cancelled || !isWorldTopology(payload)) throw new Error("World boundary payload is invalid");
-        setFeatures(parseWorldFeatures(payload));
-        onReady();
-      })
-      .catch(() => {
-        if (!cancelled) { setFeatures([]); onError(); }
-      });
-    return () => { cancelled = true; };
-  }, [onError, onReady]);
 
   const geometry = useMemo<BufferGeometry | null>(() => {
     if (features.length === 0) return null;
     return createWorldBoundaryGeometry(features, projection);
   }, [features, projection]);
+
+  useEffect(() => {
+    if (features.length > 0) onReady();
+  }, [features, onReady]);
 
   useEffect(() => () => geometry?.dispose(), [geometry]);
 

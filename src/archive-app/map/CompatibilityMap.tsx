@@ -1,12 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { ArchiveEntry, Language, LocationGroup } from "../../domain/archive/types";
 import { groupEntriesByLocation } from "../../domain/archive/locations";
 import { getLocalizedText } from "../../domain/archive/localization";
 import { parchmentPointToPixel, createWorldProjection } from "./worldProjection";
-import { isWorldTopology, parseWorldFeatures, type WorldFeature } from "./worldGeometry";
+import type { WorldFeature } from "./worldGeometry";
 
 interface CompatibilityMapProps {
   entries: readonly ArchiveEntry[];
+  features: readonly WorldFeature[];
   language: Language;
   onSelectLocation: (groupId: string) => void;
 }
@@ -21,18 +22,9 @@ function pathForFeature(feature: WorldFeature, projection: ReturnType<typeof cre
   }).join(" ") + " Z");
 }
 
-export function CompatibilityMap({ entries, language, onSelectLocation }: CompatibilityMapProps) {
-  const [features, setFeatures] = useState<WorldFeature[]>([]);
+export function CompatibilityMap({ entries, features, language, onSelectLocation }: CompatibilityMapProps) {
   const projection = useMemo(() => createWorldProjection(), []);
   const groups = useMemo<readonly LocationGroup[]>(() => groupEntriesByLocation(entries), [entries]);
-  useEffect(() => {
-    let cancelled = false;
-    fetch("/countries-110m.json")
-      .then(response => response.json() as Promise<unknown>)
-      .then(payload => { if (!cancelled && isWorldTopology(payload)) setFeatures(parseWorldFeatures(payload)); })
-      .catch(() => { if (!cancelled) setFeatures([]); });
-    return () => { cancelled = true; };
-  }, []);
   return (
     <div className="map-fallback" data-testid="compatibility-map" data-fallback-map="topojson">
       <svg className="map-fallback__paper" viewBox="0 0 720 400" role="img" aria-label="二维兼容羊皮卷世界地图">

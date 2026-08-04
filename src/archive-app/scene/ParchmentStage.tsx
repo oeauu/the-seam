@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import type { ArchiveEntry, HistoricalRange, Language, LocationGroup } from "../../domain/archive/types";
 import { groupEntriesByLocation } from "../../domain/archive/locations";
 import { getLocalizedText } from "../../domain/archive/localization";
@@ -6,6 +6,7 @@ import type { CameraState } from "../state/archiveAppReducer";
 import { ParchmentCanvas } from "./ParchmentCanvas";
 import { ParchmentTimeline } from "../timeline/ParchmentTimeline";
 import { CompatibilityMap } from "../map/CompatibilityMap";
+import { loadWorldFeatures, type WorldFeature } from "../map/worldGeometry";
 
 interface ParchmentStageProps {
   camera: CameraState;
@@ -49,10 +50,19 @@ export function ParchmentStage({ camera, entries, previewRange, committedRange, 
   const stageRef = useRef<HTMLDivElement>(null);
   const pointerRef = useRef<PointerState | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [worldFeatures, setWorldFeatures] = useState<readonly WorldFeature[]>([]);
   const [mapReady, setMapReady] = useState(capability === "fallback");
   const handleMapReady = useCallback(() => setMapReady(true), []);
   const groups = useMemo<readonly LocationGroup[]>(() => groupEntriesByLocation(entries), [entries]);
   const quality = capability === "fallback" ? "low" : "high";
+
+  useEffect(() => {
+    const controller = new AbortController();
+    loadWorldFeatures(controller.signal)
+      .then(features => { setWorldFeatures(features); setMapReady(true); })
+      .catch(() => { if (!controller.signal.aborted) { setWorldFeatures([]); setMapReady(true); onMapError(); } });
+    return () => controller.abort();
+  }, [onMapError]);
 
   const updatePan = (event: ReactPointerEvent<HTMLDivElement>) => {
     const pointer = pointerRef.current;
@@ -132,6 +142,7 @@ export function ParchmentStage({ camera, entries, previewRange, committedRange, 
             <ParchmentCanvas
               camera={camera}
               entries={entries}
+              worldFeatures={worldFeatures}
               previewRange={previewRange}
               language={language}
               motion={motion}
@@ -140,9 +151,8 @@ export function ParchmentStage({ camera, entries, previewRange, committedRange, 
               selectedGroupId={selectedGroupId}
               onPointerActivity={() => undefined}
               onMapReady={handleMapReady}
-              onMapError={onMapError}
             />
-          ) : <CompatibilityMap entries={entries} language={language} onSelectLocation={onSelectLocation} />}
+          ) : <CompatibilityMap entries={entries} features={worldFeatures} language={language} onSelectLocation={onSelectLocation} />}
           <p className="parchment-stage__hint">拖动浏览地图；按住 Ctrl / Command 滚动以缩放。普通滚轮继续滚动页面。</p>
           <div className="parchment-stage__actions" aria-label="地图控制">
             <button className="parchment-stage__action" type="button" aria-label="放大地图" onClick={() => onCamera({ ...camera, zoom: zoomBy(camera.zoom * 1.12) })}>＋</button>
