@@ -1,42 +1,78 @@
 import { OrbitControls } from "@react-three/drei";
-import type { ArchiveEntry, Language } from "../types";
+import type { ArchiveEntry, AtlasQualityLevel, Language } from "../types";
 import type { RegionCluster } from "../selectors";
-import { ClusterMarker3D } from "./ClusterMarker3D";
 import { latLngToVector3 } from "../utils/geo";
+import { groupEntriesByLocation } from "../rendering/locationGroups";
+import { CoordinateMarkerLayer } from "./CoordinateMarkerLayer";
+import { CountryBoundaryLayer } from "./CountryBoundaryLayer";
+import { ClusterMarker3D } from "./ClusterMarker3D";
+import { ParchmentGlobeMaterial } from "./ParchmentGlobeMaterial";
 
 interface GlobeSceneProps {
   clusters: RegionCluster[];
   entries: ArchiveEntry[];
   language: Language;
+  qualityLevel: AtlasQualityLevel;
+  selectedLocationGroupId: string | null;
+  hoveredLocationGroupId: string | null;
+  mobile?: boolean;
   onSelectRegion: (regionId: string) => void;
+  onSelectLocationGroup: (groupId: string) => void;
+  onHoverLocationGroup: (groupId: string | null) => void;
 }
 
-export function GlobeScene({ clusters, entries, language, onSelectRegion }: GlobeSceneProps) {
+export function GlobeScene({
+  clusters,
+  entries,
+  language,
+  qualityLevel,
+  selectedLocationGroupId,
+  hoveredLocationGroupId,
+  mobile,
+  onSelectRegion,
+  onSelectLocationGroup,
+  onHoverLocationGroup,
+}: GlobeSceneProps) {
+  const locationGroups = groupEntriesByLocation(entries);
+  const regionLabelCandidates = clusters.map(cluster => {
+    const position = latLngToVector3(cluster.center.latitude, cluster.center.longitude, 1.7);
+    return {
+      id: `region:${cluster.id}`,
+      text: `${cluster.label[language]} · ${cluster.count}`,
+      ariaLabel: `${cluster.label[language]}: ${cluster.count}`,
+      worldPosition: position,
+      surfaceNormal: position,
+      priority: 100 + cluster.count,
+    };
+  });
+
   return (
-    <group>
+    <group data-atlas-scene="global">
       <mesh>
-        <sphereGeometry args={[1.6, 48, 48]} />
-        <meshStandardMaterial color="#34454b" roughness={0.95} metalness={0.05} />
+        <sphereGeometry args={[1.6, qualityLevel === "low" ? 32 : 64, qualityLevel === "low" ? 24 : 48]} />
+        <ParchmentGlobeMaterial quality={qualityLevel} seed={0x51f0cafe} color="#f0dfb3" roughness={0.92} metalness={0.02} normalScale={qualityLevel === "high" ? 0.16 : qualityLevel === "medium" ? 0.1 : 0.04} />
       </mesh>
-      <mesh scale={[1.012, 1.012, 1.012]}>
-        <sphereGeometry args={[1.6, 32, 32]} />
-        <meshBasicMaterial color="#d6c8a4" wireframe transparent opacity={0.16} />
+      <mesh scale={[1.008, 1.008, 1.008]}>
+        <sphereGeometry args={[1.6, qualityLevel === "low" ? 24 : 48, qualityLevel === "low" ? 16 : 32]} />
+        <meshBasicMaterial color="#7f5c35" transparent opacity={0.045} wireframe />
       </mesh>
+      <CountryBoundaryLayer mode="global" language={language} qualityLevel={qualityLevel} />
       {clusters.map(cluster => (
         <ClusterMarker3D key={cluster.id} cluster={cluster} language={language} onSelect={onSelectRegion} />
       ))}
-      {entries.slice(0, 8).map(entry => {
-        const location = entry.locations.find(item => item.isPrimary);
-        if (!location || location.latitude === null || location.longitude === null) return null;
-        const position = latLngToVector3(location.latitude, location.longitude, 1.63);
-        return (
-          <mesh key={`${entry.id}-representative`} position={position}>
-            <sphereGeometry args={[0.018, 8, 8]} />
-            <meshBasicMaterial color="#eee3c9" transparent opacity={0.72} />
-          </mesh>
-        );
-      })}
-      <OrbitControls enablePan={false} minDistance={3.1} maxDistance={7} enableDamping dampingFactor={0.08} />
+      <CoordinateMarkerLayer
+        groups={locationGroups}
+        language={language}
+        selectedGroupId={selectedLocationGroupId}
+        hoveredGroupId={hoveredLocationGroupId}
+        qualityLevel={qualityLevel}
+        mobile={mobile}
+        extraLabelCandidates={regionLabelCandidates}
+        onSelectExtra={id => onSelectRegion(id.replace(/^region:/, ""))}
+        onSelectGroup={onSelectLocationGroup}
+        onHoverGroup={onHoverLocationGroup}
+      />
+      <OrbitControls enablePan={false} minDistance={3.1} maxDistance={7} enableDamping dampingFactor={0.08} rotateSpeed={qualityLevel === "low" ? 0.28 : 0.48} />
     </group>
   );
 }

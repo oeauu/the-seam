@@ -1,0 +1,2 @@
+# Local visual-debug captures are not delivery artifacts.
+debug-*.png

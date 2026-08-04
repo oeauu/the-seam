@@ -6,9 +6,10 @@ import type { AtlasSceneMode } from "../types";
 interface AtlasCameraRigProps {
   mode: AtlasSceneMode;
   focusPosition: [number, number, number] | null;
+  reducedMotion: boolean;
 }
 
-export function AtlasCameraRig({ mode, focusPosition }: AtlasCameraRigProps) {
+export function AtlasCameraRig({ mode, focusPosition, reducedMotion }: AtlasCameraRigProps) {
   const { camera } = useThree();
   const target = useRef(new Vector3(0, 0, 0));
   const desiredPosition = useRef(new Vector3(0, 0, 5.2));
@@ -29,7 +30,7 @@ export function AtlasCameraRig({ mode, focusPosition }: AtlasCameraRigProps) {
   }, [focusPosition, mode]);
 
   useFrame((_state, delta) => {
-    const factor = 1 - Math.pow(0.001, delta);
+    const factor = reducedMotion ? Math.min(1, delta * 7) : 1 - Math.pow(0.001, delta);
     camera.position.lerp(desiredPosition.current, factor);
     camera.lookAt(target.current);
   });

@@ -18,4 +18,23 @@ describe("atlas navigation reducer", () => {
     const region = atlasReducer(filtered, { type: "ENTER_REGION", regionId: "europe" });
     expect(region.selectedSourceIds).toEqual(["textual"]);
   });
+
+  it("keeps timeline preview separate until release commits the range", () => {
+    const preview = atlasReducer(initialAtlasState, {
+      type: "SET_PREVIEW_RANGE",
+      range: { start: -500, end: 1800 },
+    });
+    const dragging = atlasReducer(preview, { type: "SET_TIMELINE_DRAGGING", dragging: true });
+    expect(dragging.previewRange).toEqual({ start: -500, end: 1800 });
+    expect(dragging.committedRange).toEqual({ start: null, end: null });
+    expect(dragging.isTimelineDragging).toBe(true);
+
+    const committed = atlasReducer(dragging, {
+      type: "COMMIT_TIME_RANGE",
+      range: { start: -500, end: 1800 },
+    });
+    expect(committed.committedRange).toEqual({ start: -500, end: 1800 });
+    expect(committed.timeRange).toEqual({ start: -500, end: 1800 });
+    expect(committed.isTimelineDragging).toBe(false);
+  });
 });

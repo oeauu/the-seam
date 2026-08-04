@@ -126,6 +126,8 @@ export interface AtlasFilters {
 export type AtlasRenderMode = "auto" | "3d" | "2d";
 export type AtlasSceneMode = "global" | "region" | "focused";
 export type AtlasTransition = "idle" | "entering" | "focusing" | "returning";
+export type AtlasQualityLevel = "high" | "medium" | "low";
+export type AtlasMotionProfile = "full" | "reduced";
 
 export interface CameraPose {
   position: [number, number, number];
@@ -135,10 +137,18 @@ export interface CameraPose {
 
 export interface AtlasState {
   renderMode: AtlasRenderMode;
+  qualityLevel: AtlasQualityLevel;
+  motionProfile: AtlasMotionProfile;
   sceneMode: AtlasSceneMode;
   selectedRegionId: string | null;
+  selectedLocationGroupId: string | null;
   selectedEntryId: string | null;
   previousCameraPose: CameraPose | null;
+  previewRange: HistoricalRange;
+  committedRange: HistoricalRange;
+  isTimelineDragging: boolean;
+  hoveredMarkerId: string | null;
+  /** @deprecated Use previewRange and committedRange for timeline state. */
   timeRange: HistoricalRange;
   includeUndated: boolean;
   selectedSourceIds: string[];
