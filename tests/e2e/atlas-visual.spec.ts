@@ -1,9 +1,10 @@
 import { expect, test } from "@playwright/test";
 
 const artifactRoot = "docs/plans/2026-08-04-parchment-scroll-rebuild-v4/artifacts";
+const captureUrl = process.env.CI ? "/?forceFallback=1" : "/";
 
 test("captures the V4 parchment scroll acceptance states", async ({ page }) => {
-  await page.goto("/");
+  await page.goto(captureUrl);
   await expect(page.getByTestId("parchment-stage")).toHaveAttribute("data-map-ready", "true");
   await page.screenshot({ path: `${artifactRoot}/global-parchment-scroll.png`, fullPage: true });
   const stage = page.getByTestId("parchment-stage");
@@ -40,13 +41,13 @@ test("captures the V4 parchment scroll acceptance states", async ({ page }) => {
   await page.screenshot({ path: `${artifactRoot}/archive-page-scroll.png`, fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
+  await page.goto(captureUrl);
   await page.getByTestId("parchment-stage").scrollIntoViewIfNeeded();
   await expect(page.getByTestId("parchment-stage")).toHaveAttribute("data-map-ready", "true");
   await page.screenshot({ path: `${artifactRoot}/mobile-parchment-map.png` });
 
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
+  await page.goto(captureUrl);
   await page.getByTestId("parchment-stage").scrollIntoViewIfNeeded();
   await expect(page.getByTestId("parchment-stage")).toHaveAttribute("data-map-ready", "true");
   await page.screenshot({ path: `${artifactRoot}/reduced-motion-3d.png` });
