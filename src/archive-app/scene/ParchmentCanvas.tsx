@@ -37,6 +37,7 @@ export function ParchmentCanvas({ camera, entries, worldFeatures, previewRange, 
   return (
     <Canvas
       camera={{ position: [0, 1.1, 7.2], fov: 32, near: 0.1, far: 100 }}
+      frameloop="demand"
       dpr={quality === "high" ? [1, 1.5] : [1, 1]}
       gl={{ antialias: quality !== "low", alpha: true, powerPreference: "high-performance" }}
       onCreated={({ gl }) => {
