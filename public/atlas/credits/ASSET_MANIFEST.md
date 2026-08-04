@@ -1,4 +1,4 @@
-# Museum Atlas asset manifest
+# Museum Atlas / Parchment Scroll asset manifest
 
 This manifest covers the local geometry used by the parchment atlas. V2 does not
 download map data from a CDN and does not add a new external image or font.
@@ -14,3 +14,13 @@ The atlas currently uses `countries-110m.json` at runtime through the local
 geometry as a historical-border claim: the 3D surface is a navigation layer.
 Before a public release, record the upstream dataset URL, version, attribution,
 and license here and in the project legal review checklist.
+
+## V4 boundary
+
+The V4 `src/archive-app/` uses the same inherited local TopoJSON only as a
+navigation layer and does not add remote image or font requests. Its parchment
+material is generated locally by
+`src/archive-app/parchment/parchmentMaterial.ts` with a deterministic seed and
+is repository code, not a third-party bitmap. The inherited geometry remains
+`Rights status: verification required`; that limitation is intentionally
+reported rather than presented as cleared production rights.
