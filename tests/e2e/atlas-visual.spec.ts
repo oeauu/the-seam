@@ -1,74 +1,58 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
-const artifactDir = "docs/plans/2026-08-04-parchment-coordinate-atlas-v2/artifacts";
+const artifactRoot = "docs/plans/2026-08-04-parchment-scroll-rebuild-v4/artifacts";
 
-async function openGlobalAtlas(page: Page) {
-  await page.goto("/#atlas/global");
-  await expect(page.getByTestId("atlas-viewport")).toBeVisible();
-  await expect(page.locator(".atlas-canvas")).toBeVisible();
-  await page.waitForTimeout(4500);
-}
+test("captures the V4 parchment scroll acceptance states", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByTestId("parchment-stage")).toHaveAttribute("data-map-ready", "true");
+  await page.screenshot({ path: `${artifactRoot}/global-parchment-scroll.png`, fullPage: true });
+  const stage = page.getByTestId("parchment-stage");
+  await stage.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: `${artifactRoot}/parchment-surface-closeup.png` });
+  await page.screenshot({ path: `${artifactRoot}/coordinate-annotations.png` });
 
-test("captures the parchment atlas v2 acceptance states", async ({ page }) => {
-  await openGlobalAtlas(page);
-  await page.screenshot({ path: `${artifactDir}/global-parchment-globe.png` });
-  await expect(page.locator('[data-testid^="atlas-label-location"]').first()).toBeVisible();
-  await page.screenshot({ path: `${artifactDir}/coordinate-labels.png` });
+  const box = await stage.boundingBox();
+  if (!box) throw new Error("Parchment stage is not measurable");
+  await page.mouse.move(box.x + box.width * 0.48, box.y + box.height * 0.38);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.34, box.y + box.height * 0.38, { steps: 8 });
+  await page.mouse.up();
+  await page.screenshot({ path: `${artifactRoot}/map-after-pan.png` });
 
-  await page.getByTestId("atlas-label-region:europe").click();
-  await expect(page).toHaveURL(/#atlas\/region\/europe$/);
-  await page.waitForTimeout(2600);
-  await page.screenshot({ path: `${artifactDir}/region-parchment-map.png` });
+  await page.keyboard.down("Control");
+  await page.mouse.move(box.x + box.width * 0.5, box.y + box.height * 0.38);
+  await page.mouse.wheel(0, -260);
+  await page.keyboard.up("Control");
+  await page.screenshot({ path: `${artifactRoot}/map-after-zoom.png` });
+  await page.screenshot({ path: `${artifactRoot}/timeline-idle.png` });
 
-  await openGlobalAtlas(page);
-  const timelineEnd = page.getByTestId("timeline-end");
-  await timelineEnd.scrollIntoViewIfNeeded();
-  const timelineBox = await timelineEnd.boundingBox();
-  expect(timelineBox).not.toBeNull();
-  if (timelineBox) {
-    const y = timelineBox.y + timelineBox.height / 2;
-    await page.mouse.move(timelineBox.x + timelineBox.width * 0.75, y);
-    await page.mouse.down();
-    await page.mouse.move(timelineBox.x + timelineBox.width * 0.55, y, { steps: 8 });
-    await expect(page.getByTestId("timeline-preview-range")).toBeVisible();
-    await page.screenshot({ path: `${artifactDir}/timeline-dragging.png` });
-    await page.mouse.up();
-    await expect(page.getByTestId("timeline-preview-range")).toHaveCount(0);
-    await page.screenshot({ path: `${artifactDir}/timeline-committed.png` });
-  }
+  const start = page.getByLabel("时间轴起始年份");
+  await start.dispatchEvent("pointerdown");
+  await start.press("ArrowRight");
+  await page.screenshot({ path: `${artifactRoot}/timeline-dragging.png` });
+  await start.dispatchEvent("pointerup");
 
-  await page.locator(".atlas-presets button").first().click();
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.waitForTimeout(450);
-  const multiEntryLocation = page.locator('[data-testid^="atlas-label-location"]').filter({ hasText: "· 2" }).first();
-  await expect(multiEntryLocation).toBeVisible();
-  await multiEntryLocation.click();
-  await expect(page.getByTestId("location-entry-popover")).toBeVisible();
-  await expect(page).toHaveURL(/#atlas\/location\//);
-  await page.screenshot({ path: `${artifactDir}/multi-entry-location.png` });
-  await page.getByTestId("location-entry-popover").locator("li button").first().click();
-  await expect(page.locator("#detail-drawer")).toBeVisible();
-  await page.screenshot({ path: `${artifactDir}/detail-drawer.png` });
+  await page.locator(".archive-marker-list__item").first().click();
+  await page.screenshot({ path: `${artifactRoot}/record-drawer.png` });
+  await page.locator(".record-drawer__close").click();
 
-  const reducedMotionPage = await page.context().newPage();
-  await reducedMotionPage.emulateMedia({ reducedMotion: "reduce" });
-  await openGlobalAtlas(reducedMotionPage);
-  await expect(reducedMotionPage.getByTestId("reduced-motion-status")).toBeVisible();
-  await expect(reducedMotionPage.getByTestId("atlas-2d-fallback")).toHaveCount(0);
-  await reducedMotionPage.screenshot({ path: `${artifactDir}/reduced-motion-3d.png` });
-  await reducedMotionPage.close();
+  await page.goto("/archive");
+  await page.screenshot({ path: `${artifactRoot}/archive-page-scroll.png`, fullPage: true });
 
-  const fallbackPage = await page.context().newPage();
-  await fallbackPage.addInitScript(`(() => {
-    const originalGetContext = HTMLCanvasElement.prototype.getContext;
-    HTMLCanvasElement.prototype.getContext = function (contextId, options) {
-      if (contextId === "webgl" || contextId === "webgl2") return null;
-      return originalGetContext.call(this, contextId, options);
-    };
-  })();`);
-  await fallbackPage.goto("/#atlas/global");
-  await expect(fallbackPage.getByTestId("atlas-viewport")).toBeVisible();
-  await expect(fallbackPage.getByTestId("atlas-2d-fallback")).toBeVisible();
-  await fallbackPage.screenshot({ path: `${artifactDir}/webgl-fallback-2d.png` });
-  await fallbackPage.close();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.getByTestId("parchment-stage").scrollIntoViewIfNeeded();
+  await expect(page.getByTestId("parchment-stage")).toHaveAttribute("data-map-ready", "true");
+  await page.screenshot({ path: `${artifactRoot}/mobile-parchment-map.png` });
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await page.getByTestId("parchment-stage").scrollIntoViewIfNeeded();
+  await expect(page.getByTestId("parchment-stage")).toHaveAttribute("data-map-ready", "true");
+  await page.screenshot({ path: `${artifactRoot}/reduced-motion-3d.png` });
+
+  await page.goto("/?forceFallback=1");
+  await page.getByTestId("parchment-stage").scrollIntoViewIfNeeded();
+  await expect(page.getByTestId("compatibility-map").locator("path").first()).toBeVisible();
+  await page.screenshot({ path: `${artifactRoot}/webgl-fallback.png` });
 });

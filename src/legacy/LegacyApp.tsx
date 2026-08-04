@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Header } from "./components/Header";
-import { DetailsDrawer } from "./components/DetailsDrawer";
-import { ContributeForm } from "./components/ContributeForm";
-import { AtlasViewport } from "./features/atlas/AtlasViewport";
+import { Header } from "../components/Header";
+import { DetailsDrawer } from "../components/DetailsDrawer";
+import { ContributeForm } from "../components/ContributeForm";
+import { AtlasViewport } from "../features/atlas/AtlasViewport";
 
-import { MOCK_ENTRIES } from "./db/mockData";
-import { EVENTS_DATA } from "./db/eventsData";
-import { UI_TRANSLATIONS, TAXONOMY_TRANSLATIONS } from "./db/translations";
-import { ARCHIVE_ENTRIES } from "./features/atlas/data/archiveEntries";
-import { taxonomyLabel } from "./features/atlas/data/taxonomy";
+import { MOCK_ENTRIES } from "../db/mockData";
+import { EVENTS_DATA } from "../db/eventsData";
+import { UI_TRANSLATIONS, TAXONOMY_TRANSLATIONS } from "../db/translations";
+import { ARCHIVE_ENTRIES } from "../features/atlas/data/archiveEntries";
+import { taxonomyLabel } from "../features/atlas/data/taxonomy";
 
 
 export const App: React.FC = () => {
