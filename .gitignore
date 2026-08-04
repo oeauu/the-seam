@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local test output and the pre-existing backup directory are not release artifacts.
+test-results/
+playwright-report/
+backup_old/
