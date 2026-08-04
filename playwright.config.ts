@@ -10,6 +10,9 @@ export default defineConfig({
     baseURL: "http://127.0.0.1:5173",
     trace: "on-first-retry",
     channel: "chromium",
+    launchOptions: {
+      args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"],
+    },
     ...devices["Desktop Chrome"],
   },
   webServer: {
