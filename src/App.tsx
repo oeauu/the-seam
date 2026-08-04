@@ -1,29 +1,22 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Header } from "./components/Header";
-import { InteractiveMap } from "./components/InteractiveMap";
-import { TimeTravelTimeline } from "./components/TimeTravelTimeline";
-import { FallbackDirectory } from "./components/FallbackDirectory";
 import { DetailsDrawer } from "./components/DetailsDrawer";
 import { ContributeForm } from "./components/ContributeForm";
+import { AtlasViewport } from "./features/atlas/AtlasViewport";
 
 import { MOCK_ENTRIES } from "./db/mockData";
 import { EVENTS_DATA } from "./db/eventsData";
 import { UI_TRANSLATIONS, TAXONOMY_TRANSLATIONS } from "./db/translations";
-import { GEOGRAPHY_DATABASE } from "./db/geography";
+import { ARCHIVE_ENTRIES } from "./features/atlas/data/archiveEntries";
+import { taxonomyLabel } from "./features/atlas/data/taxonomy";
 
 
 export const App: React.FC = () => {
   // Global States
   const [activeTab, setActiveTab] = useState<string>("map"); // map, archive, submit, review, about
   const [currentLanguage, setCurrentLanguage] = useState<"en" | "zh">("zh");
-  const [activeTimelineYear, setActiveTimelineYear] = useState<number>(2026);
+  const [activeTimelineYear] = useState<number>(2026);
   const [selectedEntryId, setSelectedEntryId] = useState<string | null>(null);
-
-  // Map Navigation Levels
-  const [currentLevel, setCurrentLevel] = useState<number>(1); // 1: World, 2: Continent, 3: Country, 4: Province
-  const [activeContinent, setActiveContinent] = useState<string | null>(null);
-  const [activeCountry, setActiveCountry] = useState<string | null>(null);
-  const [activeProvince, setActiveProvince] = useState<string | null>(null);
 
   // Filters & Search
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -85,6 +78,9 @@ export const App: React.FC = () => {
     }
     return key;
   };
+
+  const tAtlasTax = (key: string) =>
+    TAXONOMY_TRANSLATIONS[key]?.[currentLanguage] || taxonomyLabel(key, currentLanguage);
 
   // Snaps timeline range values
   const getYearDisplay = (year: number) => {
@@ -268,23 +264,30 @@ export const App: React.FC = () => {
   // Region Insights statistics calculations
   const regionInsightsStats = useMemo(() => {
     if (!insightsRegion) return null;
-    const regionEntries = MOCK_ENTRIES.filter(e => e.region[currentLanguage].includes(insightsRegion) || insightsRegion.includes(e.region[currentLanguage]));
+    const regionEntries = ARCHIVE_ENTRIES.filter(entry =>
+      entry.locations.some(location => location.regionId === insightsRegion),
+    );
 
     const meanings: Record<string, number> = {};
     const sources: Record<string, number> = {};
-    let minYear = 2026;
-    let maxYear = -5000;
+    let minYear: number | null = null;
+    let maxYear: number | null = null;
 
-    regionEntries.forEach(e => {
-      e.culturalMeanings.forEach(m => meanings[m] = (meanings[m] || 0) + 1);
-      sources[e.sourceCategory] = (sources[e.sourceCategory] || 0) + 1;
-      if (e.startYear < minYear) minYear = e.startYear;
-      if (e.endYear > maxYear) maxYear = e.endYear;
+    regionEntries.forEach(entry => {
+      entry.culturalMeaningIds.forEach(meaningId => meanings[meaningId] = (meanings[meaningId] || 0) + 1);
+      const primarySource = entry.sourceTypeIds[0] || "unknown";
+      sources[primarySource] = (sources[primarySource] || 0) + 1;
+      if (entry.temporal.startYear !== null && (minYear === null || entry.temporal.startYear < minYear)) {
+        minYear = entry.temporal.startYear;
+      }
+      if (entry.temporal.endYear !== null && (maxYear === null || entry.temporal.endYear > maxYear)) {
+        maxYear = entry.temporal.endYear;
+      }
     });
 
     return {
       count: regionEntries.length,
-      span: regionEntries.length > 0 ? `${getYearDisplay(minYear)} ~ ${getYearDisplay(maxYear)}` : "All Time",
+      span: minYear !== null && maxYear !== null ? `${getYearDisplay(minYear)} ~ ${getYearDisplay(maxYear)}` : "All Time",
       meanings,
       sources
     };
@@ -509,92 +512,18 @@ export const App: React.FC = () => {
 
           {/* Center Viewport */}
           <div className="viewport-container">
-            {/* Top Breadcrumbs */}
-            <div id="map-breadcrumbs" className="map-breadcrumbs" role="navigation" aria-label="Breadcrumb">
-              <span onClick={() => { setCurrentLevel(1); setActiveContinent(null); setActiveCountry(null); setActiveProvince(null); }}>GLOBAL</span>
-              {activeContinent && (
-                <>
-                  {" > "}
-                  <span onClick={() => { setCurrentLevel(2); setActiveCountry(null); setActiveProvince(null); }}>{activeContinent.toUpperCase()}</span>
-                </>
-              )}
-              {activeCountry && (
-                <>
-                  {" > "}
-                  <span onClick={() => {
-                    if (activeCountry === "China" || activeCountry === "中国") {
-                      setCurrentLevel(3);
-                      setActiveProvince(null);
-                    } else {
-                      setCurrentLevel(4);
-                      setActiveProvince(null);
-                    }
-                  }}>{activeCountry.toUpperCase()}</span>
-                </>
-              )}
-              {activeProvince && (
-                <>
-                  {" > "}
-                  <span>{activeProvince.toUpperCase()}</span>
-                </>
-              )}
-
-
-              {/* Region Insights trigger button */}
-              {activeCountry && (
-                <button
-                  type="button"
-                  onClick={() => setInsightsRegion(activeCountry)}
-                  style={{
-                    marginLeft: "auto",
-                    padding: "2px 8px",
-                    fontSize: "0.75rem",
-                    borderRadius: "4px",
-                    backgroundColor: "white",
-                    border: "1px solid var(--color-border)",
-                    cursor: "pointer"
-                  }}
-                >
-                  📊 {UI_TRANSLATIONS.btnInsights[currentLanguage]}
-                </button>
-              )}
-            </div>
-
-            {/* D3 Map Viewport */}
-            {/* If the drilled-down country doesn't have local GeoJSON details (e.g. Argentina), fall back to directory catalog! */}
-            {currentLevel === 4 && activeCountry !== "China" && activeCountry !== "中国" && (!GEOGRAPHY_DATABASE.countries[activeCountry || ""] || !GEOGRAPHY_DATABASE.countries[activeCountry || ""].provinces || GEOGRAPHY_DATABASE.countries[activeCountry || ""].provinces.length === 0) ? (
-              <FallbackDirectory
-                currentLanguage={currentLanguage}
-                activeCountry={activeCountry}
-                onSelectEntry={setSelectedEntryId}
-                setActiveTab={setActiveTab}
-              />
-            ) : (
-              <InteractiveMap
-                currentLanguage={currentLanguage}
-                activeTimelineYear={activeTimelineYear}
-                currentLevel={currentLevel}
-                setCurrentLevel={setCurrentLevel}
-                activeContinent={activeContinent}
-                setActiveContinent={setActiveContinent}
-                activeCountry={activeCountry}
-                setActiveCountry={setActiveCountry}
-                activeProvince={activeProvince}
-                setActiveProvince={setActiveProvince}
-                onSelectCity={(cityKey) => {
-                  // Find related entry in mock data
-                  const entry = MOCK_ENTRIES.find(e => e.region[currentLanguage].includes(cityKey) || cityKey.includes(e.region[currentLanguage]));
-                  if (entry) setSelectedEntryId(entry.id);
-                }}
-                getCombinedEvents={getCombinedEvents}
-              />
-            )}
-
-            {/* Bottom Timeline Overlay */}
-            <TimeTravelTimeline
-              activeTimelineYear={activeTimelineYear}
-              setActiveTimelineYear={setActiveTimelineYear}
+            <AtlasViewport
+              entries={ARCHIVE_ENTRIES}
               currentLanguage={currentLanguage}
+              searchQuery={searchQuery}
+              selectedSourceIds={selectedSourceCategories}
+              selectedMeaningIds={selectedMeanings}
+              selectedObjectTypeIds={selectedObjectTypes}
+              selectedEntryId={selectedEntryId}
+              onSelectEntry={setSelectedEntryId}
+              onSelectRegion={setInsightsRegion}
+              onRequestContribution={() => setActiveTab("submit")}
+              getCombinedEvents={getCombinedEvents}
             />
           </div>
 
@@ -1168,7 +1097,7 @@ export const App: React.FC = () => {
                   {UI_TRANSLATIONS.insightsTitle[currentLanguage]}
                 </h2>
                 <div className="insights-subtitle" id="insights-subtitle">
-                  {UI_TRANSLATIONS.insightsSubtitle[currentLanguage].replace("{region}", insightsRegion)}
+                  {UI_TRANSLATIONS.insightsSubtitle[currentLanguage].replace("{region}", insightsRegion.replace(/-/g, " "))}
                 </div>
               </div>
               <button type="button" className="insights-close-btn" onClick={() => setInsightsRegion(null)} aria-label="Close dashboard">
@@ -1190,7 +1119,7 @@ export const App: React.FC = () => {
                 <div className="insights-stat-card">
                   <span className="stat-label">{UI_TRANSLATIONS.insightsLabelPrimary[currentLanguage]}</span>
                   <strong className="stat-value" style={{ fontSize: "1.1rem" }}>
-                    {Object.keys(regionInsightsStats.sources)[0] ? tTax(Object.keys(regionInsightsStats.sources)[0]) : "N/A"}
+                    {Object.keys(regionInsightsStats.sources)[0] ? tAtlasTax(Object.keys(regionInsightsStats.sources)[0]) : "N/A"}
                   </strong>
                 </div>
               </div>
@@ -1205,7 +1134,7 @@ export const App: React.FC = () => {
                       const pct = Math.round((count / Math.max(1, regionInsightsStats.count)) * 100);
                       return (
                         <div key={meaning} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.75rem", marginBottom: "0.5rem" }}>
-                          <span style={{ width: "100px" }}>{tTax(meaning)}</span>
+                          <span style={{ width: "100px" }}>{tAtlasTax(meaning)}</span>
                           <div style={{ flexGrow: 1, height: "6px", backgroundColor: "#eae4d9", borderRadius: "3px", overflow: "hidden" }}>
                             <div style={{ width: `${pct}%`, height: "100%", backgroundColor: "var(--color-primary)" }}></div>
                           </div>
@@ -1224,7 +1153,7 @@ export const App: React.FC = () => {
                       const pct = Math.round((count / Math.max(1, regionInsightsStats.count)) * 100);
                       return (
                         <div key={src} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.75rem", marginBottom: "0.5rem" }}>
-                          <span style={{ width: "130px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{tTax(src)}</span>
+                          <span style={{ width: "130px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{tAtlasTax(src)}</span>
                           <div style={{ flexGrow: 1, height: "6px", backgroundColor: "#eae4d9", borderRadius: "3px", overflow: "hidden" }}>
                             <div style={{ width: `${pct}%`, height: "100%", backgroundColor: "var(--color-accent-red)" }}></div>
                           </div>

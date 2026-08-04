@@ -1,6 +1,23 @@
 import React from "react";
-import { MOCK_ENTRIES } from "../db/mockData";
-import { UI_TRANSLATIONS, TAXONOMY_TRANSLATIONS } from "../db/translations";
+import { ARCHIVE_ENTRIES } from "../features/atlas/data/archiveEntries";
+import { taxonomyLabel } from "../features/atlas/data/taxonomy";
+import {
+  getEntryDisplayPeriod,
+  getEntryEvidenceLabel,
+  getEntryPrimaryLocation,
+} from "../features/atlas/selectors";
+import type { LocationPrecision } from "../features/atlas/types";
+import { UI_TRANSLATIONS } from "../db/translations";
+
+const LOCATION_PRECISION_LABELS: Record<LocationPrecision, { en: string; zh: string }> = {
+  exact: { en: "Exact point", zh: "精确点位" },
+  city: { en: "City", zh: "具体城市/聚落" },
+  region: { en: "Region", zh: "区域" },
+  country: { en: "Country", zh: "国家" },
+  "cultural-region": { en: "Cultural region", zh: "文化区域" },
+  transregional: { en: "Transregional", zh: "跨区域" },
+  unknown: { en: "Unknown", zh: "未知" },
+};
 
 interface DetailsDrawerProps {
   selectedEntryId: string | null;
@@ -15,16 +32,50 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
   currentLanguage,
   onSelectEntry
 }) => {
-  const entry = MOCK_ENTRIES.find(e => e.id === selectedEntryId);
+  const entry = ARCHIVE_ENTRIES.find(candidate => candidate.id === selectedEntryId);
 
   if (!entry) return null;
 
-  // Filter related entries by matching region or category
-  const relatedEntries = MOCK_ENTRIES.filter(e => 
-    e.id !== entry.id && 
-    (e.region[currentLanguage] === entry.region[currentLanguage] || 
-     e.sourceCategory === entry.sourceCategory)
-  ).slice(0, 3);
+  const primaryLocation = getEntryPrimaryLocation(entry);
+  const relatedEntries = ARCHIVE_ENTRIES.filter(candidate => {
+    if (candidate.id === entry.id) return false;
+
+    const candidateLocation = getEntryPrimaryLocation(candidate);
+    const sharesRegion = Boolean(
+      primaryLocation?.regionId
+      && candidateLocation?.regionId
+      && primaryLocation.regionId === candidateLocation.regionId,
+    );
+    const sharesPlace = Boolean(
+      primaryLocation
+      && candidateLocation
+      && primaryLocation.name.en === candidateLocation.name.en
+      && primaryLocation.name.zh === candidateLocation.name.zh,
+    );
+    const sharesSource = candidate.sourceTypeIds.some(sourceId => entry.sourceTypeIds.includes(sourceId));
+
+    return sharesRegion || sharesPlace || sharesSource;
+  }).slice(0, 3);
+
+  const localizePrecision = (precision: LocationPrecision): string =>
+    LOCATION_PRECISION_LABELS[precision][currentLanguage];
+  const sourceLabels = entry.sourceTypeIds
+    .map(sourceId => taxonomyLabel(sourceId, currentLanguage))
+    .join(", ");
+  const objectTypeLabels = entry.objectTypeIds
+    .map(objectTypeId => taxonomyLabel(objectTypeId, currentLanguage))
+    .join(", ");
+  const riskText = entry.interpretationRisks
+    .map(risk => risk[currentLanguage])
+    .filter(Boolean)
+    .join(" ")
+    || entry.temporal.notes?.[currentLanguage]
+    || (currentLanguage === "zh" ? "暂无解释风险说明。" : "No interpretive risk noted.");
+  const referenceLabels = entry.references.map(reference => {
+    const title = reference.note?.[currentLanguage] ?? reference.title;
+    return reference.citation ? `${title} — ${reference.citation}` : title;
+  });
+  const aliases = entry.aliases.filter(Boolean);
 
   const handleCopyShareLink = () => {
     const shareUrl = `${window.location.origin}${window.location.pathname}#entry/${entry.id}`;
@@ -33,13 +84,6 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
     }).catch(err => {
       console.error("Failed to copy share link:", err);
     });
-  };
-
-  const tTax = (key: string) => {
-    if (TAXONOMY_TRANSLATIONS[key]) {
-      return TAXONOMY_TRANSLATIONS[key][currentLanguage] || key;
-    }
-    return key;
   };
 
   return (
@@ -91,7 +135,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                   transition: "var(--transition-fast)"
                 }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
                   <polyline points="16 6 12 2 8 6" />
                   <line x1="12" y1="2" x2="12" y2="15" />
@@ -103,7 +147,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
             </div>
           </div>
           <button className="drawer-close-btn" id="drawer-close-btn" onClick={onClose} aria-label="Close details drawer">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -118,7 +162,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                 {UI_TRANSLATIONS.detailGeographic[currentLanguage]}
               </span>
               <span className="meta-value" id="drawer-region">
-                {entry.region[currentLanguage]}
+                {primaryLocation?.name[currentLanguage] ?? (currentLanguage === "zh" ? "未记录" : "Not recorded")}
               </span>
             </div>
             <div className="meta-item">
@@ -126,7 +170,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                 {UI_TRANSLATIONS.detailGrade[currentLanguage]}
               </span>
               <span className="meta-value highlight" id="drawer-grade">
-                Grade {entry.evidenceGrade}
+                Grade {getEntryEvidenceLabel(entry)}
               </span>
             </div>
             <div className="meta-item">
@@ -134,7 +178,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                 {UI_TRANSLATIONS.detailEpoch[currentLanguage]}
               </span>
               <span className="meta-value" id="drawer-period">
-                {entry.periodLabel[currentLanguage]}
+                {getEntryDisplayPeriod(entry)[currentLanguage]}
               </span>
             </div>
             <div className="meta-item">
@@ -142,16 +186,16 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                 {UI_TRANSLATIONS.detailSource[currentLanguage]}
               </span>
               <span className="meta-value" id="drawer-source">
-                {tTax(entry.sourceCategory)}
+                {sourceLabels}
               </span>
             </div>
-            {entry.alias[currentLanguage] && entry.alias[currentLanguage].length > 0 && (
+            {aliases.length > 0 && (
               <div className="meta-item" id="meta-item-alias">
                 <span className="meta-label" id="label-drawer-alias">
                   {UI_TRANSLATIONS.detailAlias[currentLanguage]}
                 </span>
                 <span className="meta-value" id="drawer-alias">
-                  {entry.alias[currentLanguage].join(", ")}
+                  {aliases.join(", ")}
                 </span>
               </div>
             )}
@@ -160,7 +204,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                 {UI_TRANSLATIONS.detailPrecision[currentLanguage]}
               </span>
               <span className="meta-value" id="drawer-precision">
-                {tTax(entry.locationPrecision)}
+                {primaryLocation ? localizePrecision(primaryLocation.precision) : (currentLanguage === "zh" ? "未知" : "Unknown")}
               </span>
             </div>
             <div className="meta-item" id="meta-item-types">
@@ -168,7 +212,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                 {UI_TRANSLATIONS.detailTypes[currentLanguage]}
               </span>
               <span className="meta-value" id="drawer-object-types">
-                {entry.objectTypes.map(t => tTax(t)).join(", ")}
+                {objectTypeLabels}
               </span>
             </div>
           </div>
@@ -190,9 +234,9 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
             {UI_TRANSLATIONS.detailMeaningsTitle[currentLanguage]}
           </div>
           <div className="drawer-badge-list" id="drawer-meanings-badges">
-            {entry.culturalMeanings.map(meaning => (
-              <span key={meaning} className="drawer-badge">
-                {tTax(meaning)}
+            {entry.culturalMeaningIds.map(meaningId => (
+              <span key={meaningId} className="drawer-badge">
+                {taxonomyLabel(meaningId, currentLanguage)}
               </span>
             ))}
           </div>
@@ -200,7 +244,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
           {/* Interpretive Risks Box */}
           <div className="risk-box">
             <div className="risk-title" id="drawer-risk-title">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
                 <line x1="12" y1="9" x2="12" y2="13" />
                 <line x1="12" y1="17" x2="12.01" y2="17" />
@@ -208,7 +252,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
               {UI_TRANSLATIONS.detailRisksTitle[currentLanguage]}
             </div>
             <p className="risk-text" id="drawer-risk-text">
-              {entry.riskDetail[currentLanguage]}
+              {riskText}
             </p>
           </div>
 
@@ -217,7 +261,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
             {UI_TRANSLATIONS.detailSourcesTitle[currentLanguage]}
           </div>
           <ul className="references-list" id="drawer-references" role="list">
-            {entry.references[currentLanguage].map((ref, idx) => (
+            {referenceLabels.map((ref, idx) => (
               <li key={idx}>{ref}</li>
             ))}
           </ul>
@@ -250,7 +294,7 @@ export const DetailsDrawer: React.FC<DetailsDrawerProps> = ({
                     {rel.title[currentLanguage]}
                   </h4>
                   <span style={{ fontSize: "0.7rem", color: "var(--color-text-secondary)" }}>
-                    {rel.periodLabel[currentLanguage]}
+                    {getEntryDisplayPeriod(rel)[currentLanguage]}
                   </span>
                 </div>
               ))
