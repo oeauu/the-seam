@@ -158,8 +158,8 @@ Playwright 使用 `channel: "chromium"`，避免本机 headless shell 下载失�
 - 远端目标：`origin/feat/museum-atlas-3d`
 - 合并状态：未合并到 `main`
 - 执行报告：`docs/plans/2026-08-04-museum-atlas-3d/EXECUTION_REPORT.md`
-- 最终 commit SHA：在最后一个文档提交后回填
-- 推送状态：提交完成后推送并回填
+- 最终功能提交 SHA：`db18430`（包含全部代码与测试；其后仅追加本报告文档提交）
+- 推送状态：本地提交已完成，待推送到 `origin/feat/museum-atlas-3d`；不合并 `main`
 
 ## 13. 后续建议
 
