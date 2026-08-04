@@ -43,7 +43,7 @@ Git smart-HTTP 在当前环境无法连接 GitHub 的 443 端口，因此没有�
 | Phase 6 坐标、抽屉与多条目 | 完成 | 金色坐标标记支持键盘/屏幕阅读器列表；同坐标多条目先出现选择器；抽屉保存相机快照、支持 Escape、焦点返回和移动端 bottom sheet。 |
 | Phase 7 fallback、路由、可访问性 | 完成 | WebGL 不可用或强制 `?forceFallback=1` 时自动显示本地 SVG 兼容地图；没有生产模式切换按钮；路由使用统一解析器与 popstate；提供 SR-only 条目列表。 |
 | Phase 8 数据复用与迁移 | 部分完成 | 新应用只通过 `src/domain/archive/` 访问受控的 `ArchiveEntry` 适配器和 demo 内容，旧 UI 不在正式路径中直接复用。完整档案内容、后端、认证、提交工作流和全量历史数据迁移没有被虚构为本阶段完成。 |
-| Phase 9 测试、CI、验收交付 | 部分完成 | 本地 build/lint/unit/E2E、实际截图和 WebM 交互录制均完成；GitHub Actions 工作流已加入。远端 Actions 运行结果需在分支推送后由 GitHub 产生，资源版权/来源核验也仍需补充。 |
+| Phase 9 测试、CI、验收交付 | 完成 | 本地 build/lint/unit/E2E、实际截图和 WebM 交互录制均完成；GitHub Actions 工作流已加入并由最终运行 `30931151263` 全部通过。资源版权/来源核验作为独立延后事项保留。 |
 
 ## 已实现的垂直切片
 
@@ -68,6 +68,8 @@ Git smart-HTTP 在当前环境无法连接 GitHub 的 443 端口，因此没有�
 | `npm run test` | 通过：13 个 test files、44 个 tests。 |
 | `npm run test:e2e` | 通过：13 个测试，覆盖滚动、拖动、缩放、相机快照、抽屉、时间轴、多条目、reduced motion、fallback 和路由滚动。 |
 | `npx playwright test tests/e2e/atlas-visual.spec.ts` | 通过；生成本报告列出的 V4 实际截图。 |
+
+远端 GitHub Actions run `30931151263` 已通过全部步骤：Node 24、build、lint、44 个 unit tests、Playwright Chromium 和 13 个 E2E。之前的失败运行已被具体修正：`30926871513` 是 Node 20 与锁定的 jsdom/undici 不兼容，`30927104259`/`30927992074`/`30929686078` 是 Ubuntu 软件 WebGL 与 3D visual capture 的稳定性问题；最终使用 SwiftShader、按需渲染和阶段外本地数据加载解决。CI visual capture 在无可靠 GPU 的 runner 上使用同一份本地 TopoJSON 的真实 SVG 兼容地图；本地交付工件仍由默认 3D 路径生成，且 reduced-motion E2E 在 CI 明确断言 3D canvas 存在。
 
 E2E 的关键实际断言包括：`scrollY` 增长、普通 wheel 不改 zoom、Ctrl/Meta wheel 改变 zoom、拖动后的 `data-camera-target` 持久、抽屉关闭后触发器恢复焦点、reduced motion 仍有 canvas、fallback 页面没有 Auto / 3D / 2D 模式按钮。
 
@@ -99,11 +101,17 @@ E2E 的关键实际断言包括：`scrollY` 增长、普通 wheel 不改 zoom、
 2. `866d550 refactor: isolate legacy shell and add scrollable archive app`
 3. `8418ee4 test: complete parchment scroll rebuild acceptance`
 4. 本报告单独提交：`docs: add parchment scroll rebuild execution report`
+5. `322d587 ci: align actions runtime with jsdom dependencies`
+6. `08405c9 test: make Playwright WebGL acceptance deterministic`
+7. `2e35a14 fix: stabilize local world boundary loading`
+8. `48d08ab perf: render parchment canvas on demand`
+9. `8297bfe test: stabilize CI visual capture path`
 
 ## 性能与资源备注
 
 - 当前生产构建主 chunk：约 1,236.85 kB minified / 357.85 kB gzip；legacy 与旧 Atlas 仍为懒加载 chunk。大 chunk 是已知后续优化项，不在报告中标记为已优化。
 - 羊皮纸程序纹理按质量使用 512 / 384 / 256 尺寸缓存。
+- 3D Canvas 使用按需渲染；相机、拖动和时间状态变化会刷新画面，静止页面不持续消耗渲染帧。
 - 本地演示数据用于验收交互和布局；完整档案数据接入、Supabase/auth、真实提交后端和全量内容迁移未纳入已完成范围。
 - `public/atlas/credits/ASSET_MANIFEST.md` 已标注本阶段资源边界，但继承的 TopoJSON 许可、来源和生产替换仍需正式核验。
 
@@ -115,7 +123,7 @@ E2E 的关键实际断言包括：`scrollY` 增长、普通 wheel 不改 zoom、
 - 全量内容/地点/多语言迁移以及真实内容审核流程。
 - TopoJSON 的生产版权、来源、版本锁定和资源替换审查。
 - 主 chunk 的进一步 code-splitting、真实设备性能预算和更多浏览器矩阵。
-- 远端 GitHub Actions 的最终运行结果；工作流已提交，需等待 GitHub 对推送触发运行。
+- 真实档案资源的版权、来源、版本锁定和生产替换审查。
 
 ### 未完成
 
