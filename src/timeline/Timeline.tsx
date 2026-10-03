@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from "react";
-import { formatYear } from "./timelineUtils";
+import { formatYear, timelineTicks, normalizeYear } from "./timelineUtils";
+import type { KeyboardEvent } from "react";
 import { useApp } from "../state/appContext";
 
 export function Timeline() {
@@ -28,10 +29,8 @@ export function Timeline() {
   // Convert percentage (0 - 100) to year
   const percentToYear = useCallback((percent: number) => {
     const raw = earliestYear + (percent / 100) * totalSpan;
-    // Round to nearest 5 or 10 years
-    const step = totalSpan > 2000 ? 25 : 5;
-    return Math.round(raw / step) * step;
-  }, [earliestYear, totalSpan]);
+    return normalizeYear(Math.max(earliestYear, Math.min(latestYear, Math.round(raw))));
+  }, [earliestYear, latestYear, totalSpan]);
 
   const startPercent = yearToPercent(startYear);
   const endPercent = yearToPercent(endYear);
@@ -44,10 +43,10 @@ export function Timeline() {
       const currentYear = percentToYear(currentPercent);
 
       if (draggingThumb === "start") {
-        const nextStart = Math.min(currentYear, endYear - 10);
+        const nextStart = Math.min(currentYear, endYear);
         setTimeRange(nextStart, endYear);
       } else if (draggingThumb === "end") {
-        const nextEnd = Math.max(currentYear, startYear + 10);
+        const nextEnd = Math.max(currentYear, startYear);
         setTimeRange(startYear, nextEnd);
       } else if (draggingThumb === "range") {
         const deltaPx = e.clientX - dragStartRef.current.clientX;
@@ -78,21 +77,31 @@ export function Timeline() {
     if (draggingThumb) {
       window.addEventListener("pointermove", handlePointerMove);
       window.addEventListener("pointerup", handlePointerUp);
+      window.addEventListener("pointercancel", handlePointerUp);
       return () => {
         window.removeEventListener("pointermove", handlePointerMove);
         window.removeEventListener("pointerup", handlePointerUp);
+        window.removeEventListener("pointercancel", handlePointerUp);
       };
     }
   }, [draggingThumb, startYear, endYear, earliestYear, latestYear, totalSpan, percentToYear, setTimeRange]);
 
   // Major ticks to display along the bottom
-  const ticks = [
-    { year: -2000, labelZh: "前2000年", labelEn: "2000 BCE" },
-    { year: -1000, labelZh: "前1000年", labelEn: "1000 BCE" },
-    { year: 1, labelZh: "公元元年", labelEn: "1 CE" },
-    { year: 1000, labelZh: "1000年", labelEn: "1000 CE" },
-    { year: 2026, labelZh: "当代", labelEn: "Present" },
-  ].filter(t => t.year >= earliestYear && t.year <= latestYear);
+  const ticks = timelineTicks(earliestYear, latestYear);
+
+  function moveWithKeyboard(e: KeyboardEvent<HTMLButtonElement>, thumb: "start" | "end") {
+    const value = thumb === "start" ? startYear : endYear;
+    const step = e.shiftKey ? 100 : 1;
+    const delta = ["ArrowLeft", "ArrowDown"].includes(e.key) ? -step : ["ArrowRight", "ArrowUp"].includes(e.key) ? step : 0;
+    let next = value;
+    if (delta) next = normalizeYear(value + delta, delta);
+    else if (e.key === "Home") next = thumb === "start" ? earliestYear : startYear;
+    else if (e.key === "End") next = thumb === "start" ? endYear : latestYear;
+    else return;
+    e.preventDefault();
+    if (thumb === "start") setTimeRange(Math.min(endYear, next), endYear);
+    else setTimeRange(startYear, Math.max(startYear, next));
+  }
 
   const isFullRange = startYear <= earliestYear && endYear >= latestYear;
 
@@ -175,9 +184,9 @@ export function Timeline() {
             const distStart = Math.abs(clickYear - startYear);
             const distEnd = Math.abs(clickYear - endYear);
             if (distStart < distEnd) {
-              setTimeRange(Math.min(clickYear, endYear - 10), endYear);
+              setTimeRange(Math.min(clickYear, endYear), endYear);
             } else {
-              setTimeRange(startYear, Math.max(clickYear, startYear + 10));
+              setTimeRange(startYear, Math.max(clickYear, startYear));
             }
           }}
         >
@@ -210,6 +219,8 @@ export function Timeline() {
             }}
             aria-label={language === "zh" ? `起始年份：${formatYear(startYear, language)}` : `Start year: ${formatYear(startYear, language)}`}
             role="slider"
+            onKeyDown={e => moveWithKeyboard(e, "start")}
+            aria-valuetext={formatYear(startYear, language)}
             aria-valuemin={earliestYear}
             aria-valuemax={endYear}
             aria-valuenow={startYear}
@@ -226,6 +237,8 @@ export function Timeline() {
             }}
             aria-label={language === "zh" ? `结束年份：${formatYear(endYear, language)}` : `End year: ${formatYear(endYear, language)}`}
             role="slider"
+            onKeyDown={e => moveWithKeyboard(e, "end")}
+            aria-valuetext={formatYear(endYear, language)}
             aria-valuemin={startYear}
             aria-valuemax={latestYear}
             aria-valuenow={endYear}
@@ -235,12 +248,12 @@ export function Timeline() {
         {/* Bottom Year Ticks */}
         <div className="seam-timeline-ticks" aria-hidden="true">
           {ticks.map(tick => {
-            const p = yearToPercent(tick.year);
+            const p = yearToPercent(tick);
             return (
-              <div key={tick.year} className="seam-timeline-tick" style={{ left: `${p}%` }}>
+              <div key={tick} className="seam-timeline-tick" style={{ left: `${p}%` }}>
                 <span className="seam-tick-mark" />
                 <span className="seam-tick-label">
-                  {language === "zh" ? tick.labelZh : tick.labelEn}
+                  {formatYear(tick, language)}
                 </span>
               </div>
             );

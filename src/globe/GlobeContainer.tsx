@@ -4,18 +4,32 @@ import { loadWorldData } from "../geo/worldGeometry";
 import type { WorldData, CountryFeature } from "../geo/geoTypes";
 import type { LocationCluster } from "../types";
 import { useApp } from "../state/appContext";
+import { GlobeBoundary } from "./GlobeBoundary";
+
+let webglAvailable: boolean | undefined;
+function supportsWebGL(): boolean {
+  if (webglAvailable !== undefined) return webglAvailable;
+  try {
+    const context = document.createElement("canvas").getContext("webgl2");
+    webglAvailable = !!context;
+    context?.getExtension("WEBGL_lose_context")?.loseContext();
+  } catch { webglAvailable = false; }
+  return webglAvailable;
+}
 
 export function GlobeContainer() {
   const [worldData, setWorldData] = useState<WorldData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [flatBrowse, setFlatBrowse] = useState(false);
 
   const {
     clusters,
     selectCountry,
     openRecord,
     selectCluster,
-    language
+    language,
+    setIndexOpen
   } = useApp();
 
   useEffect(() => {
@@ -62,18 +76,31 @@ export function GlobeContainer() {
     return (
       <div className="seam-globe-error" role="alert">
         <p>{error || "Error initializing globe."}</p>
+        <button type="button" onClick={() => setIndexOpen(true)}>{language === "zh" ? "通过档案索引浏览" : "Browse archive index"}</button>
       </div>
     );
   }
 
+  const fallback = <div className="seam-accessible-map">
+    <p>{language === "zh" ? "二维地图与档案浏览" : "2D maps and archive browsing"}</p>
+    <label>{language === "zh" ? "选择国家或地区" : "Choose a country or region"}
+      <select defaultValue="" onChange={event => {const country = worldData.features.find(f => String(f.id) === event.target.value);if(country)selectCountry(country);}}>
+        <option value="" disabled>{language === "zh" ? "请选择" : "Choose…"}</option>
+        {worldData.features.map(country => <option key={country.id} value={String(country.id)}>{country.properties.name}</option>)}
+      </select>
+    </label>
+    <button type="button" onClick={() => setIndexOpen(true)}>{language === "zh" ? "浏览全部档案（含地点待考）" : "Browse all records (including locations pending)"}</button>
+  </div>;
+
   return (
     <div className="seam-globe-container">
-      <GlobeScene
+      {flatBrowse || !supportsWebGL() ? fallback : <GlobeBoundary fallback={fallback}><GlobeScene
         worldData={worldData}
         clusters={clusters}
         onCountryClick={handleCountryClick}
         onClusterClick={handleClusterClick}
-      />
+      /></GlobeBoundary>}
+      <button type="button" className="seam-map-alternative" onClick={() => setFlatBrowse(!flatBrowse)}>{flatBrowse ? (language === "zh" ? "三维地球仪" : "3D globe") : (language === "zh" ? "二维浏览" : "2D browsing")}</button>
       
       {/* Discreet interaction hint */}
       <div className="seam-globe-hint" aria-hidden="true">

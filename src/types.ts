@@ -1,4 +1,4 @@
-﻿export type Language = "en" | "zh";
+export type Language = "en" | "zh";
 
 export interface LocalizedString {
   en: string;
@@ -9,8 +9,8 @@ export interface LocalizedString {
 export type HistoricalYear = number;
 
 export interface TimeExtent {
-  startYear: HistoricalYear;
-  endYear: HistoricalYear;
+  startYear: HistoricalYear | null;
+  endYear: HistoricalYear | null;
   label: LocalizedString;
   certainty?: "exact" | "approximate" | "period" | "legendary";
 }
@@ -77,6 +77,8 @@ export interface ArchiveRecord {
   historiographyNote?: LocalizedString;
   images?: RecordImage[];
   sources: SourceReference[];
+  reviewNote?: LocalizedString;
+  legacySlugs?: string[];
 }
 
 export interface LocationCluster {

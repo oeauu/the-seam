@@ -1,5 +1,5 @@
 ﻿import fs from "fs";
-import { MOCK_ENTRIES } from "./temp_mock.mjs";
+const { MOCK_ENTRIES } = JSON.parse(fs.readFileSync(new URL("../src/data/legacy/mockData.json", import.meta.url), "utf8"));
 
 function slugify(id) {
   return id

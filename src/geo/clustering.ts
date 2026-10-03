@@ -9,9 +9,11 @@ export function clusterRecords(records: ArchiveRecord[], distanceThresholdKm = 4
 
     // Find existing cluster within threshold
     const match = clusters.find(c => {
-      const dLat = (c.coordinates.latitude - latitude) * 111;
-      const dLon = (c.coordinates.longitude - longitude) * 111 * Math.cos((latitude * Math.PI) / 180);
-      const dist = Math.sqrt(dLat * dLat + dLon * dLon);
+      const radians = Math.PI / 180;
+      const dLat = (c.coordinates.latitude - latitude) * radians;
+      const dLon = (c.coordinates.longitude - longitude) * radians;
+      const a = Math.sin(dLat / 2) ** 2 + Math.cos(latitude * radians) * Math.cos(c.coordinates.latitude * radians) * Math.sin(dLon / 2) ** 2;
+      const dist = 6371 * 2 * Math.asin(Math.sqrt(Math.min(1, a)));
       return dist <= distanceThresholdKm;
     });
 

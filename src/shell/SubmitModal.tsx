@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useApp } from "../state/appContext";
+import { useDialogFocus } from "./useDialogFocus";
 
 interface Props {
   onClose: () => void;
@@ -8,10 +9,12 @@ interface Props {
 export function SubmitModal({ onClose }: Props) {
   const { language } = useApp();
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const dialogRef = useDialogFocus<HTMLDivElement>(onClose);
 
   // Read configurable submission email, avoiding fabricated placeholders
-  const configuredEmail = import.meta.env.VITE_SUBMISSION_EMAIL || "";
-  const displayEmail = configuredEmail || "submissions@theseam-archive.org";
+  const configuredEmail: string = (import.meta.env.VITE_SUBMISSION_EMAIL || "").trim();
+  const displayEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(configuredEmail) ? configuredEmail : "";
 
   const mailtoSubject = encodeURIComponent("Submission to The Seam");
   const mailtoBody = encodeURIComponent(
@@ -20,15 +23,16 @@ export function SubmitModal({ onClose }: Props) {
       : `[The Seam Archive Submission]\n\n1. Name of Person or Event:\n2. Historical Era / Time:\n3. Location (City / Region):\n4. Summary and Historical Context:\n5. Primary Sources, Citations, or Verifiable Links:\n6. Optional Image and Rights Information:\n`
   );
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(displayEmail).then(() => {
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(displayEmail);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+      setCopyFailed(false);
+    } catch { setCopyFailed(true); }
   };
 
   return (
-    <div className="seam-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="submit-title">
+    <div ref={dialogRef} className="seam-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="submit-title">
       <div className="seam-modal-content" onClick={(e) => e.stopPropagation()}>
         <header className="seam-modal-header">
           <div>
@@ -59,24 +63,26 @@ export function SubmitModal({ onClose }: Props) {
               {language === "zh" ? "官方投稿联络邮箱" : "Official Submission Email"}
             </span>
             <div className="seam-email-row">
-              <code className="seam-email-address">{displayEmail}</code>
+              <code className="seam-email-address">{displayEmail || (language === "zh" ? "投稿邮箱尚未公布" : "Submission email not yet announced")}</code>
               <button
                 type="button"
                 className="seam-btn-outline"
                 onClick={handleCopy}
+                disabled={!displayEmail}
               >
                 {copied
                   ? (language === "zh" ? "✓ 已复制" : "✓ Copied")
                   : (language === "zh" ? "复制邮箱" : "Copy Email")}
               </button>
             </div>
-            {!configuredEmail && (
+            {!displayEmail && (
               <p className="seam-email-note">
                 {language === "zh"
-                  ? "（注：当前为默认联络邮箱，亦可通过 VITE_SUBMISSION_EMAIL 环境变量自定义配置）"
-                  : "(Note: Default contact mailbox. Can be configured via VITE_SUBMISSION_EMAIL)"}
+                  ? "官方邮箱公布后即可通过邮件投稿。"
+                  : "Email submissions will be available once the official address is announced."}
               </p>
             )}
+            {copyFailed && <p role="status">{language === "zh" ? "复制未成功，请选中邮箱地址手动复制。" : "Copy failed. Select the address and copy it manually."}</p>}
           </div>
 
           <div className="seam-submit-guidelines">
@@ -101,12 +107,13 @@ export function SubmitModal({ onClose }: Props) {
           <button type="button" className="seam-btn-secondary" onClick={onClose}>
             {language === "zh" ? "返回" : "Close"}
           </button>
-          <a
-            href={`mailto:${displayEmail}?subject=${mailtoSubject}&body=${mailtoBody}`}
+          {displayEmail ? <a
+            href={`mailto:${encodeURIComponent(displayEmail)}?subject=${mailtoSubject}&body=${mailtoBody}`}
             className="seam-btn-primary"
           >
             {language === "zh" ? "撰写邮件投稿 ↗" : "Compose Email ↗"}
-          </a>
+          </a> : <button className="seam-btn-primary" type="button" disabled>{language === "zh" ? "投稿暂未开放" : "Submissions unavailable"}</button>}
+          <p className="seam-email-note">{language === "zh" ? "撰写邮件仅打开邮件客户端；请在客户端确认发送。" : "Compose opens your email client. Send the message there to submit."}</p>
         </footer>
       </div>
     </div>

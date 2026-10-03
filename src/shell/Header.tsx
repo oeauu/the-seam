@@ -18,7 +18,7 @@ export function Header() {
           className="seam-brand-link"
           onClick={(e) => {
             e.preventDefault();
-            returnToGlobe();
+            returnToGlobe(true);
           }}
           aria-label="The Seam 首页"
         >

@@ -28,7 +28,7 @@ describe("The Seam - Data & Taxonomy Constraints", () => {
       // Must have valid time definition
       expect(typeof record.time.startYear).toBe("number");
       expect(typeof record.time.endYear).toBe("number");
-      expect(record.time.startYear).toBeLessThanOrEqual(record.time.endYear);
+      if (record.time.startYear !== null && record.time.endYear !== null) expect(record.time.startYear).toBeLessThanOrEqual(record.time.endYear);
 
       // Must have coordinates
       expect(record.place.coordinates).toBeDefined();
@@ -39,11 +39,10 @@ describe("The Seam - Data & Taxonomy Constraints", () => {
       expect(record.sources.length).toBeGreaterThan(0);
 
       // Strictly verify NO modern taxonomy tag fields
-      const recordAny = record as any;
-      expect(recordAny.gender).toBeUndefined();
-      expect(recordAny.sexualOrientation).toBeUndefined();
-      expect(recordAny.identityCategory).toBeUndefined();
-      expect(recordAny.tags).toBeUndefined();
+      expect("gender" in record).toBe(false);
+      expect("sexualOrientation" in record).toBe(false);
+      expect("identityCategory" in record).toBe(false);
+      expect("tags" in record).toBe(false);
     });
   });
 

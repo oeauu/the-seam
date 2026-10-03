@@ -1,4 +1,4 @@
-﻿import type { LocalizedString } from "../types";
+import type { LocalizedString } from "../types";
 
 export interface CityMetadata {
   name: LocalizedString;
@@ -10,7 +10,7 @@ export interface CountryMetadata {
   id: string; // ISO 3166-1 numeric
   codeAlpha3?: string;
   name: LocalizedString;
-  capital: CityMetadata;
+  capital?: CityMetadata;
   center: [number, number]; // [lon, lat]
   cities: CityMetadata[];
 }

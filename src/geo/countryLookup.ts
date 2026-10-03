@@ -1,6 +1,7 @@
-﻿import { geoContains, geoCentroid, geoDistance } from "d3-geo";
+import { geoContains, geoCentroid, geoDistance } from "d3-geo";
 import type { CountryFeature } from "./geoTypes";
 import { COUNTRIES_META, type CountryMetadata } from "../data/countriesMeta";
+import { getMapCities, canonicalCountryName } from "./worldGeometry";
 
 export function findCountryAtPoint(
   features: CountryFeature[],
@@ -12,7 +13,7 @@ export function findCountryAtPoint(
   // 1. Precise containment test
   for (const f of features) {
     try {
-      if (geoContains(f as any, pt)) {
+      if (geoContains(f, pt)) {
         return f;
       }
     } catch {
@@ -26,7 +27,7 @@ export function findCountryAtPoint(
 
   for (const f of features) {
     try {
-      const centroid = geoCentroid(f as any);
+      const centroid = geoCentroid(f);
       const dist = geoDistance(centroid, pt);
       if (dist < minDistance) {
         minDistance = dist;
@@ -58,16 +59,13 @@ export function getCountryMetadataForFeature(feature: CountryFeature): CountryMe
   }
 
   // Generic fallback if not in pre-seeded meta
-  const centroid = geoCentroid(feature as any);
+  const centroid = geoCentroid(feature);
+  const cities = getMapCities().filter(city => canonicalCountryName(city.countryName) === canonicalCountryName(name));
   return {
     id: id || name,
     name: { en: name, zh: name },
     center: centroid,
-    capital: {
-      name: { en: name, zh: name },
-      coordinates: centroid,
-      isCapital: true
-    },
-    cities: []
+    capital: cities.find(city => city.isCapital),
+    cities,
   };
 }

@@ -1,5 +1,6 @@
 import type { LocationCluster, ArchiveRecord } from "../types";
 import { useApp } from "../state/appContext";
+import { useDialogFocus } from "../shell/useDialogFocus";
 
 interface Props {
   cluster: LocationCluster;
@@ -8,11 +9,12 @@ interface Props {
 }
 
 export function LocationClusterPicker({ cluster, onSelectRecord, onClose }: Props) {
+  const dialogRef = useDialogFocus<HTMLDivElement>(onClose);
   const { language } = useApp();
 
   return (
     <div className="seam-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="picker-title">
-      <div className="seam-cluster-picker-modal" onClick={(e) => e.stopPropagation()}>
+      <div ref={dialogRef} className="seam-cluster-picker-modal" onClick={(e) => e.stopPropagation()}>
         <header className="seam-modal-header">
           <div>
             <span className="seam-modal-eyebrow">

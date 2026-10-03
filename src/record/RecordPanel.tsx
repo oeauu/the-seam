@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { ArchiveRecord } from "../types";
 import { useApp } from "../state/appContext";
+import { loadWorldData } from "../geo/worldGeometry";
+import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
 
 interface RecordPanelProps {
   record: ArchiveRecord | null;
@@ -11,32 +13,42 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
   const { language } = useApp();
   const panelRef = useRef<HTMLElement>(null);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const recordId = record?.id;
+  const longitude = record?.place.coordinates?.longitude;
+  const latitude = record?.place.coordinates?.latitude;
+  const [modernPlace, setModernPlace] = useState<{en:string;zh:string} | null>(null);
 
   useEffect(() => {
-    if (!record) return;
+    let active = true;
+    setModernPlace(null);
+    if (longitude !== undefined && latitude !== undefined) {
+      void loadWorldData().then(data => {
+        const feature = findCountryAtPoint(data.features, longitude, latitude);
+        if (active && feature) setModernPlace(getCountryMetadataForFeature(feature)?.name || null);
+      }).catch(() => undefined);
+    }
+    return () => {active = false;};
+  }, [longitude, latitude]);
+
+  useEffect(() => {
+    if (!recordId) return;
 
     // Focus panel on open
     panelRef.current?.focus();
 
-    // ESC to close
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [record, onClose]);
+    setCopied(false);
+    setCopyFailed(false);
+  }, [recordId]);
 
   if (!record) return null;
 
-  const handleCopyLink = () => {
+  const handleCopyLink = async () => {
     const url = window.location.origin + `/record/${encodeURIComponent(record.slug)}`;
-    navigator.clipboard.writeText(url).then(() => {
+    try {
+      await navigator.clipboard.writeText(url);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
-    });
+    } catch { setCopyFailed(true); }
   };
 
   const title = record.title[language] || record.title.en;
@@ -66,18 +78,12 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
 
   return (
     <>
-      {/* Backdrop for mobile / focus lock */}
-      <div
-        className="seam-panel-backdrop"
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
       <aside
         ref={panelRef}
         className="seam-record-panel"
         role="dialog"
-        aria-modal="true"
+        aria-modal="false"
+        onKeyDown={e => { if (e.key === "Escape") { e.stopPropagation(); onClose(); } }}
         aria-labelledby="record-title"
         tabIndex={-1}
       >
@@ -98,6 +104,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
                 : (language === "zh" ? "分享链接" : "Share URL")}
             </button>
           </div>
+          {copyFailed && <p role="status"><a href={`/record/${encodeURIComponent(record.slug)}`}>{language === "zh" ? "复制失败，可手动复制此档案链接" : "Copy failed; copy this permalink manually"}</a></p>}
 
           <div className="seam-record-title-row">
             <h1 id="record-title" className="seam-record-title">
@@ -140,6 +147,8 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
                 {img.caption && (
                   <figcaption>{img.caption[language]}</figcaption>
                 )}
+                {img.credit && <figcaption>{img.credit}</figcaption>}
+                {img.sourceUrl && <a href={img.sourceUrl} target="_blank" rel="noopener noreferrer">{language === "zh" ? "图片来源 ↗" : "Image source ↗"}</a>}
               </figure>
             ))}
           </div>
@@ -172,12 +181,16 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               {relationText && (
                 <span className="seam-meta-sub">{relationText}</span>
               )}
+              <span className="seam-meta-sub">{language === "zh" ? "坐标精度" : "Location precision"}: {language === "zh" ? ({exact:"精确地点",city:"城市级",region:"地区级", "cultural-region":"文化区域（近似）",transregional:"跨区域（近似）",pending:"地点待考"})[record.place.precision] : record.place.precision}</span>
+              {modernPlace && <span className="seam-meta-sub">{language === "zh" ? "现代地图位置（非历史国籍）" : "Modern map location (not historical nationality)"}: {modernPlace[language]}</span>}
+              {record.place.notes && <span className="seam-meta-sub">{record.place.notes[language]}</span>}
             </div>
           </div>
         </div>
 
         {/* Scrollable Body */}
         <div className="seam-record-body">
+          {record.reviewNote && <p className="seam-historiography-box">{record.reviewNote[language]}</p>}
           {/* Summary */}
           <section className="seam-record-summary-section">
             <p className="seam-record-summary">{summary}</p>
@@ -227,6 +240,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
                       {src.citation && (
                         <p className="seam-source-citation">{src.citation}</p>
                       )}
+                      {src.note && <p>{src.note[language]}</p>}
                     </div>
                     {src.url && (
                       <a

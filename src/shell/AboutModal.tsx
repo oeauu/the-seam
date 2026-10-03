@@ -1,15 +1,18 @@
 import { useApp } from "../state/appContext";
 
+import { useDialogFocus } from "./useDialogFocus";
+
 interface Props {
   onClose: () => void;
 }
 
 export function AboutModal({ onClose }: Props) {
+  const dialogRef = useDialogFocus<HTMLDivElement>(onClose);
   const { language } = useApp();
 
   return (
     <div className="seam-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="about-title">
-      <div className="seam-modal-content" onClick={(e) => e.stopPropagation()}>
+      <div ref={dialogRef} className="seam-modal-content" onClick={(e) => e.stopPropagation()}>
         <header className="seam-modal-header">
           <div>
             <span className="seam-modal-eyebrow">The Seam · Project Manifesto</span>

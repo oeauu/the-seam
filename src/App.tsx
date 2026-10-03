@@ -12,6 +12,7 @@ import { IndexDrawer } from "./shell/IndexDrawer";
 function MainLayout() {
   const {
     viewMode,
+    isTimelineCollapsed,
     selectedCountry,
     countryMeta,
     visibleRecords,
@@ -30,7 +31,7 @@ function MainLayout() {
   } = useApp();
 
   return (
-    <div className="seam-app-layout">
+    <div className={`seam-app-layout ${selectedRecord ? "has-record" : ""} ${isTimelineCollapsed ? "timeline-collapsed" : ""}`}>
       <Header />
 
       <main className="seam-main-viewport">
@@ -42,7 +43,7 @@ function MainLayout() {
               country={selectedCountry}
               meta={countryMeta}
               records={visibleRecords}
-              onBack={returnToGlobe}
+              onBack={() => returnToGlobe()}
               onRecordClick={openRecord}
               onClusterClick={selectCluster}
             />

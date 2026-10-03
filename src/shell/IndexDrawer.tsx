@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useApp } from "../state/appContext";
 import type { ArchiveRecord } from "../types";
+import { useDialogFocus } from "./useDialogFocus";
 
 interface Props {
   onClose: () => void;
@@ -8,30 +9,34 @@ interface Props {
 
 export function IndexDrawer({ onClose }: Props) {
   const { records, openRecord, language } = useApp();
+  const dialogRef = useDialogFocus<HTMLElement>(onClose);
   const [search, setSearch] = useState("");
+  const [pendingOnly, setPendingOnly] = useState(false);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (!q) return records;
     return records.filter(r => {
+      if (pendingOnly && r.place.coordinates) return false;
+      if (!q) return true;
       const matchTitle = (r.title.en + " " + r.title.zh).toLowerCase().includes(q);
       const matchAlias = r.aliases.some(a => a.toLowerCase().includes(q));
-      const matchPlace = (r.place.name.en + " " + r.place.name.zh).toLowerCase().includes(q);
+      const matchPlace = [r.place.name.en, r.place.name.zh, r.place.historicalName?.en, r.place.historicalName?.zh].filter(Boolean).join(" ").toLowerCase().includes(q);
+      const matchOriginal = r.originalName?.toLowerCase().includes(q) || false;
       const matchSummary = (r.summary.en + " " + r.summary.zh).toLowerCase().includes(q);
       const matchBody = (r.body.en + " " + r.body.zh).toLowerCase().includes(q);
-      return matchTitle || matchAlias || matchPlace || matchSummary || matchBody;
+      return matchTitle || matchAlias || matchPlace || matchOriginal || matchSummary || matchBody;
     });
-  }, [records, search]);
+  }, [records, search, pendingOnly]);
 
   const handleSelect = (record: ArchiveRecord) => {
-    openRecord(record);
+    openRecord(record, true);
     onClose();
   };
 
   return (
     <>
       <div className="seam-panel-backdrop" onClick={onClose} aria-hidden="true" />
-      <aside className="seam-index-drawer" role="dialog" aria-modal="true" aria-labelledby="index-title">
+      <aside ref={dialogRef} className="seam-index-drawer" role="dialog" aria-modal="true" aria-labelledby="index-title">
         <header className="seam-index-header">
           <div>
             <span className="seam-record-kicker">The Seam · Directory</span>
@@ -52,6 +57,7 @@ export function IndexDrawer({ onClose }: Props) {
         <div className="seam-index-search-bar">
           <input
             type="search"
+            aria-label={language === "zh" ? "搜索档案" : "Search archive"}
             className="seam-search-input"
             placeholder={language === "zh" ? "搜索人物、别名、历史地点或正文内容..." : "Search figures, aliases, places, or texts..."}
             value={search}
@@ -61,6 +67,9 @@ export function IndexDrawer({ onClose }: Props) {
         </div>
 
         <div className="seam-index-stats">
+          <button type="button" aria-pressed={pendingOnly} onClick={() => setPendingOnly(!pendingOnly)}>
+            {language === "zh" ? "地点待考" : "Location pending"} ({records.filter(r => !r.place.coordinates).length})
+          </button>
           <span>
             {language === "zh"
               ? `共检索到 ${filtered.length} / ${records.length} 份历史档案`
