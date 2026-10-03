@@ -1,1 +1,0 @@
-export { getArchiveEntries } from "./demoData";

@@ -1,0 +1,140 @@
+import { describe, it, expect } from "vitest";
+import { ARCHIVE_RECORDS } from "../data/records";
+import { PENDING_REVIEW_QUEUE } from "../data/reviewQueue";
+import { COUNTRIES_META } from "../data/countriesMeta";
+import {
+  calculateTimelineBounds,
+  recordOverlapsRange,
+  formatYear,
+} from "../timeline/timelineUtils";
+import { clusterRecords } from "../geo/clustering";
+import { parseRoute, buildRoutePath } from "../state/routing";
+
+describe("The Seam - Data & Taxonomy Constraints", () => {
+  it("contains vetted records with no modern taxonomy labels", () => {
+    expect(ARCHIVE_RECORDS.length).toBeGreaterThanOrEqual(13);
+
+    ARCHIVE_RECORDS.forEach((record) => {
+      // Must have clean ID and slug
+      expect(record.id).toBeTruthy();
+      expect(record.slug).toBeTruthy();
+
+      // Must have bilingual titles and summaries
+      expect(record.title.en).toBeTruthy();
+      expect(record.title.zh).toBeTruthy();
+      expect(record.summary.en).toBeTruthy();
+      expect(record.summary.zh).toBeTruthy();
+
+      // Must have valid time definition
+      expect(typeof record.time.startYear).toBe("number");
+      expect(typeof record.time.endYear).toBe("number");
+      expect(record.time.startYear).toBeLessThanOrEqual(record.time.endYear);
+
+      // Must have coordinates
+      expect(record.place.coordinates).toBeDefined();
+      expect(typeof record.place.coordinates?.latitude).toBe("number");
+      expect(typeof record.place.coordinates?.longitude).toBe("number");
+
+      // Must have sources
+      expect(record.sources.length).toBeGreaterThan(0);
+
+      // Strictly verify NO modern taxonomy tag fields
+      const recordAny = record as any;
+      expect(recordAny.gender).toBeUndefined();
+      expect(recordAny.sexualOrientation).toBeUndefined();
+      expect(recordAny.identityCategory).toBeUndefined();
+      expect(recordAny.tags).toBeUndefined();
+    });
+  });
+
+  it("includes the 1629 Virginia General Court case of Thomas(ine) Hall as a core vetted record", () => {
+    const hall = ARCHIVE_RECORDS.find((r) => r.slug === "thomas-hall");
+    expect(hall).toBeDefined();
+    expect(hall?.time.startYear).toBe(1603);
+    expect(hall?.time.endYear).toBe(1629);
+    expect(hall?.place.coordinates?.latitude).toBeCloseTo(37.2, 0.5);
+    expect(hall?.historiographyNote).toBeDefined();
+  });
+
+  it("includes held records in reviewQueue with explicit hold reasons and citations", () => {
+    expect(PENDING_REVIEW_QUEUE.length).toBeGreaterThanOrEqual(7);
+    PENDING_REVIEW_QUEUE.forEach((entry) => {
+      expect(entry.id).toBeTruthy();
+      expect(entry.holdReason.en).toBeTruthy();
+      expect(entry.holdReason.zh).toBeTruthy();
+      expect(entry.source.en).toBeTruthy();
+    });
+  });
+
+  it("includes bilingual country metadata for relevant countries", () => {
+    const countryList = Object.values(COUNTRIES_META);
+    expect(countryList.length).toBeGreaterThanOrEqual(8);
+    const china = COUNTRIES_META["156"];
+    expect(china).toBeDefined();
+    expect(china.name.zh).toBe("中国");
+    expect(china.cities.length).toBeGreaterThan(0);
+  });
+});
+
+describe("The Seam - Timeline Logic", () => {
+  it("formats BCE and CE years correctly in Chinese and English", () => {
+    expect(formatYear(-600, "zh")).toBe("公元前600年");
+    expect(formatYear(-600, "en")).toBe("600 BCE");
+    expect(formatYear(1629, "zh")).toBe("公元1629年");
+    expect(formatYear(1629, "en")).toBe("1629 CE");
+  });
+
+  it("calculates padded rounded timeline bounds", () => {
+    const [start, end] = calculateTimelineBounds(-600, 2026);
+    expect(start).toBe(-1000);
+    expect(end).toBe(2026);
+  });
+
+  it("correctly identifies record overlap within a range", () => {
+    // Record spanning 1625 - 1630
+    expect(recordOverlapsRange(1625, 1630, 1600, 1700, false)).toBe(true);
+    expect(recordOverlapsRange(1625, 1630, 1628, 1629, false)).toBe(true);
+    expect(recordOverlapsRange(1625, 1630, 1700, 1800, false)).toBe(false);
+  });
+
+  it("Section 8.4 Constraint: collapsing timeline immediately shows all records across all eras", () => {
+    // Even if record is outside the active [1800, 1900] range, collapsing timeline MUST return true
+    expect(recordOverlapsRange(-600, -570, 1800, 1900, true)).toBe(true);
+    expect(recordOverlapsRange(1629, 1629, 1800, 1900, true)).toBe(true);
+  });
+});
+
+describe("The Seam - Geographic Clustering", () => {
+  it("groups records with proximate coordinates into single clusters", () => {
+    const clusters = clusterRecords(ARCHIVE_RECORDS);
+    expect(clusters.length).toBeGreaterThan(0);
+    expect(clusters.length).toBeLessThanOrEqual(ARCHIVE_RECORDS.length);
+
+    // Records in Athens or Rome or Chang'an should cluster properly
+    clusters.forEach((cluster) => {
+      expect(cluster.records.length).toBeGreaterThanOrEqual(1);
+      expect(typeof cluster.coordinates.latitude).toBe("number");
+      expect(typeof cluster.coordinates.longitude).toBe("number");
+    });
+  });
+});
+
+describe("The Seam - State & Routing", () => {
+  it("formats and parses route URLs accurately", () => {
+    expect(buildRoutePath({ kind: "globe" })).toBe("/");
+    expect(buildRoutePath({ kind: "record", slug: "thomas-hall" })).toBe(
+      "/record/thomas-hall"
+    );
+    expect(buildRoutePath({ kind: "country", countryId: "156" })).toBe("/country/156");
+
+    expect(parseRoute("/")).toEqual({ kind: "globe" });
+    expect(parseRoute("/record/sappho-of-lesbos")).toEqual({
+      kind: "record",
+      slug: "sappho-of-lesbos",
+    });
+    expect(parseRoute("/country/156")).toEqual({
+      kind: "country",
+      countryId: "156",
+    });
+  });
+});

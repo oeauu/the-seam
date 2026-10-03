@@ -1,0 +1,27 @@
+﻿:root {
+  --seam-bg: #ffffff;
+  --seam-surface: #ffffff;
+  --seam-surface-subtle: #f9f9f9;
+  --seam-border: #e2e2e2;
+  --seam-border-dark: #111111;
+
+  --seam-text-primary: #121212;
+  --seam-text-secondary: #5a5a5a;
+  --seam-text-muted: #888888;
+
+  /* Low-saturation museum gold */
+  --seam-gold: #c49a45;
+  --seam-gold-bright: #dfb53d;
+  --seam-gold-dark: #997223;
+  --seam-gold-bg: rgba(196, 154, 69, 0.08);
+  --seam-gold-border: rgba(196, 154, 69, 0.28);
+
+  --seam-font-serif: "Cinzel", "Noto Serif SC", "Songti SC", Georgia, "Times New Roman", serif;
+  --seam-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --seam-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --seam-header-height: 64px;
+  --seam-panel-width: 520px;
+  --seam-radius: 4px;
+  --seam-transition: 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
