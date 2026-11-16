@@ -333,21 +333,18 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
     await modal.getByLabel(/人物或事件名称/).fill("清代徽州契约文献待考录");
     await modal.getByLabel(/历史时期/).fill("18世纪中期");
-    await modal.getByLabel(/具体年代\/事件待考证/).check();
     await modal.getByLabel(/发生或活动地点/).fill("安徽徽州");
-    await modal.getByLabel(/精确地理坐标待考证/).check();
     await modal.getByLabel(/历史简介与文献事实/).fill("地方契约文书中所见历史记载，时间与具体村落尚待进一步比对原始档册。");
     await modal.getByLabel(/第一手史料/).fill("地方文书档案馆藏钞本");
     await modal.getByLabel("补充参考文献 2").fill("地方志补充文献卷二");
-    await modal.getByRole("button", { name: "提交并生成草稿" }).click();
+    await expect(modal.getByLabel(/年份数字/)).toBeHidden();
+    await modal.getByText("补充资料（选填）", { exact: true }).click();
+    await expect(modal.getByLabel(/年份数字/)).toBeVisible();
+    await modal.getByRole("button", { name: "保存投稿草稿" }).click();
 
     await expect(modal.locator(".seam-submit-success-card .seam-pending-tag")).toHaveText("地点与事件待考证");
-    const issueLink = modal.getByRole("link", { name: /通过 GitHub Issue 投递/ });
-    await expect(issueLink).toBeVisible();
-    const issueHref = await issueLink.getAttribute("href");
-    expect(issueHref).toContain("https://github.com/oeauu/the-seam/issues/new");
-    expect(issueHref).toContain("labels=archive-submission");
-    await modal.getByRole("button", { name: "在档案中查看并定位" }).click();
+    await expect(modal.getByRole("link", { name: /用邮件发送此稿件/ })).toHaveAttribute("href", /^mailto:/);
+    await modal.getByRole("button", { name: "查看本地草稿" }).click();
     await expect(page.locator(".seam-record-panel .seam-record-title")).toHaveText("清代徽州契约文献待考录");
     await expect(page.locator(".seam-record-panel .seam-record-subtitle")).toHaveCount(0);
     await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");

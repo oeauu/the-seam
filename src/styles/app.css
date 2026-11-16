@@ -2013,6 +2013,17 @@ button:disabled { opacity: .5; cursor: default; }
   gap: 12px;
 }
 
+.seam-submit-options summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.seam-submit-option-fields {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
 .seam-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -186,10 +186,8 @@ describe("Completion regressions", () => {
     expect(sentBody._subject).toBe("[The Seam 投稿] 测试档案稿件");
     await waitFor(() => expect(screen.getByRole("status")).toHaveTextContent("the.seam@outlook.com"));
 
-    const issueLink = screen.getByRole("link", { name: /通过 GitHub Issue 投递/ });
-    expect(issueLink.getAttribute("href")).toContain("https://github.com/oeauu/the-seam/issues/new");
-    expect(issueLink.getAttribute("href")).toContain("labels=archive-submission");
-    expect(issueLink.getAttribute("href")).not.toContain("lisi%40example.com");
+    expect(screen.queryByRole("link", { name: /通过 GitHub Issue 投递/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /用邮件发送此稿件/ })).not.toBeInTheDocument();
     expect(resolveGitHubRepo("invalid repo")).toBe("oeauu/the-seam");
     const sampleRecord = findRecord("thomas-hall");
     if (sampleRecord) {

@@ -2,7 +2,6 @@ import { useState, type FormEvent } from "react";
 import { getPendingVerificationLabel } from "../data/recordStatus";
 import { useApp } from "../state/useApp";
 import type { ArchiveRecord, Coordinates, Language } from "../types";
-import { buildGitHubIssueUrl } from "./submissionIssue";
 import { useDialogFocus } from "./useDialogFocus";
 
 interface Props {
@@ -19,10 +18,8 @@ interface SubmissionDraftState {
   aliases: string;
   eraLabel: string;
   year: string;
-  eventPending: boolean;
   placeName: string;
   coordinatesText: string;
-  locationPending: boolean;
   summary: string;
   sources: SourceDraft[];
   contributorName: string;
@@ -45,10 +42,8 @@ function createInitialForm(): SubmissionDraftState {
     aliases: "",
     eraLabel: "",
     year: "",
-    eventPending: false,
     placeName: "",
     coordinatesText: "",
-    locationPending: false,
     summary: "",
     sources: [{ title: "", url: "" }],
     contributorName: "",
@@ -265,13 +260,13 @@ export function SubmitModal({ onClose }: Props) {
     }
 
     let parsedYear: number | null = null;
-    if (!form.eventPending && form.year.trim()) {
+    if (form.year.trim()) {
       const n = Number(form.year.trim());
       if (!Number.isInteger(n) || n === 0) {
         setErrorMsg(
           language === "zh"
-            ? "年份请填写非零整数（公元前请使用负数，如 -630），或勾选“具体年代/事件待考证”。"
-            : "Year must be a non-zero integer (use negative numbers for BCE), or mark event timing pending.",
+            ? "年份请填写非零整数（公元前请使用负数，如 -630），不确定时可留空。"
+            : "Year must be a non-zero integer (use negative numbers for BCE), or leave it blank.",
         );
         return;
       }
@@ -279,7 +274,7 @@ export function SubmitModal({ onClose }: Props) {
     }
 
     let parsedCoords: Coordinates | null = null;
-    if (!form.locationPending && form.coordinatesText.trim()) {
+    if (form.coordinatesText.trim()) {
       const result = parseCoordinatesInput(form.coordinatesText);
       if (result === "invalid") {
         setErrorMsg(
@@ -366,28 +361,11 @@ export function SubmitModal({ onClose }: Props) {
     }
   };
 
-  const handleDownloadJson = () => {
-    if (!submittedRecord) return;
-    const blob = new Blob([JSON.stringify(submittedRecord, null, 2)], { type: "application/json;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${submittedRecord.slug}.json`;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
-  };
-
   const mailtoHref = submittedRecord && displayEmail
     ? `mailto:${encodeURIComponent(displayEmail)}?subject=${encodeURIComponent(`Submission: ${submittedRecord.title.zh}`)}&body=${encodeURIComponent(buildSubmissionText(submittedRecord, language, submittedMeta))}`
     : "";
 
   const pendingBadge = submittedRecord ? getPendingVerificationLabel(submittedRecord, language) : null;
-  const githubIssueHref = submittedRecord
-    ? buildGitHubIssueUrl(submittedRecord, language, pendingBadge, undefined, submittedMeta.contributorName)
-    : "";
-
   return (
     <div ref={dialogRef} className="seam-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="submit-title">
       <div className="seam-modal-content seam-modal-wide" onClick={(e) => e.stopPropagation()}>
@@ -424,91 +402,39 @@ export function SubmitModal({ onClose }: Props) {
               />
             </div>
 
-            <div className="seam-form-row">
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "人物或事件名称 *" : "Figure or Event Name *"}</span>
-                <input
-                  type="text"
-                  required
-                  value={form.title}
-                  onChange={e => setForm(prev => ({ ...prev, title: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：萨福 / 达·芬奇" : "e.g. Joan of Arc / Alexander the Great"}
-                />
-              </label>
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "别名或原文名（选填）" : "Aliases / Original Name"}</span>
-                <input
-                  type="text"
-                  value={form.aliases}
-                  onChange={e => setForm(prev => ({ ...prev, aliases: e.target.value }))}
-                  placeholder={language === "zh" ? "多个用顿号或逗号分隔，如：列奥纳多·达·芬奇" : "Comma-separated, e.g. Jeanne d'Arc, Maid of Orléans"}
-                />
-              </label>
+            <label className="seam-form-field">
+              <span className="seam-form-label">{language === "zh" ? "人物或事件名称 *" : "Figure or Event Name *"}</span>
+              <input
+                type="text"
+                required
+                value={form.title}
+                onChange={e => setForm(prev => ({ ...prev, title: e.target.value }))}
+                placeholder={language === "zh" ? "例如：萨福 / 达·芬奇" : "e.g. Joan of Arc / Alexander the Great"}
+              />
+            </label>
+
+            <div className="seam-form-field">
+              <label htmlFor="submit-era" className="seam-form-label">{language === "zh" ? "历史时期 *" : "Historical Era *"}</label>
+              <input
+                id="submit-era"
+                type="text"
+                required
+                value={form.eraLabel}
+                onChange={e => setForm(prev => ({ ...prev, eraLabel: e.target.value }))}
+                placeholder={language === "zh" ? "例如：公元前6世纪 / 文艺复兴时期" : "e.g. 15th century / Classical Greece"}
+              />
             </div>
 
-            <div className="seam-form-row">
-              <div className="seam-form-field">
-                <label htmlFor="submit-era" className="seam-form-label">{language === "zh" ? "历史时期 *" : "Historical Era *"}</label>
-                <input
-                  id="submit-era"
-                  type="text"
-                  required
-                  value={form.eraLabel}
-                  onChange={e => setForm(prev => ({ ...prev, eraLabel: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：公元前6世纪 / 文艺复兴时期" : "e.g. 15th century / Classical Greece"}
-                />
-                <label className="seam-form-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={form.eventPending}
-                    onChange={e => setForm(prev => ({ ...prev, eventPending: e.target.checked }))}
-                  />
-                  <span>{language === "zh" ? "具体年代/事件待考证" : "Exact date/event pending"}</span>
-                </label>
-              </div>
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "年份数字（选填，前用负数）" : "Year (optional, BCE negative)"}</span>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  disabled={form.eventPending}
-                  value={form.eventPending ? "" : form.year}
-                  onChange={e => setForm(prev => ({ ...prev, year: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：1452 或 -630" : "e.g. 1431 or -336"}
-                />
-              </label>
-            </div>
-
-            <div className="seam-form-row">
-              <div className="seam-form-field">
-                <label htmlFor="submit-place" className="seam-form-label">{language === "zh" ? "发生或活动地点 *" : "Historical Location *"}</label>
-                <input
-                  id="submit-place"
-                  type="text"
-                  required
-                  value={form.placeName}
-                  onChange={e => setForm(prev => ({ ...prev, placeName: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：意大利佛罗伦萨 / 希腊莱斯博斯岛" : "e.g. Orléans, France / Athens, Greece"}
-                />
-                <label className="seam-form-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={form.locationPending}
-                    onChange={e => setForm(prev => ({ ...prev, locationPending: e.target.checked }))}
-                  />
-                  <span>{language === "zh" ? "精确地理坐标待考证" : "Exact coordinates pending"}</span>
-                </label>
-              </div>
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "经度, 纬度（选填）" : "Longitude, Latitude (optional)"}</span>
-                <input
-                  type="text"
-                  disabled={form.locationPending}
-                  value={form.locationPending ? "" : form.coordinatesText}
-                  onChange={e => setForm(prev => ({ ...prev, coordinatesText: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：11.2558, 43.7696" : "e.g. 1.9093, 47.9030"}
-                />
-              </label>
+            <div className="seam-form-field">
+              <label htmlFor="submit-place" className="seam-form-label">{language === "zh" ? "发生或活动地点 *" : "Historical Location *"}</label>
+              <input
+                id="submit-place"
+                type="text"
+                required
+                value={form.placeName}
+                onChange={e => setForm(prev => ({ ...prev, placeName: e.target.value }))}
+                placeholder={language === "zh" ? "例如：意大利佛罗伦萨 / 希腊莱斯博斯岛" : "e.g. Orléans, France / Athens, Greece"}
+              />
             </div>
 
             <label className="seam-form-field">
@@ -595,26 +521,59 @@ export function SubmitModal({ onClose }: Props) {
               ))}
             </div>
 
-            <div className="seam-form-row">
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "投稿人署名（选填）" : "Your Name / Attribution (optional)"}</span>
-                <input
-                  type="text"
-                  value={form.contributorName}
-                  onChange={e => setForm(prev => ({ ...prev, contributorName: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：张三 / 历史系研究者" : "e.g. Jane Doe"}
-                />
-              </label>
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "联系邮箱（选填）" : "Contact Email (optional)"}</span>
-                <input
-                  type="email"
-                  value={form.contributorEmail}
-                  onChange={e => setForm(prev => ({ ...prev, contributorEmail: e.target.value }))}
-                  placeholder="name@example.com"
-                />
-              </label>
-            </div>
+            <details className="seam-submit-options">
+              <summary>{language === "zh" ? "补充资料（选填）" : "Additional details (optional)"}</summary>
+              <div className="seam-submit-option-fields">
+                <label className="seam-form-field">
+                  <span className="seam-form-label">{language === "zh" ? "别名或原文名（选填）" : "Aliases / Original Name"}</span>
+                  <input
+                    type="text"
+                    value={form.aliases}
+                    onChange={e => setForm(prev => ({ ...prev, aliases: e.target.value }))}
+                    placeholder={language === "zh" ? "多个用顿号或逗号分隔，如：列奥纳多·达·芬奇" : "Comma-separated, e.g. Jeanne d'Arc, Maid of Orléans"}
+                  />
+                </label>
+                <label className="seam-form-field">
+                  <span className="seam-form-label">{language === "zh" ? "年份数字（选填，前用负数）" : "Year (optional, BCE negative)"}</span>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={form.year}
+                    onChange={e => setForm(prev => ({ ...prev, year: e.target.value }))}
+                    placeholder={language === "zh" ? "例如：1452 或 -630" : "e.g. 1431 or -336"}
+                  />
+                </label>
+                <label className="seam-form-field">
+                  <span className="seam-form-label">{language === "zh" ? "经度, 纬度（选填）" : "Longitude, Latitude (optional)"}</span>
+                  <input
+                    type="text"
+                    value={form.coordinatesText}
+                    onChange={e => setForm(prev => ({ ...prev, coordinatesText: e.target.value }))}
+                    placeholder={language === "zh" ? "例如：11.2558, 43.7696" : "e.g. 1.9093, 47.9030"}
+                  />
+                </label>
+                <div className="seam-form-row">
+                  <label className="seam-form-field">
+                    <span className="seam-form-label">{language === "zh" ? "投稿人署名（选填）" : "Your Name / Attribution (optional)"}</span>
+                    <input
+                      type="text"
+                      value={form.contributorName}
+                      onChange={e => setForm(prev => ({ ...prev, contributorName: e.target.value }))}
+                      placeholder={language === "zh" ? "例如：张三 / 历史系研究者" : "e.g. Jane Doe"}
+                    />
+                  </label>
+                  <label className="seam-form-field">
+                    <span className="seam-form-label">{language === "zh" ? "联系邮箱（选填）" : "Contact Email (optional)"}</span>
+                    <input
+                      type="email"
+                      value={form.contributorEmail}
+                      onChange={e => setForm(prev => ({ ...prev, contributorEmail: e.target.value }))}
+                      placeholder="name@example.com"
+                    />
+                  </label>
+                </div>
+              </div>
+            </details>
 
             {errorMsg && (
               <p className="seam-form-error" role="alert">{errorMsg}</p>
@@ -675,8 +634,8 @@ export function SubmitModal({ onClose }: Props) {
                 <div role="status" className="seam-delivery-status is-error">
                   <span>
                     {language === "zh"
-                      ? "在线直投暂时失败（本地草稿已保存），可点击重试或改用邮件客户端发送。"
-                      : "Direct webhook delivery failed (draft saved locally). Retry or send via email client."}
+                      ? "投稿未送达，草稿已保存。请重试或使用下方可用的方式。"
+                      : "Delivery failed. Your draft is saved. Retry or use an option below."}
                   </span>
                   <button
                     type="button"
@@ -690,12 +649,8 @@ export function SubmitModal({ onClose }: Props) {
               {deliveryStatus === "local-only" && (
                 <p className="seam-email-note">
                   {displayEmail
-                    ? (language === "zh"
-                        ? `已生成标准档案草稿；点击下方“通过 GitHub Issue 投递 ↗”即可一键预填稿件，提交后将自动转发至 ${displayEmail}（也可改用邮件客户端、复制文本或导出 JSON）。`
-                        : `Draft created. Click "Submit via GitHub Issue ↗" below to open a pre-filled Issue that automatically forwards to ${displayEmail}, or send via email / JSON.`)
-                    : (language === "zh"
-                        ? "已生成标准档案草稿并同步至本地“档案索引”；点击“通过 GitHub Issue 投递 ↗”即可将稿件提交至仓库并转发编辑部审核，也可预览、复制文本或导出 JSON。"
-                        : "Draft saved to your local Archive Index. Submit via pre-filled GitHub Issue, preview it live, copy formatted text, or download JSON below.")}
+                    ? (language === "zh" ? "草稿已保存，请用邮件发送给编辑部。" : "Draft saved. Send it to the editors by email.")
+                    : (language === "zh" ? "草稿已保存。你可以复制投稿文本。" : "Draft saved. You can copy the submission text.")}
                 </p>
               )}
             </div>
@@ -709,50 +664,22 @@ export function SubmitModal({ onClose }: Props) {
                   onClose();
                 }}
               >
-                {language === "zh" ? "在档案中查看并定位" : "View in Archive"}
+                {language === "zh" ? "查看本地草稿" : "View local draft"}
               </button>
-              <a
-                href={githubIssueHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="seam-btn-primary"
-              >
-                {language === "zh" ? "通过 GitHub Issue 投递 ↗" : "Submit via GitHub Issue ↗"}
-              </a>
-              {displayEmail && (
-                <a href={mailtoHref} className="seam-btn-outline">
-                  {language === "zh" ? "用邮件发送此稿件 ↗" : "Send via Email ↗"}
-                </a>
+              {(deliveryStatus === "local-only" || deliveryStatus === "error") && (
+                <>
+                  {displayEmail && (
+                    <a href={mailtoHref} className="seam-btn-primary">
+                      {language === "zh" ? "用邮件发送此稿件 ↗" : "Send via Email ↗"}
+                    </a>
+                  )}
+                  <button type="button" className="seam-btn-outline" onClick={handleCopyDraft}>
+                    {draftCopied
+                      ? (language === "zh" ? "✓ 已复制投稿文本" : "✓ Text Copied")
+                      : (language === "zh" ? "复制投稿文本" : "Copy Submission Text")}
+                  </button>
+                </>
               )}
-              <button type="button" className="seam-btn-outline" onClick={handleCopyDraft}>
-                {draftCopied
-                  ? (language === "zh" ? "✓ 已复制投稿文本" : "✓ Text Copied")
-                  : (language === "zh" ? "复制投稿文本" : "Copy Submission Text")}
-              </button>
-              <button type="button" className="seam-btn-outline" onClick={handleDownloadJson}>
-                {language === "zh" ? "导出 JSON 稿件" : "Download JSON"}
-              </button>
-            </div>
-
-            <div className="seam-email-box">
-              <span className="seam-email-label">
-                {language === "zh" ? "官方投稿联络邮箱" : "Official Submission Email"}
-              </span>
-              <div className="seam-email-row">
-                <code className="seam-email-address">
-                  {displayEmail || (language === "zh" ? "投稿邮箱尚未公布" : "Submission email not yet announced")}
-                </code>
-                <button
-                  type="button"
-                  className="seam-btn-outline"
-                  onClick={handleCopyEmail}
-                  disabled={!displayEmail}
-                >
-                  {emailCopied
-                    ? (language === "zh" ? "✓ 已复制" : "✓ Copied")
-                    : (language === "zh" ? "复制邮箱" : "Copy Email")}
-                </button>
-              </div>
             </div>
           </div>
         )}
@@ -766,7 +693,7 @@ export function SubmitModal({ onClose }: Props) {
               <button type="submit" form="seam-submit-form" className="seam-btn-primary">
                 {hookFormsEndpoint
                   ? (language === "zh" ? "提交投稿" : "Submit Entry")
-                  : (language === "zh" ? "提交并生成草稿" : "Submit Draft")}
+                  : (language === "zh" ? "保存投稿草稿" : "Save Draft")}
               </button>
             </>
           ) : (
@@ -774,6 +701,7 @@ export function SubmitModal({ onClose }: Props) {
               <button
                 type="button"
                 className="seam-btn-secondary"
+                disabled={deliveryStatus === "sending"}
                 onClick={() => {
                   setSubmittedRecord(null);
                   setSubmittedMeta({ contributorName: "", contributorEmail: "" });
