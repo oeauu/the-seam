@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getPendingVerificationLabel, getRecordOtherNames } from "../data/recordStatus";
+import { getPendingVerificationLabel, getRecordDisplayNames, getRecordOtherNames } from "../data/recordStatus";
 import type { ArchiveRecord } from "../types";
 import { useApp } from "../state/useApp";
 
@@ -38,7 +38,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
     } catch { setCopyFailed(true); }
   };
 
-  const title = record.title[language] || record.title.en;
+  const { primaryTitle, secondaryTitle, mapTitle } = getRecordDisplayNames(record, language);
   const summary = record.summary[language] || record.summary.en;
   const body = record.body[language] || record.body.en;
 
@@ -109,9 +109,12 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
         <header className="seam-record-header">
           {copyFailed && <p className="seam-copy-fallback" role="status"><a href={`/record/${encodeURIComponent(record.slug)}`}>{language === "zh" ? "复制失败，可手动复制此档案链接" : "Copy failed; copy this permalink manually"}</a></p>}
 
-          <h1 id="record-title" className="seam-record-title">
-            {title}
+          <h1 id="record-title" className="seam-record-title" dir="auto">
+            {primaryTitle}
           </h1>
+          {secondaryTitle && (
+            <p className="seam-record-subtitle">{secondaryTitle}</p>
+          )}
 
           <p className="seam-record-deck">{summary}</p>
         </header>
@@ -121,7 +124,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
           <div className="seam-record-image-section">
             {record.images.map((img, i) => (
               <figure key={i} className="seam-record-figure">
-                <img src={img.src} alt={img.caption?.[language] || title} />
+                <img src={img.src} alt={img.caption?.[language] || mapTitle} />
                 {img.caption && (
                   <figcaption>{img.caption[language]}</figcaption>
                 )}
@@ -182,9 +185,9 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               </span>
               <div className="seam-meta-content">
                 <span className="seam-meta-label">
-                  {language === "zh" ? "原名与别称" : "Original & Other Names"}
+                  {language === "zh" ? "别称与异名" : "Variant Names & Aliases"}
                 </span>
-                <span className="seam-meta-sub seam-meta-names">{otherNames}</span>
+                <span className="seam-meta-sub seam-meta-names" dir="auto">{otherNames}</span>
               </div>
             </div>
           )}
@@ -221,14 +224,14 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
                 {record.sources.map((src, index) => (
                   <li key={index} className="seam-source-item">
                     <div className="seam-source-main">
-                      <strong className="seam-source-title">{src.title}</strong>
+                      <strong className="seam-source-title" dir="auto">{src.title}</strong>
                       {(src.author || src.year) && (
-                        <span className="seam-source-author">
+                        <span className="seam-source-author" dir="auto">
                           {src.author} {src.year ? `(${src.year})` : ""}
                         </span>
                       )}
                       {src.citation && (
-                        <p className="seam-source-citation">{src.citation}</p>
+                        <p className="seam-source-citation" dir="auto">{src.citation}</p>
                       )}
                       {src.note && <p>{src.note[language]}</p>}
                     </div>

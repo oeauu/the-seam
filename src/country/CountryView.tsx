@@ -5,6 +5,7 @@ import type { CountryFeature } from "../geo/geoTypes";
 import type { CountryMetadata, CityMetadata } from "../data/countriesMeta";
 import type { ArchiveRecord, LocationCluster } from "../types";
 import { useApp } from "../state/useApp";
+import { getRecordDisplayNames } from "../data/recordStatus";
 import { getCountryMetadataForFeature } from "../geo/countryLookup";
 import { getUNTerritoryInfo } from "../geo/unStandards";
 import { loadWorldData, loadAdministrativeBorders, getMapCities, canonicalCountryName } from "../geo/worldGeometry";
@@ -399,24 +400,38 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   const occupiedNameplates: Array<{ minX: number; minY: number; maxX: number; maxY: number }> = [];
   for (const { cluster, basePoint } of projectedClustersBase) {
     const [x, y] = transform.apply(basePoint);
-    const titleText = cluster.records[0].title[language] || cluster.records[0].title.en;
-    const estWidth = Math.min(180, Math.max(72, titleText.length * (language === "zh" ? 13 : 7.5) + 34));
-    const halfH = 14;
+    const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], language);
+    const maxLen = Math.max(mapTitle.length, mapOriginalName ? Math.ceil(mapOriginalName.length * 0.9) : 0);
+    const estWidth = Math.min(200, Math.max(76, maxLen * (language === "zh" ? 12.5 : 7.5) + 34));
+    const halfH = mapOriginalName ? 17 : 13;
     const defaultSide: "right" | "left" = x > dimensions.width - estWidth - 28 ? "left" : "right";
     const altSide: "right" | "left" = defaultSide === "right" ? "left" : "right";
 
+    const stepY = mapOriginalName ? 36 : 28;
     const candidates: Array<{ side: "right" | "left"; offsetY: number }> = [
       { side: defaultSide, offsetY: 0 },
-      { side: defaultSide, offsetY: -30 },
-      { side: defaultSide, offsetY: 30 },
       { side: altSide, offsetY: 0 },
-      { side: altSide, offsetY: -30 },
-      { side: altSide, offsetY: 30 },
-      { side: defaultSide, offsetY: -60 },
-      { side: defaultSide, offsetY: 60 },
+      { side: defaultSide, offsetY: -stepY },
+      { side: defaultSide, offsetY: stepY },
+      { side: altSide, offsetY: -stepY },
+      { side: altSide, offsetY: stepY },
+      { side: defaultSide, offsetY: -stepY * 2 },
+      { side: defaultSide, offsetY: stepY * 2 },
+      { side: altSide, offsetY: -stepY * 2 },
+      { side: altSide, offsetY: stepY * 2 },
+      { side: defaultSide, offsetY: -stepY * 3 },
+      { side: altSide, offsetY: -stepY * 3 },
     ];
 
     let chosen = candidates[0];
+    let bestBox = {
+      minX: defaultSide === "right" ? x + 10 : x - 10 - estWidth,
+      minY: y - halfH,
+      maxX: defaultSide === "right" ? x + 10 + estWidth : x - 10,
+      maxY: y + halfH,
+    };
+    let bestOverlapArea = Number.POSITIVE_INFINITY;
+
     for (const candidate of candidates) {
       const cy = y + candidate.offsetY;
       if (cy < 18 || cy > dimensions.height - 24) continue;
@@ -424,15 +439,25 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
       const maxX = candidate.side === "right" ? x + 10 + estWidth : x - 10;
       if (minX < 8 || maxX > dimensions.width - 8) continue;
       const box = { minX, minY: cy - halfH, maxX, maxY: cy + halfH };
-      const collides = occupiedNameplates.some(
-        other => !(box.maxX < other.minX || box.minX > other.maxX || box.maxY < other.minY || box.minY > other.maxY),
-      );
-      if (!collides) {
+      let overlapArea = 0;
+      for (const other of occupiedNameplates) {
+        const ox = Math.max(0, Math.min(box.maxX, other.maxX) - Math.max(box.minX, other.minX));
+        const oy = Math.max(0, Math.min(box.maxY, other.maxY) - Math.max(box.minY, other.minY));
+        overlapArea += ox * oy;
+      }
+      if (overlapArea === 0) {
         chosen = candidate;
-        occupiedNameplates.push(box);
+        bestBox = box;
+        bestOverlapArea = 0;
         break;
       }
+      if (overlapArea < bestOverlapArea) {
+        bestOverlapArea = overlapArea;
+        chosen = candidate;
+        bestBox = box;
+      }
     }
+    occupiedNameplates.push(bestBox);
 
     projectedClusters.push({ cluster, x, y, offsetY: chosen.offsetY, side: chosen.side });
   }
@@ -697,7 +722,7 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
         <div className="seam-2d-nameplates-layer" aria-hidden="true">
           {projectedClusters.map(({ cluster, x, y, offsetY, side }) => {
             const count = cluster.records.length;
-            const titleText = cluster.records[0].title[language] || cluster.records[0].title.en;
+            const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], language);
             return (
               <button
                 key={cluster.id}
@@ -708,7 +733,12 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
                 onClick={() => activate(cluster)}
               >
                 <span className="seam-nameplate-dot" />
-                <span className="seam-nameplate-text">{titleText}</span>
+                <span className="seam-nameplate-labels">
+                  <span className="seam-nameplate-text">{mapTitle}</span>
+                  {mapOriginalName && (
+                    <span className="seam-nameplate-orig" dir="auto">{mapOriginalName}</span>
+                  )}
+                </span>
                 {count > 1 && <span className="seam-nameplate-count">+{count - 1}</span>}
               </button>
             );

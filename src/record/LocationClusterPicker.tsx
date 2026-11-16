@@ -1,4 +1,5 @@
 import type { LocationCluster, ArchiveRecord } from "../types";
+import { getRecordDisplayNames } from "../data/recordStatus";
 import { useApp } from "../state/useApp";
 import { useDialogFocus } from "../shell/useDialogFocus";
 
@@ -41,7 +42,9 @@ export function LocationClusterPicker({ cluster, onSelectRecord, onClose }: Prop
         </p>
 
         <ul className="seam-cluster-list">
-          {cluster.records.map((r) => (
+          {cluster.records.map((r) => {
+            const { mapTitle, mapOriginalName } = getRecordDisplayNames(r, language);
+            return (
             <li key={r.id}>
               <button
                 type="button"
@@ -49,14 +52,20 @@ export function LocationClusterPicker({ cluster, onSelectRecord, onClose }: Prop
                 onClick={() => onSelectRecord(r)}
               >
                 <div className="seam-cluster-item-main">
-                  <strong className="seam-cluster-item-title">{r.title[language]}</strong>
+                  <strong className="seam-cluster-item-title">
+                    {mapTitle}
+                    {mapOriginalName && (
+                      <span className="seam-cluster-item-orig" dir="auto"> · {mapOriginalName}</span>
+                    )}
+                  </strong>
                   <span className="seam-cluster-item-time">{r.time.label[language]}</span>
                 </div>
                 <p className="seam-cluster-item-summary">{r.summary[language]}</p>
                 <span className="seam-cluster-item-arrow" aria-hidden="true">→</span>
               </button>
             </li>
-          ))}
+            );
+          })}
         </ul>
       </div>
     </div>

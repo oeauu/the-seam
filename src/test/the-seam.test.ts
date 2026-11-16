@@ -9,6 +9,7 @@ import {
 } from "../timeline/timelineUtils";
 import { clusterRecords } from "../geo/clustering";
 import { parseRoute, buildRoutePath } from "../state/routing";
+import { getRecordDisplayNames, getRecordOtherNames } from "../data/recordStatus";
 
 describe("The Seam - Data & Taxonomy Constraints", () => {
   it("contains vetted records with no modern taxonomy labels", () => {
@@ -134,5 +135,51 @@ describe("The Seam - State & Routing", () => {
       kind: "country",
       countryId: "156",
     });
+  });
+});
+
+describe("The Seam - Multilingual Name Hierarchy", () => {
+  it("elevates historical originalName on detail pages and puts UI language on top of map labels", () => {
+    const sappho = ARCHIVE_RECORDS.find(r => r.id === "entry_sappho")!;
+    const zh = getRecordDisplayNames(sappho, "zh");
+    expect(zh.primaryTitle).toBe("Σαπφώ");
+    expect(zh.secondaryTitle).toBe("萨福（莱斯博斯的萨福）");
+    expect(zh.mapTitle).toBe("萨福（莱斯博斯的萨福）");
+    expect(zh.mapOriginalName).toBe("Σαπφώ");
+
+    const en = getRecordDisplayNames(sappho, "en");
+    expect(en.primaryTitle).toBe("Σαπφώ");
+    expect(en.secondaryTitle).toBe("Sappho of Lesbos");
+    expect(en.mapTitle).toBe("Sappho of Lesbos");
+    expect(en.mapOriginalName).toBe("Σαπφώ");
+  });
+
+  it("omits duplicate or missing original names without leaving empty secondary lines", () => {
+    const elisa = ARCHIVE_RECORDS.find(r => r.id === "entry_elisa_and_marcela")!;
+    const elisaEn = getRecordDisplayNames(elisa, "en");
+    expect(elisaEn.primaryTitle).toBe("Elisa Sánchez Loriga & Marcela Gracia Ibeas");
+    expect(elisaEn.secondaryTitle).toBeNull();
+    expect(elisaEn.mapOriginalName).toBeNull();
+
+    const elisaZh = getRecordDisplayNames(elisa, "zh");
+    expect(elisaZh.secondaryTitle).toBeNull();
+    expect(elisaZh.mapOriginalName).toBeNull();
+
+    const customNoOrig = getRecordDisplayNames({ title: { zh: "待考条目", en: "Pending Entry" } }, "zh");
+    expect(customNoOrig.primaryTitle).toBe("待考条目");
+    expect(customNoOrig.secondaryTitle).toBeNull();
+    expect(customNoOrig.mapOriginalName).toBeNull();
+
+    const thomasHall = ARCHIVE_RECORDS.find(r => r.id === "entry_thomas_hall")!;
+    const otherNamesEn = getRecordOtherNames(thomasHall, "en");
+    expect(otherNamesEn).not.toContain("Thomasine Hall / Thomas Hall");
+  });
+
+  it("preserves Unicode RTL Arabic names cleanly without synthetic markers", () => {
+    const ibnHazm = ARCHIVE_RECORDS.find(r => r.id === "entry_ibn_hazm_dove")!;
+    const names = getRecordDisplayNames(ibnHazm, "zh");
+    expect(names.primaryTitle).toBe("طوق الحمامة في الألفة والألاف");
+    expect(names.secondaryTitle).toBe("伊本·哈兹姆《鸽子的项圈》");
+    expect(names.mapOriginalName).toBe("طوق الحمامة في الألفة والألاف");
   });
 });

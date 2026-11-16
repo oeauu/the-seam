@@ -709,6 +709,16 @@ a {
   line-height: 1.22;
   letter-spacing: -0.015em;
   color: var(--seam-text-primary);
+  unicode-bidi: plaintext;
+}
+
+.seam-record-subtitle {
+  margin: 6px 0 0;
+  font-family: var(--seam-font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.38;
+  color: var(--seam-text-secondary);
 }
 
 .seam-record-close-btn {
@@ -1453,6 +1463,7 @@ button:disabled { opacity: .5; cursor: default; }
   .seam-record-topbar { padding: 8px 16px; }
   .seam-record-header { padding: 14px 16px 12px; }
   .seam-record-title { font-size: 1.45rem; }
+  .seam-record-subtitle { font-size: 0.9rem; margin-top: 4px; }
   .seam-record-deck { font-size: 0.94rem; margin-top: 8px; }
   .seam-record-meta-strip { padding: 11px 16px; gap: 10px 14px; }
   .seam-record-body { flex: 1 0 auto; padding: 16px 16px 32px; }
@@ -1728,6 +1739,12 @@ button:disabled { opacity: .5; cursor: default; }
   overflow: hidden;
   pointer-events: none;
   z-index: 8;
+  transition: opacity 0.22s ease;
+  will-change: opacity;
+}
+
+.seam-globe-nameplates-overlay.is-fading-out .seam-globe-nameplate {
+  pointer-events: none;
 }
 
 .seam-maplibre-globe .maplibregl-ctrl-bottom-left {
@@ -1748,7 +1765,7 @@ button:disabled { opacity: .5; cursor: default; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 3px 8px;
+  padding: 2.5px 7px;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(20, 19, 17, 0.34);
   border-left: 2.5px solid var(--seam-gold);
@@ -1802,11 +1819,42 @@ button:disabled { opacity: .5; cursor: default; }
   flex-shrink: 0;
 }
 
+.seam-nameplate-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  text-align: start;
+}
+
 .seam-nameplate-text {
-  font-weight: 500;
-  max-width: 150px;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.22;
+  max-width: 168px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.seam-nameplate-orig {
+  font-weight: 400;
+  font-size: 9.5px;
+  line-height: 1.2;
+  color: var(--seam-text-secondary);
+  max-width: 168px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 1px;
+  unicode-bidi: plaintext;
+}
+
+.seam-cluster-item-orig {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--seam-text-secondary);
+  unicode-bidi: plaintext;
 }
 
 .seam-nameplate-count {
@@ -1855,6 +1903,16 @@ button:disabled { opacity: .5; cursor: default; }
   .seam-2d-nameplate {
     font-size: 10px;
     padding: 2px 6px;
+  }
+
+  .seam-nameplate-text {
+    font-size: 10px;
+    max-width: 132px;
+  }
+
+  .seam-nameplate-orig {
+    font-size: 8.5px;
+    max-width: 132px;
   }
 }
 

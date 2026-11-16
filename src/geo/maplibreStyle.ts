@@ -223,7 +223,14 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       type: "circle",
       source: "seam-clusters",
       paint: {
-        "circle-radius": ["case", ["boolean", ["get", "hovered"], false], 17, 13],
+        // Scale halos proportionally with globe zoom (2^zoom), clamped between far pinpoint and close-up view.
+        "circle-radius": [
+          "interpolate",
+          ["exponential", 2],
+          ["zoom"],
+          1.15, ["case", ["boolean", ["get", "hovered"], false], 5.5, 4.2],
+          3.735, ["case", ["boolean", ["get", "hovered"], false], 25.0, 21.0],
+        ],
         "circle-color": "#dfb53d",
         "circle-opacity": ["case", ["boolean", ["get", "hovered"], false], 0.38, 0.24],
         "circle-stroke-width": 0,
@@ -234,10 +241,23 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       type: "circle",
       source: "seam-clusters",
       paint: {
-        "circle-radius": 6.5,
+        // Geographic-scale golden marker dot (2.0px radius at min zoom up to 12.0px at close zoom).
+        "circle-radius": [
+          "interpolate",
+          ["exponential", 2],
+          ["zoom"],
+          1.15, 2.0,
+          3.735, 12.0,
+        ],
         "circle-color": ["case", ["boolean", ["get", "hovered"], false], "#997223", "#c49a45"],
         "circle-stroke-color": "#ffffff",
-        "circle-stroke-width": 1.8,
+        "circle-stroke-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          1.15, 0.9,
+          3.735, 2.0,
+        ],
       },
     },
   ];

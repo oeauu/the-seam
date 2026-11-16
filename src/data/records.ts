@@ -686,7 +686,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Girish / The Hijra Community",
       "zh": "希吉拉与折衷神格"
     },
-    "originalName": "Hijra (Third Gender)",
+    "originalName": "हिजड़ा / Hijra",
     "aliases": [
       "Kinnar",
       "Aravani",
@@ -824,8 +824,9 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Abu Nuwas",
       "zh": "阿布·努瓦斯"
     },
-    "originalName": "الحسن بن هانئ الحكمي (Al-Hasan ibn Hani')",
+    "originalName": "الحسن بن هانئ الحكمي",
     "aliases": [
+      "Al-Hasan ibn Hani'",
       "Father of the Lock of Hair",
       "卷发之父",
       "阿布·努瓦斯"
@@ -1973,7 +1974,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Deposition of Consort Bong (1436)",
       "zh": "1436年世子嫔奉氏被废事件"
     },
-    "originalName": "純嬪 奉氏 廢位事件（1436年）",
+    "originalName": "純嬪 奉氏（순빈 봉씨）",
     "aliases": [
       "Princess Consort Bong",
       "So-ssang",
@@ -2425,7 +2426,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Ibn Hazm's The Ring of the Dove",
       "zh": "伊本·哈兹姆《鸽子的项圈》"
     },
-    "originalName": "طوق الحمامة في الألفة والألاف (Ṭawq al-Ḥamāmah)",
+    "originalName": "طوق الحمامة في الألفة والألاف",
     "aliases": [
       "Tawq al-Hamamah",
       "The Ring of the Dove",
@@ -2620,8 +2621,9 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Ottoman Köçek Performers",
       "zh": "奥斯曼帝国 Köçek 舞者"
     },
-    "originalName": "Köçek (كوچك)",
+    "originalName": "كوچك",
     "aliases": [
+      "Köçek",
       "Köçekçe",
       "Rakkas",
       "奥斯曼女装男舞者"
@@ -2882,7 +2884,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Warok and Gemblak",
       "zh": "Warok 与 Gemblak"
     },
-    "originalName": "Warok & Gemblak (Ponorogo)",
+    "originalName": "Warok & Gemblak",
     "aliases": [
       "Reog Ponorogo",
       "Gemblakan"
@@ -2947,7 +2949,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Chiang Mai Pu-mia Records",
       "zh": "清迈 Pu-mia 记录"
     },
-    "originalName": "Pu-mia (ผู้เมีย / ปู้เมีย)",
+    "originalName": "ผู้เมีย / ปู้เมีย",
     "aliases": [
       "Pu Mia",
       "Chiang Mai Cross-Dressing Accounts"
@@ -3012,7 +3014,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Old Bugis Street (1950s–1980s)",
       "zh": "旧武吉士街（Bugis Street）"
     },
-    "originalName": "Bugis Street (Singapore)",
+    "originalName": "Bugis Street",
     "aliases": [
       "Boogie Street",
       "Old Bugis Street",
@@ -3471,7 +3473,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "The Trials of Oscar Wilde (1895)",
       "zh": "奥斯卡·王尔德审判案"
     },
-    "originalName": "Regina v. Wilde (1895)",
+    "originalName": "Regina v. Wilde",
     "aliases": [
       "Oscar Wilde Trials",
       "Reading Gaol",
@@ -3667,7 +3669,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Fernando Pessoa's Antinous (1918)",
       "zh": "费尔南多·佩索阿《Antinous》"
     },
-    "originalName": "Antinous: A Poem (1918)",
+    "originalName": "Antinous: A Poem",
     "aliases": [
       "Antinous: A Poem",
       "English Poems I–II",
@@ -3799,7 +3801,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Different from the Others (1919)",
       "zh": "《与众不同》（Anders als die Andern）"
     },
-    "originalName": "Anders als die Andern (1919)",
+    "originalName": "Anders als die Andern",
     "aliases": [
       "Anders als die Andern",
       "Different from the Others",
@@ -3865,7 +3867,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "António Botto's Canções (1921)",
       "zh": "António Botto《Canções》"
     },
-    "originalName": "Canções (António Botto, 1921)",
+    "originalName": "Canções",
     "aliases": [
       "Canções",
       "Songs (António Botto)",
@@ -4064,7 +4066,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Norris v. Ireland (1988)",
       "zh": "Norris v. Ireland（1988年）"
     },
-    "originalName": "Norris v. Ireland (Application no. 10581/83)",
+    "originalName": "Norris v. Ireland",
     "aliases": [
       "David Norris",
       "ECHR Judgment 1988",
@@ -4129,7 +4131,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Belgium Legalizes Same-Sex Marriage (2003)",
       "zh": "比利时同性婚姻合法化"
     },
-    "originalName": "Wet tot openstelling van het huwelijk voor personen van hetzelfde geslacht (2003)",
+    "originalName": "Wet tot openstelling van het huwelijk voor personen van hetzelfde geslacht",
     "aliases": [
       "Loi ouvrant le mariage à des personnes de même sexe",
       "2003 Belgian Same-Sex Marriage Act"

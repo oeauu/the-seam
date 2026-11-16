@@ -18,6 +18,7 @@ import {
 import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
 import { getUNTerritoryInfo, UN_MAP_DISCLAIMER } from "../geo/unStandards";
 import { clusterRecords } from "../geo/clustering";
+import { getRecordDisplayNames } from "../data/recordStatus";
 import { useApp } from "../state/useApp";
 
 maplibregl.setWorkerUrl(maplibreWorkerUrl);
@@ -32,8 +33,36 @@ type NameplateDir = "right" | "up" | "left" | "down";
 
 const MIN_GLOBE_ZOOM = 1.15;
 const MAX_GLOBE_ZOOM = 7.5;
-const GLOBE_NAMEPLATE_MIN_ZOOM = 1.45;
+// Nameplate display threshold and fade span, independent from golden-dot zoom scaling.
+const GLOBE_NAMEPLATE_MIN_ZOOM = 1.5;
+const GLOBE_NAMEPLATE_FULL_ZOOM = 1.85;
+const GLOBE_NAMEPLATE_FADE_MS = 220;
 const GLOBE_LIMB_MARGIN_PX = 6;
+
+function estimateGlyphWidth(text: string, sizePx: number, wideFactor: number, narrowFactor: number): number {
+  let wide = 0;
+  for (let i = 0; i < text.length; i++) {
+    const code = text.charCodeAt(i);
+    if ((code >= 0x3000 && code <= 0x9fff) || (code >= 0xac00 && code <= 0xd7af) || (code >= 0xff00 && code <= 0xffef)) {
+      wide++;
+    }
+  }
+  const narrow = Math.max(0, text.length - wide);
+  return wide * sizePx * wideFactor + narrow * sizePx * narrowFactor;
+}
+
+function queryDotClusterHit(instance: MapLibreMap, point: maplibregl.Point) {
+  const layers = ["seam-clusters-core", "seam-clusters-halo"];
+  const direct = instance.queryRenderedFeatures(point, { layers });
+  if (direct.length > 0) return direct;
+  return instance.queryRenderedFeatures(
+    [
+      [point.x - 6, point.y - 6],
+      [point.x + 6, point.y + 6],
+    ],
+    { layers },
+  );
+}
 const COUNTRY_LIMB_SPECIAL_LABELS: Record<Language, Record<string, string>> = {
   zh: {
     FK: "福克兰群岛（马尔维纳斯群岛）",
@@ -185,6 +214,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
   const nameplateRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const projectedCoordsRef = useRef<Map<string, { x: number; y: number }>>(new Map());
 
@@ -207,6 +237,8 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
   const setGlobeCamPosRef = useRef(setGlobeCameraPosition);
   const hoveredIdRef = useRef(hoveredClusterId);
   const showNameplatesRef = useRef(true);
+  const nameplateOpacityRef = useRef(1);
+  const fadeOutTimerRef = useRef<number>(0);
   const lastClusterZoomRef = useRef(1.4);
   const lastDirZoomRef = useRef(1.4);
   const initialCamRef = useRef(globeCameraPosition);
@@ -217,6 +249,18 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
   const cachedGlobeRadiusRef = useRef<{ key: string; radius: number | null } | null>(null);
   const cachedCountryPlacesRef = useRef<Array<{ lng: number; lat: number; filterKey: string; props: Record<string, unknown> }>>([]);
   const limbSyncTimerRef = useRef<number>(0);
+
+  useEffect(() => {
+    const el = overlayRef.current;
+    if (!showNameplates || !el) return;
+    el.style.opacity = "0";
+    const raf = requestAnimationFrame(() => {
+      if (overlayRef.current === el) {
+        el.style.opacity = String(nameplateOpacityRef.current);
+      }
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [showNameplates]);
 
   useEffect(() => {
     onCountryClickRef.current = onCountryClick;
@@ -330,16 +374,41 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     const center = map.getCenter();
     const zoom = map.getZoom();
     const shouldShowNameplates = zoom >= GLOBE_NAMEPLATE_MIN_ZOOM;
-    if (showNameplatesRef.current !== shouldShowNameplates) {
-      showNameplatesRef.current = shouldShowNameplates;
-      setShowNameplates(shouldShowNameplates);
-      if (shouldShowNameplates) lastLayoutKeyRef.current = "";
-    }
 
-    if (!shouldShowNameplates) {
-      for (const cluster of clustersRef.current) {
-        const el = nameplateRefs.current.get(cluster.id);
-        if (el) el.style.visibility = "hidden";
+    if (shouldShowNameplates) {
+      if (fadeOutTimerRef.current) {
+        window.clearTimeout(fadeOutTimerRef.current);
+        fadeOutTimerRef.current = 0;
+      }
+      const nextAlpha = Math.min(
+        1,
+        Math.max(0.08, (zoom - GLOBE_NAMEPLATE_MIN_ZOOM) / (GLOBE_NAMEPLATE_FULL_ZOOM - GLOBE_NAMEPLATE_MIN_ZOOM)),
+      );
+      nameplateOpacityRef.current = nextAlpha;
+      if (overlayRef.current) {
+        overlayRef.current.style.opacity = String(nextAlpha);
+        overlayRef.current.classList.remove("is-fading-out");
+      }
+      if (!showNameplatesRef.current) {
+        showNameplatesRef.current = true;
+        setShowNameplates(true);
+        lastLayoutKeyRef.current = "";
+      }
+    } else {
+      nameplateOpacityRef.current = 0;
+      if (overlayRef.current) {
+        overlayRef.current.style.opacity = "0";
+        overlayRef.current.classList.add("is-fading-out");
+      }
+      if (showNameplatesRef.current) {
+        showNameplatesRef.current = false;
+        if (fadeOutTimerRef.current) window.clearTimeout(fadeOutTimerRef.current);
+        fadeOutTimerRef.current = window.setTimeout(() => {
+          fadeOutTimerRef.current = 0;
+          if (!showNameplatesRef.current) {
+            setShowNameplates(false);
+          }
+        }, GLOBE_NAMEPLATE_FADE_MS);
       }
       return;
     }
@@ -396,15 +465,17 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     const sorted = [...visibleItems].sort((a, b) => b.cluster.records.length - a.cluster.records.length);
 
     for (const { cluster, x, y } of sorted) {
-      const title = cluster.records[0].title[lang] || cluster.records[0].title.en;
-      const boxW = Math.min(180, Math.max(76, title.length * (lang === "zh" ? 13 : 7.5) + 32));
-      const boxH = 26;
+      const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], lang);
+      const titleW = estimateGlyphWidth(mapTitle, 11, 1.08, 0.64);
+      const origW = mapOriginalName ? estimateGlyphWidth(mapOriginalName, 9.5, 1.05, 0.62) : 0;
+      const boxW = Math.min(198, Math.max(80, Math.max(titleW, origW) + 32));
+      const boxH = mapOriginalName ? 38 : 26;
 
       const tryDirs: NameplateDir[] = [
-        x > width - 190 ? "left" : "right",
-        y < 70 ? "down" : "up",
-        x > width - 190 ? "right" : "left",
-        y < 70 ? "up" : "down",
+        x > width - 210 ? "left" : "right",
+        y < 76 ? "down" : "up",
+        x > width - 210 ? "right" : "left",
+        y < 76 ? "up" : "down",
       ];
 
       for (const dir of tryDirs) {
@@ -562,7 +633,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       instance.on("mousemove", e => {
         if (e.originalEvent.buttons !== 0 || instance.isMoving()) return;
         if (!instance.getLayer("seam-clusters-core")) return;
-        const hits = instance.queryRenderedFeatures(e.point, { layers: ["seam-clusters-core", "seam-clusters-halo"] });
+        const hits = queryDotClusterHit(instance, e.point);
         if (hits.length > 0) {
           const cid = String(hits[0].properties?.clusterId || "");
           instance.getCanvas().style.cursor = "pointer";
@@ -574,9 +645,9 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       });
 
       instance.on("click", e => {
-        // Priority 1: Direct click on golden archive dot
+        // Priority 1: Direct click on golden archive dot (with padded radius for zoomed-out pins)
         if (instance.getLayer("seam-clusters-core")) {
-          const dotHits = instance.queryRenderedFeatures(e.point, { layers: ["seam-clusters-core", "seam-clusters-halo"] });
+          const dotHits = queryDotClusterHit(instance, e.point);
           if (dotHits.length > 0) {
             const cid = String(dotHits[0].properties?.clusterId || "");
             const target = clustersRef.current.find(c => c.id === cid);
@@ -627,7 +698,9 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     return () => {
       window.clearTimeout(readyTimer);
       window.clearTimeout(limbSyncTimerRef.current);
+      window.clearTimeout(fadeOutTimerRef.current);
       limbSyncTimerRef.current = 0;
+      fadeOutTimerRef.current = 0;
       disposed = true;
       mapRef.current = null;
       map?.remove();
@@ -749,13 +822,17 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     >
       <div ref={mapContainerRef} className="seam-maplibre-globe" style={{ width: "100%", height: "100%" }} />
 
-      {/* Crisp archival nameplate overlays hidden automatically when zoomed out beyond country-label scale */}
+      {/* Crisp archival nameplate overlays hidden smoothly when zoomed out beyond threshold */}
       {showNameplates && (
-      <div className="seam-globe-nameplates-overlay" aria-hidden={false}>
+      <div
+        ref={overlayRef}
+        className="seam-globe-nameplates-overlay"
+        aria-hidden={false}
+      >
         {clusters.map(cluster => {
           const count = cluster.records.length;
           const isHovered = hoveredClusterId === cluster.id;
-          const primaryTitle = cluster.records[0].title[language] || cluster.records[0].title.en;
+          const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], language);
           const dir = nameplateDirs[cluster.id] ?? (isHovered ? "right" : null);
           if (!dir) return null;
 
@@ -783,10 +860,18 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
                 event.stopPropagation();
                 onClusterClick(cluster);
               }}
-              title={cluster.records.map(r => r.title[language]).join(" / ")}
+              title={cluster.records.map(r => {
+                const names = getRecordDisplayNames(r, language);
+                return names.mapOriginalName ? `${names.mapTitle} (${names.mapOriginalName})` : names.mapTitle;
+              }).join(" / ")}
             >
               <span className="seam-nameplate-dot" aria-hidden="true" />
-              <span className="seam-nameplate-text">{primaryTitle}</span>
+              <span className="seam-nameplate-labels">
+                <span className="seam-nameplate-text">{mapTitle}</span>
+                {mapOriginalName && (
+                  <span className="seam-nameplate-orig" dir="auto">{mapOriginalName}</span>
+                )}
+              </span>
               {count > 1 && <span className="seam-nameplate-count">+{count - 1}</span>}
             </button>
           );

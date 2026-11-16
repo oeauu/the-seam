@@ -44,7 +44,13 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
     const panel = page.locator(".seam-record-panel");
     await expect(panel).toBeVisible();
-    await expect(panel.locator(".seam-record-title")).toContainText("托马斯(因)·霍尔");
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
+    await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
+    await page.getByRole("button", { name: "EN" }).click();
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
+    await expect(panel.locator(".seam-record-subtitle")).toHaveText("Thomas(ine) Hall");
+    await page.getByRole("button", { name: "中" }).click();
+    await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
     await expect(panel.locator(".seam-record-deck")).toBeVisible();
     await expect(panel.locator(".seam-record-aliases")).toHaveCount(0);
   });
@@ -54,7 +60,13 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
     const panel = page.locator(".seam-record-panel");
     await expect(panel).toBeVisible();
-    await expect(panel.locator(".seam-record-title")).toContainText("托马斯(因)·霍尔");
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
+    await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
+    await page.getByRole("button", { name: "EN" }).click();
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
+    await expect(panel.locator(".seam-record-subtitle")).toHaveText("Thomas(ine) Hall");
+    await page.getByRole("button", { name: "中" }).click();
+    await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
     await expect(panel.locator(".seam-record-deck")).toBeVisible();
     await expect(panel.locator(".seam-record-aliases")).toHaveCount(0);
 
@@ -175,9 +187,14 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(page.locator(".seam-timeline-expand-btn")).toBeVisible();
   });
 
-  test("old archive permalinks and WebGL fallback remain usable", async ({page}) => {
+  test("old archive permalinks, RTL Arabic titles, and WebGL fallback remain usable", async ({page}) => {
     await page.goto("/record/entry-sappho");
-    await expect(page.locator(".seam-record-title")).toContainText("萨福");
+    await expect(page.locator(".seam-record-title")).toHaveText("Σαπφώ");
+    await expect(page.locator(".seam-record-subtitle")).toHaveText("萨福（莱斯博斯的萨福）");
+    await page.goto("/record/ibn-hazm-ring-of-the-dove");
+    await expect(page.locator(".seam-record-title")).toHaveAttribute("dir", "auto");
+    await expect(page.locator(".seam-record-title")).toHaveText("طوق الحمامة في الألفة والألاف");
+    await expect(page.locator(".seam-record-subtitle")).toHaveText("伊本·哈兹姆《鸽子的项圈》");
     await page.locator(".seam-record-close-btn").click();
     await page.addInitScript(() => {HTMLCanvasElement.prototype.getContext = () => null;});
     await page.goto("/");
@@ -251,6 +268,8 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
     await page.goto("/country/156");
     await expect(page.locator(".seam-2d-nameplate").first()).toBeVisible();
+    await expect(page.locator(".seam-2d-nameplate .seam-nameplate-text").first()).toBeVisible();
+    await expect(page.locator(".seam-2d-nameplate .seam-nameplate-orig").first()).toBeVisible();
     await expect(page.locator(".seam-subregions-labels-layer text").first()).toBeVisible();
     await expect(page.locator(".seam-subregion-chip").nth(1)).toBeVisible();
     await page.screenshot({path:"test-results/seam-country-china.png"});
@@ -293,6 +312,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     expect(issueHref).toContain("labels=archive-submission");
     await modal.getByRole("button", { name: "在档案中查看并定位" }).click();
     await expect(page.locator(".seam-record-panel .seam-record-title")).toHaveText("清代徽州契约文献待考录");
+    await expect(page.locator(".seam-record-panel .seam-record-subtitle")).toHaveCount(0);
     await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");
     await page.locator(".seam-record-close-btn").click();
 
