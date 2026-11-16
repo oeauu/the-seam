@@ -26,6 +26,9 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_GITHUB_REPO: ${{ vars.VITE_GITHUB_REPO || github.repository }}
+          VITE_SUBMISSION_EMAIL: ${{ vars.VITE_SUBMISSION_EMAIL || 'the.seam@outlook.com' }}
         run: npm run build
 
       - name: Lint
@@ -38,6 +41,9 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: End-to-end tests
+        env:
+          VITE_GITHUB_REPO: ${{ vars.VITE_GITHUB_REPO || github.repository }}
+          VITE_SUBMISSION_EMAIL: ${{ vars.VITE_SUBMISSION_EMAIL || 'the.seam@outlook.com' }}
         run: npm run test:e2e
 
       - name: Upload Playwright artifacts on failure
