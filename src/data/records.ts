@@ -5178,61 +5178,6 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     ]
   },
   {
-    "id": "entry_sri_lanka_penal_code_365a",
-    "slug": "sri-lanka-penal-code-365a",
-    "title": {
-      "zh": "斯里兰卡刑法第365A条",
-      "en": "Section 365A of the Sri Lankan Penal Code"
-    },
-    "aliases": [],
-    "summary": {
-      "zh": "斯里兰卡1995年刑法修正案改写了第365A条所用的主体措辞。",
-      "en": "Sri Lanka’s 1995 amendment changed the wording identifying who could be prosecuted under section 365A."
-    },
-    "body": {
-      "zh": "锡兰1883年制定殖民地刑法典，1924年加入第365A条，以「严重猥亵」规制男性之间的行为。条文适用于公开和私下场合。\n\n斯里兰卡议会1995年第22号修正法将条文中的男性改为「任何人」，使条文的适用范围扩及不同性别。同年11月3日刊行的政府公报保存了替换后的完整条文。",
-      "en": "Ceylon enacted its colonial Penal Code in 1883. Section 365A was inserted in 1924 and criminalized acts of ‘gross indecency’ between males in public or private.\n\nIn 1995, Parliament’s Act No. 22 replaced the male-specific wording with language applying to any person, extending the provision across genders. The Gazette supplement of 3 November 1995 preserves the replacement text."
-    },
-    "time": {
-      "startYear": 1924,
-      "endYear": 1995,
-      "label": {
-        "zh": "1924年增列，1995年修订",
-        "en": "Inserted in 1924; amended in 1995"
-      },
-      "certainty": "period"
-    },
-    "place": {
-      "name": {
-        "zh": "科伦坡",
-        "en": "Colombo"
-      },
-      "countryName": {
-        "zh": "斯里兰卡",
-        "en": "Sri Lanka"
-      },
-      "countryCode": "144",
-      "coordinates": {
-        "longitude": 79.86,
-        "latitude": 6.93
-      },
-      "precision": "city",
-      "relation": "representative"
-    },
-    "sources": [
-      {
-        "title": "Penal Code (Amendment) Act, No. 22 of 1995",
-        "citation": "Sri Lanka, Gazette supplement, 3 November 1995",
-        "url": "https://www.parliament.lk/uploads/acts/gbills/english/3136.pdf"
-      },
-      {
-        "title": "Parliamentary Debates (Hansard)",
-        "citation": "Parliament of Sri Lanka, 9 May 2023, col. 6",
-        "url": "https://www.parliament.lk/uploads/documents/hansardvolumes/1725447465073063.pdf"
-      }
-    ]
-  },
-  {
     "id": "entry_xanith_sohar",
     "slug": "xanith-sohar",
     "title": {
