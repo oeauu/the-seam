@@ -4197,8 +4197,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Evans-Pritchard documented marriage relationships between Azande warriors and younger males, as well as intimate relationships between women."
     },
     "body": {
-      "zh": "在埃文斯-普里查德1970年发表的民族志文章中，受访者回忆了早期战士队伍中的婚姻。一些战士向年轻伴侣的家人支付婚资，并称伴侣为 diare（我的妻子）。年轻伴侣称战士为 kumbami（我的丈夫）。文章也记载了女性之间结成伴侣的叙述。",
-      "en": "In his 1970 article, Evans-Pritchard drew on accounts of marriage in earlier warrior companies. Some warriors gave marriage payments to the families of their younger partners. A warrior called his partner diare (my wife), and the younger partner called the warrior kumbami (my husband). The article also recounts partnerships between women."
+      "zh": "战士在队伍中结成伴侣时，会向年轻一方的家人交付婚资。埃文斯-普里查德记下了两人相互使用的称呼：战士称年轻伴侣为 diare（我的妻子），后者则称战士为 kumbami（我的丈夫）。出行时，年轻伴侣有时替战士携带盾牌。\n\n这些叙述来自阿赞德受访者对早年战士生活的回忆，收入埃文斯-普里查德1970年发表的文章。同一篇文章还记下了受访者谈到的女性伴侣关系，其中一些发生在一夫多妻家庭中。",
+      "en": "A warrior who took a younger partner gave marriage payments to the partner’s family. Evans-Pritchard recorded the terms they used for each other: the warrior addressed his partner as diare (my wife), and the younger partner called him kumbami (my husband). On journeys, the younger partner sometimes carried the warrior’s shield.\n\nEvans-Pritchard published these recollections of earlier Azande warrior life in 1970. The same article recounts what his interlocutors told him about relationships between women, including relationships in polygynous households."
     },
     "time": {
       "startYear": 1900,
@@ -4224,13 +4224,18 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "latitude": 2.77
       },
       "precision": "transregional",
-      "relation": "representative"
+      "relation": "representative",
+      "notes": {
+        "zh": "地图以今刚果民主共和国的上韦莱地区标示阿赞德人的跨区域活动范围。",
+        "en": "The map uses Upper Uele in present-day Democratic Republic of the Congo as a regional anchor for the wider Azande area."
+      }
     },
     "sources": [
       {
         "title": "Sexual Inversion among the Azande",
         "author": "E. E. Evans-Pritchard",
         "year": 1970,
+        "citation": "American Anthropologist 72(6), pp. 1428–1434",
         "url": "https://doi.org/10.1525/aa.1970.72.6.02a00170"
       }
     ]
@@ -4248,8 +4253,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "In Nuer kinship, a woman could take the role of husband and marry another woman."
     },
     "body": {
-      "zh": "埃文斯-普里查德在1930年代调查努尔人的亲属与婚姻制度。书中记载，一名女性可以向妻子的家族交付婚牛，在亲属关系中承担丈夫的职责。妻子所生的子女称这名女性为父亲，并归入她的父系宗族。",
-      "en": "Evans-Pritchard studied Nuer kinship and marriage in the 1930s. He described marriages in which a woman transferred bridewealth cattle to her wife's kin and took on the obligations of a husband. Children born to the wife recognized the female husband as their father and belonged to her patrilineage."
+      "zh": "在努尔人的婚姻中，婚牛从一方家族转交给另一方家族。埃文斯-普里查德在1930年代的田野调查中记下了一种安排：一名女性向另一名女性的亲属交付婚牛，由此成为她的丈夫。\n\n妻子所生的孩子称这名女性为父亲，在亲属制度上归入她的父系宗族。婚牛的转交、夫妻称谓和子女的宗族归属，构成了埃文斯-普里查德1951年出版的《努尔人的亲属与婚姻》所记载的这类婚姻。",
+      "en": "In Nuer marriages, cattle passed between the families involved. During his fieldwork in the 1930s, Evans-Pritchard recorded marriages in which a woman transferred bridewealth cattle to the kin of another woman and became her husband.\n\nChildren born to the wife called the female husband their father and belonged to her patrilineage. Evans-Pritchard described the transfer of cattle, the spouses’ roles and the children’s lineage membership in Kinship and Marriage among the Nuer, published in 1951."
     },
     "time": {
       "startYear": 1930,
@@ -4282,6 +4287,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Kinship and Marriage among the Nuer",
         "author": "E. E. Evans-Pritchard",
         "year": 1951,
+        "citation": "Clarendon Press, pp. 108–109",
         "url": "https://ehrafworldcultures.yale.edu/cultures/fj22/documents/002"
       }
     ]
@@ -4300,8 +4306,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Driberg's 1923 ethnography documented Mudoko Dako among the Lango."
     },
     "body": {
-      "zh": "杰克·德里伯格在《兰戈人》中记述，当地称为 Mudoko Dako 的人穿女性服饰，在社会交往中承担女性角色。书中也记载了他们与男性缔结婚姻的情形。",
-      "en": "In The Lango, Jack Driberg described people called Mudoko Dako who wore women's clothing and occupied women's social roles. He also recorded marriages with men."
+      "zh": "杰克·德里伯格在乌干达北部兰戈地区任职期间记录了当地的亲属关系、婚礼和日常生活，后来将材料编入1923年出版的《兰戈人》。\n\n书中以 Mudoko Dako 记下当地的一种称谓。德里伯格写到，被这样称呼的人穿女性服饰，在社会生活中承担女性角色，有人会与男性结婚。",
+      "en": "While working in the Lango region of northern Uganda, Jack Driberg recorded local kinship, marriage and everyday life. He published his account in The Lango in 1923.\n\nDriberg recorded Mudoko Dako as a local term. He described people given that name as wearing women’s clothing and taking on women’s roles in social life. Some married men."
     },
     "time": {
       "startYear": 1923,
@@ -4334,7 +4340,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "The Lango: A Nilotic Tribe of Uganda",
         "author": "J. H. Driberg",
         "year": 1923,
-        "url": "https://wellcomecollection.org/works/zwnx6x3j"
+        "url": "https://www.loc.gov/item/2021666779/"
       }
     ]
   },
@@ -4352,8 +4358,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Donald Donham documented the social roles of Ashtime in the Maale region of southern Ethiopia."
     },
     "body": {
-      "zh": "多纳姆在1970年代调查马阿勒社会。他以 Ashtime 记录了当地穿女性服饰、从事女性劳动的人，并从马阿勒人的社会分工和礼仪生活写起，描述他们在社区中的位置。",
-      "en": "Donham conducted fieldwork among the Maale in the 1970s. He used Ashtime for people who wore women's clothing and undertook work associated with women, describing their place in local divisions of labour and ritual life."
+      "zh": "1975年，唐纳德·多纳姆在埃塞俄比亚南部马阿勒地区的博拉记录当地怎样组织共同劳动。他在讨论家庭与村社分工时，写到了称为 Ashtime 的人，他们穿女性服饰，从事当地由女性承担的劳动。\n\n多纳姆还把这一称谓写进对旧日马阿勒王国礼仪的叙述。他将田野中记录的日常分工与当地人讲述的旧王国生活收入《历史、权力与意识形态》。",
+      "en": "In 1975, Donald Donham documented how people in Bola, in the Maale region of southern Ethiopia, organized work together. In his account of household and village labour, he described people called Ashtime who wore women’s clothing and carried out work associated locally with women.\n\nDonham also described Ashtime in his account of ritual life in the former Maale kingdom. He brought his observations of everyday work and local accounts of the kingdom together in History, Power, Ideology."
     },
     "time": {
       "startYear": 1970,
@@ -4385,7 +4391,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       {
         "title": "History, Power, Ideology",
         "author": "Donald L. Donham",
-        "year": 1990,
+        "year": 1999,
+        "citation": "University of California Press edition",
         "url": "https://www.ucpress.edu/book/9780520213371/history-power-ideology"
       }
     ]
@@ -4404,8 +4411,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Male workers on South African gold mines formed temporary marriages involving intimacy, domestic work and material exchange."
     },
     "body": {
-      "zh": "兰德金矿招收来自南部非洲各地的流动劳工，许多人住在矿区宿舍。邓巴·穆迪、维维恩·恩达特谢和布里蒂什·西布耶收集的矿工口述记载，一些年长矿工与年轻矿工结成伴侣，一方提供礼物或经济支持，另一方承担部分家务。这些关系随矿区劳动和居住安排而变化。",
-      "en": "Gold mines on the Rand recruited migrant labourers across southern Africa, many of whom lived in mine compounds. In interviews collected by Dunbar Moodie, Vivien Ndatshe and British Sibuye, miners described partnerships in which older workers gave gifts or financial support and younger partners took on domestic tasks. The arrangements changed with work and housing on the mines."
+      "zh": "威特沃特斯兰德的金矿从南部非洲各地招募劳工，许多人住在矿区的集体宿舍。矿工在口述中回忆，一些年长矿工会和较年轻的同伴结成临时婚姻，给伴侣礼物或经济支持，由对方承担部分家务。\n\n1988年，邓巴·穆迪与维维恩·恩达特谢、布里蒂什·西布耶发表了这些访谈。他们以矿工自己的叙述梳理宿舍里的伴侣生活，以及招工和居住安排改变后，这些关系如何随之变化。",
+      "en": "The Witwatersrand gold mines recruited workers from across southern Africa. Many lived in mine compounds. Miners recalled that some older workers entered temporary marriages with younger men, offering gifts or financial support while their partners took on domestic tasks.\n\nDunbar Moodie, Vivien Ndatshe and British Sibuye published these interviews in 1988. The miners’ accounts describe life with their partners in the compounds and changes in those arrangements as recruitment and housing changed."
     },
     "time": {
       "startYear": 1890,
@@ -4438,6 +4445,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Migrancy and Male Sexuality on the South African Gold Mines",
         "author": "T. Dunbar Moodie, with Vivien Ndatshe and British Sibuye",
         "year": 1988,
+        "citation": "Journal of Southern African Studies 14(2)",
         "url": "https://doi.org/10.1080/03057078808708172"
       }
     ]
@@ -4456,11 +4464,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Young women in Lesotho used the terms mummy and baby in relationships that involved care and physical affection."
     },
     "body": {
-      "zh": "肯德尔在莱索托的访谈与田野记录中写到，年轻女性以 mummy 与 baby 相称。受访者讲述了彼此陪伴、表达亲密和照顾对方的经历。肯德尔将这些叙述收入1998年发表的《当莱索托的一名女性爱上另一名女性》。",
-      "en": "In interviews and field accounts from Lesotho, Kendall recorded young women addressing each other as mummy and baby. Participants spoke about companionship, affection and caring for one another. Kendall published these accounts in the 1998 chapter When a Woman Loves a Woman in Lesotho."
+      "zh": "在朱迪思·盖伊记下的莱索托学校生活中，年龄稍长的女孩称作 mummy，年纪较小的女孩称作 baby。这两个称呼也带来日常责任：年长的一方给对方出主意、提供照顾，有时也会出面保护她。女孩们互送礼物、写信，在学校生活中逐渐建立起各自的关系。\n\n盖伊的访谈里，有人说起两人怎样相约见面，也有人讲到相处时的身体亲近。礼物、信件和私下见面的经历，与平时的照顾一起出现在受访者的讲述中。盖伊把这些材料整理进《莱索托的“妈妈与宝宝”、朋友与恋人》，从女孩们的叙述写出两种称呼在学校里怎样使用。\n\n肯德尔1998年发表的文章也谈到寄宿学校里的 mummy–baby 关系。文章同时记录了成年女性之间的交往，其中一段来自莱索托作家姆福·恩图尼娅对自己生活的回忆。盖伊记录的是学校中的称谓和相处方式，恩图尼娅的回忆则把叙述带到成年女性的生活中。",
+      "en": "In Judith Gay’s account of school life in Lesotho, an older girl took the role of mummy and a younger girl the role of baby. The terms carried everyday responsibilities. The older girl offered advice and care and might step in to protect her companion. The girls exchanged gifts and letters as they built relationships of their own at school.\n\nSome of Gay’s interviewees described arranging to meet in private. Others recalled physical affection. Gifts, letters and meetings appeared alongside accounts of everyday care. In ‘Mummies and Babies’ and Friends and Lovers in Lesotho, Gay drew on these accounts to describe how girls used the two terms at school.\n\nKendall’s 1998 chapter also discusses mummy–baby relationships in boarding schools. It goes on to describe relationships between adult women, drawing in part on the Lesotho writer Mpho ’M’atsepo Nthunya’s recollections of her own life. Gay’s interviews describe the terms and routines of school relationships, while Nthunya’s account takes the story into adult women’s lives."
     },
     "time": {
-      "startYear": 1990,
+      "startYear": 1979,
       "endYear": 1998,
       "label": {
         "zh": "20世纪末",
@@ -4487,9 +4495,16 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     },
     "sources": [
       {
+        "title": "‘Mummies and Babies’ and Friends and Lovers in Lesotho",
+        "author": "Judith Gay",
+        "citation": "Journal of Homosexuality 11(3–4), pp. 97–116",
+        "url": "https://doi.org/10.1300/J082v11n03_07"
+      },
+      {
         "title": "When a Woman Loves a Woman in Lesotho",
         "author": "K. L. Kendall",
         "year": 1998,
+        "citation": "In Boy-Wives and Female Husbands: Studies in African Homosexualities",
         "url": "https://www.africabib.org/rec.php?RID=W00080407"
       }
     ]
@@ -4508,8 +4523,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "The albums of hairdresser and drag performer Kewpie document social life and performance in District Six during apartheid."
     },
     "body": {
-      "zh": "Kewpie 在开普敦第六区生活和工作。她从1950年代到1980年代积累了七百多张照片，留下了朋友聚会、舞台表演和日常生活的影像。Kewpie 为照片补写的说明与照片一同保存在 GALA 酷儿档案馆。第六区博物馆与该馆以这些藏品举办了《Kewpie：第六区的女儿》展览。",
-      "en": "Kewpie lived and worked in Cape Town's District Six. From the 1950s to the 1980s she built a collection of more than 700 prints showing friends, performances and everyday life. Her captions are preserved alongside the photographs at the GALA Queer Archive. GALA and the District Six Museum drew on the collection for the exhibition Kewpie: Daughter of District Six."
+      "zh": "Kewpie 在开普敦第六区汉诺威街的 Salon André 学习美发，后来在肯辛顿开了自己的 Salon Kewpie。她也参加变装表演。她留下的照片里，有美发店里的工作与合影，也有友人聚会、外出和登台的场景。\n\n这批照片从1950年代积累到1980年代，共七百余张。Kewpie 为照片提供了说明，影像和说明一同收藏于 GALA 酷儿档案馆。2018年，档案馆与第六区博物馆用这些照片和说明举办了《Kewpie：第六区的女儿》。",
+      "en": "Kewpie trained as a hairdresser at Salon André on Hanover Street in Cape Town’s District Six and later opened Salon Kewpie in Kensington. She also performed in drag. Her photographs show work and group portraits at the salon, as well as friends together on outings and onstage.\n\nHer collection grew to more than 700 prints from the 1950s through the 1980s. Kewpie supplied captions, which the GALA Queer Archive preserves alongside the prints. In 2018, GALA and the District Six Museum used the photographs and captions in Kewpie: Daughter of District Six."
     },
     "time": {
       "startYear": 1950,
@@ -4559,8 +4574,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "On 13 October 1990, Johannesburg hosted South Africa's first public lesbian and gay Pride march."
     },
     "body": {
-      "zh": "维特沃特斯兰德同性恋组织（GLOW）在约翰内斯堡组织了这场游行。队伍从维特沃特斯兰德大学出发，活动人士在反种族隔离运动争取平等权利的同时，公开提出同性恋群体的权利诉求。GLOW 保存的游行影像收入了彩虹历史项目数字馆藏。",
-      "en": "The Gay and Lesbian Organisation of the Witwatersrand (GLOW) organized the march in Johannesburg. It set out from the University of the Witwatersrand, where activists publicly called for lesbian and gay rights alongside demands for equality in the struggle against apartheid. Footage preserved by GLOW is held in the Rainbow History Project's digital collection."
+      "zh": "1990年10月13日，参加南非首次骄傲游行的人在约翰内斯堡维特沃特斯兰德大学集合。维特沃特斯兰德同性恋组织（GLOW）筹办游行，贝弗莉·迪齐和西蒙·恩科利在出发前向人群讲话。\n\n恩科利把同性恋者争取平等权利的诉求放进当时要求结束种族隔离、建立民主南非的运动中。GLOW 留下的现场影像现藏于彩虹历史项目，与1992年游行的影像一同编目。",
+      "en": "On 13 October 1990, participants in South Africa’s first Pride march gathered at the University of the Witwatersrand in Johannesburg. The Gay and Lesbian Organisation of the Witwatersrand (GLOW) organized the march. Beverley Ditsie and Simon Nkoli addressed the crowd before it set out.\n\nNkoli placed the demand for equal rights for lesbians and gay men within the movement to end apartheid and build a democratic South Africa. GLOW’s footage is held by the Rainbow History Project, which catalogues it alongside footage from the 1992 march."
     },
     "time": {
       "startYear": 1990,
@@ -4592,8 +4607,15 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       {
         "title": "Lesbian and Gay Pride Marches: Johannesburg 1990 & 1992 [film]",
         "author": "Gay and Lesbian Organisation of the Witwatersrand",
-        "year": 1992,
+        "year": "1990–1992",
+        "citation": "Rainbow History Project Digital Collections, item 1728",
         "url": "https://archives.rainbowhistory.org/items/show/1728"
+      },
+      {
+        "title": "I Helped Found Africa’s First LGBTQ+ Pride March",
+        "author": "Beverley Ditsie",
+        "year": 2021,
+        "url": "https://www.globalcitizen.org/en/content/beverley-ditsie-south-africa-lgbtq-rights/"
       }
     ]
   }
