@@ -120,6 +120,7 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
       { name: { en: "Versailles", zh: "凡尔赛" }, coordinates: [2.1301, 48.8014] },
       { name: { en: "Tonnerre", zh: "托内尔" }, coordinates: [3.9744, 47.8561] },
       { name: { en: "Lyon", zh: "里昂" }, coordinates: [4.8357, 45.7640] },
+      { name: { en: "Saint-Jean-d'Angély", zh: "圣让当热利" }, coordinates: [-0.5211, 45.9442] },
       { name: { en: "Marseille", zh: "马赛" }, coordinates: [5.3698, 43.2965] }
     ]
   },
@@ -223,6 +224,9 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
       { name: { en: "London", zh: "伦敦" }, coordinates: [-0.1278, 51.5074], isCapital: true },
       { name: { en: "Newcastle upon Tyne", zh: "纽卡斯尔" }, coordinates: [-1.6178, 54.9783] },
       { name: { en: "Oxford", zh: "牛津" }, coordinates: [-1.2577, 51.7520] },
+      { name: { en: "Llangollen", zh: "兰戈伦" }, coordinates: [-3.1714, 52.9708] },
+      { name: { en: "Halifax (Shibden)", zh: "哈利法克斯" }, coordinates: [-1.8389, 53.7278] },
+      { name: { en: "York", zh: "约克" }, coordinates: [-1.0803, 53.9591] },
       { name: { en: "Edinburgh", zh: "爱丁堡" }, coordinates: [-3.1883, 55.9533] }
     ]
   },
@@ -292,6 +296,7 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
     cities: [
       { name: { en: "Madrid", zh: "马德里" }, coordinates: [-3.7038, 40.4168], isCapital: true },
       { name: { en: "Toledo", zh: "托莱多" }, coordinates: [-4.0273, 39.8628] },
+      { name: { en: "A Coruña", zh: "拉科鲁尼亚" }, coordinates: [-8.3960, 43.3713] },
       { name: { en: "Córdoba", zh: "科尔多瓦" }, coordinates: [-4.7794, 37.8882] }
     ]
   },
@@ -390,6 +395,84 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
       { name: { en: "Naypyidaw", zh: "内比都" }, coordinates: [96.0785, 19.7633], isCapital: true },
       { name: { en: "Mandalay", zh: "曼德勒" }, coordinates: [96.0891, 21.9588] },
       { name: { en: "Yangon", zh: "仰光" }, coordinates: [96.1561, 16.8661] }
+    ]
+  },
+  // Netherlands
+  "528": {
+    id: "528",
+    codeAlpha3: "NLD",
+    name: { en: "Netherlands", zh: "荷兰" },
+    center: [5.2913, 52.1326],
+    capital: {
+      name: { en: "Amsterdam", zh: "阿姆斯特丹" },
+      coordinates: [4.9041, 52.3676],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Amsterdam", zh: "阿姆斯特丹" }, coordinates: [4.9041, 52.3676], isCapital: true },
+      { name: { en: "Zwolle", zh: "兹沃勒" }, coordinates: [6.0919, 52.5168] }
+    ]
+  },
+  // Portugal
+  "620": {
+    id: "620",
+    codeAlpha3: "PRT",
+    name: { en: "Portugal", zh: "葡萄牙" },
+    center: [-8.2245, 39.3999],
+    capital: {
+      name: { en: "Lisbon", zh: "里斯本" },
+      coordinates: [-9.1500, 38.7600],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Lisbon", zh: "里斯本" }, coordinates: [-9.1500, 38.7600], isCapital: true },
+      { name: { en: "Porto", zh: "波尔图" }, coordinates: [-8.6291, 41.1579] }
+    ]
+  },
+  // Switzerland
+  "756": {
+    id: "756",
+    codeAlpha3: "CHE",
+    name: { en: "Switzerland", zh: "瑞士" },
+    center: [8.2275, 46.8182],
+    capital: {
+      name: { en: "Bern", zh: "伯尔尼" },
+      coordinates: [7.4474, 46.9480],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Bern", zh: "伯尔尼" }, coordinates: [7.4474, 46.9480], isCapital: true },
+      { name: { en: "Zurich", zh: "苏黎世" }, coordinates: [8.5417, 47.3769] }
+    ]
+  },
+  // Ireland
+  "372": {
+    id: "372",
+    codeAlpha3: "IRL",
+    name: { en: "Ireland", zh: "爱尔兰" },
+    center: [-8.2439, 53.4129],
+    capital: {
+      name: { en: "Dublin", zh: "都柏林" },
+      coordinates: [-6.2603, 53.3498],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Dublin", zh: "都柏林" }, coordinates: [-6.2603, 53.3498], isCapital: true }
+    ]
+  },
+  // Belgium
+  "056": {
+    id: "056",
+    codeAlpha3: "BEL",
+    name: { en: "Belgium", zh: "比利时" },
+    center: [4.4699, 50.5039],
+    capital: {
+      name: { en: "Brussels", zh: "布鲁塞尔" },
+      coordinates: [4.3517, 50.8503],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Brussels", zh: "布鲁塞尔" }, coordinates: [4.3517, 50.8503], isCapital: true }
     ]
   }
 };

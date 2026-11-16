@@ -760,6 +760,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "aliases": [
       "Mademoiselle d'Eon",
       "Charlotte d'Eon",
+      "埃翁骑士",
       "埃翁小姐",
       "夏洛特·德·埃翁"
     ],
@@ -3131,6 +3132,1052 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "author": "Tamara C. Ho",
         "year": 2009,
         "citation": "Journal of Burma Studies"
+      }
+    ]
+  },
+  {
+    "id": "entry_eleanor_rykener",
+    "slug": "eleanor-rykener",
+    "title": {
+      "en": "Eleanor Rykener",
+      "zh": "埃莉诺·里克纳（Eleanor Rykener）"
+    },
+    "originalName": "John / Eleanor Rykener",
+    "aliases": [
+      "John Rykener",
+      "Eleanor Rykener"
+    ],
+    "summary": {
+      "en": "A fourteenth-century individual who lived in London and Oxford under the female name Eleanor in women's dress and was interrogated by London civic magistrates in 1394.",
+      "zh": "1394年在伦敦以女性姓名与服饰生活并因与男性发生性行为受当局讯问的历史人物，案件载于《伦敦答辩与备忘录卷》。"
+    },
+    "body": {
+      "en": "On December 3, 1394, London watchmen arrested John Britby of Yorkshire and a person dressed in women's clothing near Soper's Lane in Cheapside. Brought before Mayor John Fressh and the London aldermen on December 11, 1394, the detainee was recorded in the Plea and Memoranda Rolls (Roll A34, membrane 2) as born John Rykener but calling themselves Eleanor.\n\nIn testimony recorded by the city clerk, Rykener stated having learned embroidery and sex work from Elizabeth Brouderer in London before living in female dress in Oxford, Burford, and Beaconsfield. The interrogation preserves accounts of paid encounters with lay clients, priests, and friars, as well as relationships with women while wearing men's attire; because ecclesiastical courts held jurisdiction over moral offenses, no municipal sentence appears in the roll.",
+      "zh": "1394年12月3日晚间，伦敦巡夜人在齐普赛德（Cheapside）索珀巷附近将约克郡男子约翰·布里特比及一名身着女装的人员当场拘捕。同年12月11日，伦敦市长约翰·弗雷什与市政参议对其展开审讯，审讯笔录收入《答辩与备忘录卷》（Roll A34, m. 2），载明当事人原名约翰·里克纳，平时自称“埃莉诺”（Eleanor）。\n\n庭审供词记录了埃莉诺早年在伦敦向女绣工学习刺绣与卖淫的经历，以及此后身穿女装辗转牛津、伯福德与比肯斯菲尔德生活、与世俗客商及教士交往的情形，亦提及曾以男装与女子发生关系。因道德罪名归教会法庭管辖，市政档案中未留有最终判刑记录。"
+    },
+    "time": {
+      "startYear": 1394,
+      "endYear": 1395,
+      "label": {
+        "en": "1394 – 1395 CE",
+        "zh": "1394年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "London (Cheapside), England",
+        "zh": "伦敦（英国）"
+      },
+      "countryName": {
+        "en": "United Kingdom",
+        "zh": "英国"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -0.0919,
+        "latitude": 51.5136
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Preserved in The London Archives, Plea and Memoranda Rolls, Roll A34, membrane 2 (1394–1395).",
+      "zh": "原始司法拉丁文笔录藏于伦敦档案馆《答辩与备忘录卷》（Roll A34, m. 2）。"
+    },
+    "sources": [
+      {
+        "title": "The Interrogation of a Male Transvestite Prostitute in Fourteenth-Century London",
+        "author": "David Lorenzo Boyd & Ruth Mazo Karras",
+        "year": 1995,
+        "citation": "GLQ 1, no. 4, pp. 459–465"
+      },
+      {
+        "title": "Calendar of Plea and Memoranda Rolls of the City of London, A.D. 1381–1412",
+        "author": "A. H. Thomas (ed.)",
+        "year": 1932,
+        "citation": "Cambridge University Press"
+      }
+    ]
+  },
+  {
+    "id": "entry_bilevelt_banders",
+    "slug": "andries-bilevelt-gerrit-banders-1730",
+    "title": {
+      "en": "Andries Bilevelt & Gerrit Banders (1730)",
+      "zh": "Andries Bilevelt 与 Gerrit Banders"
+    },
+    "originalName": "Andries Bilevelt & Gerrit Banders",
+    "aliases": [
+      "Andries Bijlevelt",
+      "Gerrit Banders",
+      "1730 Dutch Sodomy Trials"
+    ],
+    "summary": {
+      "en": "Two men in the Dutch Republic arrested, interrogated, and executed in Zwolle in July 1730 during the countrywide sodomy prosecutions, leaving court records and preserved correspondence.",
+      "zh": "1730年荷兰反鸡奸大审判期间在兹沃勒受审并被处死的两名男子，留有审讯档案与私人书信。"
+    },
+    "body": {
+      "en": "During the 1730–1731 sodomy prosecutions across the Dutch Republic—triggered in Utrecht in April 1730 and spreading to towns across Holland and Overijssel—authorities in Zwolle pursued button-maker Andries Bilevelt (Bijlevelt) and coffee and tea merchant Gerrit Banders. Banders fled to Harderwijk while Bilevelt escaped to Amsterdam, where he was recognized, arrested, and returned to Overijssel.\n\nCourt archives note that when captured, Bilevelt carried a personal letter from his wife, Klasien Hendriks ('en blijve u waarde vrou [...] totter doot'). Under interrogation in Zwolle, both men confessed and named associates; sentenced to death, Andries Bilevelt and Gerrit Banders were publicly hanged on Zwolle's Grote Markt on July 11, 1730.",
+      "zh": "1730年4月起，荷兰共和国乌得勒支爆发大规模反鸡奸审判并迅速波及全国多个城镇。在艾瑟尔河畔的兹沃勒（Zwolle），当地当局追捕纽扣匠安德里斯·比勒费尔特（Andries Bilevelt）与咖啡茶商格里特·班德斯（Gerrit Banders），后者逃往哈德韦克，比勒费尔特则逃至阿姆斯特丹后被认出押回。\n\n法院卷宗记载，比勒费尔特被捕时身上带着妻子克拉辛·亨德里克斯（Klasien Hendriks）写给他的私人信件。经兹沃勒法庭审讯认罪后，二人均被判处死刑，于1730年7月11日在兹沃勒大广场公开绞决。"
+    },
+    "time": {
+      "startYear": 1730,
+      "endYear": 1730,
+      "label": {
+        "en": "1730 CE (Executed July 11, 1730)",
+        "zh": "1730年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Zwolle, Overijssel, Netherlands",
+        "zh": "兹沃勒（荷兰）"
+      },
+      "countryName": {
+        "en": "Netherlands",
+        "zh": "荷兰"
+      },
+      "countryCode": "528",
+      "coordinates": {
+        "longitude": 6.0919,
+        "latitude": 52.5168
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in the municipal judicial archives of Zwolle and provincial records of the 1730 Dutch sodomy trials.",
+      "zh": "依据荷兰兹沃勒市政司法卷宗及1730年艾瑟尔地区反鸡奸审判原始记录。"
+    },
+    "sources": [
+      {
+        "title": "De dienaren van de satan: Misdaad en straf in de Republiek (1730)",
+        "author": "L. J. Boon",
+        "year": 1997,
+        "citation": "Bert Bakker, Amsterdam"
+      },
+      {
+        "title": "Sodomy in the Dutch Republic, 1730–1811",
+        "author": "Theo van der Meer",
+        "year": 1995,
+        "citation": "University of Michigan / Overijssel Court Records"
+      }
+    ]
+  },
+  {
+    "id": "entry_ladies_of_llangollen",
+    "slug": "ladies-of-llangollen",
+    "title": {
+      "en": "Ladies of Llangollen",
+      "zh": "兰戈伦女士（Ladies of Llangollen）"
+    },
+    "originalName": "Lady Eleanor Butler & Sarah Ponsonby",
+    "aliases": [
+      "Eleanor Butler and Sarah Ponsonby",
+      "Plas Newydd",
+      "埃莉诺·巴特勒与莎拉·庞森比"
+    ],
+    "summary": {
+      "en": "Irish aristocrats Eleanor Butler and Sarah Ponsonby, who left their families in 1778 and lived together for half a century at Plas Newydd in Llangollen, Wales.",
+      "zh": "埃莉诺·巴特勒与莎拉·庞森比于1778年离开爱尔兰家庭，在威尔士兰戈伦共同生活约半个世纪，留有日记与大量往来书信。"
+    },
+    "body": {
+      "en": "In 1778, Lady Eleanor Butler (1739–1829) and Sarah Ponsonby (1755–1831) left County Kilkenny, Ireland, after resisting family plans regarding convent confinement and marriage, first attempting an elopement in men's riding clothes before obtaining reluctant family consent to settle abroad with their maid Mary Carryl. Acquiring a cottage named Plas Newydd in Llangollen, North Wales, they spent roughly fifty years remodeling the house and tending their library and gardens.\n\nThe two women recorded daily reading, household management, visits, and shared life in journals and extensive letters preserved in British and Welsh collections. Writers and public figures including William Wordsworth, Lord Byron, Percy Bysshe Shelley, Sir Walter Scott, and the Duke of Wellington visited Plas Newydd; Butler died in 1829 and Ponsonby in 1831, and both are buried beside Mary Carryl at St. Collen's Church in Llangollen.",
+      "zh": "1778年，出身爱尔兰基尔肯尼贵族家庭的埃莉诺·巴特勒（1739–1829年）与莎拉·庞森比（1755–1831年）为回避家族逼婚与送入修道院的安排，携手伴同女仆玛丽·卡里尔离开家乡，定居北威尔士兰戈伦的普拉斯纽伊德（Plas Newydd）庄园。\n\n此后约五十年间，二人终身未嫁，共同打理房屋、藏书与庭园，留下详尽的日记及通信档案；威廉·华兹华斯、拜伦、雪莱、沃尔特·司各特与威灵顿公爵等当时文士名流均曾造访该处。1829年巴特勒逝世、1831年庞森比辞世后，二人与玛丽·卡里尔合葬于兰戈伦圣科伦教堂墓地。"
+    },
+    "time": {
+      "startYear": 1778,
+      "endYear": 1831,
+      "label": {
+        "en": "1778 – 1831 CE",
+        "zh": "1778年起（至1831年）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Llangollen, Wales, United Kingdom",
+        "zh": "兰戈伦（英国威尔士）"
+      },
+      "countryName": {
+        "en": "United Kingdom",
+        "zh": "英国"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -3.1714,
+        "latitude": 52.9708
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Preserved in Eleanor Butler's journals, Sarah Ponsonby's correspondence (Hamwood Papers), and Plas Newydd archives in Wales.",
+      "zh": "史料见于埃莉诺·巴特勒日记、庞森比往来信札（Hamwood Papers）及威尔士兰戈伦庄园档案。"
+    },
+    "sources": [
+      {
+        "title": "The Hamwood Papers of the Ladies of Llangollen and Caroline Hamilton",
+        "author": "Eva Mary Bell (ed.)",
+        "year": 1930,
+        "citation": "Macmillan, London"
+      },
+      {
+        "title": "The Ladies of Llangollen: A Study in Romantic Friendship",
+        "author": "Elizabeth Mavor",
+        "year": 1971,
+        "citation": "Michael Joseph, London"
+      }
+    ]
+  },
+  {
+    "id": "entry_anne_lister_ann_walker",
+    "slug": "anne-lister-and-ann-walker-1834",
+    "title": {
+      "en": "Anne Lister and Ann Walker",
+      "zh": "Anne Lister 与 Ann Walker"
+    },
+    "originalName": "Anne Lister & Ann Walker",
+    "aliases": [
+      "Shibden Hall",
+      "Holy Trinity Church Goodramgate",
+      "安妮·李斯特"
+    ],
+    "summary": {
+      "en": "Yorkshire landowner Anne Lister and heiress Ann Walker, who exchanged rings and took Easter communion together in 1834 to seal a lifelong partnership recorded in Lister's diaries.",
+      "zh": "1834年复活节在约克郡圣三一教堂共同领圣餐并交换誓约的两位女性，李斯特在逾四百万字的加密日记中详记二人共同生活。"
+    },
+    "body": {
+      "en": "Anne Lister (1791–1840), owner of the Shibden Hall estate in Halifax, West Yorkshire, kept journals exceeding four million words, writing entries about her romantic and sexual relationships with women in a personal cipher. From 1832 onward she formed a relationship with neighboring heiress Ann Walker (1803–1854).\n\nOn Easter Sunday, March 30, 1834, Lister and Walker exchanged rings and took communion together at Holy Trinity Church, Goodramgate, in York, recording the service in Lister's diary as binding their union. Ann Walker moved into Shibden Hall later that year, and the two managed their estates and traveled across Europe together until Lister's death in 1840.",
+      "zh": "西约克郡哈利法克斯希布登庄园（Shibden Hall）主安妮·李斯特（1791–1840年）一生写下逾四百万字日记，并以自创密码记录自身与女性的情感与亲密生活。自1832年起，李斯特与邻近庄园继承人安·沃克（1803–1854年）建立伴侣关系。\n\n1834年3月30日复活节星期日，二人在约克古德拉姆门圣三一教堂共同领受圣餐并互赠戒指，李斯特于日记中视之为缔结婚约。同年沃克迁入希布登庄园与李斯特共同经营产业并结伴游历欧洲，直至1840年李斯特在格鲁吉亚旅行期间病逝。"
+    },
+    "time": {
+      "startYear": 1834,
+      "endYear": 1840,
+      "label": {
+        "en": "1834 – 1840 CE",
+        "zh": "1834年 – 1840年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Halifax (Shibden Hall) & York, England",
+        "zh": "哈利法克斯希布登庄园与约克（英国）"
+      },
+      "countryName": {
+        "en": "United Kingdom",
+        "zh": "英国"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -1.8389,
+        "latitude": 53.7278
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Documented through Anne Lister's diaries held by West Yorkshire Archive Service (Calderdale) and Ann Walker's property records.",
+      "zh": "依据西约克郡档案馆（Calderdale）收藏的安妮·李斯特日记原件（含密码段落破译文本）及地产契约。"
+    },
+    "sources": [
+      {
+        "title": "I Know My Own Heart: The Diaries of Anne Lister, 1791–1840",
+        "author": "Helena Whitbread (ed.)",
+        "year": 1988,
+        "citation": "Virago Press (West Yorkshire Archive Service MSS)"
+      },
+      {
+        "title": "Gentleman Jack: A Biography of Anne Lister",
+        "author": "Angela Steidele",
+        "year": 2018,
+        "citation": "Serpent's Tail"
+      }
+    ]
+  },
+  {
+    "id": "entry_herculine_barbin",
+    "slug": "herculine-barbin",
+    "title": {
+      "en": "Herculine Barbin",
+      "zh": "Herculine Barbin（埃居利娜·巴尔班）"
+    },
+    "originalName": "Adélaïde Herculine Barbin",
+    "aliases": [
+      "Alexina B.",
+      "Abel Barbin",
+      "阿历克西娜·B"
+    ],
+    "summary": {
+      "en": "A nineteenth-century French schoolteacher registered as female at birth, legally reclassified as male in 1860, who left an autobiographical memoir before dying in Paris in 1868.",
+      "zh": "生于1838年的法国教师，出生时登记为女性，1860年经医学检验与法院判决变更法律性别为男性，1868年在巴黎自杀并留有自传手稿。"
+    },
+    "body": {
+      "en": "Born on November 8, 1838 in Saint-Jean-d'Angély, France, Adélaïde Herculine Barbin was registered female at birth, raised in Catholic schools and convents, and worked as a schoolmistress at a girls' boarding school in Le Château-d'Oléron, where she formed an attachment with another young teacher, Sara.\n\nFollowing medical examinations in 1860 prompted by pain and local rumors, the civil court of Saint-Jean-d'Angély ruled on June 21, 1860 to amend her civil status registry from female to male under the name Abel Barbin. Relocating to Paris in poverty after losing her teaching post, Barbin died by suicide on February 13, 1868; a manuscript memoir found among Barbin's belongings was published in extracts by forensic physician Auguste Tardieu in 1874 and in full by Michel Foucault in 1978.",
+      "zh": "阿德莱德·埃居利娜·巴尔班（1838年11月8日生）出身法国圣让当热利，出生时户籍登记为女性，自幼在天主教寄宿女校与修道院成长，后在奥莱龙岛女子学校任教并与女同事萨拉相恋。\n\n1860年因身体检查与校内传闻，当地医生出具生理检验报告；同年6月21日，圣让当热利民事法院判决修改其出生登记，将法律性别变更为男性、改名阿贝尔（Abel）。巴尔班离职孤身迁居巴黎后陷入贫困，1868年2月13日于寓所自杀身亡；其遗留的自述手稿先后经法医奥古斯特·塔迪厄（1874年节录）及米歇尔·福柯（1978年全本整理）刊行出版。"
+    },
+    "time": {
+      "startYear": 1838,
+      "endYear": 1868,
+      "label": {
+        "en": "1838 – 1868 CE",
+        "zh": "1838年 – 1868年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Saint-Jean-d'Angély, France",
+        "zh": "圣让当热利（法国）"
+      },
+      "countryName": {
+        "en": "France",
+        "zh": "法国"
+      },
+      "countryCode": "250",
+      "coordinates": {
+        "longitude": -0.5211,
+        "latitude": 45.9442
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Known from the 1860 civil registry court ruling, forensic reports compiled by Auguste Tardieu (1874), and Barbin's memoir edited by Michel Foucault (1978).",
+      "zh": "史料见于1860年民事户籍改判文书、塔迪厄1874年法医汇编及福柯1978年校订出版的《埃居利娜·巴尔班，别名阿历克西娜·B》。"
+    },
+    "sources": [
+      {
+        "title": "Herculine Barbin, dite Alexina B.",
+        "author": "Herculine Barbin & Michel Foucault (ed.)",
+        "year": 1978,
+        "citation": "Gallimard, Paris (English ed. Pantheon, 1980)"
+      },
+      {
+        "title": "Question médico-légale de l'identité dans ses rapports avec les vices de conformation des organes sexuels",
+        "author": "Ambroise Tardieu",
+        "year": 1874,
+        "citation": "J.-B. Baillière, Paris"
+      }
+    ]
+  },
+  {
+    "id": "entry_oscar_wilde_trial",
+    "slug": "oscar-wilde-trials-1895",
+    "title": {
+      "en": "The Trials of Oscar Wilde (1895)",
+      "zh": "奥斯卡·王尔德审判案"
+    },
+    "originalName": "Regina v. Wilde (1895)",
+    "aliases": [
+      "Oscar Wilde Trials",
+      "Reading Gaol",
+      "王尔德案"
+    ],
+    "summary": {
+      "en": "Criminal prosecutions at London's Old Bailey in 1895 in which Irish writer Oscar Wilde was convicted of gross indecency under Section 11 of the Criminal Law Amendment Act 1885 and sentenced to two years' hard labor.",
+      "zh": "1895年在伦敦老贝利刑事法院举行的系列审判，爱尔兰作家奥斯卡·王尔德因与男性的关系被依“严重猥亵罪”判处两年苦役。"
+    },
+    "body": {
+      "en": "In February 1895, the Marquess of Queensberry left a calling card at the Albemarle Club accusing playwright Oscar Wilde of 'posing somdomite' because of Wilde's relationship with his son, Lord Alfred Douglas. Wilde brought an unsuccessful libel prosecution in April 1895; after defense counsel produced evidence of Wilde's encounters with young men, the Crown immediately arrested Wilde under Section 11 (the Labouchère Amendment) of the Criminal Law Amendment Act 1885.\n\nAfter a first criminal jury at the Old Bailey failed to agree on a verdict, a retrial ended on May 25, 1895 with conviction on charges of gross indecency and the maximum sentence of two years' imprisonment with hard labor. Held first at Pentonville and Wandsworth and later at Reading Gaol, Wilde wrote his prison letter De Profundis before his release in May 1897 and went into exile in France.",
+      "zh": "1895年2月，昆斯伯里侯爵在伦敦阿尔伯马尔俱乐部留下一张字条，公开指控剧作家奥斯卡·王尔德与其子阿尔弗雷德·道格拉斯勋爵存在“鸡奸”嫌疑。同年4月王尔德反诉对方诽谤败诉，控方随即依据《1885年刑法修正案》第11条（拉布谢尔修正案）以“严重猥亵罪”对王尔德提起刑事起诉。\n\n经过伦敦中央刑事法院（老贝利）两轮审理，陪审团于1895年5月25日裁定罪名成立，法官判处两年监禁并附苦役（法定最高刑期）。王尔德先后在彭顿维尔、旺兹沃思及雷丁监狱服刑，期间写下长信《深渊书简》（De Profundis），1897年5月刑满获释后移居法国，1900年在巴黎病逝。"
+    },
+    "time": {
+      "startYear": 1895,
+      "endYear": 1897,
+      "label": {
+        "en": "1895 – 1897 CE",
+        "zh": "1895年（至1897年刑满）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "London (Old Bailey), England",
+        "zh": "伦敦（老贝利法院，英国）"
+      },
+      "countryName": {
+        "en": "United Kingdom",
+        "zh": "英国"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -0.1018,
+        "latitude": 51.5156
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in Central Criminal Court depositions and transcripts at The National Archives (UK), contemporary press reporting, and Merlin Holland's uncensored transcript edition (2003).",
+      "zh": "依据英国国家档案馆中央刑事法院庭审记录（CRIM）、1895年报刊速记与梅林·霍兰德编校完整审判记录（2003年）。"
+    },
+    "sources": [
+      {
+        "title": "The Real Trial of Oscar Wilde",
+        "author": "Merlin Holland",
+        "year": 2003,
+        "citation": "Fourth Estate / HarperCollins"
+      },
+      {
+        "title": "De Profundis (Prison Letter, Reading Gaol)",
+        "author": "Oscar Wilde",
+        "year": 1897,
+        "citation": "British Library Add MS 50141A"
+      }
+    ]
+  },
+  {
+    "id": "entry_whk_1897",
+    "slug": "scientific-humanitarian-committee-1897",
+    "title": {
+      "en": "Scientific-Humanitarian Committee (1897)",
+      "zh": "科学人道主义委员会（WhK）"
+    },
+    "originalName": "Wissenschaftlich-humanitäres Komitee",
+    "aliases": [
+      "WhK",
+      "Paragraph 175 Petition",
+      "科学人道主义委员会"
+    ],
+    "summary": {
+      "en": "Organization founded in Charlottenburg, Berlin in May 1897 by Magnus Hirschfeld and colleagues to campaign for the repeal of Paragraph 175 of the German Criminal Code.",
+      "zh": "1897年5月由马格努斯·赫希菲尔德等人在德国柏林夏洛滕堡创立的组织，旨在推动废除德国刑法中惩罚男性同性性行为的第175条。"
+    },
+    "body": {
+      "en": "On May 14–15, 1897, physician Magnus Hirschfeld, publisher Max Spohr, civil servant Eduard Oberg, and writer Franz Joseph von Bülow founded the Wissenschaftlich-humanitäres Komitee (Scientific-Humanitarian Committee, WhK) in Charlottenburg near Berlin. Its immediate objective was organizing a petition to the German Reichstag seeking the repeal of Paragraph 175 of the Imperial Criminal Code, which criminalized sexual acts between men.\n\nOver the next three decades, the WhK gathered thousands of signatures from physicians, jurists, writers, and political figures—including August Bebel, Albert Einstein, Thomas Mann, and Hermann Hesse—and published the Jahrbuch für sexuelle Zwischenstufen (Yearbook for Sexual Intergrades, 1899–1923). Active in legal reform debates throughout the Weimar Republic, the committee dissolved following the Nazi rise to power in 1933.",
+      "zh": "1897年5月14日至15日，医生马格努斯·赫希菲尔德、出版商马克斯·施波尔、铁路官员爱德华·奥贝格与作家弗朗茨·约瑟夫·冯·比洛在柏林夏洛滕堡创立“科学人道主义委员会”（Wissenschaftlich-humanitäres Komitee，简称 WhK），首要目标是向德意志帝国国会提交请愿书，要求废除将男性同性性行为入罪的刑法第175条。\n\n此后三十余年间，委员会持续征集到数千名医学家、法学家与文学界人士签名支持（包括奥古斯特·倍倍尔、爱因斯坦、托马斯·曼与赫尔曼·黑塞等），并于1899至1923年编印《性别中间阶段年鉴》。魏玛共和国时期第175条一度出现修法动向，但随1933年纳粹掌权，委员会被迫解散。"
+    },
+    "time": {
+      "startYear": 1897,
+      "endYear": 1933,
+      "label": {
+        "en": "1897 – 1933 CE",
+        "zh": "1897年 – 1933年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Berlin (Charlottenburg), Germany",
+        "zh": "柏林夏洛滕堡（德国）"
+      },
+      "countryName": {
+        "en": "Germany",
+        "zh": "德国"
+      },
+      "countryCode": "276",
+      "coordinates": {
+        "longitude": 13.31,
+        "latitude": 52.512
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented through WhK Reichstag petitions, the Jahrbuch für sexuelle Zwischenstufen (1899–1923), and Magnus Hirschfeld Society archival collections.",
+      "zh": "依据1897–1929年帝国国会请愿案文本、《性别中间阶段年鉴》全套及马格努斯·赫希菲尔德学会存档文献。"
+    },
+    "sources": [
+      {
+        "title": "Jahrbuch für sexuelle Zwischenstufen (1899–1923)",
+        "author": "Magnus Hirschfeld (ed.)",
+        "year": 1899,
+        "citation": "Max Spohr, Leipzig"
+      },
+      {
+        "title": "Gay Berlin: Birthplace of a Modern Identity",
+        "author": "Robert Beachy",
+        "year": 2014,
+        "citation": "Alfred A. Knopf"
+      }
+    ]
+  },
+  {
+    "id": "entry_elisa_and_marcela",
+    "slug": "elisa-and-marcela-1901",
+    "title": {
+      "en": "Elisa Sánchez Loriga & Marcela Gracia Ibeas",
+      "zh": "Elisa Sánchez Loriga 与 Marcela Gracia Ibeas"
+    },
+    "originalName": "Elisa Sánchez Loriga & Marcela Gracia Ibeas",
+    "aliases": [
+      "Mario Sánchez",
+      "Matrimonio de Elisa y Marcela"
+    ],
+    "summary": {
+      "en": "Two Galician schoolteachers married in A Coruña, Spain on June 8, 1901 after Elisa adopted male attire and the name Mario Sánchez.",
+      "zh": "1901年6月8日在西班牙拉科鲁尼亚举行天主教婚礼的两名女教师，其中埃莉萨以男性姓名“马里奥·桑切斯”完成登记。"
+    },
+    "body": {
+      "en": "Spanish schoolteachers Elisa Sánchez Loriga and Marcela Gracia Ibeas met during teacher training in A Coruña, Galicia, and taught in nearby villages in the late 1890s. To satisfy civil and ecclesiastical marriage requirements, Elisa cut her hair, wore men's clothing, adopted the name Mario Sánchez (presenting himself as Elisa's deceased male cousin), and received baptism under that name.\n\nOn June 8, 1901, the pair were married at the Church of San Jorge in A Coruña, and the union was entered into both parish and civil registries. After neighbors and newspapers exposed the arrangement weeks later, both women lost their teaching posts, faced arrest warrants, and fled across the border to Porto in Portugal before later emigrating to Argentina.",
+      "zh": "西班牙加利西亚女教师埃莉萨·桑切斯·洛里加（Elisa Sánchez Loriga）与马塞拉·格拉西亚·伊韦阿斯（Marcela Gracia Ibeas）相识于拉科鲁尼亚师范学院。为办理合法婚礼登记，埃莉萨剪短头发、改着男装并启用男性身份“马里奥·桑切斯”（自称是原埃莉萨的亡故表兄），预先在教堂重行受洗。\n\n1901年6月8日，两人在拉科鲁尼亚圣豪尔赫教堂正式举行婚礼并记入教会与民事登记册。数周后消息经邻里与报刊曝光并引发全国追缉，两人失去教职，在逮捕令下逃往葡萄牙波尔图避难，随后渡海移居阿根廷。"
+    },
+    "time": {
+      "startYear": 1901,
+      "endYear": 1901,
+      "label": {
+        "en": "June 8, 1901",
+        "zh": "1901年6月8日"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "A Coruña, Galicia, Spain",
+        "zh": "拉科鲁尼亚（西班牙）"
+      },
+      "countryName": {
+        "en": "Spain",
+        "zh": "西班牙"
+      },
+      "countryCode": "724",
+      "coordinates": {
+        "longitude": -8.396,
+        "latitude": 43.3713
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Recorded in the June 8, 1901 marriage register of San Jorge parish in A Coruña alongside Spanish and Portuguese judicial and newspaper reports.",
+      "zh": "依据拉科鲁尼亚圣豪尔赫堂1901年6月8日婚姻登记簿原件及同期西班牙、葡萄牙报刊与司法报道。"
+    },
+    "sources": [
+      {
+        "title": "Elisa e Marcela: Alén dos homes",
+        "author": "Narciso de Gabriel",
+        "year": 2008,
+        "citation": "Edicións Xerais de Galicia"
+      },
+      {
+        "title": "Archivo Histórico Diocesano de Santiago / Parish of San Jorge Register (June 8, 1901)",
+        "author": "Church of San Jorge, A Coruña",
+        "year": 1901
+      }
+    ]
+  },
+  {
+    "id": "entry_pessoa_antinous",
+    "slug": "fernando-pessoa-antinous-1918",
+    "title": {
+      "en": "Fernando Pessoa's Antinous (1918)",
+      "zh": "费尔南多·佩索阿《Antinous》"
+    },
+    "originalName": "Antinous: A Poem (1918)",
+    "aliases": [
+      "Antinous: A Poem",
+      "English Poems I–II",
+      "佩索阿《安提诺乌斯》"
+    ],
+    "summary": {
+      "en": "An English-language elegiac poem by Portuguese writer Fernando Pessoa, first published in Lisbon in 1918, depicting Roman Emperor Hadrian mourning Antinous.",
+      "zh": "葡萄牙作家费尔南多·佩索阿于1918年在里斯本出版的英语长诗，借罗马皇帝哈德良悼念安提诺乌斯书写男性间的爱恋与哀伤。"
+    },
+    "body": {
+      "en": "Published in Lisbon by Monteiro & Co. in 1918 under Fernando Pessoa's own name (and dated 1915 at the end of the text), Antinous: A Poem is a long English-language dramatic monologue voiced by Roman Emperor Hadrian beside the body of his drowned companion, Antinous.\n\nIn classical imagery and decadent lyric diction, the poem alternates between memory of physical intimacy and Hadrian's vow to preserve Antinous' beauty in stone statues and divine cult across the empire. Pessoa later revised the text for English Poems I–II, issued in 1921 through his Lisbon press Olisipo.",
+      "zh": "费尔南多·佩索阿署名出版的英语长诗《安提诺乌斯》（Antinous: A Poem，诗末署创作年份为1915年），由里斯本蒙泰罗公司（Monteiro & Co.）于1918年印行。全诗采取戏剧独白体，由罗马皇帝哈德良在亡故伴侣安提诺乌斯遗体旁倾吐哀思。\n\n诗行借助古典意象追忆二人昔日亲密，并写及哈德良以大理石雕像与神庙立祀延续其名貌的执念；1921年佩索阿又经自己创办的奥利西波（Olisipo）出版社修订再版，收入《英文诗集 I–II》。"
+    },
+    "time": {
+      "startYear": 1918,
+      "endYear": 1918,
+      "label": {
+        "en": "1918 CE (First Edition)",
+        "zh": "1918年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Lisbon, Portugal",
+        "zh": "里斯本（葡萄牙）"
+      },
+      "countryName": {
+        "en": "Portugal",
+        "zh": "葡萄牙"
+      },
+      "countryCode": "620",
+      "coordinates": {
+        "longitude": -9.15,
+        "latitude": 38.76
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Published in Lisbon by Monteiro & Co. in 1918 and revised in English Poems I–II (Olisipo, 1921); manuscripts held at Casa Fernando Pessoa and the National Library of Portugal.",
+      "zh": "依据1918年里斯本 Monteiro & Co. 初版、1921年 Olisipo 修订本及葡萄牙国家图书馆藏佩索阿手稿。"
+    },
+    "sources": [
+      {
+        "title": "Antinous: A Poem",
+        "author": "Fernando Pessoa",
+        "year": 1918,
+        "citation": "Monteiro & Co., Lisbon"
+      },
+      {
+        "title": "English Poems I–II (Antinous / Epithalamium)",
+        "author": "Fernando Pessoa",
+        "year": 1921,
+        "citation": "Olisipo, Lisbon"
+      }
+    ]
+  },
+  {
+    "id": "entry_institut_sexualwissenschaft",
+    "slug": "institut-fur-sexualwissenschaft-1919",
+    "title": {
+      "en": "Institut für Sexualwissenschaft (1919–1933)",
+      "zh": "性科学研究所（Institut für Sexualwissenschaft）"
+    },
+    "originalName": "Institut für Sexualwissenschaft",
+    "aliases": [
+      "Institute for Sexual Science",
+      "Magnus Hirschfeld Institute",
+      "柏林性科学研究所"
+    ],
+    "summary": {
+      "en": "A sexology research, counseling, and medical institution opened in Berlin in July 1919 by Magnus Hirschfeld and ransacked by Nazi student groups and SA units in May 1933.",
+      "zh": "马格努斯·赫希菲尔德于1919年在柏林创办的研究与医疗咨询机构，涵盖性倾向与跨性别研究，1933年5月遭纳粹劫掠焚毁藏书。"
+    },
+    "body": {
+      "en": "Opened on July 6, 1919 near the Tiergarten in Berlin by Magnus Hirschfeld, dermatologist Friedrich Wertheim, and neurologist Arthur Kronfeld, the Institut für Sexualwissenschaft operated as a combined research library, clinical practice, and public counseling center. Its physicians worked with homosexual men and women, intersex patients, and transgender clients, issuing medical certificates known as 'transvestite passes' (Transvestitenscheine) in coordination with Berlin police authorities.\n\nOn May 6, 1933, roughly three months after the Nazi seizure of power, members of the German Student Union accompanied by SA stormtroopers raided and looted the institute's buildings. Four days later, on May 10, 1933, thousands of volumes and archival files confiscated from the institute were burned on Berlin's Opernplatz.",
+      "zh": "1919年7月6日，马格努斯·赫希菲尔德与皮肤科医生弗里德里希·韦特海姆、神经科医生阿图尔·克龙费尔德等人在柏林蒂尔加滕附近正式开放“性科学研究所”（Institut für Sexualwissenschaft），下设图书馆、临床诊所及婚姻与性咨询门诊。所内长期接诊并研究同性恋、双性人与跨性别来访者，并协助为部分穿异性服装生活者开具经警方认可的“易装通行证”（Transvestitenscheine）。\n\n纳粹掌权后，1933年5月6日德国学生会成员与冲锋队突袭并劫掠了研究所大楼，搜走大量藏书、病历照片与档案；同年5月10日，这批书籍在柏林歌剧院广场的公开焚书行动中被付之一炬。"
+    },
+    "time": {
+      "startYear": 1919,
+      "endYear": 1933,
+      "label": {
+        "en": "1919 – 1933 CE",
+        "zh": "1919年 – 1933年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Berlin (Tiergarten), Germany",
+        "zh": "柏林（德国）"
+      },
+      "countryName": {
+        "en": "Germany",
+        "zh": "德国"
+      },
+      "countryCode": "276",
+      "coordinates": {
+        "longitude": 13.3688,
+        "latitude": 52.5186
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented through surviving Weimar-era institute publications, Berlin municipal records, and May 1933 press and eyewitness photographs of the looting.",
+      "zh": "依据魏玛时期研究所刊物、柏林市政府档册以及1933年5月劫掠与焚书事件的现场照片和目击记录。"
+    },
+    "sources": [
+      {
+        "title": "Institut für Sexualwissenschaft (Berlin, 1919–1933)",
+        "author": "Rainer Herrn",
+        "year": 2005,
+        "citation": "Schnittmuster des Geschlechts / Magnus-Hirschfeld-Gesellschaft"
+      },
+      {
+        "title": "Magnus Hirschfeld: Ein Leben im Spannungsfeld von Wissenschaft, Politik und Gesellschaft",
+        "author": "Manfred Herzer",
+        "year": 2001,
+        "citation": "MännerschwarmSkript Verlag"
+      }
+    ]
+  },
+  {
+    "id": "entry_anders_als_die_andern",
+    "slug": "anders-als-die-andern-1919",
+    "title": {
+      "en": "Different from the Others (1919)",
+      "zh": "《与众不同》（Anders als die Andern）"
+    },
+    "originalName": "Anders als die Andern (1919)",
+    "aliases": [
+      "Anders als die Andern",
+      "Different from the Others",
+      "与众不同（1919年电影）"
+    ],
+    "summary": {
+      "en": "A 1919 Weimar German silent film directed by Richard Oswald with Magnus Hirschfeld, depicting a concert violinist blackmailed and ruined under Paragraph 175.",
+      "zh": "1919年在德国柏林首映的无声故事片，讲述知名小提琴家因同性关系遭勒索并在刑法第175条压迫下走向绝路的故事。"
+    },
+    "body": {
+      "en": "Directed by Richard Oswald, co-written with Magnus Hirschfeld, and starring Conrad Veidt alongside Hirschfeld appearing as himself, the German silent feature Anders als die Andern (Different from the Others) premiered in Berlin in May 1919. The plot follows concert violinist Paul Körner, whose relationship with his student Kurt Sivers becomes the target of an extortionist threatening exposure under Paragraph 175.\n\nWithin the film, Körner attends a lecture by Hirschfeld arguing that same-sex orientation is natural rather than criminal, before public trial and social ostracism lead to Körner's suicide. Following conservative protests and the reintroduction of film censorship in 1920, German authorities banned public screenings of the film outside restricted medical and scientific audiences; only a partial print survives today.",
+      "zh": "《与众不同》（Anders als die Andern）由理查德·奥斯瓦尔德执导、马格努斯·赫希菲尔德参与编剧并亲自出镜，康拉德·韦特主演，于1919年5月在柏林首映。影片讲述小提琴演奏家保罗·克尔纳与学生库尔特相恋后，遭到敲诈勒索并面临德国刑法第175条起诉的故事。\n\n片中借赫希菲尔德扮演的医生讲述同性倾向并非罪行，而克尔纳在法庭曝光与社会孤立下最终服毒自尽。1920年魏玛德国恢复电影审查制度后，该片被禁止公开商业放映，仅限医学与学术机构内部观摩；原片大部分胶片日后散佚，现仅存残本复原版。"
+    },
+    "time": {
+      "startYear": 1919,
+      "endYear": 1919,
+      "label": {
+        "en": "May 1919",
+        "zh": "1919年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Berlin, Germany",
+        "zh": "柏林（德国）"
+      },
+      "countryName": {
+        "en": "Germany",
+        "zh": "德国"
+      },
+      "countryCode": "276",
+      "coordinates": {
+        "longitude": 13.3889,
+        "latitude": 52.517
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Known from surviving film fragments restored by the Filmmuseum München, Weimar censorship board rulings (1920), and contemporary trade press.",
+      "zh": "依据慕尼黑电影博物馆复原的现存残片、1920年魏玛电影审查裁决文书及首映同期报刊报道。"
+    },
+    "sources": [
+      {
+        "title": "Anders als die Andern (Restoration & Censorship Dossier)",
+        "author": "James Steakley / Filmmuseum München",
+        "year": 2007,
+        "citation": "Männerschwarm Verlag"
+      },
+      {
+        "title": "Anders als die Andern (Original Theatrical Release)",
+        "author": "Richard Oswald & Magnus Hirschfeld",
+        "year": 1919,
+        "citation": "Richard-Oswald-Film, Berlin"
+      }
+    ]
+  },
+  {
+    "id": "entry_botto_cancoes",
+    "slug": "antonio-botto-cancoes-1921",
+    "title": {
+      "en": "António Botto's Canções (1921)",
+      "zh": "António Botto《Canções》"
+    },
+    "originalName": "Canções (António Botto, 1921)",
+    "aliases": [
+      "Canções",
+      "Songs (António Botto)",
+      "安东尼奥·博托《歌集》"
+    ],
+    "summary": {
+      "en": "A 1921 Lisbon poetry collection by Portuguese modernist António Botto depicting male desire, whose 1922 Olisipo edition triggered censorship and public debate.",
+      "zh": "1921年在里斯本出版的葡萄牙现代派诗集，以男性情欲与亲密关系为主题，其再版引发1923年里斯本查禁与文学论争。"
+    },
+    "body": {
+      "en": "First published in Lisbon in 1921 by António Botto (1897–1959), the lyric collection Canções ('Songs') addressed male homoerotic longing and bodily beauty in direct free verse. When Fernando Pessoa issued an expanded second edition through his press Olisipo in 1922—and translated selections into English—the book drew widespread attention in Portugal.\n\nIn early 1923, conservative student groups and Lisbon newspapers campaigned against the collection as 'literature of Sodom.' Civil authorities in Lisbon confiscated unsold copies of Canções alongside Raul Leal's essay Sodoma Divinizada, prompting Fernando Pessoa to publish defensive manifestos, including texts signed by his heteronym Álvaro de Campos.",
+      "zh": "葡萄牙诗人安东尼奥·博托（1897–1959年）于1921年在里斯本自印出版诗集《歌集》（Canções），以直率自由诗体书写男性间的欲望、肉体美感与依恋。1922年，费尔南多·佩索阿通过其奥利西波（Olisipo）出版社发行《Canções》扩充再版并翻译其中多首为英文。\n\n1923年初，里斯本保守派学生团体及报界针对该书发起抵制运动，当地民事长官随即连同劳尔·莱阿尔的小册子一并查抄没收；佩索阿则发表多篇公开声明及以异名“阿尔瓦罗·德·坎普斯”署名的檄文为之辩护。"
+    },
+    "time": {
+      "startYear": 1921,
+      "endYear": 1923,
+      "label": {
+        "en": "1921 – 1923 CE",
+        "zh": "1921年（至1923年查禁风波）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Lisbon, Portugal",
+        "zh": "里斯本（葡萄牙）"
+      },
+      "countryName": {
+        "en": "Portugal",
+        "zh": "葡萄牙"
+      },
+      "countryCode": "620",
+      "coordinates": {
+        "longitude": -9.15,
+        "latitude": 38.76
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented through the 1921 and 1922 Lisbon editions of Canções, 1923 civil confiscation records, and Pessoa's printed polemics.",
+      "zh": "依据1921年初版、1922年 Olisipo 版《Canções》、1923年里斯本行政没收令及佩索阿同期论战文章。"
+    },
+    "sources": [
+      {
+        "title": "Canções (Lisbon, 1921; 2nd ed. Olisipo, 1922)",
+        "author": "António Botto",
+        "year": 1921
+      },
+      {
+        "title": "The Songs of António Botto (Translated by Fernando Pessoa)",
+        "author": "Josiah Blackmore (ed.)",
+        "year": 2010,
+        "citation": "University of Minnesota Press"
+      }
+    ]
+  },
+  {
+    "id": "entry_der_kreis",
+    "slug": "der-kreis-magazine-1943-1967",
+    "title": {
+      "en": "Der Kreis / Le Cercle / The Circle (1943–1967)",
+      "zh": "《Der Kreis》杂志"
+    },
+    "originalName": "Der Kreis – Le Cercle – The Circle",
+    "aliases": [
+      "Der Kreis",
+      "Le Cercle",
+      "The Circle",
+      "Karl Meier",
+      "Rolf"
+    ],
+    "summary": {
+      "en": "A trilingual cultural magazine and club published in Zurich from 1943 to 1967 under editor Karl Meier ('Rolf'), combining German, French, and English texts for an international readership.",
+      "zh": "1943至1967年在瑞士苏黎世以德、法、英三语出版的男性同性恋文化杂志，刊登文学、艺术及跨国社群通讯。"
+    },
+    "body": {
+      "en": "Descending from earlier 1930s Swiss homophile periodicals such as Freundschafts-Banner and Menschenrecht, Der Kreis (French: Le Cercle; English: The Circle) was published monthly in Zurich from 1943 until December 1967 under editor Karl Meier (1897–1974), known by the pseudonym 'Rolf.' Initially bilingual in German and French, the magazine added an English section in 1951.\n\nDistributed discreetly in plain envelopes to subscribers across Europe and North America during and after the Second World War, Der Kreis published essays, short stories, photography, legal updates, and member correspondence. In Zurich, the circle also hosted lectures, a lending library, and annual costume balls until declining membership and intensified municipal policing led to its closure in 1967.",
+      "zh": "《Der Kreis》（法语名 Le Cercle，英语名 The Circle）承续20世纪30年代瑞士《友谊旗帜》等早期期刊，自1943年至1967年12月在苏黎世按月发行，全期由瑞士戏剧演员卡尔·迈尔（Karl Meier，笔名“Rolf”）主编。创刊初期采用德、法双语，1951年起增设英文栏目。\n\n该刊以匿名平装信封向欧洲与北美订户邮寄，内容涵盖短篇小说、艺术摄影、法律动态与读者通讯；在苏黎世本地还组织读书会、图书馆借阅及年度假面舞会等社群聚会，直至1967年因经费与警方监管收紧停刊。"
+    },
+    "time": {
+      "startYear": 1943,
+      "endYear": 1967,
+      "label": {
+        "en": "1943 – 1967 CE",
+        "zh": "1943年 – 1967年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Zurich, Switzerland",
+        "zh": "苏黎世（瑞士）"
+      },
+      "countryName": {
+        "en": "Switzerland",
+        "zh": "瑞士"
+      },
+      "countryCode": "756",
+      "coordinates": {
+        "longitude": 8.5417,
+        "latitude": 47.3769
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Complete runs and administrative files preserved at the Schwulenarchiv Schweiz in the Swiss Social Archives (Schweizerisches Sozialarchiv) in Zurich.",
+      "zh": "全套刊本与编辑部档案现存苏黎世瑞士社会档案馆内的瑞士同性恋档案馆（Schwulenarchiv Schweiz）。"
+    },
+    "sources": [
+      {
+        "title": "Der Kreis: Eine Monatsschrift / Le Cercle / The Circle (1943–1967)",
+        "author": "Karl Meier ('Rolf'), ed.",
+        "year": "1943–1967",
+        "citation": "Zurich (Schweizerisches Sozialarchiv)"
+      },
+      {
+        "title": "Der Kreis: Das schwule Magazin aus Zürich (1943–1967)",
+        "author": "Hubert Kennedy",
+        "year": 1999,
+        "citation": "Haworth Press (The Ideal Gay Man)"
+      }
+    ]
+  },
+  {
+    "id": "entry_arcadie_magazine",
+    "slug": "arcadie-magazine-1954-1982",
+    "title": {
+      "en": "Arcadie Review and Club (1954–1982)",
+      "zh": "《Arcadie》杂志"
+    },
+    "originalName": "Arcadie (Revue littéraire et scientifique)",
+    "aliases": [
+      "Arcadie",
+      "André Baudry",
+      "阿卡迪亚杂志"
+    ],
+    "summary": {
+      "en": "A French homophile monthly magazine and social club founded in Paris in January 1954 by André Baudry, publishing literary criticism, social commentary, and member bulletins until 1982.",
+      "zh": "1954年1月在法国巴黎创办的同性恋文化刊物与俱乐部，持续出版文学、社会评论及社群活动讯息至1982年。"
+    },
+    "body": {
+      "en": "Founded in Paris in January 1954 by former seminary teacher André Baudry alongside writer Roger Peyrefitte and physician Jacques de Ricaumont, Arcadie was launched as a 'literary and scientific review' distributed by subscription alongside a private social club (Club littéraire et scientifique des pays latins). Early issues were subjected to French bans on public display and youth sales, limiting circulation to closed mailings.\n\nFor nearly three decades, Arcadie published essays on law, medicine, history, and literature while hosting lectures, dances, and discussion evenings for members across France and francophone Europe. Following the 1982 repeal of France's discriminatory age-of-consent statute and disagreements with newer liberation groups, Baudry dissolved the club and ceased publication in 1982.",
+      "zh": "1954年1月，前神学院教师安德烈·博德里（André Baudry）等人在巴黎创办《Arcadie》（阿卡迪亚），对外定名为“文学与科学评论月刊”，并依托同好俱乐部面向订阅会员发行。创刊初期即遭遇法国当局禁止公开陈列与向未成年人售卖的行政限制，刊物长期依赖邮寄订阅流通。\n\n在近三十年间，该刊持续发表法律、医学、历史与文学评介文章，并在巴黎主办会员讲座、舞会及跨地区通信联络。1982年法国废除针对同性性行为的差异化最低同意年龄条款后，博德里决定解散组织并停办刊物。"
+    },
+    "time": {
+      "startYear": 1954,
+      "endYear": 1982,
+      "label": {
+        "en": "1954 – 1982 CE",
+        "zh": "1954年 – 1982年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Paris, France",
+        "zh": "巴黎（法国）"
+      },
+      "countryName": {
+        "en": "France",
+        "zh": "法国"
+      },
+      "countryCode": "250",
+      "coordinates": {
+        "longitude": 2.3522,
+        "latitude": 48.8566
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in complete issues of Arcadie (1954–1982) held at the Bibliothèque nationale de France and historical studies by Julian Jackson.",
+      "zh": "依据法国国家图书馆藏1954–1982年全套《Arcadie》期刊原件及朱利安·杰克逊的专题史研究。"
+    },
+    "sources": [
+      {
+        "title": "Living in Arcadia: Homosexuality, Politics, and Morality in France from the Liberation to AIDS",
+        "author": "Julian Jackson",
+        "year": 2009,
+        "citation": "University of Chicago Press"
+      },
+      {
+        "title": "Arcadie: Revue littéraire et scientifique (1954–1982)",
+        "author": "André Baudry (dir.)",
+        "year": "1954–1982",
+        "citation": "Paris (BnF collections)"
+      }
+    ]
+  },
+  {
+    "id": "entry_norris_v_ireland",
+    "slug": "norris-v-ireland-1988",
+    "title": {
+      "en": "Norris v. Ireland (1988)",
+      "zh": "Norris v. Ireland（1988年）"
+    },
+    "originalName": "Norris v. Ireland (Application no. 10581/83)",
+    "aliases": [
+      "David Norris",
+      "ECHR Judgment 1988",
+      "诺里斯诉爱尔兰案"
+    ],
+    "summary": {
+      "en": "A 1988 European Court of Human Rights judgment holding that Ireland's nineteenth-century laws criminalizing consensual male same-sex acts violated Article 8 of the European Convention on Human Rights.",
+      "zh": "1988年10月26日欧洲人权法院就大卫·诺里斯诉讼案作出的裁决，认定爱尔兰将成年男性合意同性性行为入罪的法律违反《欧洲人权公约》第8条私人生活权。"
+    },
+    "body": {
+      "en": "In 1977, Dublin university lecturer and later Senator David Norris filed suit in the Irish High Court challenging Sections 61 and 62 of the Offences Against the Person Act 1861 and Section 11 of the Criminal Law Amendment Act 1885, which criminalized sexual acts between men in Ireland. After the Irish Supreme Court dismissed his constitutional challenge in 1983, Norris petitioned the European Commission and European Court of Human Rights.\n\nOn October 26, 1988, the European Court of Human Rights ruled by eight votes to six in Norris v. Ireland (Application no. 10581/83) that maintaining the statutory criminal prohibitions violated Article 8 (right to respect for private life) of the European Convention on Human Rights, citing its earlier 1981 Dudgeon v. United Kingdom precedent. Five years later, in June 1993, the Oireachtas passed the Criminal Law (Sexual Offences) Act 1993 decriminalizing consensual male same-sex acts.",
+      "zh": "1977年，都柏林圣三一学院讲师（后任爱尔兰参议员）大卫·诺里斯向爱尔兰高等法院提起宪法诉讼，挑战沿用自英国时期的《1861年侵害人身罪法》第61、62条及《1885年刑法修正案》第11条对成年男性合意性行为的刑事定罪。1983年爱尔兰最高法院驳回上诉后，诺里斯向欧洲人权机构提出申诉。\n\n1988年10月26日，欧洲人权法院在“诺里斯诉爱尔兰案”（申请号10581/83）中以8票对6票裁定，爱尔兰维持相关刑罚条款违反《欧洲人权公约》第8条对私人生活权的尊重义务。该判决推动爱尔兰议会于1993年6月通过法案，正式取消相关刑事定罪规定。"
+    },
+    "time": {
+      "startYear": 1988,
+      "endYear": 1988,
+      "label": {
+        "en": "October 26, 1988",
+        "zh": "1988年10月26日"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Dublin, Ireland",
+        "zh": "都柏林（爱尔兰）"
+      },
+      "countryName": {
+        "en": "Ireland",
+        "zh": "爱尔兰"
+      },
+      "countryCode": "372",
+      "coordinates": {
+        "longitude": -6.2603,
+        "latitude": 53.3498
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Preserved in European Court of Human Rights official case judgment Series A no. 142 (October 26, 1988) and Irish Supreme Court reports ([1984] IR 36).",
+      "zh": "依据欧洲人权法院1988年10月26日正式判决书（Series A no. 142）及1983年爱尔兰最高法院判例汇编。"
+    },
+    "sources": [
+      {
+        "title": "Norris v. Ireland (Judgment of 26 October 1988, Application no. 10581/83)",
+        "author": "European Court of Human Rights",
+        "year": 1988,
+        "citation": "HUDOC / Series A no. 142"
+      },
+      {
+        "title": "Norris v. Attorney General ([1984] I.R. 36)",
+        "author": "Supreme Court of Ireland",
+        "year": 1983
+      }
+    ]
+  },
+  {
+    "id": "entry_belgium_same_sex_marriage_2003",
+    "slug": "belgium-same-sex-marriage-2003",
+    "title": {
+      "en": "Belgium Legalizes Same-Sex Marriage (2003)",
+      "zh": "比利时同性婚姻合法化"
+    },
+    "originalName": "Wet tot openstelling van het huwelijk voor personen van hetzelfde geslacht (2003)",
+    "aliases": [
+      "Loi ouvrant le mariage à des personnes de même sexe",
+      "2003 Belgian Same-Sex Marriage Act"
+    ],
+    "summary": {
+      "en": "Legislation passed in Belgium receiving royal assent on February 13, 2003 and taking effect on June 1, 2003, opening civil marriage to same-sex couples as the second country worldwide.",
+      "zh": "比利时于2003年通过并生效的法律，向同性伴侣开放民事婚姻登记，使比利时成为全球第二个实现同性婚姻合法化的国家。"
+    },
+    "body": {
+      "en": "Following approval by the Belgian Senate in November 2002 and the Chamber of Representatives on January 30, 2003, King Albert II gave royal assent on February 13, 2003 to the Act opening civil marriage to persons of the same sex (published in the Moniteur Belge on February 28, 2003).\n\nWhen the statute entered into force on June 1, 2003, Belgium became the second state in the world after the Netherlands (2001) to legalize civil marriage for same-sex couples. The original 2003 statute left joint adoption and certain private international law rules excluded; parliament later amended Belgian law in 2004 and 2006 to expand transnational eligibility and adoption rights.",
+      "zh": "2002年11月及2003年1月30日，比利时联邦参议院与众议院先后表决通过《向同性伴侣开放婚姻法》；2003年2月13日国王阿尔贝二世签署御准，法案于2月28日在《比利时官方公报》（Moniteur Belge）刊布。\n\n该法于2003年6月1日正式施行，比利时由此继荷兰（2001年）之后成为全球第二个在国家法律层面允许同性伴侣登记民事婚姻的国家；2003年初版条文未包含跨国非居民结婚与共同收养条款，议会随后于2004年及2006年再行修法增补。"
+    },
+    "time": {
+      "startYear": 2003,
+      "endYear": 2003,
+      "label": {
+        "en": "June 1, 2003 (Effective)",
+        "zh": "2003年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Brussels, Belgium",
+        "zh": "布鲁塞尔（比利时）"
+      },
+      "countryName": {
+        "en": "Belgium",
+        "zh": "比利时"
+      },
+      "countryCode": "056",
+      "coordinates": {
+        "longitude": 4.3517,
+        "latitude": 50.8503
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in the Belgian Official Gazette (Moniteur Belge / Belgisch Staatsblad, February 28, 2003) and federal parliamentary records.",
+      "zh": "依据《比利时官方公报》（2003年2月28日刊）颁布法律原文及比利时联邦议会表决记录。"
+    },
+    "sources": [
+      {
+        "title": "Loi du 13 février 2003 ouvrant le mariage à des personnes de même sexe",
+        "author": "Moniteur Belge / Belgisch Staatsblad",
+        "year": 2003,
+        "citation": "28 février 2003 (entered into force June 1, 2003)"
       }
     ]
   }

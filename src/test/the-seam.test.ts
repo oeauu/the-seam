@@ -12,7 +12,7 @@ import { parseRoute, buildRoutePath } from "../state/routing";
 
 describe("The Seam - Data & Taxonomy Constraints", () => {
   it("contains vetted records with no modern taxonomy labels", () => {
-    expect(ARCHIVE_RECORDS.length).toBeGreaterThanOrEqual(47);
+    expect(ARCHIVE_RECORDS.length).toBeGreaterThanOrEqual(63);
 
     ARCHIVE_RECORDS.forEach((record) => {
       // Must have clean ID and slug
