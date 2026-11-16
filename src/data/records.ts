@@ -6995,5 +6995,555 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "url": "https://isgirsti.lt/archyvas/naglis-1993/"
       }
     ]
+  },
+  {
+    "id": "entry_coc_netherlands",
+    "slug": "coc-netherlands",
+    "title": {
+      "zh": "荷兰 COC 的成立",
+      "en": "Founding of COC Netherlands"
+    },
+    "originalName": "Shakespeareclub / COC",
+    "aliases": [],
+    "summary": {
+      "zh": "《Levensrecht》的读者在阿姆斯特丹成立了后来发展为 COC 的组织。",
+      "en": "Readers of Levensrecht formed the organization that became COC."
+    },
+    "body": {
+      "zh": "1946年12月7日，《Levensrecht》杂志的读者在阿姆斯特丹成立莎士比亚俱乐部。刊物让分散的读者取得联系，俱乐部则提供了聚会和组织活动的场所。\n\n组织后来采用 Cultuur en Ontspanningscentrum 的名称，简称 COC。它在维持社交网络的同时争取法律平等。彼得·昆德斯与汉斯·瓦默达姆的组织史以1946至1966年为范围，追踪了这段发展。",
+      "en": "On 7 December 1946, readers of Levensrecht founded the Shakespeare Club in Amsterdam. The magazine connected readers, while the club provided a place to meet and organize.\n\nThe organization later took the name Cultuur en Ontspanningscentrum, shortened to COC. It maintained social networks and campaigned for legal equality. Pieter Koenders and Hans Warmerdam trace that development in their study of the COC from 1946 to 1966."
+    },
+    "time": {
+      "startYear": 1946,
+      "endYear": 1946,
+      "label": {
+        "zh": "1946年",
+        "en": "1946"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "阿姆斯特丹",
+        "en": "Amsterdam"
+      },
+      "countryName": {
+        "zh": "荷兰",
+        "en": "Netherlands"
+      },
+      "countryCode": "528",
+      "coordinates": {
+        "longitude": 4.9,
+        "latitude": 52.37
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Over ons",
+        "citation": "COC Amsterdam, organizational history and bibliography",
+        "url": "https://www.cocamsterdam.nl/over-ons/"
+      },
+      {
+        "title": "Cultuur en Ontspanning: Het COC 1946–1966",
+        "citation": "Pieter Koenders and Hans Warmerdam, Publicatiereeks Homostudies, 1987"
+      }
+    ]
+  },
+  {
+    "id": "entry_mattachine_society",
+    "slug": "mattachine-society",
+    "title": {
+      "zh": "马塔钦协会的成立",
+      "en": "Founding of the Mattachine Society"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "哈里·海伊等人在洛杉矶成立马塔钦基金会，组织讨论与互助。",
+      "en": "Harry Hay and other organizers formed the Mattachine Foundation in Los Angeles."
+    },
+    "body": {
+      "zh": "1950年，哈里·海伊等人在洛杉矶开始秘密聚会。组织最初名为马塔钦基金会，1951年拟定首份宗旨声明。小组成员讨论生活中的歧视，以及如何组织起来争取权利。\n\n1953年，内部改组后，组织以马塔钦协会之名运作。美国国会图书馆的资料指南列出协会出版物、早期声明和有关创立过程的口述史。",
+      "en": "In 1950, Harry Hay and other organizers began meeting in secret in Los Angeles. Initially called the Mattachine Foundation, the group drafted its first statement of purpose in 1951. Discussion groups addressed discrimination and ways to organize against it.\n\nAfter a reorganization in 1953, the group operated as the Mattachine Society. The Library of Congress guide lists the society’s publications, early statements and oral history about its founding."
+    },
+    "time": {
+      "startYear": 1950,
+      "endYear": 1953,
+      "label": {
+        "zh": "1950至1953年",
+        "en": "1950–1953"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "洛杉矶",
+        "en": "Los Angeles"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -118.24,
+        "latitude": 34.05
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "The Mattachine Society",
+        "citation": "Library of Congress research guide",
+        "url": "https://guides.loc.gov/lgbtq-studies/before-stonewall/mattachine"
+      },
+      {
+        "title": "Mattachine Society Project collection, 1927–2000",
+        "citation": "ONE National Gay & Lesbian Archives, collection finding aid",
+        "url": "https://oac.cdlib.org/findaid/ark:/13030/kt7w1035mz_aspace_ref11_exw"
+      }
+    ]
+  },
+  {
+    "id": "entry_daughters_of_bilitis",
+    "slug": "daughters-of-bilitis",
+    "title": {
+      "zh": "比利蒂斯之女",
+      "en": "Daughters of Bilitis"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "旧金山的女同性恋团体于1955年成立，次年开始发行《The Ladder》。",
+      "en": "The San Francisco lesbian organization formed in 1955 and began publishing The Ladder the following year."
+    },
+    "body": {
+      "zh": "1955年，德尔·马丁、菲莉丝·里昂等四对伴侣在旧金山发起比利蒂斯之女。聚会让女性有机会在酒吧之外认识彼此，交换有关生活与工作的信息。\n\n1956年，组织开始出版《The Ladder》。杂志刊登组织消息、文章与读者来信，使外地读者也能参与交流。",
+      "en": "In 1955, four couples, including Del Martin and Phyllis Lyon, founded the Daughters of Bilitis in San Francisco. Meetings gave women a place outside bars to meet and share information about their lives and work.\n\nIn 1956, the group began publishing The Ladder. Its articles, organizational news and reader correspondence let women outside San Francisco take part in the discussion."
+    },
+    "time": {
+      "startYear": 1955,
+      "endYear": 1956,
+      "label": {
+        "zh": "1955至1956年",
+        "en": "1955–1956"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "旧金山",
+        "en": "San Francisco"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -122.42,
+        "latitude": 37.77
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "The Daughters of Bilitis",
+        "citation": "Library of Congress research guide and links to digitized publications",
+        "url": "https://guides.loc.gov/lgbtq-studies/before-stonewall/daughters-of-bilitis"
+      },
+      {
+        "title": "Phyllis Lyon and Del Martin Papers",
+        "citation": "GLBT Historical Society, collection 93-13",
+        "url": "https://cinco-prd.s3.amazonaws.com/media/pdf/lyonmart.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_christopher_street_liberation_day",
+    "slug": "christopher-street-liberation-day",
+    "title": {
+      "zh": "克里斯托弗街解放日游行",
+      "en": "Christopher Street Liberation Day March"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "1970年6月28日，纽约举行公开游行纪念石墙起义一周年。",
+      "en": "New York marked the first anniversary of Stonewall with a public march on 28 June 1970."
+    },
+    "body": {
+      "zh": "1970年6月28日，参加克里斯托弗街解放日游行的人从格林尼治村出发，沿第六大道走向中央公园。这一天距石墙酒吧遭警方突袭刚满一年。\n\n组织者把周年纪念安排为公开游行。纽约随后延续这一纪念方式，其他城市也在同一时期组织了各自的游行。",
+      "en": "On 28 June 1970, the Christopher Street Liberation Day march set out from Greenwich Village and proceeded up Sixth Avenue to Central Park. It marked one year since the police raid on the Stonewall Inn.\n\nOrganizers marked the anniversary with a public march. New York continued that form of commemoration in later years, while other cities organized marches of their own."
+    },
+    "time": {
+      "startYear": 1970,
+      "endYear": 1970,
+      "label": {
+        "zh": "1970年",
+        "en": "1970"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约",
+        "en": "New York City"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -74,
+        "latitude": 40.73
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Today in History: June 28",
+        "citation": "Library of Congress, Stonewall and the first anniversary march",
+        "url": "https://www.loc.gov/item/today-in-history/june-28/"
+      },
+      {
+        "title": "Stonewall National Monument Foundation Document",
+        "citation": "U.S. National Park Service",
+        "url": "https://www.nps.gov/ston/learn/historyculture/upload/STON_Foundation-Document.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_british_gay_liberation_front",
+    "slug": "british-gay-liberation-front",
+    "title": {
+      "zh": "英国同性恋解放阵线",
+      "en": "Gay Liberation Front in Britain"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "伦敦同性恋解放阵线组织公开活动，并参与1972年英国首届骄傲游行。",
+      "en": "London’s Gay Liberation Front organized public actions and helped stage Britain’s first Pride march in 1972."
+    },
+    "body": {
+      "zh": "1970年，活动人士在伦敦政治经济学院举行早期会议。阵线成员公开讨论警察骚扰、家庭与工作中的歧视，以及同性恋者如何在公共场合表达自己的身份。\n\n阵线于1971年发表宣言。1972年，成员参与组织伦敦骄傲游行。毕晓普斯盖特研究所收藏并数字化了宣言，可对照当时提出的主张。",
+      "en": "In 1970, activists held early meetings at the London School of Economics. Members discussed police harassment, discrimination at home and at work, and how gay people could live openly in public.\n\nThe front published its manifesto in 1971. In 1972 members helped organize the London Pride march. The Bishopsgate Institute has digitized the manifesto, preserving the demands in the group’s own words."
+    },
+    "time": {
+      "startYear": 1970,
+      "endYear": 1972,
+      "label": {
+        "zh": "1970至1972年",
+        "en": "1970–1972"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "伦敦",
+        "en": "London"
+      },
+      "countryName": {
+        "zh": "英国",
+        "en": "United Kingdom"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -0.12,
+        "latitude": 51.51
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Gay Liberation Front Manifesto",
+        "citation": "Bishopsgate Institute, digital facsimile",
+        "url": "https://www.bishopsgate.org.uk/gay-liberation-front-manifesto/"
+      },
+      {
+        "title": "The Story of Gay Liberation Front in Britain",
+        "citation": "Archival exhibition",
+        "url": "https://artsandculture.google.com/story/the-story-of-gay-liberation-front-in-britain/aAWRAJsATOGtIg"
+      }
+    ]
+  },
+  {
+    "id": "entry_argentina_flh",
+    "slug": "argentina-flh",
+    "title": {
+      "zh": "阿根廷同性恋解放阵线",
+      "en": "Argentina’s Homosexual Liberation Front"
+    },
+    "originalName": "Frente de Liberación Homosexual",
+    "aliases": [],
+    "summary": {
+      "zh": "阿根廷同性恋解放阵线通过组织、宣言和刊物讨论性解放与政治变革。",
+      "en": "Argentina’s FLH linked sexual liberation to political change through organizing, manifestos and print."
+    },
+    "body": {
+      "zh": "1971年，阿根廷同性恋解放阵线在布宜诺斯艾利斯成立，把此前团体的活动与新成员的组织工作汇集起来。成员发表宣言，讨论性规范、社会不平等和政治解放之间的关系。\n\n1973年，阵线开始发行《Somos》，以刊物公开讨论组织主张。1976年阵线解散。CeDInCI 保存了成立年表、宣言及刊物原件。",
+      "en": "The Frente de Liberación Homosexual formed in Buenos Aires in 1971, bringing together earlier organizing and new participants. Members issued manifestos on sexual norms, inequality and political liberation.\n\nThe front began issuing Somos in 1973 to circulate its positions. It disbanded in 1976. CeDInCI preserves a chronology, manifestos and issues of the magazine."
+    },
+    "time": {
+      "startYear": 1971,
+      "endYear": 1976,
+      "label": {
+        "zh": "1971至1976年",
+        "en": "1971–1976"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "布宜诺斯艾利斯",
+        "en": "Buenos Aires"
+      },
+      "countryName": {
+        "zh": "阿根廷",
+        "en": "Argentina"
+      },
+      "countryCode": "032",
+      "coordinates": {
+        "longitude": -58.39,
+        "latitude": -34.6
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Se funda el Frente de Liberación Homosexual",
+        "citation": "CeDInCI, Sexo y Revolución archive",
+        "url": "https://sexoyrevolucion.cedinci.org/s/la-comunidad-del-archivo/item/13055"
+      },
+      {
+        "title": "Somos",
+        "citation": "CeDInCI, AméricaLee digital periodicals archive",
+        "url": "https://americalee.cedinci.org/s/americalee/item/6028"
+      }
+    ]
+  },
+  {
+    "id": "entry_fuori_sanremo_protest",
+    "slug": "fuori-sanremo-protest",
+    "title": {
+      "zh": "F.U.O.R.I. 与圣雷莫抗议",
+      "en": "F.U.O.R.I. and the Sanremo Protest"
+    },
+    "originalName": "Fronte Unitario Omosessuale Rivoluzionario Italiano",
+    "aliases": [],
+    "summary": {
+      "zh": "1972年，F.U.O.R.I. 等团体在圣雷莫抗议将同性恋病理化的会议。",
+      "en": "In 1972, F.U.O.R.I. and other activists protested the pathologization of homosexuality in Sanremo."
+    },
+    "body": {
+      "zh": "F.U.O.R.I. 于1971年在意大利成立。1972年4月5日，成员与来自国外的活动人士在圣雷莫举行抗议，当时当地正在召开讨论所谓性偏差的会议。\n\n抗议者在会场外反对把同性恋当作需要治疗的问题。运动刊物《FUORI!》也以自己的语言提出公开表达与性解放的主张。",
+      "en": "F.U.O.R.I. formed in Italy in 1971. On 5 April 1972 its members and activists from abroad demonstrated in Sanremo, where a conference on what it termed sexual deviance was under way.\n\nProtesters outside the conference opposed treating homosexuality as a condition requiring cure. The movement’s newspaper FUORI! also set out demands for public visibility and sexual liberation in its own terms."
+    },
+    "time": {
+      "startYear": 1971,
+      "endYear": 1972,
+      "label": {
+        "zh": "1971至1972年",
+        "en": "1971–1972"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "圣雷莫",
+        "en": "Sanremo"
+      },
+      "countryName": {
+        "zh": "意大利",
+        "en": "Italy"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 7.78,
+        "latitude": 43.82
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Diacronie, no. 47",
+        "citation": "Historical study of FUORI! and Italian homosexual liberation",
+        "url": "https://journals.openedition.org/diacronie/pdf/17052"
+      }
+    ]
+  },
+  {
+    "id": "entry_barcelona_gay_liberation_march",
+    "slug": "barcelona-gay-liberation-march",
+    "title": {
+      "zh": "巴塞罗那同性恋解放游行",
+      "en": "Barcelona Gay Liberation March"
+    },
+    "originalName": "Manifestació per l’Alliberament Gai",
+    "aliases": [],
+    "summary": {
+      "zh": "1977年6月26日，数千人在巴塞罗那上街，要求废除针对同性恋者的法律。",
+      "en": "On 26 June 1977, thousands marched in Barcelona against laws targeting gay people."
+    },
+    "body": {
+      "zh": "佛朗哥去世后，加泰罗尼亚同性恋解放阵线在巴塞罗那组织公开游行。1977年6月26日，参加者走上兰布拉大道，要求废除当局用来惩罚和拘禁同性恋者的《社会危险与社会改造法》相关规定。\n\n警方驱散人群，多名参加者受伤。巴塞罗那市议会在四十周年纪念文件中记载了组织者、日期与参加人数。",
+      "en": "After Franco’s death, the Front d’Alliberament Gai de Catalunya organized a march in Barcelona. On 26 June 1977, marchers took to La Rambla and demanded an end to provisions of the Law on Social Danger and Rehabilitation used to punish and detain gay people.\n\nPolice dispersed the crowd, injuring demonstrators. A Barcelona City Council document commemorating the fortieth anniversary records the organizers, date and scale of the march."
+    },
+    "time": {
+      "startYear": 1977,
+      "endYear": 1977,
+      "label": {
+        "zh": "1977年",
+        "en": "1977"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "巴塞罗那",
+        "en": "Barcelona"
+      },
+      "countryName": {
+        "zh": "西班牙",
+        "en": "Spain"
+      },
+      "countryCode": "724",
+      "coordinates": {
+        "longitude": 2.17,
+        "latitude": 41.38
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Acta del Consell Plenari",
+        "citation": "Ajuntament de Barcelona, commemoration of the 1977 march",
+        "url": "https://ajuntament.barcelona.cat/sites/default/files/acta_cp_260517_es.pdf"
+      },
+      {
+        "title": "La primera manifestació",
+        "citation": "Museu d’Història de Catalunya, photographs by Colita",
+        "url": "https://mhcat.cat/armhc/exposicions/exposicions_realizades/nosaltres_som/la_primera_manifestacio"
+      }
+    ]
+  },
+  {
+    "id": "entry_sydney_first_mardi_gras",
+    "slug": "sydney-first-mardi-gras",
+    "title": {
+      "zh": "悉尼首届 Mardi Gras",
+      "en": "Sydney’s First Mardi Gras"
+    },
+    "originalName": "Sydney Gay and Lesbian Mardi Gras",
+    "aliases": [],
+    "summary": {
+      "zh": "悉尼1978年的夜间游行遭警方阻拦，53人被捕。",
+      "en": "Police stopped Sydney’s 1978 night march and arrested 53 people."
+    },
+    "body": {
+      "zh": "1978年6月24日，悉尼活动人士在白天举行游行和集会，晚上沿牛津街继续举行 Mardi Gras。警方随后截停夜间队伍，逮捕53人。\n\n参与者随后组织抗议，要求撤销指控。首届参与者后来被称作「78ers」，他们的回忆由 First Mardi Gras 网站汇集，新南威尔士州立图书馆将其列为档案资源。",
+      "en": "On 24 June 1978, Sydney activists held a daytime march and rally, followed that evening by a Mardi Gras procession along Oxford Street. Police stopped the night procession and arrested 53 people.\n\nParticipants organized further protests demanding that charges be dropped. First Mardi Gras collects recollections from members of the first march, known as the 78ers. The State Library of New South Wales lists it as a historical resource."
+    },
+    "time": {
+      "startYear": 1978,
+      "endYear": 1978,
+      "label": {
+        "zh": "1978年",
+        "en": "1978"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "悉尼",
+        "en": "Sydney"
+      },
+      "countryName": {
+        "zh": "澳大利亚",
+        "en": "Australia"
+      },
+      "countryCode": "036",
+      "coordinates": {
+        "longitude": 151.21,
+        "latitude": -33.88
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "First Mardi Gras",
+        "citation": "State Library of New South Wales, resource on the 78ers",
+        "url": "https://eresources.sl.nsw.gov.au/first-mardi-gras"
+      },
+      {
+        "title": "Sydney Gay and Lesbian Mardi Gras Parade Route",
+        "citation": "Australian national heritage listing",
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/sydney-gay-lesbian-mardi-gras-parade-route"
+      }
+    ]
+  },
+  {
+    "id": "entry_ilga_coventry_founding",
+    "slug": "ilga-coventry-founding",
+    "title": {
+      "zh": "国际同性恋协会在考文垂成立",
+      "en": "Founding of the International Gay Association"
+    },
+    "originalName": "International Gay Association / ILGA",
+    "aliases": [],
+    "summary": {
+      "zh": "1978年，多国组织代表在考文垂成立了后来发展为 ILGA World 的国际协会。",
+      "en": "In 1978 delegates in Coventry founded the international association that became ILGA World."
+    },
+    "body": {
+      "zh": "1978年8月，多个国家的组织代表在英国考文垂参加争取同性恋平等运动的年度会议，并在会外聚会上成立国际同性恋协会（International Gay Association，IGA）。代表来自欧洲、澳大利亚和美国等地。\n\n协会为各地团体交换信息和协调跨国行动提供了联络渠道，后来发展为 ILGA World。组织历史保存了考文垂会议的背景和参与地区名单。",
+      "en": "In August 1978, delegates from several countries attended the Campaign for Homosexual Equality conference in Coventry. At a fringe meeting they formed the International Gay Association, or IGA. Delegates came from Europe, Australia and the United States.\n\nThe association gave groups a means to exchange information and coordinate work across borders. It later became ILGA World, whose organizational history records the Coventry meeting and the places represented."
+    },
+    "time": {
+      "startYear": 1978,
+      "endYear": 1978,
+      "label": {
+        "zh": "1978年",
+        "en": "1978"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "考文垂",
+        "en": "Coventry"
+      },
+      "countryName": {
+        "zh": "英国",
+        "en": "United Kingdom"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -1.51,
+        "latitude": 52.41
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "About us: How it all began",
+        "citation": "ILGA World, founding history",
+        "url": "https://ilga.org/About-Us/"
+      },
+      {
+        "title": "The history of ILGA: 1978/2012",
+        "citation": "David Paternotte, Alex Cosials Apellaniz and David Tong",
+        "url": "https://ilga.org/ilga-history/"
+      }
+    ]
   }
 ];
