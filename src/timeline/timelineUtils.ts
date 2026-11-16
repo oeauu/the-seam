@@ -57,6 +57,10 @@ export function recordOverlapsRange(
   return recordStart <= filterEnd && recordEnd >= filterStart;
 }
 
+export function timelinePeriods(time: TimeExtent): readonly Pick<TimeExtent, "startYear" | "endYear">[] {
+  return time.periods?.length ? time.periods : [time];
+}
+
 export function normalizeYear(year: number, direction = 1): number {
   return year === 0 ? (direction < 0 ? -1 : 1) : Math.round(year);
 }

@@ -5,6 +5,7 @@ import {
   normalizeYear,
   snapYearToInterval,
   timelineIntervalTicks,
+  timelinePeriods,
   timelineTicks,
 } from "./timelineUtils";
 import type { KeyboardEvent } from "react";
@@ -106,12 +107,15 @@ export function Timeline() {
     const seen = new Set<number>();
     const points: number[] = [];
     for (const r of records) {
-      if (r.time.startYear === null || !r.place.coordinates) continue;
-      const pct = Math.max(0.5, Math.min(99.5, ((r.time.startYear - earliestYear) / totalSpan) * 100));
-      const bucket = Math.round(pct * 2);
-      if (!seen.has(bucket)) {
-        seen.add(bucket);
-        points.push(pct);
+      if (!r.place.coordinates) continue;
+      for (const { startYear } of timelinePeriods(r.time)) {
+        if (startYear === null) continue;
+        const pct = Math.max(0.5, Math.min(99.5, ((startYear - earliestYear) / totalSpan) * 100));
+        const bucket = Math.round(pct * 2);
+        if (!seen.has(bucket)) {
+          seen.add(bucket);
+          points.push(pct);
+        }
       }
     }
     return points;

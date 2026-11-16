@@ -6,7 +6,7 @@ import type { CountryMetadata, CityMetadata } from "../data/countriesMeta";
 import type { ArchiveRecord, LocationCluster } from "../types";
 import { useApp } from "../state/useApp";
 import { getRecordNameplateNames } from "../data/recordStatus";
-import { getCountryMetadataForFeature } from "../geo/countryLookup";
+import { getCountryMetadataForFeature, recordBelongsToCountry } from "../geo/countryLookup";
 import { getUNTerritoryInfo } from "../geo/unStandards";
 import { loadWorldData, loadAdministrativeBorders, getMapCities, canonicalCountryName } from "../geo/worldGeometry";
 import {
@@ -206,14 +206,8 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
 
   const countryRecords = useMemo(
     () =>
-      records.filter(record => {
-        const coordinates = record.place.coordinates;
-        if (!coordinates) return false;
-        // Spatial containment follows the actual adopted map outline. Editorial
-        // country metadata must not place a point outside the selected polygon.
-        return d3.geoContains(country, [coordinates.longitude, coordinates.latitude]);
-      }),
-    [records, country],
+      records.filter(record => recordBelongsToCountry(record, country, worldFeatures)),
+    [records, country, worldFeatures],
   );
 
   const { subregionGroups, filteredRecords, selectedProvinceId } = useMemo(() => {

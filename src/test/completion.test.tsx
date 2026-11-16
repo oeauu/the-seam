@@ -15,7 +15,7 @@ import {
   timelineIntervalTicks,
 } from "../timeline/timelineUtils";
 import { parseRoute, buildRoutePath } from "../state/routing";
-import { getCountryMetadataForFeature } from "../geo/countryLookup";
+import { getCountryMetadataForFeature, recordBelongsToCountry } from "../geo/countryLookup";
 import { mergeUnTerritories, getUNTerritoryInfo } from "../geo/unStandards";
 import type { CountryFeature } from "../geo/geoTypes";
 
@@ -40,6 +40,18 @@ afterEach(() => {
 });
 
 describe("Completion regressions", () => {
+  it("uses an archive’s country code only when its coordinates miss all country polygons", () => {
+    const record = ALL_RECORDS[0];
+    const nearby: CountryFeature = {
+      type: "Feature", id: "998", properties: { name: "Nearby region" },
+      geometry: { type: "Polygon", coordinates: [[[10, 0], [10, 5], [15, 5], [15, 0], [10, 0]]] },
+    };
+    const offshore = { ...record, place: { ...record.place, countryCode: "999", coordinates: { longitude: 8, latitude: 2 } } };
+    const inland = { ...offshore, place: { ...offshore.place, coordinates: { longitude: 12, latitude: 2 } } };
+    expect(recordBelongsToCountry(offshore, country, [country, nearby])).toBe(true);
+    expect(recordBelongsToCountry(inland, country, [country, nearby])).toBe(false);
+    expect(recordBelongsToCountry(inland, nearby, [country, nearby])).toBe(true);
+  });
   it("removes both archived form connectivity tests and keeps other local submissions", () => {
     const key = "the-seam:user-submissions:v1";
     const testRecord = {

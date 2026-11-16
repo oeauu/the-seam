@@ -5,7 +5,7 @@ import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
 import type { GeoJSONSource, Map as MapLibreMap } from "maplibre-gl";
 import { geoArea, geoCentroid, geoContains } from "d3";
 import type { CountryFeature, WorldData } from "../geo/geoTypes";
-import type { ArchiveRecord, Language, LocationCluster } from "../types";
+import type { Language, LocationCluster } from "../types";
 import { latLngToVector3, vector3ToLatLng } from "../geo/worldGeometry";
 import {
   COUNTRY_LABEL_LAYER_IDS,
@@ -19,7 +19,7 @@ import {
   loadArchiveGlobeStyle,
   syncGlobeClusterLayerSizing,
 } from "../geo/maplibreStyle";
-import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
+import { findCountryAtPoint, getCountryMetadataForFeature, recordBelongsToCountry } from "../geo/countryLookup";
 import { getUNTerritoryInfo, UN_MAP_DISCLAIMER } from "../geo/unStandards";
 import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
 import { getRecordNameplateNames } from "../data/recordStatus";
@@ -101,13 +101,6 @@ function getClusterTargetLatLng(country: CountryFeature): [number, number] {
   const c = geoCentroid(country);
   if (Number.isFinite(c[0]) && Number.isFinite(c[1])) return [c[0], c[1]];
   return [0, 0];
-}
-
-function countCountryRecords(country: CountryFeature, records: ArchiveRecord[]): number {
-  return records.filter(record => {
-    const coords = record.place.coordinates;
-    return coords ? geoContains(country, [coords.longitude, coords.latitude]) : false;
-  }).length;
 }
 
 function dotOnSphere(lonA: number, latA: number, lonB: number, latB: number): number {
@@ -824,8 +817,10 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     ? lockedUnInfo?.displayName?.[language] || getCountryMetadataForFeature(lockedCountry)?.name[language] || lockedCountry.properties.name
     : "";
   const lockedRecordCount = useMemo(
-    () => (lockedCountry ? countCountryRecords(lockedCountry, visibleRecords) : 0),
-    [lockedCountry, visibleRecords],
+    () => lockedCountry
+      ? visibleRecords.filter(record => recordBelongsToCountry(record, lockedCountry, worldData.features)).length
+      : 0,
+    [lockedCountry, visibleRecords, worldData.features],
   );
 
   return (

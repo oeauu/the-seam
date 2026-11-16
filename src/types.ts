@@ -13,6 +13,7 @@ export interface TimeExtent {
   endYear: HistoricalYear | null;
   label: LocalizedString;
   certainty?: "exact" | "approximate" | "period" | "legendary";
+  periods?: Array<{ startYear: HistoricalYear; endYear: HistoricalYear; label: LocalizedString }>;
 }
 
 export interface Coordinates {

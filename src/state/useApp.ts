@@ -11,6 +11,7 @@ export interface AppContextValue {
   selectedCountry: CountryFeature | null;
   countryMeta: CountryMetadata | null;
   selectedRecord: ArchiveRecord | null;
+  recordNotFound: boolean;
   selectedCluster: LocationCluster | null;
   earliestYear: number;
   latestYear: number;

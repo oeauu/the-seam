@@ -1,8 +1,22 @@
 import { geoContains, geoCentroid, geoDistance } from "d3-geo";
 import type { CountryFeature } from "./geoTypes";
+import type { ArchiveRecord } from "../types";
 import { COUNTRIES_META, type CountryMetadata } from "../data/countriesMeta";
 import { getUNTerritoryInfo } from "./unStandards";
 import { getMapCities, canonicalCountryName } from "./worldGeometry";
+
+export function recordBelongsToCountry(
+  record: ArchiveRecord,
+  country: CountryFeature,
+  countries: CountryFeature[],
+): boolean {
+  const { coordinates, countryCode } = record.place;
+  if (!coordinates) return false;
+  const point: [number, number] = [coordinates.longitude, coordinates.latitude];
+  if (geoContains(country, point)) return true;
+  return countryCode === String(country.id)
+    && !countries.some(feature => geoContains(feature, point));
+}
 
 export function findCountryAtPoint(
   features: CountryFeature[],

@@ -9,6 +9,7 @@ import {
   calculateTimelineBounds,
   normalizeYear,
   recordOverlapsRange,
+  timelinePeriods,
 } from "../timeline/timelineUtils";
 import { buildRoutePath, isModalPath, parseRoute, pushRoute, withBasePath } from "./routing";
 import { loadWorldData, latLngToVector3 } from "../geo/worldGeometry";
@@ -59,6 +60,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [selectedCountry, setSelectedCountry] = useState<CountryFeature | null>(null);
   const [countryMeta, setCountryMeta] = useState<CountryMetadata | null>(null);
   const [selectedRecord, setSelectedRecord] = useState<ArchiveRecord | null>(null);
+  const [recordNotFound, setRecordNotFound] = useState(false);
   const [selectedCluster, setSelectedCluster] = useState<LocationCluster | null>(null);
   const [submitOpen, setSubmitOpenState] = useState(false);
   const [aboutOpen, setAboutOpenState] = useState(false);
@@ -109,6 +111,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         ? recordsRef.current.find(r => r.slug === slug || r.id === slug || r.legacySlugs?.includes(slug))
         : null;
       setSelectedRecord(found || null);
+      setRecordNotFound(route.kind === "record" && !found);
       setSelectedCluster(null);
       if (!route.countryId) {
         setViewMode("globe");
@@ -135,7 +138,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const visibleRecords = useMemo(() => {
     const allEras = isTimelineCollapsed || (startYear === earliestYear && endYear === latestYear);
     return records.filter(record =>
-      recordOverlapsRange(record.time.startYear, record.time.endYear, startYear, endYear, allEras)
+      timelinePeriods(record.time).some(period =>
+        recordOverlapsRange(period.startYear, period.endYear, startYear, endYear, allEras)
+      )
     );
   }, [records, startYear, endYear, isTimelineCollapsed, earliestYear, latestYear]);
 
@@ -209,6 +214,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const openRecord = (record: ArchiveRecord, locate = false) => {
+    setRecordNotFound(false);
     if (locate && record.place.coordinates) {
       setViewMode("globe");
       setSelectedCountry(null);
@@ -221,11 +227,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const closeRecord = () => {
+    setRecordNotFound(false);
     setSelectedRecord(null);
     restoreUnderlyingRoute(viewMode, selectedCountry, null);
   };
 
   const selectCountry = (country: CountryFeature, meta?: CountryMetadata) => {
+    setRecordNotFound(false);
     setSelectedCountry(country);
     const resolvedMeta = meta || getCountryMetadataForFeature(country);
     setCountryMeta(resolvedMeta);
@@ -236,6 +244,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const returnToGlobe = (resetHome = false) => {
+    setRecordNotFound(false);
     setViewMode("globe");
     setSelectedCountry(null);
     setCountryMeta(null);
@@ -299,6 +308,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     selectedCountry,
     countryMeta,
     selectedRecord,
+    recordNotFound,
     selectedCluster,
     earliestYear,
     latestYear,

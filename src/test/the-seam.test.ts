@@ -5,6 +5,7 @@ import { COUNTRIES_META } from "../data/countriesMeta";
 import {
   calculateTimelineBounds,
   recordOverlapsRange,
+  timelinePeriods,
   formatYear,
 } from "../timeline/timelineUtils";
 import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
@@ -19,6 +20,15 @@ import {
 } from "../geo/maplibreStyle";
 
 describe("The Seam - Data & Taxonomy Constraints", () => {
+  it("finds Ganymede at either documented text date without treating the gap as continuous", () => {
+    const record = ARCHIVE_RECORDS.find(entry => entry.slug === "ganymede")!;
+    const visibleAt = (year: number) => timelinePeriods(record.time).some(period =>
+      recordOverlapsRange(period.startYear, period.endYear, year, year, false)
+    );
+    expect(visibleAt(-750)).toBe(true);
+    expect(visibleAt(8)).toBe(true);
+    expect(visibleAt(-200)).toBe(false);
+  });
   it("contains vetted records with no modern taxonomy labels", () => {
     expect(ARCHIVE_RECORDS.length).toBeGreaterThanOrEqual(63);
 

@@ -74,7 +74,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
     // Verify key archival sections
     await expect(panel.locator(".seam-record-narrative-section")).toBeVisible();
-    await expect(panel.locator(".seam-record-historiography-section")).toHaveCount(0);
+    await expect(panel.locator(".seam-record-historiography-section")).toContainText("现存法庭文书");
     await expect(panel.locator(".seam-record-sources-section")).toBeVisible();
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
     await page.screenshot({path:"test-results/seam-desktop-record.png"});
@@ -83,6 +83,11 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     const closeBtn = panel.locator(".seam-record-close-btn");
     await closeBtn.click();
     await expect(panel).toBeHidden();
+
+    await page.goto("/record/sri-lanka-penal-code-365a");
+    await expect(page.getByText("未找到这条档案")).toBeVisible();
+    await page.getByRole("button", { name: "打开档案索引" }).click();
+    await expect(page.locator(".seam-index-drawer")).toBeVisible();
   });
 
   test("timeline collapse immediately displays all eras per Section 8.4", async ({ page }) => {
@@ -179,7 +184,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.screenshot({path:"test-results/seam-mobile-country.png"});
     await page.getByRole("button",{name:"档案索引与搜索"}).click();
     await page.locator(".seam-search-input").fill("霍尔");
-    await page.locator(".seam-index-item-btn").click();
+    await page.locator(".seam-index-item-btn").filter({ hasText: "托马斯(因)·霍尔" }).click();
     await expect(page.locator(".seam-record-panel")).toBeVisible();
     const panel = await page.locator(".seam-record-panel").boundingBox();
     expect(panel?.width).toBeLessThanOrEqual(390);
@@ -299,7 +304,8 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.locator(".seam-subregion-chip").nth(1).click();
     await expect(page.locator(".seam-2d-nameplate")).toHaveCount(1);
     await page.locator(".seam-subregion-chip").first().click();
-    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(10);
+    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(11);
+    await expect(page.locator(".seam-2d-nameplate").filter({ hasText: "张国荣" })).toHaveCount(1);
 
     // Verify China record detail uses single-line UI title and switches cleanly ZH -> EN
     await page.goto("/record/mizi-xia");

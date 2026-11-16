@@ -20,6 +20,8 @@ function MainLayout() {
     countryMeta,
     visibleRecords,
     selectedRecord,
+    recordNotFound,
+    language,
     closeRecord,
     openRecord,
     returnToGlobe,
@@ -38,6 +40,14 @@ function MainLayout() {
       <Header />
 
       <main className="seam-main-viewport">
+        {recordNotFound && (
+          <div className="seam-record-not-found" role="status">
+            <strong>{language === "zh" ? "未找到这条档案" : "Archive record not found"}</strong>
+            <button type="button" onClick={() => { closeRecord(); setIndexOpen(true); }}>
+              {language === "zh" ? "打开档案索引" : "Open archive index"}
+            </button>
+          </div>
+        )}
         {viewMode === "globe" ? (
           <GlobeContainer />
         ) : (

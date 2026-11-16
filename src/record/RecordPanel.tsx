@@ -151,6 +151,9 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               <strong className="seam-meta-value">
                 {record.time.label[language] || record.time.label.en}
               </strong>
+              {record.time.periods?.map(period => (
+                <span key={period.label.en} className="seam-meta-sub">{period.label[language]}</span>
+              ))}
             </div>
           </div>
 
@@ -215,6 +218,12 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
           </section>
 
           {/* Sources and External References */}
+          {record.historiographyNote?.[language] && (
+            <section className="seam-record-historiography-section">
+              <h3 className="seam-section-title">{language === "zh" ? "史料说明" : "Historical Source Notes"}</h3>
+              <p>{record.historiographyNote[language]}</p>
+            </section>
+          )}
           {record.sources && record.sources.length > 0 && (
             <section className="seam-record-sources-section">
               <h2 className="seam-section-title">

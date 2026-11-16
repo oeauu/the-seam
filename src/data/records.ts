@@ -391,8 +391,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "cultural-origin"
     },
     "historiographyNote": {
-      "en": "In Greek religion and Hellenistic art, Hermaphroditus was worshipped as a figure of union and fertility within myth rather than as an everyday social category.",
-      "zh": "在古希腊宗教与希腊化艺术中，赫耳玛佛洛狄托斯多作为结合与丰饶之神被供奉，属于神话与造型艺术传统。"
+      "en": "Ovid presents the figure through the story of Salmacis. Surviving sculptures also document a tradition of depicting Hermaphroditus as a reclining figure.",
+      "zh": "奥维德通过萨尔玛西斯的故事叙述这一形象。传世雕塑还保存了将赫耳玛佛洛狄托斯塑为卧像的传统。"
     },
     "sources": [
       {
@@ -458,8 +458,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "burial-site"
     },
     "historiographyNote": {
-      "en": "Because Old Kingdom inscriptions give only their court titles and family names without explicit commentary, modern interpretations rely on tomb iconography.",
-      "zh": "古王国时期的墓葬铭文仅保留了两人的官职与亲属姓名，相关性质判断主要依据墓室壁画构图。"
+      "en": "The tomb inscriptions give the two men’s court titles and family names. Scholars have read the placement and gestures of the figures in the reliefs in different ways.",
+      "zh": "墓葬铭文记有两人的宫廷职衔和亲属姓名。学者对墓室浮雕中两人的位置与姿态有不同解读。"
     },
     "sources": [
       {
@@ -1077,8 +1077,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "residence"
     },
     "historiographyNote": {
-      "en": "Original manuscripts at Casa Buonarroti establish the masculine addressees directly, correcting the 1623 printed alterations.",
-      "zh": "佛罗伦萨博纳罗蒂之家现存亲笔手稿已充分证实原本的男性倾诉对象，订正了1623年刊本的代词篡改。"
+      "en": "The manuscripts at Casa Buonarroti preserve masculine forms of address where the 1623 printed edition uses feminine forms.",
+      "zh": "佛罗伦萨博纳罗蒂之家所藏亲笔手稿保留了阳性称谓，1623年刊本在对应位置改用了阴性形式。"
     },
     "sources": [
       {
@@ -1549,8 +1549,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "activity-area"
     },
     "historiographyNote": {
-      "en": "Though fictionalized, the novel mirrors historical Qing ban regulations on female stage performers and documented Beijing theater-house patronage.",
-      "zh": "小说虽属虚构创作，但其所写“禁女伶”背景下的京师私寓（堂子）与梨园交往格局均有清代笔记与官书可相印证。"
+      "en": "Qing official records and notebooks document restrictions on women performers and theatrical patronage in Beijing, the setting of the novel.",
+      "zh": "清代官书和笔记记载了小说所写的北京戏园环境，包括对女伶登台的限制以及观众与戏班之间的往来。"
     },
     "sources": [
       {
@@ -7669,9 +7669,13 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "startYear": -750,
       "endYear": 8,
       "label": {
-        "zh": "约公元前750年至公元8年（文本年代）",
-        "en": "c. 750 BCE–8 CE (textual dating)"
+        "zh": "文本年代：约公元前750年、约公元8年",
+        "en": "Text dates: c. 750 BCE and c. 8 CE"
       },
+      "periods": [
+        { "startYear": -750, "endYear": -750, "label": { "zh": "《伊利亚特》约公元前750年", "en": "Iliad, c. 750 BCE" } },
+        { "startYear": 8, "endYear": 8, "label": { "zh": "《变形记》约公元8年", "en": "Metamorphoses, c. 8 CE" } }
+      ],
       "certainty": "approximate"
     },
     "place": {
@@ -7827,9 +7831,13 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "startYear": -750,
       "endYear": -380,
       "label": {
-        "zh": "约公元前750至前380年（文本年代）",
-        "en": "c. 750 BCE–380 BCE (textual dating)"
+        "zh": "文本年代：约公元前750年、约公元前380年",
+        "en": "Text dates: c. 750 BCE and c. 380 BCE"
       },
+      "periods": [
+        { "startYear": -750, "endYear": -750, "label": { "zh": "《伊利亚特》约公元前750年", "en": "Iliad, c. 750 BCE" } },
+        { "startYear": -380, "endYear": -380, "label": { "zh": "《会饮篇》约公元前380年", "en": "Symposium, c. 380 BCE" } }
+      ],
       "certainty": "approximate"
     },
     "place": {
@@ -8242,8 +8250,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "George Villiers rose quickly at the court of James VI and I, eventually becoming Duke of Buckingham."
     },
     "body": {
-      "zh": "乔治·维利尔斯在詹姆斯六世兼一世的宫廷中迅速获擢升，最终成为白金汉公爵。他与国王通信，信件涉及宫廷事务，也保留私人称呼。\n\n大英图书馆的哈利手稿同时收有詹姆斯写给王储查尔斯与维利尔斯的信，以及维利尔斯致国王的两封信，可查看这些通信如何留存在同一卷册中。",
-      "en": "George Villiers rose quickly at the court of James VI and I, eventually becoming Duke of Buckingham. His correspondence with the king combines affairs of court with personal forms of address.\n\nThe British Library’s Harley manuscript includes a letter from James to Prince Charles and Villiers and two letters from Villiers to the king, preserving their exchanges in the same volume."
+      "zh": "乔治·维利尔斯在詹姆斯六世兼一世的宫廷中获擢升，1623年成为白金汉公爵。同年，他陪王储查尔斯赴西班牙求婚。詹姆斯写信祝查尔斯求婚顺利，并在同一封信里以昵称「Steenie」称呼维利尔斯，谈到维利尔斯妻子的病情。此信编在大英图书馆 Harley MS 6987 的第41至43叶。\n\n在另一封信的结尾，詹姆斯称维利尔斯为「亲爱的孩子和妻子」，并自称是他的「父亲和丈夫」。英格兰遗产委员会将这些称呼与维利尔斯署名「Steenie」的信一同展示。",
+      "en": "George Villiers rose at the court of James VI and I and became Duke of Buckingham in 1623. That year he accompanied Prince Charles to Spain to seek a marriage. James wrote to wish Charles success, called Villiers ‘Steenie’ and mentioned his wife’s illness. The letter is in Harley MS 6987, folios 41r–43r.\n\nIn another letter James addresses Villiers as his child and wife and calls himself Villiers’s father and husband. English Heritage presents these forms of address alongside a letter signed ‘Steenie’ by Villiers."
     },
     "time": {
       "startYear": 1614,
@@ -8274,8 +8282,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "sources": [
       {
         "title": "Harley MS 6987",
-        "citation": "British Library, ff. 15r–16v and 168r–170v",
+        "citation": "British Library, ff. 41r–43r and 168r–170v",
         "url": "https://searcharchives.bl.uk/catalog/040-002052841"
+      },
+      {
+        "title": "The King and His Favourite: James I and George Villiers",
+        "url": "https://www.english-heritage.org.uk/learn/histories/lgbtq-history/James_I_and_Villiers/"
       }
     ]
   },
@@ -8399,8 +8411,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Kahlo lived and painted in Coyoacán, Mexico City."
     },
     "body": {
-      "zh": "卡罗在墨西哥城科约阿坎生活和作画。她经常以自己的身体为题，将伤痛、服饰与亲密关系画进自画像。\n\n她写给摄影师尼古拉斯·默雷的信保留了两人的交往，也写到旅行和展览时期的生活。史密森学会的档案展览将通信、照片及其他材料并列呈现。",
-      "en": "Kahlo lived and painted in Coyoacán, Mexico City. Her self-portraits often use her own body to depict pain, clothing and intimate relationships.\n\nHer letters to photographer Nickolas Muray preserve their relationship and describe life during travel and exhibitions. The Smithsonian’s archival exhibition brings together letters, photographs and other material."
+      "zh": "在1940年的《剪发自画像》里，卡罗穿着宽大的深色男式西装坐在椅子上，右手握剪刀，剪下的头发散在脚边。画面上沿写着一段歌谣和音符，歌词将恋人的爱与她的长发联系起来。\n\n纽约现代艺术博物馆将这幅画放在卡罗与迭戈·里维拉离婚后的生活中解读，也指出服装的变化在画面中格外醒目。史密森学会收藏的卡罗书信则保存了她与摄影师尼古拉斯·默雷的往来。",
+      "en": "In Self-Portrait with Cropped Hair (1940), Kahlo sits in an oversized dark suit with scissors in her right hand and cut hair strewn around her feet. A song and its notation run across the top, where the lyrics connect the lover’s affection to her long hair.\n\nThe Museum of Modern Art reads the painting in the context of Kahlo’s divorce from Diego Rivera and draws attention to her change of dress. Letters held by the Smithsonian document her exchanges with photographer Nickolas Muray."
     },
     "time": {
       "startYear": 1907,
@@ -8433,6 +8445,10 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Frida Kahlo: Notas Sobre una Vida / Notes on a Life",
         "citation": "Smithsonian Archives of American Art",
         "url": "https://www.si.edu/spotlight/frida-kahlo"
+      },
+      {
+        "title": "Self-Portrait with Cropped Hair",
+        "url": "https://www.moma.org/collection/works/78333"
       }
     ]
   },
