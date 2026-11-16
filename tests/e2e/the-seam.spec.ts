@@ -99,7 +99,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(aboutModal).toBeVisible();
     await expect(page).toHaveURL(/\/about$/);
     await expect(aboutModal.locator("#about-title")).toContainText("关于 The Seam");
-    await expect(aboutModal).toContainText("宫廷记录、庭审文书与民间传说");
+    await expect(aboutModal).toContainText("同性爱恋、跨越性别装束与身份");
 
     // Close About Modal
     await page.locator(".seam-modal-close").click();

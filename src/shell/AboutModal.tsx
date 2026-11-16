@@ -34,8 +34,8 @@ export function AboutModal({ onClose }: Props) {
         <div className="seam-modal-body seam-about-copy">
           <p className="seam-about-lead">
             {language === "zh"
-              ? "The Seam 是一个在线历史档案。我们从各地的宫廷记录、庭审文书与民间传说里，收集关于人们如何生活、如何与彼此相处，以及他们如何被同时代人记下来的故事。"
-              : "The Seam is an online historical archive. Drawing on court annals, trial records, and local folklore around the world, it gathers accounts of how people lived, related to one another, and were recorded by their contemporaries."}
+              ? "The Seam 是一个专注记录性与性别少数历史及非传统性别实践的在线档案。我们从各地的宫廷记录、庭审文书、诗文与民间传说里，收集历史上关于同性爱恋、跨越性别装束与身份、双性身体记述及第三性别社群的故事，呈现他们当年如何生活、如何与彼此相处，以及同时代人留下了怎样的文字。"
+              : "The Seam is an online historical archive documenting lives beyond conventional gender and intimacy norms. Drawing on court annals, trial records, literature, and local folklore around the world, it gathers accounts of same-sex affection, gender crossing, intersex figures, and third-gender traditions—showing how people lived, related to one another, and were recorded by their contemporaries."}
           </p>
 
           <section className="seam-about-section">

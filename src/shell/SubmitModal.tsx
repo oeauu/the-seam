@@ -109,6 +109,7 @@ function buildHookFormsPayload(
     : "Pending verification";
   const primarySource = record.sources[0];
   return {
+    _subject: `[The Seam 投稿] ${record.title.zh}`,
     subject: `[The Seam 投稿] ${record.title.zh}`,
     title: record.title.zh,
     aliases: record.aliases.join(", "),
@@ -602,7 +603,7 @@ export function SubmitModal({ onClose }: Props) {
 
               {deliveryStatus === "sending" && (
                 <p role="status" className="seam-delivery-status is-sending">
-                  {language === "zh" ? "正在通过 HookForms 向官方收件箱发送投稿…" : "Sending submission via HookForms…"}
+                  {language === "zh" ? "正在向官方收件箱发送投稿…" : "Sending submission to editorial inbox…"}
                 </p>
               )}
               {deliveryStatus === "sent" && (
