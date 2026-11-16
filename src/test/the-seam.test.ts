@@ -158,12 +158,15 @@ describe("The Seam - Multilingual Name Hierarchy", () => {
   it("uses one localized line in English-primary countries", () => {
     const record = ARCHIVE_RECORDS.find((entry) => entry.slug === "mary-jones-1836")!;
     for (const countryCode of ["036", "124", "372", "554", "826", "840"]) {
-      for (const language of ["zh", "en"] as const) {
-        expect(getRecordNameplateNames({ ...record, place: { ...record.place, countryCode } }, language)).toEqual({
-          primaryTitle: record.title[language],
-          secondaryTitle: null,
-        });
-      }
+      const localizedRecord = { ...record, place: { ...record.place, countryCode } };
+      expect(getRecordNameplateNames(localizedRecord, "en")).toEqual({
+        primaryTitle: record.title.en,
+        secondaryTitle: null,
+      });
+      expect(getRecordNameplateNames(localizedRecord, "zh")).toEqual({
+        primaryTitle: record.title.zh,
+        secondaryTitle: record.originalName,
+      });
     }
   });
 

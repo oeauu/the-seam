@@ -139,7 +139,7 @@ export function getRecordNameplateNames(record: ArchiveRecord, language: Languag
 
   const localized = (record.title[language] || record.title.en || record.title.zh || "").trim();
   const countryCode = record.place.countryCode ?? "";
-  if (countryCode === "156" || ENGLISH_PRIMARY_COUNTRY_CODES.has(countryCode)) {
+  if (countryCode === "156" || (language === "en" && ENGLISH_PRIMARY_COUNTRY_CODES.has(countryCode))) {
     return { primaryTitle: localized, secondaryTitle: null };
   }
 
