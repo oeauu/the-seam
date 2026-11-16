@@ -10,6 +10,13 @@ import {
 import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
 import { parseRoute, buildRoutePath } from "../state/routing";
 import { getRecordDisplayNames, getRecordOtherNames } from "../data/recordStatus";
+import {
+  MAX_GLOBE_ZOOM,
+  MIN_GLOBE_ZOOM,
+  buildGlobeClusterPaintSpecs,
+  buildLocalPorcelainFallbackStyle,
+  computeGlobeClusterSizing,
+} from "../geo/maplibreStyle";
 
 describe("The Seam - Data & Taxonomy Constraints", () => {
   it("contains vetted records with no modern taxonomy labels", () => {
@@ -199,5 +206,57 @@ describe("The Seam - Multilingual Name Hierarchy", () => {
     const names = getRecordDisplayNames(ibnHazm, "zh");
     expect(names.primaryTitle).toBe("طوق الحمامة في الألفة والألاف");
     expect(names.secondaryTitle).toBe("伊本·哈兹姆《鸽子的项圈》");
+  });
+});
+
+describe("The Seam - Globe Golden Coordinate Marker Sizing & Opacity", () => {
+  it("computes zoom stops and dot radii from each viewport's normal globe baseline", () => {
+    const mobile = computeGlobeClusterSizing(390, 844);
+    const desktop = computeGlobeClusterSizing(1280, 720);
+    const large = computeGlobeClusterSizing(1920, 1080);
+
+    for (const sizing of [mobile, desktop, large]) {
+      expect(MIN_GLOBE_ZOOM).toBeLessThan(sizing.normalZoom);
+      expect(sizing.normalZoom).toBeLessThan(sizing.plateauZoom);
+      expect(sizing.plateauZoom).toBeLessThan(MAX_GLOBE_ZOOM);
+
+      expect(sizing.coreRadius.min / sizing.coreRadius.normal).toBeCloseTo(0.87, 2);
+      expect(sizing.coreRadius.min).toBeLessThan(sizing.coreRadius.normal);
+      expect(sizing.coreRadius.normal).toBeLessThan(sizing.coreRadius.max);
+      expect(sizing.coreRadius.max / sizing.coreRadius.normal).toBeCloseTo(1.24, 2);
+    }
+
+    expect(desktop.normalGlobeDiameterPx).toBeGreaterThan(mobile.normalGlobeDiameterPx);
+    expect(desktop.coreRadius.normal).toBeGreaterThan(mobile.coreRadius.normal);
+    expect(large.coreRadius.normal).toBeGreaterThanOrEqual(desktop.coreRadius.normal);
+  });
+
+  it("keeps cluster core material opaque (#c49a45) and plateaus cleanly on zoom-in", () => {
+    const sizing = computeGlobeClusterSizing(1280, 720);
+    const specs = buildGlobeClusterPaintSpecs(sizing);
+
+    expect(specs.coreOpacity).toBe(1);
+    expect(specs.coreStrokeOpacity).toBe(1);
+    expect(specs.haloOpacity).toEqual(["case", ["boolean", ["get", "hovered"], false], 0.38, 0]);
+
+    const style = buildLocalPorcelainFallbackStyle([], { width: 1280, height: 720 });
+    const coreLayer = style.layers.find((layer) => layer.id === "seam-clusters-core");
+    expect(coreLayer?.type).toBe("circle");
+    if (coreLayer && coreLayer.type === "circle" && coreLayer.paint) {
+      expect(coreLayer.paint["circle-opacity"]).toBe(1);
+      expect(coreLayer.paint["circle-stroke-opacity"]).toBe(1);
+      expect(coreLayer.paint["circle-color"]).toEqual([
+        "case",
+        ["boolean", ["get", "hovered"], false],
+        "#997223",
+        "#c49a45",
+      ]);
+      const radiusExpr = coreLayer.paint["circle-radius"] as unknown[];
+      expect(radiusExpr[0]).toBe("interpolate");
+      // Last two zoom stops plateau at maxCoreRadius
+      expect(radiusExpr[radiusExpr.length - 4]).toBe(sizing.plateauZoom);
+      expect(radiusExpr[radiusExpr.length - 2]).toBe(MAX_GLOBE_ZOOM);
+      expect(radiusExpr[radiusExpr.length - 3]).toEqual(radiusExpr[radiusExpr.length - 1]);
+    }
   });
 });

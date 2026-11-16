@@ -1,9 +1,177 @@
 import type { FeatureCollection, Geometry, Position } from "geojson";
-import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from "maplibre-gl";
+import type { ExpressionSpecification, LayerSpecification, Map as MapLibreMap, StyleSpecification } from "maplibre-gl";
 import { geoClipAntimeridian, geoStream, type GeoStream } from "d3";
 import type { CountryFeature } from "./geoTypes";
 import type { Language } from "../types";
 import { UN_EXCLUDED_COUNTRY_ISO_CODES, UN_EXCLUDED_COUNTRY_NAMES } from "./unStandards";
+
+export const MIN_GLOBE_ZOOM = 1.15;
+export const MAX_GLOBE_ZOOM = 7.5;
+
+const DEFAULT_VIEWPORT_WIDTH = 1280;
+const DEFAULT_VIEWPORT_HEIGHT = 720;
+const GLOBE_BASE_RADIUS_AT_Z0_PX = 58;
+const REFERENCE_NORMAL_GLOBE_DIAMETER_PX = 2 * DEFAULT_VIEWPORT_HEIGHT * 0.4; // 576px at 1280x720
+// Use the normal-view globe as the reference and temper the scaling on narrow screens.
+const DOT_RADIUS_TO_GLOBE_DIAMETER_RATIO = 0.0078;
+
+export interface GlobeViewportSize {
+  width: number;
+  height: number;
+}
+
+export interface GlobeClusterSizing {
+  normalZoom: number;
+  plateauZoom: number;
+  normalGlobeDiameterPx: number;
+  coreRadius: {
+    min: number;
+    normal: number;
+    max: number;
+  };
+  strokeWidth: {
+    min: number;
+    normal: number;
+    max: number;
+  };
+  haloRadius: {
+    min: number;
+    normal: number;
+    max: number;
+    hoverMin: number;
+    hoverNormal: number;
+    hoverMax: number;
+  };
+  hitRadius: number;
+}
+
+function round2(value: number): number {
+  return Math.round(value * 100) / 100;
+}
+
+export function getDefaultGlobeZoomForViewport(width: number, height: number): number {
+  const safeW = Number.isFinite(width) && width > 0 ? width : DEFAULT_VIEWPORT_WIDTH;
+  const safeH = Number.isFinite(height) && height > 0 ? height : DEFAULT_VIEWPORT_HEIGHT;
+  const minSide = Math.max(220, Math.min(safeW, safeH));
+  const targetRadiusPx = minSide * 0.4;
+  return Math.max(MIN_GLOBE_ZOOM + 0.2, Math.min(2.6, Math.log2(targetRadiusPx / GLOBE_BASE_RADIUS_AT_Z0_PX)));
+}
+
+export function computeGlobeClusterSizing(width: number, height: number): GlobeClusterSizing {
+  const normalZoom = getDefaultGlobeZoomForViewport(width, height);
+  const normalGlobeDiameterPx = 2 * GLOBE_BASE_RADIUS_AT_Z0_PX * Math.pow(2, normalZoom);
+  const referenceRadiusPx = REFERENCE_NORMAL_GLOBE_DIAMETER_PX * DOT_RADIUS_TO_GLOBE_DIAMETER_RATIO;
+  const viewportScale = Math.max(
+    0.84,
+    Math.min(1.18, Math.sqrt(normalGlobeDiameterPx / REFERENCE_NORMAL_GLOBE_DIAMETER_PX)),
+  );
+
+  const normalCore = round2(referenceRadiusPx * viewportScale);
+  const minCore = round2(normalCore * 0.87);
+  const maxCore = round2(normalCore * 1.24);
+  const plateauZoom = round2(Math.min(MAX_GLOBE_ZOOM - 0.8, normalZoom + 2.4));
+
+  const minStroke = round2(minCore * 0.16);
+  const normalStroke = round2(normalCore * 0.16);
+  const maxStroke = round2(maxCore * 0.16);
+
+  return {
+    normalZoom,
+    plateauZoom,
+    normalGlobeDiameterPx: round2(normalGlobeDiameterPx),
+    coreRadius: {
+      min: minCore,
+      normal: normalCore,
+      max: maxCore,
+    },
+    strokeWidth: {
+      min: minStroke,
+      normal: normalStroke,
+      max: maxStroke,
+    },
+    haloRadius: {
+      min: round2(minCore + minStroke + 1.15),
+      normal: round2(normalCore + normalStroke + 1.4),
+      max: round2(maxCore + maxStroke + 1.8),
+      hoverMin: round2(minCore + minStroke + 2.6),
+      hoverNormal: round2(normalCore + normalStroke + 3.2),
+      hoverMax: round2(maxCore + maxStroke + 4.0),
+    },
+    hitRadius: Math.max(15, Math.ceil(maxCore + maxStroke + 10)),
+  };
+}
+
+export function buildGlobeClusterPaintSpecs(sizing: GlobeClusterSizing) {
+  const hoverScale = 1.14;
+  const coreRadiusExpr: ExpressionSpecification = [
+    "interpolate",
+    ["cubic-bezier", 0.33, 0.33, 0.67, 1],
+    ["zoom"],
+    MIN_GLOBE_ZOOM,
+    ["case", ["boolean", ["get", "hovered"], false], round2(sizing.coreRadius.min * hoverScale), sizing.coreRadius.min],
+    sizing.normalZoom,
+    ["case", ["boolean", ["get", "hovered"], false], round2(sizing.coreRadius.normal * hoverScale), sizing.coreRadius.normal],
+    sizing.plateauZoom,
+    ["case", ["boolean", ["get", "hovered"], false], round2(sizing.coreRadius.max * hoverScale), sizing.coreRadius.max],
+    MAX_GLOBE_ZOOM,
+    ["case", ["boolean", ["get", "hovered"], false], round2(sizing.coreRadius.max * hoverScale), sizing.coreRadius.max],
+  ];
+
+  const strokeWidthExpr: ExpressionSpecification = [
+    "interpolate",
+    ["cubic-bezier", 0.22, 1, 0.36, 1],
+    ["zoom"],
+    MIN_GLOBE_ZOOM,
+    sizing.strokeWidth.min,
+    sizing.normalZoom,
+    sizing.strokeWidth.normal,
+    sizing.plateauZoom,
+    sizing.strokeWidth.max,
+    MAX_GLOBE_ZOOM,
+    sizing.strokeWidth.max,
+  ];
+
+  const haloRadiusExpr: ExpressionSpecification = [
+    "interpolate",
+    ["cubic-bezier", 0.22, 1, 0.36, 1],
+    ["zoom"],
+    MIN_GLOBE_ZOOM,
+    ["case", ["boolean", ["get", "hovered"], false], sizing.haloRadius.hoverMin, sizing.haloRadius.min],
+    sizing.normalZoom,
+    ["case", ["boolean", ["get", "hovered"], false], sizing.haloRadius.hoverNormal, sizing.haloRadius.normal],
+    sizing.plateauZoom,
+    ["case", ["boolean", ["get", "hovered"], false], sizing.haloRadius.hoverMax, sizing.haloRadius.max],
+    MAX_GLOBE_ZOOM,
+    ["case", ["boolean", ["get", "hovered"], false], sizing.haloRadius.hoverMax, sizing.haloRadius.max],
+  ];
+
+  return {
+    hitRadius: sizing.hitRadius,
+    haloRadius: haloRadiusExpr,
+    haloOpacity: ["case", ["boolean", ["get", "hovered"], false], 0.38, 0] as ExpressionSpecification,
+    coreRadius: coreRadiusExpr,
+    coreStrokeWidth: strokeWidthExpr,
+    coreOpacity: 1,
+    coreStrokeOpacity: 1,
+  };
+}
+
+export function syncGlobeClusterLayerSizing(map: MapLibreMap, width: number, height: number): void {
+  const specs = buildGlobeClusterPaintSpecs(computeGlobeClusterSizing(width, height));
+  if (map.getLayer("seam-clusters-hit")) {
+    map.setPaintProperty("seam-clusters-hit", "circle-radius", specs.hitRadius);
+  }
+  if (map.getLayer("seam-clusters-halo")) {
+    map.setPaintProperty("seam-clusters-halo", "circle-radius", specs.haloRadius);
+    map.setPaintProperty("seam-clusters-halo", "circle-opacity", specs.haloOpacity);
+  }
+  if (map.getLayer("seam-clusters-core")) {
+    map.setPaintProperty("seam-clusters-core", "circle-radius", specs.coreRadius);
+    map.setPaintProperty("seam-clusters-core", "circle-stroke-width", specs.coreStrokeWidth);
+    map.setPaintProperty("seam-clusters-core", "circle-opacity", specs.coreOpacity);
+    map.setPaintProperty("seam-clusters-core", "circle-stroke-opacity", specs.coreStrokeOpacity);
+  }
+}
 
 export const GLOBE_CONTEXT_LAYER_IDS = [
   "boundary_3",
@@ -206,7 +374,14 @@ function buildGraticuleGeoJson(): FeatureCollection<Geometry> {
   return { type: "FeatureCollection", features };
 }
 
-function getInteractiveOverlayLayers(): LayerSpecification[] {
+function getInteractiveOverlayLayers(viewport?: GlobeViewportSize): LayerSpecification[] {
+  const specs = buildGlobeClusterPaintSpecs(
+    computeGlobeClusterSizing(
+      viewport?.width ?? DEFAULT_VIEWPORT_WIDTH,
+      viewport?.height ?? DEFAULT_VIEWPORT_HEIGHT,
+    ),
+  );
+
   return [
     {
       id: "seam-locked-fill",
@@ -223,8 +398,8 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       type: "circle",
       source: "seam-clusters",
       paint: {
-        // Generous invisible pointer/touch hit target around the delicate 2px visual pin.
-        "circle-radius": 15,
+        // Generous invisible pointer/touch hit target around the golden coordinate dot.
+        "circle-radius": specs.hitRadius,
         "circle-color": "#c49a45",
         "circle-opacity": 0,
         "circle-stroke-width": 0,
@@ -235,17 +410,9 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       type: "circle",
       source: "seam-clusters",
       paint: {
-        // Non-linear ease-out scaling that plateaus cleanly around ~3px (hovered ~4.2px) glow.
-        "circle-radius": [
-          "interpolate",
-          ["cubic-bezier", 0.22, 1, 0.36, 1],
-          ["zoom"],
-          1.15, ["case", ["boolean", ["get", "hovered"], false], 2.8, 1.6],
-          3.2, ["case", ["boolean", ["get", "hovered"], false], 4.2, 3.0],
-          7.5, ["case", ["boolean", ["get", "hovered"], false], 4.2, 3.0],
-        ],
+        "circle-radius": specs.haloRadius,
         "circle-color": "#dfb53d",
-        "circle-opacity": ["case", ["boolean", ["get", "hovered"], false], 0.42, 0.26],
+        "circle-opacity": specs.haloOpacity,
         "circle-stroke-width": 0,
       },
     },
@@ -254,24 +421,13 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       type: "circle",
       source: "seam-clusters",
       paint: {
-        // Non-linear marker dot decoupled from geographic scale: grows slowly to ~2px diameter (1.0px radius) and plateaus.
-        "circle-radius": [
-          "interpolate",
-          ["cubic-bezier", 0.22, 1, 0.36, 1],
-          ["zoom"],
-          1.15, 0.65,
-          3.2, 1.0,
-          7.5, 1.0,
-        ],
+        "circle-radius": specs.coreRadius,
         "circle-color": ["case", ["boolean", ["get", "hovered"], false], "#997223", "#c49a45"],
+        "circle-opacity": specs.coreOpacity,
+        "circle-blur": 0,
         "circle-stroke-color": "#ffffff",
-        "circle-stroke-width": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          1.15, 0.45,
-          3.2, 0.55,
-        ],
+        "circle-stroke-opacity": specs.coreStrokeOpacity,
+        "circle-stroke-width": specs.coreStrokeWidth,
       },
     },
   ];
@@ -577,9 +733,10 @@ function harmonizePositronStyle(
   rawStyle: StyleSpecification,
   features: CountryFeature[],
   language: Language,
+  viewport?: GlobeViewportSize,
 ): StyleSpecification {
   const restyledLayers = restylePositronLayers(rawStyle.layers || [], language, true);
-  const [lockedFillLayer, ...clusterLayers] = getInteractiveOverlayLayers();
+  const [lockedFillLayer, ...clusterLayers] = getInteractiveOverlayLayers(viewport);
   const bgIdx = restyledLayers.findIndex(layer => layer.type === "background");
   const mergedLayers =
     bgIdx >= 0
@@ -615,7 +772,10 @@ function harmonizePositronStyle(
   };
 }
 
-export function buildLocalPorcelainFallbackStyle(features: CountryFeature[]): StyleSpecification {
+export function buildLocalPorcelainFallbackStyle(
+  features: CountryFeature[],
+  viewport?: GlobeViewportSize,
+): StyleSpecification {
   return {
     version: 8,
     projection: { type: "globe" },
@@ -688,7 +848,7 @@ export function buildLocalPorcelainFallbackStyle(features: CountryFeature[]): St
           "line-opacity": 0.65,
         },
       },
-      ...getInteractiveOverlayLayers(),
+      ...getInteractiveOverlayLayers(viewport),
     ],
   };
 }
@@ -719,10 +879,11 @@ if (typeof window !== "undefined") {
 export async function loadArchiveGlobeStyle(
   features: CountryFeature[],
   language: Language,
+  viewport?: GlobeViewportSize,
 ): Promise<StyleSpecification> {
   const base = await fetchPositronBaseStyle();
   if (base) {
-    return harmonizePositronStyle(base, features, language);
+    return harmonizePositronStyle(base, features, language, viewport);
   }
-  return buildLocalPorcelainFallbackStyle(features);
+  return buildLocalPorcelainFallbackStyle(features, viewport);
 }

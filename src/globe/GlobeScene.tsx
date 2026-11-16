@@ -10,10 +10,14 @@ import { latLngToVector3, vector3ToLatLng } from "../geo/worldGeometry";
 import {
   COUNTRY_LABEL_LAYER_IDS,
   GLOBE_CONTEXT_LAYER_IDS,
+  MAX_GLOBE_ZOOM,
+  MIN_GLOBE_ZOOM,
   appendCountryNameExclusionFilter,
   getCountryLabelExpression,
+  getDefaultGlobeZoomForViewport,
   getLocalizedLabelExpression,
   loadArchiveGlobeStyle,
+  syncGlobeClusterLayerSizing,
 } from "../geo/maplibreStyle";
 import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
 import { getUNTerritoryInfo, UN_MAP_DISCLAIMER } from "../geo/unStandards";
@@ -31,8 +35,6 @@ interface GlobeContentProps {
 
 type NameplateDir = "right" | "up" | "left" | "down";
 
-const MIN_GLOBE_ZOOM = 1.15;
-const MAX_GLOBE_ZOOM = 7.5;
 // Smoothstep nameplate visibility based on S = globeScreenDiameter / min(viewportWidth, viewportHeight).
 const GLOBE_NAMEPLATE_S_MIN = 1.15;
 const GLOBE_NAMEPLATE_S_MAX = 1.5;
@@ -84,9 +86,7 @@ const COUNTRY_LIMB_SPECIAL_LABELS: Record<Language, Record<string, string>> = {
 };
 
 function getDefaultGlobeZoom(container: HTMLElement): number {
-  const minSide = Math.max(220, Math.min(container.clientWidth, container.clientHeight));
-  const targetRadiusPx = minSide * 0.4;
-  return Math.max(MIN_GLOBE_ZOOM + 0.2, Math.min(2.6, Math.log2(targetRadiusPx / 58)));
+  return getDefaultGlobeZoomForViewport(container.clientWidth, container.clientHeight);
 }
 
 function getLockedCountryZoom(country: CountryFeature, baseZoom: number): number {
@@ -248,6 +248,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
   const cachedGlobeRadiusRef = useRef<{ key: string; radius: number | null } | null>(null);
   const cachedCountryPlacesRef = useRef<Array<{ lng: number; lat: number; filterKey: string; props: Record<string, unknown> }>>([]);
   const limbSyncTimerRef = useRef<number>(0);
+  const lastClusterSizingKeyRef = useRef("");
 
   useEffect(() => {
     const el = overlayRef.current;
@@ -519,7 +520,10 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     let map: MapLibreMap | null = null;
     let readyTimer = 0;
 
-    void loadArchiveGlobeStyle(worldData.features, languageRef.current).then(style => {
+    void loadArchiveGlobeStyle(worldData.features, languageRef.current, {
+      width: container.clientWidth,
+      height: container.clientHeight,
+    }).then(style => {
       if (disposed || !mapContainerRef.current) return;
 
       const [initLat, initLng] = vector3ToLatLng(...initialCamRef.current);
@@ -570,6 +574,18 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         syncCountryLimbClipping(instance);
       };
 
+      const syncClusterSizing = () => {
+        const activeContainer = mapContainerRef.current;
+        if (!activeContainer) return;
+        const w = activeContainer.clientWidth;
+        const h = activeContainer.clientHeight;
+        if (w <= 0 || h <= 0) return;
+        const sizingKey = `${w}x${h}`;
+        if (sizingKey === lastClusterSizingKeyRef.current) return;
+        lastClusterSizingKeyRef.current = sizingKey;
+        syncGlobeClusterLayerSizing(instance, w, h);
+      };
+
       const handleStyleReady = () => {
         if (disposed) return;
         instance.setProjection({ type: "globe" });
@@ -581,9 +597,11 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         }
         baseCountryFiltersRef.current = capturedFilters;
         lastLimbExcludedKeyRef.current = null;
+        lastClusterSizingKeyRef.current = "";
         cachedGlobeRadiusRef.current = null;
         cachedCountryPlacesRef.current = [];
         syncGlobeContextLayers(instance, Boolean(lockedCountryRef.current));
+        syncClusterSizing();
         refreshCountryPlaceCache(instance);
         flushLimbClipSync();
         setStyleVersion(v => v + 1);
@@ -604,6 +622,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         }
       });
       instance.on("resize", () => {
+        syncClusterSizing();
         flushLimbClipSync();
         updateNameplateDOM(true);
       });
