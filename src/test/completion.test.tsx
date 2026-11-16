@@ -62,7 +62,8 @@ describe("Completion regressions", () => {
       summary: { zh: "这是一条用于验证网站投稿和邮件投递的测试记录，请忽略。", en: "Test summary" },
     };
     const otherRecord = { ...testRecord, id: "submission-other", summary: { zh: "其他投稿", en: "Other submission" } };
-    window.localStorage.setItem(key, JSON.stringify([testRecord, { ...testRecord, id: "submission-test-2" }, otherRecord]));
+    const numberedTest = { ...otherRecord, id: "submission-1-1794858284222", title: { zh: "1", en: "1" } };
+    window.localStorage.setItem(key, JSON.stringify([testRecord, { ...testRecord, id: "submission-test-2" }, numberedTest, otherRecord]));
     try {
       render(<AppProvider><Probe /></AppProvider>);
       expect(JSON.parse(window.localStorage.getItem(key) ?? "[]")).toEqual([otherRecord]);
