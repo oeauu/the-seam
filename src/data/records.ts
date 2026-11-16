@@ -4987,8 +4987,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "A Safavid album page brings together a youth holding a wine vessel and an older man."
     },
     "body": {
-      "zh": "这幅册页由三块纸拼合而成。两个站立人物以墨线勾画，辅以色彩和金饰，外面围着花卉边框。大都会艺术博物馆的研究图录记载，青年与老人两处人物画均署礼萨·阿拔西之名。\n\n册页把人物与诗句并置。持酒器的青年与年长男子在画面上相对，文字则把注意力引向青年的容貌。作品现藏于纽约大都会艺术博物馆，编号25.68.5。",
-      "en": "This album page is assembled from three pieces of paper. Ink outlines the two standing figures, with touches of colour and gold inside floral borders. The Metropolitan Museum’s catalogue records inscriptions naming Riza ‘Abbasi on both figures.\n\nThe album page pairs figures with verse. The youth holding a wine vessel faces the older man, while the text draws attention to youthful beauty. The work is held by the Metropolitan Museum of Art as accession 25.68.5."
+      "zh": "这幅册页由三块纸拼合而成。两个站立人物以墨线勾画，辅以色彩和金饰，外面围着花卉边框。大都会艺术博物馆的研究图录记载，青年与老人两处人物画均署礼萨·阿拔西之名。\n\n册页把人物与诗句并置。持酒器的青年与年长男子在画面上相对，文字则把注意力引向青年的容貌。作品现藏于纽约大都会艺术博物馆，编号25.68.5。\n\n大都会艺术博物馆的研究图录把这幅册页与弗里尔美术馆一件相近题材的作品作比较。弗里尔藏本里，老人拄杖指向青年，青年似乎转身回应。",
+      "en": "This album page is assembled from three pieces of paper. Ink outlines the two standing figures, with touches of colour and gold inside floral borders. The Metropolitan Museum’s catalogue records inscriptions naming Riza ‘Abbasi on both figures.\n\nThe album page pairs figures with verse. The youth holding a wine vessel faces the older man, while the text draws attention to youthful beauty. The work is held by the Metropolitan Museum of Art as accession 25.68.5.\n\nThe Metropolitan Museum’s catalogue compares the album page with a related composition in the Freer collection. In the Freer work, the older man leans on a staff and points toward the youth, who appears to turn in response."
     },
     "time": {
       "startYear": 1625,
@@ -6193,6 +6193,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Svenskt kvinnobiografiskt lexikon",
         "citation": "Kalmar rådhusrätt, February 1729; Justitierevisionens protokoll, 25 February 1730",
         "url": "https://skbl.se/sv/artikel/UlrikaEleonoraStalhammar"
+      },
+      {
+        "title": "Ulrika Eleonora Stålhammar",
+        "citation": "Svenskt biografiskt lexikon, Riksarkivet",
+        "url": "https://sok.riksarkivet.se/sbl/artikel/34664"
       }
     ]
   },
@@ -6210,8 +6215,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Danish painter Lili Elbe underwent surgery in Germany in 1930–1931. Her experiences appear in Man into Woman."
     },
     "body": {
-      "zh": "1930年3月，埃尔伯在柏林性学研究所接受检查，后来在德累斯顿接受多次手术。她此前在丹麦以画家的身份工作。1931年，她在德累斯顿去世。\n\n埃尔伯去世后，编者将有关她生活的材料整理成书。丹麦语、德语和英语版本陆续出版，书名与编辑措辞有所不同。莉莉·埃尔伯数字档案提供手稿与各版文本的对照。",
-      "en": "Elbe was examined at Berlin’s Institute for Sexual Science in March 1930 and later underwent several operations in Dresden. She had previously worked as a painter in Denmark. She died in Dresden in 1931.\n\nAfter Elbe’s death, editors assembled material about her life into a book. Danish, German and English versions appeared with differences in title and wording. The Lili Elbe Digital Archive makes the manuscripts and versions available for comparison."
+      "zh": "1930年3月，埃尔伯在柏林性学研究所接受检查，后来在德累斯顿接受多次手术。她此前在丹麦以画家的身份工作。1931年，她在德累斯顿去世。\n\n埃尔伯去世后，编者将有关她生活的材料整理成书。丹麦语、德语和英语版本陆续出版，书名与编辑措辞有所不同。莉莉·埃尔伯数字档案提供手稿与各版文本的对照。\n\n帕梅拉·考伊与萨宾娜·迈尔编订的比较校勘版把德语打字稿与1931至1933年间出版的四个版本并置。读者可以逐处查看同一段经历在不同版本中如何改写。",
+      "en": "Elbe was examined at Berlin’s Institute for Sexual Science in March 1930 and later underwent several operations in Dresden. She had previously worked as a painter in Denmark. She died in Dresden in 1931.\n\nAfter Elbe’s death, editors assembled material about her life into a book. Danish, German and English versions appeared with differences in title and wording. The Lili Elbe Digital Archive makes the manuscripts and versions available for comparison.\n\nPamela L. Caughie and Sabine Meyer’s comparative edition places the German typescript alongside the four editions published from 1931 to 1933. Readers can compare how individual passages changed from one version to another."
     },
     "time": {
       "startYear": 1930,
@@ -6244,6 +6249,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Lili Elbe Digital Archive",
         "citation": "Man into Woman: A Comparative Scholarly Edition",
         "url": "https://lilielbe.luc.edu/"
+      },
+      {
+        "title": "Man into Woman: A Comparative Scholarly Edition",
+        "citation": "Edited by Pamela L. Caughie and Sabine Meyer, Bloomsbury Academic, 2020",
+        "url": "https://www.bloomsbury.com/uk/man-into-woman-9781350021495/"
       }
     ]
   },
@@ -6261,8 +6271,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Touko Laaksonen published drawings of male bodies and desire under the name Tom of Finland."
     },
     "body": {
-      "zh": "1957年春，美国杂志《Physique Pictorial》把拉克索宁画的一名笑着的伐木工放上封面，以「Tom of Finland」署名。此后他继续以这个名字发表画作，常画穿皮衣、制服或工作服的男子。\n\n他的作品经杂志和独立画册传播。芬兰汤姆基金会保存他的画作及个人材料，1957年的封面把早期发表的作品与后来通行的署名联系在一起。",
-      "en": "In spring 1957 the American magazine Physique Pictorial put Laaksonen’s drawing of a laughing lumberjack on its cover, crediting it to Tom of Finland. He kept the name for subsequent drawings, often depicting men in leather, uniforms or work clothes.\n\nHis work circulated through magazines and separately published books of drawings. The Tom of Finland Foundation preserves his art and personal materials. The 1957 cover documents an early appearance of the name he continued to use."
+      "zh": "1957年春，美国杂志《Physique Pictorial》把拉克索宁画的一名笑着的伐木工放上封面，以「Tom of Finland」署名。此后他继续以这个名字发表画作，常画穿皮衣、制服或工作服的男子。\n\n他的作品经杂志和独立画册传播。芬兰汤姆基金会保存他的画作及个人材料，1957年的封面把早期发表的作品与后来通行的署名联系在一起。\n\n芬兰邮政博物馆以拉克索宁的私人通信为中心策划展览。苏珊娜·拉克索宁也以这些信件为材料撰写《Salaisuuksin suljettu》，从画作之外的书信往来记录艺术家的生活。",
+      "en": "In spring 1957 the American magazine Physique Pictorial put Laaksonen’s drawing of a laughing lumberjack on its cover, crediting it to Tom of Finland. He kept the name for subsequent drawings, often depicting men in leather, uniforms or work clothes.\n\nHis work circulated through magazines and separately published books of drawings. The Tom of Finland Foundation preserves his art and personal materials. The 1957 cover documents an early appearance of the name he continued to use.\n\nThe Finnish Postal Museum mounted an exhibition centred on Laaksonen’s correspondence. Susanna Laaksonen also drew on the letters for her 2017 book Salaisuuksin suljettu, documenting the artist’s life through his private exchanges."
     },
     "time": {
       "startYear": 1957,
@@ -6295,6 +6305,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "About Tom of Finland",
         "citation": "Tom of Finland Foundation; Physique Pictorial, spring 1957",
         "url": "https://www.tomoffinland.org/about-tom-of-finland"
+      },
+      {
+        "title": "Correspondence of Tom of Finland",
+        "citation": "Finnish Postal Museum; see also Susanna Laaksonen, Salaisuuksin suljettu, 2017",
+        "url": "https://www.postimuseo.fi/en/exhibition/correspondence-of-tom-of-finland/"
       }
     ]
   },
@@ -6312,8 +6327,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "In the Old Norse saga, Hervör travels in men’s clothing under a man’s name and claims a sword from her dead father."
     },
     "body": {
-      "zh": "赫尔沃尔离家后换上男性服饰，以赫约瓦尔德之名随人出海。她来到萨姆瑟岛寻找父亲安甘蒂尔的坟丘，在坟前呼唤亡父，要求接过随他下葬的剑提尔锋。\n\n传奇以父女在坟丘前的诗体对话记下这场交锋。剑后来传给赫尔沃尔的儿子海德雷克，成为后续故事中的争夺对象。",
-      "en": "After leaving home, Hervör puts on men’s clothing and goes to sea under the name Hjǫrvarðr. On Samsø she seeks out the burial mound of her father, Angantýr, calls him from the mound and demands Tyrfing, the sword buried with him.\n\nThe saga records the encounter in verse exchanged between father and daughter at the mound. The sword later passes to Hervör’s son Heidrek and becomes the object of conflict in the rest of the story."
+      "zh": "赫尔沃尔离家后换上男性服饰，以赫约瓦尔德之名随人出海。她来到萨姆瑟岛寻找父亲安甘蒂尔的坟丘，在坟前呼唤亡父，要求接过随他下葬的剑提尔锋。\n\n传奇以父女在坟丘前的诗体对话记下这场交锋。剑后来传给赫尔沃尔的儿子海德雷克，成为后续故事中的争夺对象。\n\n克里斯托弗·托尔金在维京学会校订本的导言中，将赫尔沃尔唤醒安甘蒂尔的诗体对话放回萨姆瑟岛的故事线中考察，并讨论传奇如何把这一段与围绕提尔锋剑流传的其他故事连在一起。",
+      "en": "After leaving home, Hervör puts on men’s clothing and goes to sea under the name Hjǫrvarðr. On Samsø she seeks out the burial mound of her father, Angantýr, calls him from the mound and demands Tyrfing, the sword buried with him.\n\nThe saga records the encounter in verse exchanged between father and daughter at the mound. The sword later passes to Hervör’s son Heidrek and becomes the object of conflict in the rest of the story.\n\nIn his introduction to the Viking Society edition, Christopher Tolkien discusses the verse exchange in which Hervör awakens Angantýr as part of the Samsø episode and considers its place among the stories connected by the sword Tyrfing."
     },
     "time": {
       "startYear": 1200,
@@ -6346,6 +6361,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Hervarar saga ok Heiðreks konungs",
         "citation": "Old Norse edition, Bodleian Libraries digital scan",
         "url": "https://dbooks.bodleian.ox.ac.uk/books/PDFs/300150841.pdf"
+      },
+      {
+        "title": "Hervarar Saga ok Heiðreks",
+        "citation": "Edited by G. Turville-Petre, with an introduction by Christopher Tolkien, Viking Society for Northern Research",
+        "url": "https://vsnr.org/wp-content/uploads/2021/11/Hervarar-saga-ok-heidreks.pdf"
       }
     ]
   },
@@ -6363,8 +6383,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Iceland’s gay and lesbian rights organization Samtökin ’78 was founded in 1978."
     },
     "body": {
-      "zh": "1978年，冰岛的同性恋活动人士成立 Samtökin ’78。组织自己的历史记载，成立前人们多在小圈子里见面。公开谈及同性恋生活的访谈，引发了围绕这些经历的讨论。\n\n组织成立后开始以团体名义举行活动，也推动讨论同性恋者的公共处境与法律权利。Samtökin ’78 保存了这段组织史的公开年表。",
-      "en": "In 1978 gay and lesbian activists in Iceland formed Samtökin ’78. The organization’s own history recalls meetings in small circles before its founding. Interviews about living openly as gay prompted public debate.\n\nMembers began to hold events as an organization and brought the public standing and legal rights of gay people into debate. Samtökin ’78 maintains a public chronology of that history."
+      "zh": "1978年，冰岛的同性恋活动人士成立 Samtökin ’78。组织自己的历史记载，成立前人们多在小圈子里见面。公开谈及同性恋生活的访谈，引发了围绕这些经历的讨论。\n\n组织成立后开始以团体名义举行活动，也推动讨论同性恋者的公共处境与法律权利。Samtökin ’78 保存了这段组织史的公开年表。\n\n协会三十周年纪念刊记载，筹备会在霍尔杜尔·托法松家中举行，正式成立会议在1978年5月9日召开。",
+      "en": "In 1978 gay and lesbian activists in Iceland formed Samtökin ’78. The organization’s own history recalls meetings in small circles before its founding. Interviews about living openly as gay prompted public debate.\n\nMembers began to hold events as an organization and brought the public standing and legal rights of gay people into debate. Samtökin ’78 maintains a public chronology of that history.\n\nThe organization’s thirtieth-anniversary publication records a preparatory meeting at Hörður Torfason’s home and dates the founding meeting to 9 May 1978."
     },
     "time": {
       "startYear": 1978,
@@ -6397,6 +6417,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Short history of LGBTI rights in Iceland",
         "citation": "Samtökin ’78, organizational history",
         "url": "https://samtokin78.is/nc/short-history-of-lgbti-rights-in-iceland/"
+      },
+      {
+        "title": "Afmælisrit Samtakanna ’78",
+        "citation": "Samtökin ’78, thirtieth-anniversary publication, 2008",
+        "url": "https://gamli.samtokin78.is/wp-content/uploads/2009/03/S78_afmaelisrit_2008.pdf"
       }
     ]
   },
@@ -6414,8 +6439,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Kim Friele and Wenche Lowzow registered their partnership in Norway in August 1993."
     },
     "body": {
-      "zh": "金·弗里勒多年参与挪威同性恋权益运动。文克·洛措曾任国会议员，并在任内公开谈及自己的同性恋身份。1993年，挪威的登记伴侣法为同性伴侣提供了登记途径。\n\n同年8月，两人在奥斯陆登记伴侣关系。挪威《大百科全书》的弗里勒传记将她们列为新法下第一对登记的伴侣。",
-      "en": "Kim Friele spent years organizing for gay and lesbian rights in Norway. Wenche Lowzow had served in Parliament and spoken publicly about being a lesbian while in office. Norway’s 1993 partnership law created a registration route for same-sex couples.\n\nThat August they registered their partnership in Oslo. The Store norske leksikon biography of Friele identifies them as the first couple to register under the law."
+      "zh": "金·弗里勒多年参与挪威同性恋权益运动。文克·洛措曾任国会议员，并在任内公开谈及自己的同性恋身份。1993年，挪威的登记伴侣法为同性伴侣提供了登记途径。\n\n挪威酷儿档案馆保存了两人于8月6日在奥斯陆市政厅登记时的照片。按该馆的记录，她们属于挪威最早依法登记的伴侣之一。",
+      "en": "Kim Friele spent years organizing for gay and lesbian rights in Norway. Wenche Lowzow had served in Parliament and spoken publicly about being a lesbian while in office. Norway’s 1993 partnership law created a registration route for same-sex couples.\n\nSkeivt arkiv preserves a photograph from their registration at Oslo City Hall on 6 August. The archive describes them as one of the first couples in Norway to register."
     },
     "time": {
       "startYear": 1993,
@@ -6448,6 +6473,16 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Kim Friele",
         "citation": "Store norske leksikon, Norsk biografisk leksikon",
         "url": "https://snl.no/Kim_Friele"
+      },
+      {
+        "title": "Friele og Lowzow, partnerskap 6. august 1993",
+        "citation": "Skeivt arkiv, photograph from the Blikk collection",
+        "url": "https://katalog.skeivtarkiv.no/instance/photograph/ubb-ska-a0068-u-ua-l0015-0001-63.html"
+      },
+      {
+        "title": "Wenche Bryn Lowzow",
+        "citation": "Skeivt arkiv, University of Bergen Library",
+        "url": "https://skeivtarkiv.no/en/node/3560"
       }
     ]
   },
@@ -6502,6 +6537,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "The Cavalry Maiden: Journals of a Female Russian Officer in the Napoleonic Wars",
         "citation": "Memoir, translated by Mary Fleming Zirin",
         "url": "https://books.google.com/books/about/The_Cavalry_Maiden_Journals_of_a_Female.html?id=0jhpAAAAMAAJ"
+      },
+      {
+        "title": "Переписка с Н. А. Дуровой",
+        "citation": "A. S. Pushkin and Aleksandrov, correspondence, 1836",
+        "url": "https://ru.wikisource.org/wiki/Переписка_с_Н._А._Дуровой_(Пушкин)"
       }
     ]
   },
@@ -6519,8 +6559,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Kuzmin’s 1906 novella follows a young man as he encounters male desire and intimacy."
     },
     "body": {
-      "zh": "小说以年轻的瓦尼亚·斯莫罗杜罗夫为中心。瓦尼亚结识拉里昂·施特鲁普，与他及身边人物交谈，逐渐接触他们谈论男性之间的爱慕、艺术和生活的方式。\n\n作品分为三部分，叙事从俄国延伸至意大利。1906年，《天秤》杂志刊出这部小说。现有俄语电子文本可按原书结构查阅。",
-      "en": "The novella follows the young Vanya Smorodurov. Through his acquaintance with Larion Stroop and conversations with those around him, Vanya encounters ways of speaking about love between men, art and everyday life.\n\nThe story is in three parts and moves from Russia to Italy. The journal Vesy published the novella in 1906. The digitized Russian text retains its three-part structure."
+      "zh": "小说以年轻的瓦尼亚·斯莫罗杜罗夫为中心。瓦尼亚结识拉里昂·施特鲁普，与他及身边人物交谈，逐渐接触他们谈论男性之间的爱慕、艺术和生活的方式。\n\n作品分为三部分，叙事从俄国延伸至意大利。1906年，《天秤》杂志刊出这部小说。现有俄语电子文本可按原书结构查阅。\n\n文学史家西蒙·卡林斯基把《翅膀》视为一部带有自传色彩的论题小说。他指出，作品通过瓦尼亚的经历，写出人物如何逐渐接纳自己对男性的爱慕。",
+      "en": "The novella follows the young Vanya Smorodurov. Through his acquaintance with Larion Stroop and conversations with those around him, Vanya encounters ways of speaking about love between men, art and everyday life.\n\nThe story is in three parts and moves from Russia to Italy. The journal Vesy published the novella in 1906. The digitized Russian text retains its three-part structure.\n\nLiterary historian Simon Karlinsky reads Wings as an autobiographically inflected novel of ideas. He describes Vanya’s story as making a case for accepting his desire for men."
     },
     "time": {
       "startYear": 1906,
@@ -6553,6 +6593,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Крылья: Повесть в трёх частях",
         "citation": "Михаил Кузмин, Весы, 1906",
         "url": "https://ru.wikisource.org/wiki/Крылья_(Кузмин)"
+      },
+      {
+        "title": "Freedom from Violence and Lies: Essays on Russian Poetry and Music",
+        "citation": "Simon Karlinsky, Academic Studies Press, 2013",
+        "url": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/19/66/67/85/2019666785/2019666785.pdf"
       }
     ]
   },
@@ -6570,8 +6615,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "The relationship between the two Russian poets from 1914 to 1916 found its way into their poems."
     },
     "body": {
-      "zh": "帕尔诺克与茨维塔耶娃在1914年相识，随后建立亲密关系。茨维塔耶娃在1914至1915年间写下后来题为《女友》的组诗，以第二人称向诗中的女性说话。\n\n帕尔诺克也把两人的交往写进诗歌。她1915年的一首诗援引萨福，借古希腊诗人的词句写对女性的爱慕。两位作者留下各自的声音。",
-      "en": "Parnok and Tsvetaeva met in 1914 and became lovers. In 1914–1915 Tsvetaeva wrote the cycle later known as Girlfriend, addressing the woman in the poems directly.\n\nParnok also wrote poems shaped by the relationship. One poem from 1915 invokes Sappho, using the Greek poet’s words in a poem about desire for a woman. The two writers left accounts in their own voices."
+      "zh": "帕尔诺克与茨维塔耶娃在1914年相识，随后建立亲密关系。茨维塔耶娃在1914至1915年间写下后来题为《女友》的组诗，以第二人称向诗中的女性说话。\n\n帕尔诺克也把两人的交往写进诗歌。她1915年的一首诗援引萨福，借古希腊诗人的词句写对女性的爱慕。两位作者留下各自的声音。\n\n文学史家戴安娜·刘易斯·伯金在《索菲娅·帕尔诺克：俄罗斯萨福的生平与作品》中，以帕尔诺克自己的诗作组织传记叙事，把她与茨维塔耶娃的交往放回她持续多年的创作之中。",
+      "en": "Parnok and Tsvetaeva met in 1914 and became lovers. In 1914–1915 Tsvetaeva wrote the cycle later known as Girlfriend, addressing the woman in the poems directly.\n\nParnok also wrote poems shaped by the relationship. One poem from 1915 invokes Sappho, using the Greek poet’s words in a poem about desire for a woman. The two writers left accounts in their own voices.\n\nIn Sophia Parnok: The Life and Work of Russia’s Sappho, literary historian Diana Lewis Burgin builds the biography around Parnok’s own writing and situates her relationship with Tsvetaeva within the longer course of her poetry."
     },
     "time": {
       "startYear": 1914,
@@ -6604,6 +6649,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Подруга",
         "citation": "Marina Tsvetaeva, poems dedicated to Sofia Parnok",
         "url": "https://laidinen.ru/cikl-mariny-cvetaevoj-podruga-posvjashhennyj-sofii-parnok/"
+      },
+      {
+        "title": "Sophia Parnok: The Life and Work of Russia’s Sappho",
+        "citation": "Diana Lewis Burgin, NYU Press, 1994",
+        "url": "https://nyupress.org/9780814712214/sophia-parnok/"
       }
     ]
   },
@@ -6655,6 +6705,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "In Search for Queer Ancestors",
         "citation": "Karol Radziszewski, reproduction of Hlas no. 1 (1931)",
         "url": "https://www.internationaleonline.org/site/assets/files/7486/lio_decolonisingarchives_2016.pdf"
+      },
+      {
+        "title": "Queer knihovna",
+        "citation": "Společnost pro queer paměť, holdings and chronology of interwar queer periodicals",
+        "url": "https://www.queerpamet.cz/queer-knihovna/"
       }
     ]
   },
@@ -6757,6 +6812,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Kako smo hodile v feministično gimnazijo",
         "citation": "Moderna galerija networked museum, recollections citing the first Magnus programme",
         "url": "https://mrezni-muzej.mg-lj.si/media/4ac0fd0aaf/Kako-smo-hodile-v-feministicno-gimnazijo.pdf"
+      },
+      {
+        "title": "LGBT_SLO_1984",
+        "citation": "Baza slovenskih filmov, catalogue for the 2022 documentary",
+        "url": "https://bsf.si/sl/film/lgbt_slo_1984/"
       }
     ]
   },
@@ -6808,6 +6868,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Amsterdamas ir Naglis",
         "citation": "Lithuanian Gay League, reproduced periodical images and interviews",
         "url": "https://www.lgl.lt/naujienos/amsterdamas-ir-naglis-kaip-atrode-bei-apie-ka-rase-pirmieji-lietuvos-geju-zurnalai/"
+      },
+      {
+        "title": "Naglis (1993)",
+        "citation": "išgir̃stì community archive, digitized magazine and editorial material",
+        "url": "https://isgirsti.lt/archyvas/naglis-1993/"
       }
     ]
   }
