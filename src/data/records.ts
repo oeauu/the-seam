@@ -4618,5 +4618,669 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "url": "https://www.globalcitizen.org/en/content/beverley-ditsie-south-africa-lgbtq-rights/"
       }
     ]
+  },
+  {
+    "id": "entry_inana_c",
+    "slug": "inana-c",
+    "title": {
+      "zh": "《伊南娜颂歌》",
+      "en": "A Hymn to Inana (Inana C)"
+    },
+    "originalName": "in-nin ša₃ gur₄-ra",
+    "aliases": [],
+    "summary": {
+      "zh": "苏美尔颂歌把改变男女之身列入伊南娜掌握的神力。",
+      "en": "A Sumerian hymn includes the power to transform men and women among Inana’s divine powers."
+    },
+    "body": {
+      "zh": "颂歌开篇称伊南娜为统摄诸种神力的女神，写她能裁决纷争，使战事与人间秩序发生变化。到了第120行，诗人把使男子变成女子、使女子变成男子并列写出。\n\n这句话与诗中其他成对的转变相连。牛津大学苏美尔文学电子语料库将此篇编为 Inana C，提供苏美尔语转写和英译。",
+      "en": "The hymn opens by celebrating Inana’s command of divine powers and her authority over judgments and conflict. At line 120, the poet places the transformation of a man into a woman alongside the transformation of a woman into a man.\n\nThe line sits among other paired reversals in the hymn. Oxford’s Electronic Text Corpus of Sumerian Literature publishes the Sumerian transliteration and English translation as Inana C."
+    },
+    "time": {
+      "startYear": -2100,
+      "endYear": -1900,
+      "label": {
+        "zh": "约公元前2000年",
+        "en": "Around 2000 BCE"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "古代两河流域",
+        "en": "Ancient Mesopotamia"
+      },
+      "countryName": {
+        "zh": "伊拉克",
+        "en": "Iraq"
+      },
+      "countryCode": "368",
+      "coordinates": {
+        "longitude": 45.64,
+        "latitude": 31.32
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "A Hymn to Inana (Inana C)",
+        "citation": "ETCSL 4.07.3, line 120",
+        "url": "https://etcsl.orinst.ox.ac.uk/cgi-bin/etcsl.cgi?text=t.4.07.3"
+      }
+    ]
+  },
+  {
+    "id": "entry_middle_assyrian_laws_19_20",
+    "slug": "middle-assyrian-laws-19-20",
+    "title": {
+      "zh": "《中亚述法律》第19至20条",
+      "en": "Middle Assyrian Laws §§19–20"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "亚述城的法律泥板将男性间性行为的指控和判罚分列为两条。",
+      "en": "A legal tablet from Aššur sets out separate rules for an accusation and a proven act of intercourse between men."
+    },
+    "body": {
+      "zh": "《中亚述法律》A泥板第19条讨论一名男子指称另一名男子屡次与男性发生性关系、却无法证实指控的情形。该条对提出指控的人规定杖责、劳役等处罚。\n\n紧接着的第20条针对经查证的男性间性行为，规定对被判有责者施以性惩罚和阉割。两条相邻，分别记下提出指控和认定行为后的处置。",
+      "en": "Section 19 addresses a man who accuses another man of repeatedly having intercourse with men and fails to prove the allegation. It prescribes penalties for the accuser, including flogging and compulsory labour.\n\nSection 20 addresses a proven act between men and prescribes sexual punishment and castration for the person held responsible. The two adjacent provisions set out different legal consequences for the allegation and the act."
+    },
+    "time": {
+      "startYear": -1300,
+      "endYear": -1000,
+      "label": {
+        "zh": "公元前2千纪后期",
+        "en": "Late second millennium BCE"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "亚述城",
+        "en": "Aššur"
+      },
+      "countryName": {
+        "zh": "伊拉克",
+        "en": "Iraq"
+      },
+      "countryCode": "368",
+      "coordinates": {
+        "longitude": 43.26,
+        "latitude": 35.46
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Middle Assyrian Laws",
+        "citation": "Tablet A, §§19–20",
+        "url": "https://oracc.museum.upenn.edu/tcma/lawtexts"
+      }
+    ]
+  },
+  {
+    "id": "entry_shikhandin_mahabharata",
+    "slug": "shikhandin-mahabharata",
+    "title": {
+      "zh": "《摩诃婆罗多》中的尸弃童子",
+      "en": "Shikhandin in the Mahabharata"
+    },
+    "originalName": "शिखण्डिन्",
+    "aliases": [],
+    "summary": {
+      "zh": "史诗叙述尸弃童子如何成为战士，并在俱卢之战中挡在阿周那前方。",
+      "en": "The epic recounts Shikhandin’s transformation and place in front of Arjuna on the battlefield."
+    },
+    "body": {
+      "zh": "《摩诃婆罗多·备战篇》讲述，般遮罗王德鲁帕达的孩子尸弃童子出生时为女，从小被当作儿子抚养。婚事引起两国冲突后，尸弃童子进入森林，遇见夜叉斯图纳迦尔纳。夜叉同意与其交换性别，婚事引发的争端随之平息。\n\n到了俱卢战场，毗湿摩因尸弃童子早年的经历而不愿向其发箭。阿周那借尸弃童子挡在前方之机射击，毗湿摩中箭倒下。",
+      "en": "In the Udyoga Parva, Shikhandin is born female to Drupada, king of Panchala, and raised as his son. When the marriage threatens conflict between the two royal houses, Shikhandin goes into the forest and meets the yaksha Sthunakarna, who agrees to exchange sexes. The marriage dispute then subsides.\n\nOn the battlefield at Kurukshetra, Bhishma refuses to shoot at Shikhandin because of Shikhandin’s earlier life. Arjuna advances behind Shikhandin and shoots Bhishma, who falls pierced by arrows."
+    },
+    "time": {
+      "startYear": -400,
+      "endYear": 400,
+      "label": {
+        "zh": "古代印度史诗的形成时期",
+        "en": "Period of the Sanskrit epic’s formation"
+      },
+      "certainty": "legendary"
+    },
+    "place": {
+      "name": {
+        "zh": "般遮罗（今印度北部）",
+        "en": "Panchala, northern India"
+      },
+      "countryName": {
+        "zh": "印度",
+        "en": "India"
+      },
+      "countryCode": "356",
+      "coordinates": {
+        "longitude": 79.17,
+        "latitude": 28.37
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "The Mahabharata",
+        "citation": "Udyoga Parva, Shikhandin narrative; Bhishma Parva, fall of Bhishma",
+        "url": "https://wiswo.org/books/_resources/book-reference-pdfs/Ganguli-1896-The-Mahabharata.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_mishnah_androgynos_tumtum",
+    "slug": "mishnah-androgynos-tumtum",
+    "title": {
+      "zh": "《米示拿》中的 Androgynos 与 Tumtum",
+      "en": "Androgynos and Tumtum in the Mishnah"
+    },
+    "originalName": "אַנְדְּרוֹגִינוֹס / טֻמְטוּם",
+    "aliases": [],
+    "summary": {
+      "zh": "《米示拿》以具体的婚姻和礼仪问题讨论 androgynos 与 tumtum 的法律地位。",
+      "en": "The Mishnah discusses the legal standing of the androgynos and tumtum through particular cases of marriage and ritual."
+    },
+    "body": {
+      "zh": "《米示拿》用 androgynos 指兼具男女身体特征的人，用 tumtum 指相关身体特征被遮蔽、无法判定的人。《叶瓦莫特》8:6把这些称谓放进具体的婚姻问题，讨论不同情形对婚姻资格的影响。\n\n《初熟果实》所附第四章进一步按法律义务排列案例：在某些事项上，androgynos 与男子同例；另一些则与女子同例。文本从实际义务切入，分别处理每种情形。",
+      "en": "The Mishnah uses androgynos for a person with both male and female sex characteristics and tumtum where those characteristics are covered and cannot be determined. Yevamot 8:6 considers these terms in particular cases concerning eligibility for marriage.\n\nThe fourth chapter appended to Bikkurim arranges cases by legal obligation. In some matters an androgynos is treated like a man, and in others like a woman. The text proceeds case by case through the duties at issue."
+    },
+    "time": {
+      "startYear": 180,
+      "endYear": 220,
+      "label": {
+        "zh": "约公元200年",
+        "en": "Around 200 CE"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "罗马时期的加利利",
+        "en": "Roman-period Galilee"
+      },
+      "countryName": {
+        "zh": "以色列",
+        "en": "Israel"
+      },
+      "countryCode": "376",
+      "coordinates": {
+        "longitude": 35.53,
+        "latitude": 32.79
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Mishnah",
+        "citation": "Yevamot 8:6; Bikkurim 4:1–5",
+        "url": "https://www.sefaria.org/Sheet.107334"
+      }
+    ]
+  },
+  {
+    "id": "entry_kamasutra_third_nature",
+    "slug": "kamasutra-third-nature",
+    "title": {
+      "zh": "《爱经》中的第三种天性",
+      "en": "The Third Nature in the Kāmasūtra"
+    },
+    "originalName": "तृतीया प्रकृतिः",
+    "aliases": [],
+    "summary": {
+      "zh": "《爱经》第二卷第九章用梵语称谓讨论第三种天性及其表现。",
+      "en": "Book 2, chapter 9 of the Kāmasūtra discusses a third nature and its forms in Sanskrit."
+    },
+    "body": {
+      "zh": "《爱经》第二卷第九章开头提出「第三种天性」（tṛtīyā prakṛti），接着分别描述呈女性形态和呈男性形态的两种情形。对前者，文本从服饰、说话、举止等方面写起。\n\n对呈男性形态的人，文本写到以按摩为业者与男性顾客接触的情境。梵文电子版保留了章首的两种称谓和后续段落，可按节号查阅。",
+      "en": "Book 2, chapter 9 introduces the term tṛtīyā prakṛti, or third nature, and describes feminine and masculine forms. Its account of the former begins with clothing, speech and manner.\n\nIn describing the masculine form, the text gives the setting of a masseur working with a male customer. The digital Sanskrit edition preserves both terms at the beginning of the chapter and the passages that follow, indexed by verse."
+    },
+    "time": {
+      "startYear": 200,
+      "endYear": 399,
+      "label": {
+        "zh": "约公元3至4世纪",
+        "en": "Around the third to fourth centuries CE"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "印度北部",
+        "en": "Northern India"
+      },
+      "countryName": {
+        "zh": "印度",
+        "en": "India"
+      },
+      "countryCode": "356",
+      "coordinates": {
+        "longitude": 80.94,
+        "latitude": 26.85
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Vātsyāyana: Kāmasūtra",
+        "citation": "2.9.1–7, GRETIL Sanskrit edition",
+        "url": "https://www.gretil.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vAtsyAyana-kAmasUtra.htm"
+      }
+    ]
+  },
+  {
+    "id": "entry_babur_and_baburi",
+    "slug": "babur-and-baburi",
+    "title": {
+      "zh": "巴布尔与巴布里",
+      "en": "Babur and Baburi"
+    },
+    "originalName": "بابر / بابری",
+    "aliases": [],
+    "summary": {
+      "zh": "巴布尔在回忆录中写下自己在营地集市对巴布里的爱慕。",
+      "en": "Babur recalled becoming infatuated with Baburi, whom he saw in the camp bazaar."
+    },
+    "body": {
+      "zh": "巴布尔在回忆录中写到，安集延的营地集市里有个名叫巴布里的年轻人。他记得初次动情时的羞怯，甚至迎面遇到对方，也难以抬头直视或开口。\n\n这段回忆夹在他记述费尔干纳政局与行军的文字之间。他把当时写下的诗句收进叙事，以散文记相遇，以诗记自己的心情。",
+      "en": "In his memoir, Babur describes a boy named Baburi in the camp bazaar at Andijan. He remembers the shyness of falling in love and being unable to look up or speak when he came face to face with Baburi.\n\nThe recollection appears amid accounts of politics and campaigns in the Fergana Valley. Babur intersperses his prose account of the encounter with verse about his feelings."
+    },
+    "time": {
+      "startYear": 1499,
+      "endYear": 1500,
+      "label": {
+        "zh": "约1499至1500年",
+        "en": "Around 1499–1500"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "安集延",
+        "en": "Andijan"
+      },
+      "countryName": {
+        "zh": "乌兹别克斯坦",
+        "en": "Uzbekistan"
+      },
+      "countryCode": "860",
+      "coordinates": {
+        "longitude": 72.34,
+        "latitude": 40.78
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "The Bābur-nāma",
+        "citation": "Memoirs of Bābur, trans. A. S. Beveridge, vol. I, account of AH 905",
+        "url": "https://www.gutenberg.org/ebooks/44608"
+      }
+    ]
+  },
+  {
+    "id": "entry_shah_abbas_and_his_page",
+    "slug": "shah-abbas-and-his-page",
+    "title": {
+      "zh": "《沙阿阿拔斯一世与侍童》",
+      "en": "Shah Abbas I and His Page"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "穆罕默德·卡西姆画下萨法维君主与年轻侍者相对而坐的场景。",
+      "en": "Muhammad Qasim painted the Safavid ruler seated with a young attendant."
+    },
+    "body": {
+      "zh": "穆罕默德·卡西姆在1627年的画页上描绘沙阿阿拔斯一世与年轻侍者。两人坐得很近，年轻侍者手持酒器。画面把人物的姿态和酒杯安排在同一处，让观者的视线在两人之间移动。\n\n画页上的波斯语诗句提到酒、心上人和流水。卢浮宫将这幅萨法维绘画编入伊斯兰艺术藏品，编号 MAO 494。",
+      "en": "In a painting dated 1627, Muhammad Qasim depicted Shah Abbas I sitting close beside a young attendant who holds a vessel for wine. The figures’ gestures and the cup draw the eye between the two sitters.\n\nThe Persian verse on the page invokes wine, a beloved and flowing water. The Louvre catalogues the Safavid painting in its Islamic art collection as MAO 494."
+    },
+    "time": {
+      "startYear": 1627,
+      "endYear": 1627,
+      "label": {
+        "zh": "1627年",
+        "en": "1627"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "伊斯法罕",
+        "en": "Isfahan"
+      },
+      "countryName": {
+        "zh": "伊朗",
+        "en": "Iran"
+      },
+      "countryCode": "364",
+      "coordinates": {
+        "longitude": 51.67,
+        "latitude": 32.65
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Portrait de Shah Abbas Ier et son page",
+        "citation": "Musée du Louvre, MAO 494",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010321123"
+      }
+    ]
+  },
+  {
+    "id": "entry_old_man_and_the_youth",
+    "slug": "old-man-and-the-youth",
+    "title": {
+      "zh": "《老人和青年》",
+      "en": "The Old Man and the Youth"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "萨法维时期的册页将持酒器的青年与年长男子排在同一幅画面上。",
+      "en": "A Safavid album page brings together a youth holding a wine vessel and an older man."
+    },
+    "body": {
+      "zh": "这幅册页由三块纸拼合而成。两个站立人物以墨线勾画，辅以色彩和金饰，外面围着花卉边框。大都会艺术博物馆的研究图录记载，青年与老人两处人物画均署礼萨·阿拔西之名。\n\n册页把人物与诗句并置。持酒器的青年与年长男子在画面上相对，文字则把注意力引向青年的容貌。作品现藏于纽约大都会艺术博物馆，编号25.68.5。",
+      "en": "This album page is assembled from three pieces of paper. Ink outlines the two standing figures, with touches of colour and gold inside floral borders. The Metropolitan Museum’s catalogue records inscriptions naming Riza ‘Abbasi on both figures.\n\nThe album page pairs figures with verse. The youth holding a wine vessel faces the older man, while the text draws attention to youthful beauty. The work is held by the Metropolitan Museum of Art as accession 25.68.5."
+    },
+    "time": {
+      "startYear": 1625,
+      "endYear": 1650,
+      "label": {
+        "zh": "17世纪第二季度",
+        "en": "Second quarter of the seventeenth century"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "伊斯法罕",
+        "en": "Isfahan"
+      },
+      "countryName": {
+        "zh": "伊朗",
+        "en": "Iran"
+      },
+      "countryCode": "364",
+      "coordinates": {
+        "longitude": 51.67,
+        "latitude": 32.65
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Persian Drawings in The Metropolitan Museum of Art",
+        "citation": "Catalogue no. 32, accession 25.68.5",
+        "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Persian_Drawings_in_The_Metropolitan_Museum_of_Art.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_rangin_rekhti",
+    "slug": "rangin-rekhti",
+    "title": {
+      "zh": "朗金的雷赫蒂诗歌",
+      "en": "Rangin’s Rekhti Poetry"
+    },
+    "originalName": "رنگین / ریختی",
+    "aliases": [],
+    "summary": {
+      "zh": "乌尔都语诗人朗金用女性说话者的口吻写雷赫蒂诗。",
+      "en": "The Urdu poet Rangin wrote rekhti verse in the voices of women."
+    },
+    "body": {
+      "zh": "萨阿达特·亚尔·汗以朗金为笔名。他创作的雷赫蒂诗采用女性说话者的口吻，吸收日常会话中的称呼和措辞。亲近、怨怼和爱慕由诗中的说话者向对方道出。\n\n雷赫蒂流行于18世纪后期至19世纪初的乌尔都语诗歌圈，勒克瑙是其活动地点之一。Rekhta 收录朗金及其他诗人的原文，可对照阅读这些说话者如何描述女性之间的交往。",
+      "en": "Saadat Yaar Khan wrote under the pen name Rangin. His rekhti verse uses women’s voices and draws on terms of address and expressions from everyday speech. Its speakers address others with affection, grievance and desire.\n\nRekhti circulated in Urdu literary circles in the late eighteenth and early nineteenth centuries, including Lucknow. Rekhta preserves poems by Rangin and other writers, allowing readers to compare how their speakers describe relationships between women."
+    },
+    "time": {
+      "startYear": 1780,
+      "endYear": 1835,
+      "label": {
+        "zh": "18世纪末至19世纪初",
+        "en": "Late eighteenth to early nineteenth century"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "勒克瑙",
+        "en": "Lucknow"
+      },
+      "countryName": {
+        "zh": "印度",
+        "en": "India"
+      },
+      "countryCode": "356",
+      "coordinates": {
+        "longitude": 80.95,
+        "latitude": 26.85
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Rekhti",
+        "citation": "Rekhta digital poetry collection, Rangin Saadat Yaar Khan",
+        "url": "https://www.rekhta.org/rekhti"
+      }
+    ]
+  },
+  {
+    "id": "entry_schuyler_turkistan_dancers",
+    "slug": "schuyler-turkistan-dancers",
+    "title": {
+      "zh": "《突厥斯坦》中的少年舞者",
+      "en": "Young Dancers in Schuyler’s Turkistan"
+    },
+    "originalName": "bača",
+    "aliases": [],
+    "summary": {
+      "zh": "尤金·斯凯勒在1876年出版的旅行记中记下中亚城市里的少年舞蹈表演。",
+      "en": "Eugene Schuyler’s 1876 travel account describes performances by young dancers in Central Asian cities."
+    },
+    "body": {
+      "zh": "尤金·斯凯勒在1873年到访俄属突厥斯坦及周边地区。他在旅行记中写到当地称为 bača 的少年舞者，记录他们的服饰、歌舞和观众聚集观看的情形。\n\n这些描述收入1876年出版的两卷本《突厥斯坦》，与他对塔什干等城市的集市、节庆和公共生活的观察一同刊行。美国国会图书馆保存该书的数字扫描件。",
+      "en": "Eugene Schuyler travelled in Russian Turkistan and neighbouring territories in 1873. In his travel account he writes about young dancers known as bača, describing their clothes, singing and dancing and the audiences who gathered to see them.\n\nThese descriptions appeared in the two-volume Turkistan of 1876 alongside observations of bazaars, festivities and public life in cities including Tashkent. The Library of Congress provides digitized copies."
+    },
+    "time": {
+      "startYear": 1873,
+      "endYear": 1876,
+      "label": {
+        "zh": "1873年旅行，1876年出版",
+        "en": "Journey in 1873; published in 1876"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "塔什干",
+        "en": "Tashkent"
+      },
+      "countryName": {
+        "zh": "乌兹别克斯坦",
+        "en": "Uzbekistan"
+      },
+      "countryCode": "860",
+      "coordinates": {
+        "longitude": 69.24,
+        "latitude": 41.31
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Turkistan: Notes of a Journey in Russian Turkistan, Khokand, Bukhara, and Kuldja",
+        "citation": "Eugene Schuyler, 1876, Library of Congress",
+        "url": "https://www.loc.gov/item/04024471/"
+      }
+    ]
+  },
+  {
+    "id": "entry_colonial_india_hijra_registers",
+    "slug": "colonial-india-hijra-registers",
+    "title": {
+      "zh": "殖民印度的希吉拉登记簿",
+      "en": "Hijra Registers in Colonial India"
+    },
+    "originalName": "हिजड़ा",
+    "aliases": [],
+    "summary": {
+      "zh": "1873年的地方登记簿保存了英属印度当局登记希吉拉的实际记录。",
+      "en": "District registers from 1873 preserve records of British colonial surveillance of hijras."
+    },
+    "body": {
+      "zh": "1871年《犯罪部落法》第二部分授权殖民当局登记被归入法律所称「eunuchs」的人。登记者在公共场合穿女性服饰或表演，可能受到惩罚。地方警察据此编制名册，将个人纳入持续监视。\n\n布兰德沙赫尔登记簿的首页日期为1873年1月6日，穆扎法尔纳加尔也留有同年的登记簿。杰西卡·欣奇刊出了这些档案的影像，并讨论了警方如何将当地记录译成英语登记条目。",
+      "en": "Part II of the Criminal Tribes Act of 1871 authorized colonial authorities to register people under the legal category ‘eunuchs’. Those entered on the rolls could be punished for performing or appearing in women’s dress in public. District police compiled registers to keep people under surveillance.\n\nThe first page of Bulandshahr’s register is dated 6 January 1873. A register also survives for Muzaffarnagar from the same year. Jessica Hinchy reproduced pages from both and discussed how the police turned local records into English entries."
+    },
+    "time": {
+      "startYear": 1871,
+      "endYear": 1873,
+      "label": {
+        "zh": "1871至1873年",
+        "en": "1871–1873"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "布兰德沙赫尔",
+        "en": "Bulandshahr"
+      },
+      "countryName": {
+        "zh": "印度",
+        "en": "India"
+      },
+      "countryCode": "356",
+      "coordinates": {
+        "longitude": 77.85,
+        "latitude": 28.4
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Registers of ‘eunuchs’ in colonial India",
+        "citation": "Jessica Hinchy, reproductions of the 1873 district registers",
+        "url": "https://www.historyworkshop.org.uk/queer-history/registers-of-eunuchs-in-colonial-india/"
+      }
+    ]
+  },
+  {
+    "id": "entry_sri_lanka_penal_code_365a",
+    "slug": "sri-lanka-penal-code-365a",
+    "title": {
+      "zh": "斯里兰卡刑法第365A条",
+      "en": "Section 365A of the Sri Lankan Penal Code"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "斯里兰卡1995年刑法修正案改写了第365A条所用的主体措辞。",
+      "en": "Sri Lanka’s 1995 amendment changed the wording identifying who could be prosecuted under section 365A."
+    },
+    "body": {
+      "zh": "锡兰1883年制定殖民地刑法典，1924年加入第365A条，以「严重猥亵」规制男性之间的行为。条文适用于公开和私下场合。\n\n斯里兰卡议会1995年第22号修正法将条文中的男性改为「任何人」，使条文的适用范围扩及不同性别。同年11月3日刊行的政府公报保存了替换后的完整条文。",
+      "en": "Ceylon enacted its colonial Penal Code in 1883. Section 365A was inserted in 1924 and criminalized acts of ‘gross indecency’ between males in public or private.\n\nIn 1995, Parliament’s Act No. 22 replaced the male-specific wording with language applying to any person, extending the provision across genders. The Gazette supplement of 3 November 1995 preserves the replacement text."
+    },
+    "time": {
+      "startYear": 1924,
+      "endYear": 1995,
+      "label": {
+        "zh": "1924年增列，1995年修订",
+        "en": "Inserted in 1924; amended in 1995"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "科伦坡",
+        "en": "Colombo"
+      },
+      "countryName": {
+        "zh": "斯里兰卡",
+        "en": "Sri Lanka"
+      },
+      "countryCode": "144",
+      "coordinates": {
+        "longitude": 79.86,
+        "latitude": 6.93
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Penal Code (Amendment) Act, No. 22 of 1995",
+        "citation": "Sri Lanka, Gazette supplement, 3 November 1995",
+        "url": "https://www.parliament.lk/uploads/acts/gbills/english/3136.pdf"
+      },
+      {
+        "title": "Parliamentary Debates (Hansard)",
+        "citation": "Parliament of Sri Lanka, 9 May 2023, col. 6",
+        "url": "https://www.parliament.lk/uploads/documents/hansardvolumes/1725447465073063.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_xanith_sohar",
+    "slug": "xanith-sohar",
+    "title": {
+      "zh": "阿曼苏哈尔的 Xanith",
+      "en": "Xanith in Sohar, Oman"
+    },
+    "originalName": "خنيث",
+    "aliases": [],
+    "summary": {
+      "zh": "温妮·维坎以苏哈尔的服饰、交往和家庭生活为背景，记录当地的 xanith。",
+      "en": "Unni Wikan documented the xanith of Sohar through clothing, social visits and household life."
+    },
+    "body": {
+      "zh": "温妮·维坎在苏哈尔调查时，记录了当地以 xanith 称呼的人。她从衣着、发式和日常来往写起，描述 xanith 如何穿着、与谁一起活动，以及他们在家户之间怎样来往。\n\n她将这些观察与同一地方对男子和女子的日常要求并列，借由家庭访问和社交场合记录不同角色如何在生活中呈现。1977年，她发表了田野文章，后来又以 xanith 为题整理了这一称谓。",
+      "en": "During fieldwork in Sohar, Unni Wikan documented people known locally as xanith. She describes their clothing and hairstyles, the people with whom they spent time and how they moved among households.\n\nWikan sets these observations alongside local expectations for men and women and describes how social roles took shape during household visits and gatherings. She published a fieldwork article in 1977 and later wrote an entry specifically on the xanith."
+    },
+    "time": {
+      "startYear": 1970,
+      "endYear": 1979,
+      "label": {
+        "zh": "1970年代田野调查",
+        "en": "Fieldwork in the 1970s"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "苏哈尔",
+        "en": "Sohar"
+      },
+      "countryName": {
+        "zh": "阿曼",
+        "en": "Oman"
+      },
+      "countryCode": "512",
+      "coordinates": {
+        "longitude": 56.73,
+        "latitude": 24.34
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Xanith (Oman)",
+        "citation": "Unni Wikan; see also her 1977 fieldwork article",
+        "url": "https://doi.org/10.1002/9781118896877.wbiehs546"
+      }
+    ]
   }
 ];
