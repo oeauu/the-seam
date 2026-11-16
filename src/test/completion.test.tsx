@@ -6,6 +6,7 @@ import { Timeline } from "../timeline/Timeline";
 import { ALL_RECORDS, findRecord } from "../data/archive";
 import { getPendingVerificationLabel } from "../data/recordStatus";
 import { SubmitModal } from "../shell/SubmitModal";
+import { buildGitHubIssueUrl, resolveGitHubRepo } from "../shell/submissionIssue";
 import {
   recordOverlapsRange,
   timelineTicks,
@@ -136,5 +137,17 @@ describe("Completion regressions", () => {
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
     expect(fetchMock.mock.calls[0]?.[0]).toBe("https://hooks.example.test/hooks/the-seam");
     await waitFor(() => expect(screen.getByRole("status")).toHaveTextContent("the.seam@outlook.com"));
+
+    const issueLink = screen.getByRole("link", { name: /通过 GitHub Issue 投递/ });
+    expect(issueLink.getAttribute("href")).toContain("https://github.com/oeauu/Thequeerarchive/issues/new");
+    expect(issueLink.getAttribute("href")).toContain("labels=archive-submission");
+    expect(resolveGitHubRepo("invalid repo")).toBe("oeauu/Thequeerarchive");
+    const sampleRecord = findRecord("thomas-hall");
+    if (sampleRecord) {
+      const issueUrl = buildGitHubIssueUrl(sampleRecord, "zh", null, "oeauu/Thequeerarchive");
+      expect(issueUrl).toContain("https://github.com/oeauu/Thequeerarchive/issues/new");
+      expect(issueUrl).toContain("Summary+%26+Documented+Facts");
+      expect(issueUrl.length).toBeLessThanOrEqual(7500);
+    }
   });
 });

@@ -38,6 +38,7 @@ jobs:
       - name: Build static bundle
         env:
           VITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          VITE_GITHUB_REPO: ${{ vars.VITE_GITHUB_REPO || github.repository }}
           VITE_SUBMISSION_EMAIL: ${{ vars.VITE_SUBMISSION_EMAIL || 'the.seam@outlook.com' }}
           VITE_SUBMISSION_ENDPOINT: ${{ vars.VITE_SUBMISSION_ENDPOINT || '' }}
         run: npm run build

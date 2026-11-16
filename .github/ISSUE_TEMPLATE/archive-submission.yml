@@ -1,0 +1,69 @@
+name: 档案史料投稿 / Archive Submission
+description: 提交新的历史人物、事件与原始文献记录；提交后将自动转发至编辑部审核邮箱
+title: "[Submission] "
+labels:
+  - archive-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请依循第一手史料记述提交记录，避免预先套用现代性别或性取向分类标签。
+        提交此 Issue 后，仓库自动化工作流会将其汇总转发至官方审稿邮箱。
+  - type: input
+    id: title
+    attributes:
+      label: 人物或事件名称 / Figure or Event Name
+      placeholder: 例如：清代徽州契约文献待考录
+    validations:
+      required: true
+  - type: input
+    id: aliases
+    attributes:
+      label: 别名或原文名（选填）/ Aliases
+  - type: input
+    id: era
+    attributes:
+      label: 历史时期 / Historical Era
+      placeholder: 例如：约1629年 / 18世纪中期
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: 年份数字（选填，公元前请用负数）/ Year (optional, BCE negative)
+      placeholder: 例如：1629 或 -214（待考证可留空）
+  - type: input
+    id: place
+    attributes:
+      label: 发生或活动地点 / Historical Location
+      placeholder: 例如：中国福建 / 弗吉尼亚詹姆斯敦
+    validations:
+      required: true
+  - type: input
+    id: coordinates
+    attributes:
+      label: 经度, 纬度（选填）/ Longitude, Latitude
+      placeholder: "例如：116.4074, 39.9042（待考证可留空）"
+  - type: textarea
+    id: summary
+    attributes:
+      label: 历史简介与文献事实 / Summary & Documented Facts
+      placeholder: 简述有据可查的历史经过...
+    validations:
+      required: true
+  - type: input
+    id: source_title
+    attributes:
+      label: 第一手史料或参考文献 / Primary Source / Citation
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: 史料参考链接（选填）/ Source URL
+      placeholder: https://...
+  - type: textarea
+    id: record_json
+    attributes:
+      label: 档案 JSON 草稿（选填，由网页投稿工具自动附带）/ JSON Draft (optional)
+      render: json

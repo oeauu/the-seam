@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { getPendingVerificationLabel } from "../data/recordStatus";
 import { useApp } from "../state/useApp";
 import type { ArchiveRecord, Coordinates, Language } from "../types";
+import { buildGitHubIssueUrl } from "./submissionIssue";
 import { useDialogFocus } from "./useDialogFocus";
 
 interface Props {
@@ -297,6 +298,9 @@ export function SubmitModal({ onClose }: Props) {
     : "";
 
   const pendingBadge = submittedRecord ? getPendingVerificationLabel(submittedRecord, language) : null;
+  const githubIssueHref = submittedRecord
+    ? buildGitHubIssueUrl(submittedRecord, language, pendingBadge)
+    : "";
 
   return (
     <div ref={dialogRef} className="seam-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="submit-title">
@@ -322,8 +326,8 @@ export function SubmitModal({ onClose }: Props) {
           <form id="seam-submit-form" className="seam-modal-body seam-submit-form" onSubmit={handleSubmit} noValidate>
             <p className="seam-modal-lead">
               {language === "zh"
-                ? "填写以下史料信息即可生成标准化档案草稿并立即加入本地索引预览，也可一键导出、复制或直接投递。"
-                : "Complete the structured fields below to preview a draft locally, send via the configured inbox endpoint, copy text, or export JSON."}
+                ? "填写以下史料信息即可生成标准化档案草稿并立即加入本地索引预览，支持一键通过 GitHub Issue 投递并自动转发至官方审稿邮箱。"
+                : "Complete the structured fields below to preview a draft locally and submit via pre-filled GitHub Issue (auto-forwarded to our editorial mailbox), email, or JSON."}
             </p>
 
             {/* Hidden honeypot for HookForms spam filtering */}
@@ -543,11 +547,11 @@ export function SubmitModal({ onClose }: Props) {
                 <p className="seam-email-note">
                   {displayEmail
                     ? (language === "zh"
-                        ? `已生成标准档案草稿；请点击下方“用邮件发送此稿件 ↗”发往 ${displayEmail}，或复制文本 / 导出 JSON 稿件。`
-                        : `Draft created. Click "Send via Email ↗" below to send to ${displayEmail}, or copy text / download JSON.`)
+                        ? `已生成标准档案草稿；点击下方“通过 GitHub Issue 投递 ↗”即可一键预填稿件，提交后将自动转发至 ${displayEmail}（也可改用邮件客户端、复制文本或导出 JSON）。`
+                        : `Draft created. Click "Submit via GitHub Issue ↗" below to open a pre-filled Issue that automatically forwards to ${displayEmail}, or send via email / JSON.`)
                     : (language === "zh"
-                        ? "已生成标准档案草稿并同步至本地“档案索引”；点击下方按钮可立即预览效果、复制文本或导出 JSON 文件。"
-                        : "Draft saved to your local Archive Index. Preview it live, copy formatted text, or download JSON below.")}
+                        ? "已生成标准档案草稿并同步至本地“档案索引”；点击“通过 GitHub Issue 投递 ↗”即可将稿件提交至仓库并转发编辑部审核，也可预览、复制文本或导出 JSON。"
+                        : "Draft saved to your local Archive Index. Submit via pre-filled GitHub Issue, preview it live, copy formatted text, or download JSON below.")}
                 </p>
               )}
             </div>
@@ -563,6 +567,14 @@ export function SubmitModal({ onClose }: Props) {
               >
                 {language === "zh" ? "在档案中查看并定位" : "View in Archive"}
               </button>
+              <a
+                href={githubIssueHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="seam-btn-primary"
+              >
+                {language === "zh" ? "通过 GitHub Issue 投递 ↗" : "Submit via GitHub Issue ↗"}
+              </a>
               {displayEmail && (
                 <a href={mailtoHref} className="seam-btn-outline">
                   {language === "zh" ? "用邮件发送此稿件 ↗" : "Send via Email ↗"}

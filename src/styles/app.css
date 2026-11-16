@@ -1004,6 +1004,7 @@ a {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.03em;
+  text-decoration: none;
   transition: background-color var(--seam-transition);
 }
 
