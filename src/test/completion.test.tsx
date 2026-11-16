@@ -185,7 +185,8 @@ describe("Completion regressions", () => {
     expect(sentBody.contributorEmail).toBe("lisi@example.com");
     expect(sentBody._replyto).toBe("lisi@example.com");
     expect(sentBody._subject).toBe("[The Seam 投稿] 测试档案稿件");
-    await waitFor(() => expect(screen.getByRole("status")).toHaveTextContent("the.seam@outlook.com"));
+    await waitFor(() => expect(screen.getByRole("status")).toHaveTextContent("投稿服务已接收"));
+    expect(screen.getByRole("link", { name: /备用邮件发送/ }).getAttribute("href")).toMatch(/^mailto:/);
 
     expect(screen.queryByRole("link", { name: /通过 GitHub Issue 投递/ })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /用邮件发送此稿件/ })).not.toBeInTheDocument();

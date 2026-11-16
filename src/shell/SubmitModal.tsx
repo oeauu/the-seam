@@ -626,8 +626,8 @@ export function SubmitModal({ onClose }: Props) {
               {deliveryStatus === "sent" && (
                 <p role="status" className="seam-delivery-status is-sent">
                   {language === "zh"
-                    ? `✓ 已成功直投至官方审稿收件箱${displayEmail ? `（${displayEmail}）` : ""}，并已保存本地档案预览。`
-                    : `✓ Sent to the official editorial inbox${displayEmail ? ` (${displayEmail})` : ""} and saved locally for preview.`}
+                    ? "投稿服务已接收，草稿已保存。邮件通知由投稿服务另行发送。"
+                    : "The submission service accepted your entry. A local draft is saved. Email notifications are sent separately."}
                 </p>
               )}
               {deliveryStatus === "error" && (
@@ -666,11 +666,13 @@ export function SubmitModal({ onClose }: Props) {
               >
                 {language === "zh" ? "查看本地草稿" : "View local draft"}
               </button>
-              {(deliveryStatus === "local-only" || deliveryStatus === "error") && (
+              {deliveryStatus !== "sending" && (
                 <>
                   {displayEmail && (
-                    <a href={mailtoHref} className="seam-btn-primary">
-                      {language === "zh" ? "用邮件发送此稿件 ↗" : "Send via Email ↗"}
+                    <a href={mailtoHref} className={deliveryStatus === "sent" ? "seam-btn-outline" : "seam-btn-primary"}>
+                      {deliveryStatus === "sent"
+                        ? (language === "zh" ? "备用邮件发送 ↗" : "Send a copy by email ↗")
+                        : (language === "zh" ? "用邮件发送此稿件 ↗" : "Send via Email ↗")}
                     </a>
                   )}
                   <button type="button" className="seam-btn-outline" onClick={handleCopyDraft}>
