@@ -134,10 +134,14 @@ export function getRecordNameplateNames(record: ArchiveRecord, language: Languag
     };
   }
 
-  const { primaryTitle, secondaryTitle } = getRecordDisplayNames(record, language);
-  return secondaryTitle
-    ? { primaryTitle: secondaryTitle, secondaryTitle: primaryTitle }
-    : { primaryTitle, secondaryTitle };
+  const localized = (record.title[language] || record.title.en || record.title.zh || "").trim();
+  const original = record.originalName?.trim();
+  return {
+    primaryTitle: localized,
+    secondaryTitle: record.place.countryCode !== "156" && original && !areRecordNamesEquivalent(localized, original)
+      ? original
+      : null,
+  };
 }
 
 /**

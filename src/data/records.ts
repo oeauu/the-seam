@@ -4190,14 +4190,15 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "阿赞德人的男性婚姻",
       "en": "Male Marriage among the Azande"
     },
+    "originalName": "diare / kumbami",
     "aliases": [],
     "summary": {
       "zh": "埃文斯-普里查德记录了阿赞德战士与年轻男性之间的婚姻式关系，也记述了女性之间的亲密关系。",
       "en": "Evans-Pritchard documented marriage relationships between Azande warriors and younger males, as well as intimate relationships between women."
     },
     "body": {
-      "zh": "在埃文斯-普里查德1970年发表的民族志文章中，受访者回忆了早期战士队伍中的婚姻。一些战士向年轻伴侣的家人支付婚资，双方在战士队伍中以配偶相称。文章也记录了女性之间结成伴侣的叙述。",
-      "en": "In his 1970 article, Evans-Pritchard drew on accounts of marriage in earlier warrior companies. Some warriors gave marriage payments to the families of their younger partners, and the pair used spousal terms within the company. The article also recounts partnerships between women."
+      "zh": "在埃文斯-普里查德1970年发表的民族志文章中，受访者回忆了早期战士队伍中的婚姻。一些战士向年轻伴侣的家人支付婚资，并称伴侣为 diare（我的妻子）。年轻伴侣称战士为 kumbami（我的丈夫）。文章也记载了女性之间结成伴侣的叙述。",
+      "en": "In his 1970 article, Evans-Pritchard drew on accounts of marriage in earlier warrior companies. Some warriors gave marriage payments to the families of their younger partners. A warrior called his partner diare (my wife), and the younger partner called the warrior kumbami (my husband). The article also recounts partnerships between women."
     },
     "time": {
       "startYear": 1900,

@@ -155,6 +155,26 @@ describe("The Seam - State & Routing", () => {
 });
 
 describe("The Seam - Multilingual Name Hierarchy", () => {
+  it("keeps documented names on their own line even when they appear in the map title", () => {
+    const originals = {
+      "azande-male-marriage": "diare / kumbami",
+      "mudoko-dako": "Mudoko Dako",
+      "maale-ashtime": "Ashtime",
+      "bukhontxana-mine-marriages": "Bukhontxana",
+      "lesotho-mummy-baby": "Mummy–Baby",
+      "kewpie-district-six": "Kewpie",
+    };
+    for (const [slug, name] of Object.entries(originals)) {
+      const record = ARCHIVE_RECORDS.find((entry) => entry.slug === slug)!;
+      for (const language of ["zh", "en"] as const) {
+        expect(getRecordNameplateNames(record, language)).toEqual({
+          primaryTitle: record.title[language],
+          secondaryTitle: name,
+        });
+      }
+    }
+  });
+
   it("uses the selected language on the first line of map nameplates", () => {
     const german = ARCHIVE_RECORDS.find((record) => record.originalName === "Institut für Sexualwissenschaft")!;
     expect(getRecordNameplateNames(german, "zh")).toEqual({
