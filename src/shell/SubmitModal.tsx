@@ -372,12 +372,6 @@ export function SubmitModal({ onClose }: Props) {
 
         {!submittedRecord ? (
           <form id="seam-submit-form" className="seam-modal-body seam-submit-form" onSubmit={handleSubmit} noValidate>
-            <p className="seam-modal-lead">
-              {language === "zh"
-                ? "填写以下史料信息即可生成标准化档案草稿并立即加入本地索引预览，支持一键通过 GitHub Issue 投递并自动转发至官方审稿邮箱。"
-                : "Complete the structured fields below to preview a draft locally and submit via pre-filled GitHub Issue (auto-forwarded to our editorial mailbox), email, or JSON."}
-            </p>
-
             {/* Hidden honeypot for HookForms spam filtering */}
             <div className="seam-honeypot" aria-hidden="true">
               <label htmlFor="seam-hp-website">Website</label>
