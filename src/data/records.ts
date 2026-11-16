@@ -15,12 +15,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "Thomasine Hall"
     ],
     "summary": {
-      "en": "An indentured servant in early colonial Virginia whose ambiguous gender led to multiple physical searches and a 1629 General Court ruling declaring them 'both a man and a woeman,' ordering a combined apparel of male clothes with a female coif and apron.",
-      "zh": "17世纪初北美殖民地的英国契约仆工。因性别身份引发邻里争论并遭受多次身体检查，1629年詹姆斯敦普通法院裁决其“既是男人也是女人”，并命令其同时穿着男女混合服饰。"
+      "en": "An English indentured servant in colonial Virginia whom the Jamestown General Court ordered in 1629 to wear combined men's and women's dress.",
+      "zh": "17世纪初弗吉尼亚殖民地的英国契约仆工，1629年被詹姆斯敦普通法院判令同时穿着男女服饰。"
     },
     "body": {
-      "en": "Born in Newcastle upon Tyne around 1603, Hall was baptized as Thomasine and raised as a girl. Around age twenty-four, Hall cut their hair, donned men's clothes, and enlisted as a soldier under the name Thomas Hall, serving in the expedition to the Isle of Ré. Returning to England, Hall resumed women's clothing for a period, before once again dressing as a man to embark as an indentured servant aboard the ship James bound for Virginia.\n\nIn Warrosquyoake, Hall's varied apparel and dual skill set—capable of heavy agricultural field labor and delicate needlework—drew intense scrutiny from neighbors. Following several physical examinations, Hall was brought before the General Court at Jamestown on April 8, 1629. Governor John Pott and the Council ruled that Hall was 'both a man and a woeman,' ordering them to wear men's clothes while keeping on a woman's coif and apron at all times.",
-      "zh": "霍尔约于1603年出生于英格兰纽卡斯尔，自幼受洗为女名托马辛（Thomasine）并作为女孩抚养，擅长蕾丝缝纫。约二十四岁时，霍尔剪发改着男装，以托马斯（Thomas）之名从军远征法国拉罗谢尔。战后返英，霍尔一度重穿女装做缝纫活计，不久后又以男装登船前往北美弗吉尼亚殖民地当契约仆工。\n\n在华罗斯夸约克种植园，霍尔既能干重体力农活，又精于女红针线，平时衣着也在男女装束间交替，很快引来邻里的议论。在被多次强行搜查身体后，霍尔于1629年4月8日被押送至詹姆斯敦普通法院受审。总督约翰·波茨与议员们裁定霍尔“既是男人也是女人”（both a man and a woeman），命令其日常须穿男式马裤与短上衣，同时又必须始终戴着女式的亚麻软帽（coif）并系上围裙（apron）。"
+      "en": "Baptized Thomasine around 1603 in Newcastle upon Tyne and raised as a girl, Hall was trained in needlework before adopting men's clothing at about age twenty-four under the name Thomas. Enlisting in an English regiment, Hall served on the 1627 expedition to the Île de Ré, returned to England to work briefly in women's dress, and then sailed to Virginia as a male indentured servant aboard the ship James.\n\nIn the settlement of Warrosquyoake, neighbors noticed that Hall performed both heavy fieldwork and fine sewing while shifting between male and female attire. After several forced physical searches, Hall appeared before the Jamestown General Court on April 8, 1629. Governor John Pott and the Council declared Hall 'both a man and a woeman' and ordered Hall to wear men's breeches and coat alongside a woman's linen coif and apron.",
+      "zh": "霍尔约1603年生于英格兰纽卡斯尔，受洗取女名托马辛（Thomasine），自幼习得蕾丝缝纫。约二十四岁时，霍尔剪发改着男装，以“托马斯”之名从军参加1627年雷岛远征；战后返英一度改穿女装接缝纫活，不久再度改着男装，以契约仆工身份乘船前往北美弗吉尼亚。\n\n在华罗斯夸约克种植园，霍尔既能承担重体力农活，又精于针线女红，衣着时男时女，引来邻里反复议论与多次强行搜检。1629年4月8日，詹姆斯敦普通法院开庭审理此案。总督约翰·波茨与议员最终裁定霍尔“既是男人也是女人”（both a man and a woeman），判令其日常着男式短上衣与马裤，但须同时佩戴女式亚麻软帽（coif）并系围裙（apron）。"
     },
     "time": {
       "startYear": 1603,
@@ -91,12 +91,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "大耳神"
     ],
     "summary": {
-      "en": "A folk deity originating in Qing-era Fujian legends and now enshrined in Taiwan as a patron of male same-sex relationships.",
-      "zh": "源自清代福建志怪笔记、当代在台湾被重新供奉的男性同性情谊守护神。"
+      "en": "A folk figure recorded in Qing-dynasty Fujian tales and now enshrined in Taiwan as a patron deity of same-sex couples.",
+      "zh": "源自清代福建志怪笔记、当代在台湾重新立庙受祭的男性同性情谊民间神祇。"
     },
     "body": {
-      "en": "The legend of Tu'er Shen comes from Qing writer Yuan Mei's anthology *What the Master Would Not Discuss* (*Zi Bu Yu*). In the tale, a young man named Hu Tianbao in Fujian grew infatuated with a handsome imperial inspector and was beaten to death after being caught peeking at him. In the underworld, officials took pity on his devotion and appointed him 'Tu'er Shen' (the Rabbit God, drawing on the period slang 'tu'er' for male companions) to look after affection between men. Today, at Wei Ming Temple in Yonghe District, New Taipei City, Hu Tianbao is enshrined as a folk deity blessing same-sex couples.",
-      "zh": "兔儿神的记载见于清代文人袁枚的笔记小说集《子不语》。故事写福建青年胡天宝爱慕一名年轻巡按御史，因偷窥被捉并遭杖毙。死后阴间判官念他出于痴心，封他为“兔儿神”（借用明清时指代男性伴侣的俗语“兔儿”），专门照管人间男子的同性情分。如今，台湾新北市永和区的威明堂重新供奉起这位神明，许多同性伴侣前去祈福问卜。"
+      "en": "The earliest surviving account of Tu'er Shen appears in Qing writer Yuan Mei's 18th-century anthology What the Master Would Not Discuss (Zi Bu Yu). In the tale, a Fujian man named Hu Tianbao became infatuated with a young imperial inspector and was beaten to death after being caught peeking at him. In the underworld, officials took pity on his devotion and appointed him Tu'er Shen—drawn from 'tu'er', a Ming-Qing colloquialism for male companions—to oversee affection between men.\n\nAlthough the Qing text treats the story as a local cautionary marvel, the figure entered contemporary worship in 2006 when Taoist priest Lu Wei-ming installed a shrine to Hu Tianbao at Wei Ming Temple in Yonghe, New Taipei City. Today, same-sex couples visit the temple to seek blessings and marriage talismans.",
+      "zh": "兔儿神最早见载于清代袁枚的笔记小说集《子不语》卷十九。故事写福建人胡天宝爱慕一名年轻巡按御史，因偷窥被捉并遭杖毙；死后冥府官吏念其痴心，封他为“兔儿神”（借用明清时指代男性伴侣的俗语“兔儿”），专司人间男子相悦之事。\n\n在清代笔记里，这一故事原本带有地方志怪与因果劝诫色彩。2006年，台湾新北市永和区威明堂道士卢威明重新雕像供奉胡天宝，逐渐使其成为当代同性伴侣祈福求姻缘的民间神祇。"
     },
     "time": {
       "startYear": 1644,
@@ -125,8 +125,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "cultural-origin"
     },
     "historiographyNote": {
-      "en": "The figure blends historical folklore with modern LGBTQ+ reclaiming. It cannot be simplified as an ancient, static 'same-sex deity' without acknowledging the 21st-century shifting beliefs and temple practices.",
-      "zh": "该形象融合了清代民间传说与21世纪现代同性恋社群的再激活。不能简单将其等同于古代一成不变的“同性恋之神”，需理清清代惩罚叙事与当代人权/守护神叙事之间的张力。"
+      "en": "Yuan Mei's 18th-century tale reflects Qing literati attitudes toward Fujian custom, whereas contemporary devotion at Wei Ming Temple dates from the early 21st century.",
+      "zh": "《子不语》保留了清代文人对福建地方习俗的记述，而台湾威明堂的当代祭祀活动则始于21世纪初。"
     },
     "sources": [
       {
@@ -158,12 +158,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "断袖"
     ],
     "summary": {
-      "en": "A classical Chinese literary allusion to affection between men, taken from an anecdote about Emperor Ai of Han and his courtier Dong Xian.",
-      "zh": "汉代史籍中记载的典故，源自汉哀帝与董贤共寝时不忍惊醒对方而割袖的逸事。"
+      "en": "A classical Chinese literary phrase for male same-sex affection, derived from a Western Han court anecdote about Emperor Ai and Dong Xian.",
+      "zh": "源自西汉宫廷逸事的汉语古典词，后世用以指代男性之间的爱慕。"
     },
     "body": {
-      "en": "According to the *Book of Han*, Emperor Ai of the Western Han dynasty was sleeping beside his favorite courtier, Dong Xian. When the emperor woke to attend court, he found Dong Xian lying across his sleeve. Rather than disturb his companion's sleep, he cut the sleeve off with a sword and rose quietly. Over the next two millennia, 'the cut sleeve' (*duanxiu*) became a standard literary allusion in Chinese prose and poetry for male same-sex love.",
-      "zh": "据《汉书·佞幸传》记载，西汉哀帝曾与宠臣董贤白天同床而眠。哀帝先醒过来，准备起身听政，却发现自己的衣袖正压在董贤身下。他不愿惊醒董贤，便抽出佩刀割断衣袖悄然离床。此后两千余年间，“断袖”成了中国诗文笔记中指代男性相爱的常用典故。"
+      "en": "According to the Eastern Han chronicle Book of Han (Han Shu), Emperor Ai of the Western Han dynasty shared a daytime nap with his favorite courtier, Dong Xian. Waking early for state business, the emperor found Dong Xian asleep across his robe sleeve; rather than wake him, he drew his sword, cut the sleeve free, and slipped out.\n\nWithin the Book of Han, the episode appears in the 'Biographies of Imperial Favorites' (Ningxing Zhuan), where historian Ban Gu criticized Emperor Ai's lavish grants of rank and wealth to Dong Xian. In later imperial prose, poetry, and fiction, however, 'duanxiu' ('the cut sleeve') shed much of that political censure and entered literary usage as a standard allusion to male same-sex love.",
+      "zh": "据东汉班固所撰《汉书·佞幸传》记载，西汉哀帝曾与宠臣董贤白天同床而眠。哀帝先醒过来，准备起身听政，发现衣袖压在董贤身下，不愿惊动对方，便拔剑割断衣袖悄然离床。\n\n正史记载此事前，多着眼于哀帝破格提拔外戚与宠臣引起的朝政失衡；但在此后两千余年的诗文、笔记与小说里，“断袖”逐渐脱离朝廷劝诫语境，成为指代男性相爱的常见典故。"
     },
     "time": {
       "startYear": -7,
@@ -192,8 +192,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "court-site"
     },
     "historiographyNote": {
-      "en": "The relationship was recorded in official histories through the lens of court favoritism and political instability. Applying modern labels like 'gay' obscures the complex structures of Han imperial patronage, concubinage, and power relations.",
-      "zh": "此关系由汉代官方正史记录，常夹杂朝政批判与后宫外戚政治论述。强行套用现代“同性恋”标签会遮蔽西汉帝王男宠、男色侍从制度以及权力不对称关系的政治本质。"
+      "en": "The Book of Han frames Dong Xian's favor within Han court politics and imperial patronage rather than modern sexual-identity categories.",
+      "zh": "《汉书》将该事置于西汉晚期的外戚与恩宠政治叙事中加以评述，不同于现代身份分类。"
     },
     "sources": [
       {
@@ -221,12 +221,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "米蒂利尼的萨福"
     ],
     "summary": {
-      "en": "An Archaic Greek lyric poet from the island of Lesbos, remembered for verse praising the beauty and longing shared among women.",
-      "zh": "古希腊古风时期的抒情诗人，居于莱斯博斯岛，以书写女性之间的爱恋、赞美与思念诗篇传世。"
+      "en": "An Archaic Greek lyric poet from the island of Lesbos whose surviving fragments celebrate desire and longing between women.",
+      "zh": "古希腊古风时期莱斯博斯岛的抒情诗人，传世诗作多写女性之间的爱慕与思念。"
     },
     "body": {
-      "en": "Sappho lived on the Aegean island of Lesbos and was praised by Plato as the 'Tenth Muse.' Composed to be sung with the lyre, much of her surviving verse addresses the grace of young women, female companionship, and intense romantic longing. Although most of her scrolls were lost over the centuries, fragments such as the *Hymn to Aphrodite* remained deeply influential. Her name and island gave rise to the modern English terms 'sapphic' and 'lesbian.'",
-      "zh": "萨福生活在爱琴海东岸的莱斯博斯岛，被柏拉图称作“第十位缪斯”。她的诗作多以里拉琴伴唱，常写到女伴之间的亲密交往、容颜之美与炽热的相思。虽然大部分手稿已随岁月散佚，但《阿芙洛狄忒颂》等仅存的残篇仍对后世西方文学影响深远。现代英文中的“Lesbian”（原意即为莱斯博斯岛民）与“Sapphic”二词便源自她的故乡和名字。"
+      "en": "Active on the Aegean island of Lesbos in the late seventh and early sixth centuries BCE, Sappho composed lyric poetry sung to the lyre and was later referred to in Greek epigrams as the 'Tenth Muse.' Much of her surviving verse addresses young women companions by name, describing physical longing, jealousy, and memory within female social and choral circles.\n\nOf the nine books of poetry attributed to her in antiquity, only the complete Ode to Aphrodite and scattered fragments preserved in ancient quotations and papyri remain. Her personal name and native island later entered modern European languages as the roots of 'sapphic' and 'lesbian.'",
+      "zh": "萨福活跃于公元前7世纪末至前6世纪初的爱琴海莱斯博斯岛，擅长创作以里拉琴伴唱的抒情诗，在古希腊诗评中被誉为“第十位缪斯”。她的诗多面向女伴与诗社同侪，写及女子之间的容颜之美、相思与离愁。\n\n古代文献记载其诗集原有九卷，如今除《阿芙洛狄忒颂》外，多仅见于后人引文与埃及莎草纸残片。现代英文中的“Sapphic”与“Lesbian”（原指莱斯博斯岛民），均分别源自她的名字与故乡地名。"
     },
     "time": {
       "startYear": -630,
@@ -255,8 +255,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "residence"
     },
     "historiographyNote": {
-      "en": "Only tiny fragments of Sappho's poetry survive, leaving huge room for historical projections. The terms 'lesbian' and 'sapphic' are modern political and cultural constructs that evolved from her reception rather than her original social context.",
-      "zh": "萨福现存诗作绝大多数为残篇，这给后世提供了极大的投射空间。现代词汇“Lesbian”（女同性恋）和“Sapphic”（萨福风）均衍生自萨福及其故乡，属现代政治与文化建构，与古希腊同性社交的社会语境有所差异。"
+      "en": "Most of Sappho's work survives only in fragments cited by later grammarians or recovered on papyrus; modern terms derived from her name and island reflect later reception.",
+      "zh": "萨福诗作大多失传，今所见多为后世文法家征引或出土莎草纸残篇；以其名与岛名衍生的现代词汇形成于后世接受史。"
     },
     "sources": [
       {
@@ -290,12 +290,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "面具将军"
     ],
     "summary": {
-      "en": "A Northern Qi general noted in court histories for his soft, feminine features, who wore a fierce wooden mask into battle and inspired later masked dance drama.",
-      "zh": "北齐名将，史书记载其容貌柔美如妇人，临阵常戴狰狞面具，事迹后来演变为唐代著名的假面歌舞“大面”戏。"
+      "en": "A sixth-century Northern Qi general described in dynastic histories as having womanly beauty and wearing a fierce mask in battle.",
+      "zh": "南北朝时期北齐将领，正史载其貌柔如妇人、临阵戴面具，事迹后演为唐代歌舞戏《兰陵王入阵曲》。"
     },
     "body": {
-      "en": "Gao Changgong, Prince of Lanling, was a prominent general of the Northern Qi dynasty. The *Book of Northern Qi* describes him as having 'a gentle appearance and a voice like a woman,' noting that he wore a carved wooden mask in combat to intimidate opposing troops. His relief of the siege at Jinyong inspired the court dance *Prince Lanling Entering Battle* (*Lanling Wang Ru Zhen Qu*), in which performers wore masks and reenacted his charge—a tradition that later grew into Tang-era masked theatre.",
-      "zh": "高长恭封爵兰陵王，是北齐将领。据《北齐书》记载，他“貌柔心壮，音容兼美”，生得白皙柔美如妇人，每次上阵总佩戴刻有凶猛鬼面的木雕面具，以此威慑敌军。他在邙山解金墉之围大胜后，军中作《兰陵王入阵曲》歌颂其战功，后世舞乐演员戴假面、着戏服扮演他的战姿，逐渐发展为唐代宫廷与民间流行的“大面”歌舞戏。"
+      "en": "Gao Changgong, enfeoffed as Prince of Lanling, was an imperial kinsman and commander of the Northern Qi dynasty. The Tang-compiled Book of Northern Qi (Bei Qi Shu) records that he possessed 'a gentle appearance and bold spirit, with beauty of both voice and form,' adding that he wore a carved wooden mask in combat to intimidate opposing troops.\n\nFollowing his relief of the siege at Jinyong, Northern Qi soldiers composed the song-and-dance piece Prince Lanling Entering Battle (Lanling Wang Ru Zhen Qu) to celebrate the victory. In the Tang dynasty, performers wore painted masks and robes to reenact his charge in a popular court entertainment known as 'Great Mask' (Damian).",
+      "zh": "高长恭封爵兰陵王，为北齐宗室将领。唐修《北齐书》载其“貌柔心壮，音容兼美”，生得白皙柔美如妇人，临阵常戴刻画狰狞的木面具以威慑敌军。\n\n他在洛阳邙山解金墉之围后，军中作《兰陵王入阵曲》纪功。至唐代，乐工与舞者戴假面、着戏服扮演其战姿，在宫廷与民间演为著名的“大面”歌舞戏。"
     },
     "time": {
       "startYear": 541,
@@ -324,8 +324,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "activity-area"
     },
     "historiographyNote": {
-      "en": "Gao Changgong's historic gender non-conformity lies in his celebrated feminine beauty and the act of masking it in battle. The narrative has been heavily romanticized in literature and opera (such as Lanling Wang Ru Zhen Qu), which has led to modern queer and gender-subversive readings of his performance and body.",
-      "zh": "高长恭的历史非规范特征在于其被广为歌颂的“柔美女性化容貌”以及在战场上佩戴獠牙面具以壮威严的行为。这一性别特征在后世戏剧（如唐代大面戏《兰陵王入阵曲》）中演化为经典的变装与跨性别扮演符号。条目需厘清史书记录与后世艺术对他的性别颠覆式解读。"
+      "en": "Official chronicles emphasize his military reputation alongside remarks on his feminine appearance, while Tang and later stage traditions turned the battlefield mask into theatrical convention.",
+      "zh": "正史着重记述其战功与容貌反差，唐代及后世戏曲则进一步将其战阵面具发展为表演程式。"
     },
     "sources": [
       {
@@ -357,12 +357,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "双性水神"
     ],
     "summary": {
-      "en": "A figure from Greek mythology, child of Hermes and Aphrodite, whose body combined both male and female physical traits.",
-      "zh": "希腊神话中赫耳墨斯与阿芙洛狄忒之子，在神话与古典雕塑中兼有男女两性身体特征。"
+      "en": "A figure in Greek mythology, offspring of Hermes and Aphrodite, depicted in ancient texts and sculpture with both male and female physical traits.",
+      "zh": "希腊神话中赫耳墨斯与阿芙洛狄忒之子，在古典文献和雕塑中兼有男女两性身体特征。"
     },
     "body": {
-      "en": "In Ovid's *Metamorphoses*, Hermaphroditus was the son of Hermes and Aphrodite. When the water nymph Salmacis embraced him in a spring and prayed that they never be parted, the gods fused their bodies into one form sharing both male and female features. Minor shrines honored him across Greece in connection with marriage, and the Hellenistic marble statue *Sleeping Hermaphroditus* became renowned across the Roman world—appearing as a reclining woman from one side and revealing male anatomy from the other.",
-      "zh": "据奥维德《变形记》所述，赫耳玛佛洛狄托斯是赫耳墨斯与阿芙洛狄忒之子，少年时在泉水中沐浴，水仙女萨尔玛西斯拥住他并向神明祈求永不分离，两人的躯体遂合为一体，兼有男女两性特征。古希腊多地曾设小神龛供奉他以祈愿婚姻和合；到了希腊化与罗马时期，大理石雕像《沉睡的赫耳玛佛洛狄托斯》更是广为流传，从背面看呈现柔和女性曲线，转到正面则显出男性形体特征。"
+      "en": "In Book IV of Ovid's Metamorphoses, Hermaphroditus was the son of Hermes and Aphrodite who bathed in a spring in Caria inhabited by the nymph Salmacis. Embracing him in the water, Salmacis prayed to the gods that they might never part, and their two bodies merged into a single form combining male and female anatomy.\n\nIn Greek religion, minor shrines honored Hermaphroditus in association with marriage and domestic union. During the Hellenistic and Roman periods, sculptors popularized the type known as the Sleeping Hermaphroditus—a reclining marble figure appearing female from behind and revealing male features from the front.",
+      "zh": "据古罗马诗人奥维德《变形记》卷四记载，赫耳玛佛洛狄托斯是赫耳墨斯与阿芙洛狄忒之子，少年时在卡里亚泉水中沐浴，水仙女萨尔玛西斯拥住他并向神明祈求永不分离，两人躯体遂合而为一，兼有男女两性特征。\n\n在古希腊各地，民间亦设小神龛祭祀此神以祈愿婚姻和合；到了希腊化与罗马帝国时期，大理石雕像《沉睡的赫耳玛佛洛狄托斯》广有摹本，从背面观之呈女性曲线，转至正面则显露男性形体。"
     },
     "time": {
       "startYear": -400,
@@ -391,8 +391,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "cultural-origin"
     },
     "historiographyNote": {
-      "en": "While Hermaphroditus is a direct mythological and artistic representation of intersexuality, ancient medical and religious interpretations of dual-gendered bodies differed greatly from modern intersex rights and medical definitions. He was worshipped as a deity of marriage and fertility, not categorized as a social marginality.",
-      "zh": "尽管该角色是古典神话和艺术中对“雌雄同体/间性”的直观呈现，但古代医学和宗教对双性身体的解读与现代“间性（Intersex）”的生物医学定义和人权框架大相径庭。在古希腊，他常作为婚姻和丰饶的庇护神受人崇拜，而非一种社会边缘身份。"
+      "en": "In Greek religion and Hellenistic art, Hermaphroditus was worshipped as a figure of union and fertility within myth rather than as an everyday social category.",
+      "zh": "在古希腊宗教与希腊化艺术中，赫耳玛佛洛狄托斯多作为结合与丰饶之神被供奉，属于神话与造型艺术传统。"
     },
     "sources": [
       {
@@ -424,12 +424,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "同性祭司双子"
     ],
     "summary": {
-      "en": "Two Fifth Dynasty royal manicurists buried together at Saqqara, depicted touching noses and embracing in tomb reliefs usually reserved for married couples.",
-      "zh": "古埃及第五王朝的王室修容官，两人合葬于萨卡拉墓穴，壁画中绘有碰鼻拥抱等古埃及夫妻墓室才常见的亲昵构图。"
+      "en": "Two Fifth Dynasty royal manicurists buried together at Saqqara, depicted embracing and touching noses in reliefs usually reserved for married couples.",
+      "zh": "古埃及第五王朝两位合葬于萨卡拉的王室修容官，墓室壁画中绘有埃及夫妻合葬才常见的相拥与碰鼻构图。"
     },
     "body": {
-      "en": "Niankhkhnum and Khnumhotep served as overseers of royal manicurists under Pharaoh Nyuserre Ini during Egypt's Fifth Dynasty. Excavated at Saqqara in 1964, their shared mastaba tomb shows the two men embracing and touching noses—an Egyptian funerary gesture symbolizing shared breath. Because such paired poses elsewhere appear almost exclusively between husband and wife, scholars continue to debate whether the two were brothers, twins, or life partners.",
-      "zh": "尼安克克努姆与克努姆霍特普是古埃及第五王朝法老纽塞拉在位时的王室修甲与理容总管。1964年在萨卡拉发掘出的双人合葬马斯塔巴墓中，壁画将两人绘于同一幅披风下相拥而立，甚至描绘了彼此鼻尖相触的动作——这在古埃及礼仪中象征共同的呼吸。由于这类成双构图在古王国时期墓室里通常仅见于夫妻合葬，学界至今仍在争论他们究竟是兄弟、孪生子还是同性伴侣。"
+      "en": "Niankhkhnum and Khnumhotep served as overseers of the royal manicurists under Pharaoh Nyuserre Ini during Egypt's Fifth Dynasty (c. 2400 BCE). Excavated at Saqqara in 1964, their shared mastaba tomb features limestone reliefs depicting both men side by side, holding hands, embracing, and touching noses.\n\nIn Old Kingdom Egyptian iconography, the nose-to-nose embrace—symbolizing shared breath—otherwise appears almost exclusively between husband and wife. Although both men are also shown in adjacent scenes with wives and children, Egyptologists remain divided over whether Niankhkhnum and Khnumhotep were twins, brothers, or same-sex partners.",
+      "zh": "尼安克克努姆与克努姆霍特普是古埃及第五王朝法老纽塞拉时期的王室修甲与理容总管。1964年考古人员在萨卡拉发掘出两人的合葬马斯塔巴墓，墓室浮雕绘有二人并肩而立、牵手相拥及鼻尖相触的画面。\n\n在古王国时期的丧葬礼仪中，碰鼻象征共享呼吸，此类双人亲昵构图在其余同期墓葬里几乎仅用于夫妻之间。由于同一墓室的另一些壁画中也分别出现了两人的妻子与子女，埃及学界至今仍未对他们究竟是孪生兄弟、亲兄弟还是同性伴侣达成定论。"
     },
     "time": {
       "startYear": -2400,
@@ -458,8 +458,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "burial-site"
     },
     "historiographyNote": {
-      "en": "While their tomb displays unprecedented intimate iconographies (touching noses, holding hands) usually reserved for heterosexual couples in Egyptology, it remains heavily debated whether they were same-sex romantic partners, identical twins, or brothers. Modern labels must respect the ambiguity of Old Kingdom kinship and homosocial representation.",
-      "zh": "虽然他们的陵墓壁画展现了古埃及艺术中前所未有的亲昵动作（如碰鼻、牵手，这些动作在古埃及壁画中通常仅用于夫妻），但他们究竟是同性伴侣、同卵双胞胎还是兄弟，在埃及学界仍无定论。解释该条目时需尊重古王国时期亲属关系和同性社交表达的暧昧性。"
+      "en": "Because Old Kingdom inscriptions give only their court titles and family names without explicit commentary, modern interpretations rely on tomb iconography.",
+      "zh": "古王国时期的墓葬铭文仅保留了两人的官职与亲属姓名，相关性质判断主要依据墓室壁画构图。"
     },
     "sources": [
       {
@@ -491,12 +491,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "大卫的哀歌"
     ],
     "summary": {
-      "en": "A covenant of deep affection and loyalty between David and Saul's son Jonathan recorded in the Hebrew Bible's Books of Samuel.",
-      "zh": "见载于《希伯来圣经·撒母耳记》中大卫与扫罗王之子约拿单结盟相惜、生死与共的故事。"
+      "en": "A covenant of deep loyalty and affection between David and Saul's son Jonathan recorded in the Hebrew Bible's Books of Samuel.",
+      "zh": "《希伯来圣经·撒母耳记》所载大卫与扫罗王之子约拿单结盟相惜的叙事。"
     },
     "body": {
-      "en": "The bond between David and Jonathan is told in the biblical Books of Samuel. Soon after meeting David, Jonathan made a covenant with him, 'loving him as his own soul,' and stripped off his royal robe, tunic, and weapons to give to David. Before parting, they embraced and wept together. When Jonathan later fell in battle, David sang a lament declaring, 'Your love to me was wonderful, passing the love of women.' Scholars remain divided on whether the passage describes political kinship, passionate friendship, or romantic devotion.",
-      "zh": "大卫与约拿单的事迹见于《撒母耳记》。扫罗王之子约拿单见大卫后与之立约，“爱大卫如同爱自己的性命”，并脱下自己的外袍、战衣与配剑赠予大卫；两人临别时曾抱头痛哭、彼此亲吻。后来约拿单阵亡，大卫作哀歌哭悼：“你向我发的爱情奇妙非常，过于妇女的爱情。”围绕这段记载究竟属于古代政治军事结盟，还是带有浓烈个人爱恋色彩，后世神学与文学史有诸多讨论。"
+      "en": "In the First Book of Samuel, Prince Jonathan, son of King Saul, forged an immediate bond with the young David after David defeated Goliath. According to the biblical narrative, Jonathan 'loved him as his own soul,' sealed a covenant by giving David his royal robe, tunic, and weapons, and later wept and kissed him upon their final parting.\n\nWhen Jonathan fell in battle at Mount Gilboa, David sang a lament in the Second Book of Samuel declaring, 'Your love to me was wonderful, passing the love of women.' Biblical scholars and literary historians remain divided over whether the text reflects an ancient Near Eastern political-military covenant, deep sworn friendship, or romantic devotion.",
+      "zh": "据《希伯来圣经·撒母耳记上》记载，以色列王扫罗之子约拿单见大卫后，“爱大卫如同爱自己的性命”，随即将王袍、战衣、佩剑与弓腰带赠与大卫立约；两人日后分别时，在石磐旁抱头痛哭并彼此亲吻。\n\n后来约拿单阵亡，大卫在《撒母耳记下》作哀歌哭悼：“你向我发的爱情奇妙非常，过于妇女的爱情。”对于这段经文所指究竟属于古代近东政治与军事结盟之爱，还是深挚友爱或浪漫爱恋，圣经学与文学史界长期存在不同解读。"
     },
     "time": {
       "startYear": -1010,
@@ -525,8 +525,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "activity-area"
     },
     "historiographyNote": {
-      "en": "The narrative comes from the Hebrew Bible (Books of Samuel). Scholarly debates exist between reading their covenant as an ancient homoerotic relationship ('surpassing the love of women') versus a political and military alliance of loyalty. Translating their physical intimacy (kissing, weeping) requires acknowledging ancient Near Eastern homosocial expressions.",
-      "zh": "该叙事源自希伯来圣经《撒母耳记》。学术界对两人的盟约关系存在分歧：一派将其解读为超越异性情爱的同性爱恋（如大卫哀歌所言“你向我发的爱情奇妙非常，过于妇女的爱情”），另一派则认为这属于古代西亚社会中常见的政治与军事忠诚盟约。解释其身体接触（亲吻、哭泣）时需结合古代近东的社交语境。"
+      "en": "The Hebrew verb for love ('ahavah') and gestures such as kissing and covenant-making appear in both political treaty texts and personal narratives in ancient Israelite literature.",
+      "zh": "古代希伯来文本中表示“爱”的词根与亲吻、立约等举动，兼见于宗主盟约文书与私人情感叙事之中。"
     },
     "sources": [
       {
@@ -559,12 +559,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "狂喜女装祭司"
     ],
     "summary": {
-      "en": "Devotees and priests of the goddess Cybele who castrated themselves in ritual ecstasy, grew long hair, and wore feminine dress across the Roman world.",
-      "zh": "古罗马引入的小亚细亚女神库柏勒祭司群体，在狂热仪式中自阉，平日留长发、施脂粉并着女装。"
+      "en": "Priests of the goddess Cybele in the Greco-Roman world who practiced ritual self-castration and adopted feminine dress and speech.",
+      "zh": "古罗马时期信奉大地女神库柏勒的祭司群体，在祭仪中自阉，平日梳长发、着女装。"
     },
     "body": {
-      "en": "The Galli were priests of the Anatolian mother goddess Cybele (Magna Mater), whose cult Rome officially adopted in 205 BCE during the Second Punic War. During the annual festival of Dies Sanguinis ('Day of Blood'), initiates danced to ecstatic music and voluntarily castrated themselves, thereafter wearing ornate women's robes, jewelry, and yellow veils while referring to themselves in feminine grammar. Although Roman law initially barred citizens from joining their ranks, the Galli served openly in temples and processions across the Empire for nearly six centuries.",
-      "zh": "加利（Galli）是源自小亚细亚大地女神库柏勒（罗马称“众神之母”）的祭司。公元前205年第二次布匿战争期间，罗马正式迎来这一信仰。在每年的“流血日”（Dies Sanguinis）祭典中，入教者在激越鼓乐和旋舞中自阉；此后他们留长发、敷粉着女装，佩戴头纱首饰并以阴性词格自称。尽管罗马共和国曾立令禁止公民加入，在长达约六百年里，加利祭司仍活跃于地中海各地的神庙与公开节庆之中。"
+      "en": "The Galli served the Anatolian mother goddess Cybele (Magna Mater), whose cult the Roman Senate formally adopted in 205 BCE during the Second Punic War. During the annual festival of Dies Sanguinis ('Day of Blood'), initiates danced to ecstatic music and castrated themselves, thereafter wearing women's robes, yellow veils, jewelry, and long hair while speaking in feminine grammatical forms.\n\nAlthough Roman law barred citizens from joining the priesthood and elite writers such as Juvenal and Augustine mocked or condemned them, the Galli remained visible figures in temple processions and civic festivals across the Mediterranean until the late fourth century CE.",
+      "zh": "加利（Galli）是源自小亚细亚大地女神库柏勒（罗马称“众神之母”）的祭司群体，该信仰于公元前205年第二次布匿战争期间被罗马元老院正式引入。在每年春分的“流血日”（Dies Sanguinis）祭典中，入教者在鼓笛乐舞中自阉；此后他们蓄长发、敷粉着女装，佩戴头纱首饰，并以阴性词格自称。\n\n尽管罗马法曾禁止本国公民入教，尤维纳利斯、奥古斯丁等罗马与基督教作家亦多加讥刺或抨击，在长达近六个世纪里，加利祭司仍公开活动于地中海各地的神庙与节庆游行中。"
     },
     "time": {
       "startYear": -205,
@@ -593,8 +593,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "cultural-origin"
     },
     "historiographyNote": {
-      "en": "Most records of the Galli come from elite Roman authors (like Juvenal, Augustine) who viewed them with xenophobia, moral panic, and gender bias, pathologizing their voluntary self-castration and cross-dressing. They cannot be directly equated with modern transgender identities without noting their ritual, non-secular context.",
-      "zh": "关于加利祭司的大多数记录均出自古罗马精英男权作家（如尤维纳利斯、奥古斯丁等）。罗马文献常以排外、道德恐慌和性别偏见来评判他们的女装和自阉行为。将他们等同于现代“跨性别”时，需注意其处于非世俗的祭祀与萨满狂喜仪式语境。"
+      "en": "Surviving accounts derive almost entirely from critical Roman poets, historians, and Church Fathers rather than from the Galli themselves.",
+      "zh": "现存文献几乎全出自持批评立场的罗马文人与早期基督教作家之手，缺乏加利祭司本人的记录。"
     },
     "sources": [
       {
@@ -627,12 +627,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "巾帼英雄"
     ],
     "summary": {
-      "en": "Heroine of the anonymous Northern Dynasties *Ballad of Mulan*, who disguised herself as a male soldier for twelve years in place of her aging father.",
-      "zh": "北朝乐府《木兰诗》中的主人公，女扮男装替父从军十二载，战罢辞官归家重着女装。"
+      "en": "Protagonist of the Northern Dynasties Ballad of Mulan, who took her aged father's place in the army disguised as a man for twelve years.",
+      "zh": "北朝乐府民歌《木兰诗》的主人公，着男装代父从军十二年，辞官返乡后重着女装。"
     },
     "body": {
-      "en": "The earliest surviving account of Hua Mulan appears in the anonymous *Ballad of Mulan* (*Mulan Shi*). When her elderly father was conscripted and had no grown son, Mulan bought a horse and armor and marched to war dressed as a man. For twelve years she campaigned alongside male soldiers without anyone suspecting her disguise. Returning victorious, she declined official office and went home, where she put back on her dress and makeup to the astonishment of her former comrades. The ballad's closing lines—asking how one can tell male from female when two hares run side by side—became one of Chinese literature's best-known passages on disguise.",
-      "zh": "花木兰的故事最早见于北朝无名氏乐府民歌《木兰诗》。诗写军帖征兵而父老无长兄，木兰买鞍马兵器、换男装代父入伍，随军转战十二年而同行战友毫不知情。凯旋还朝后她婉拒官爵，只求返乡，换回旧日女装、对镜贴花黄再见同袍时，令众人皆惊。全诗末尾以“双兔傍地走，安能辨我是雄雌”作结，寥寥数语道出战友多年共处未觉异样的戏剧反差，也让木兰成为后世戏曲和故事里女扮男装的经典原型。"
+      "en": "The earliest surviving text of the Mulan story is the anonymous Northern Dynasties folk ballad Ballad of Mulan (Mulan Shi), preserved in Song-era anthologies such as Guo Maoqian's Collection of Music Bureau Poems. When military conscription reached her household and her elderly father had no adult son, Mulan purchased gear at the markets and rode north dressed as a male soldier.\n\nAccording to the ballad, she fought for twelve years without her comrades realizing she was a woman, declined official rewards before the ruler, and returned home to resume women's robes and makeup. The poem ends with a simile comparing the disguised soldier to two hares running side by side—asking how an observer can tell male from female at speed.",
+      "zh": "花木兰的故事最早见于北朝无名氏乐府民歌《木兰诗》（宋代郭茂倩《乐府诗集》卷二十五收录）。诗载军帖征兵而老父无长兄，木兰遂市鞍马、换男装代父应征，随军北征十二年，同袍始终未觉其女子身份。\n\n战功既立，木兰辞谢尚书郎官职还乡，脱去战袍、对镜贴花黄重着旧时女装，令上门相访的同行战友大为惊异。全诗以“双兔傍地走，安能辨我是雄雌”作结，成为此后戏曲、小说演绎女扮男装叙事的蓝本。"
     },
     "time": {
       "startYear": 386,
@@ -661,8 +661,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "representative"
     },
     "historiographyNote": {
-      "en": "Mulan is a folk legend recorded in ballad form, not an empirically verified historical figure. Applying modern transgender or queer labels overlooks the Confucian themes of filial piety and the temporary, state-mandated nature of her cross-dressing in the original northern ballad.",
-      "zh": "木兰是民歌《木兰诗》记录的文学与民间传说形象，并无确凿史实证明其存在。用现代跨性别或同性恋身份定义她，会遮蔽南北朝北朝民歌中关于孝道、代父从军以及“兵罢还朝、重着女装”的临时性别变装语境。"
+      "en": "Mulan is a literary and folkloric figure preserved in Northern Dynasties yuefu verse; no contemporary historical chronicle verifies an individual biography.",
+      "zh": "木兰出自北朝乐府民歌与民间传说，尚无同期正史可印证其为实存历史人物。"
     },
     "sources": [
       {
@@ -697,12 +697,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "半女之主"
     ],
     "summary": {
-      "en": "A traditional South Asian community legally recognized today as a third gender, historically associated with wedding and birth blessings.",
-      "zh": "南亚地区有着悠久传统的社群，自古在婚礼与新生儿祝祷中扮演特殊角色，当代在法律上获承认为“第三性别”。"
+      "en": "A South Asian social and ritual community traditionally associated with birth and wedding blessings, legally recognized in India since 2014 as a third gender.",
+      "zh": "南亚传统社群，长期在婚礼与新生儿祝祷中担任祝吉角色，2014年获印度最高法院裁定承认“第三性别”法律地位。"
     },
     "body": {
-      "en": "In India, Pakistan, and Bangladesh, Hijras form a long-standing social and ritual community largely composed of people assigned male at birth who live in feminine dress, often in close-knit households led by a senior guru. Their place in local tradition draws on Hindu epics such as the *Ramayana* and on Shiva's *Ardhanarishvara* (half-male, half-female) iconography. After holding recognized roles at Mughal courts, the community was listed under the British Criminal Tribes Act in 1871; in 2014, the Supreme Court of India formally recognized Hijras as a legal 'Third Gender.'",
-      "zh": "希吉拉（Hijra）广泛生活于印度、巴基斯坦和孟加拉等地，成员多为出生时被记录为男性、成年后以女装与社群师徒制（Guru）共同生活的人。当地文化常把他们的渊源追溯至印度史诗《罗摩衍那》与湿婆神的“半女之主”（Ardhanarishvara）造像；莫卧儿帝国时期，不少希吉拉曾在宫廷担任近侍，并在民间为新生儿与新人祝祷。1871年英属印度曾将其列入《犯罪部落法》加以管制，直到2014年印度最高法院裁决承认其法定“第三性别”地位。"
+      "en": "Across India, Pakistan, and Bangladesh, Hijras form an organized social and ritual community composed largely of individuals assigned male at birth who wear women's dress and live in households led by a senior guru. Community traditions draw legitimacy from Hindu narratives—including episodes in the Ramayana and the Ardhanarishvara iconography of Shiva as half male and half female—and Hijras have long performed auspicious dances and blessings at weddings and childbirths.\n\nAfter holding recognized positions in Mughal courts and noble households, the community was targeted by the British colonial Criminal Tribes Act of 1871, which classified them for surveillance and arrest. In 2014, the Supreme Court of India formally recognized Hijras and transgender citizens as a distinct legal 'third gender.'",
+      "zh": "希吉拉（Hijra）广泛分布于印度、巴基斯坦与孟加拉国等地，成员多为出生时被登记为男性、成年后着女装并以师徒制（Guru）聚居的群体。当地口述与宗教传统常将其渊源追溯至《罗摩衍那》典故及湿婆神“半女之主”（Ardhanarishvara）造像；在民间生活中，他们长期于婚礼及新生儿满月时歌舞祝祷。\n\n莫卧儿帝国时期，不少希吉拉曾担任宫廷近侍或贵族府邸执事；1871年英属印度当局将其列入《犯罪部落法》加以登记与管制。直至2014年，印度最高法院裁决正式承认其法定“第三性别”地位。"
     },
     "time": {
       "startYear": -800,
@@ -731,8 +731,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "representative"
     },
     "historiographyNote": {
-      "en": "The Hijras represent a complex social, spiritual, and biological 'third gender' status with deep roots in Hindu mythology (such as Rama's forest exile and Shiva's half-female form). Modern Western terms like 'transgender women' or 'eunuchs' fail to capture their sacred ritual blessing roles and their historical criminalization under British colonial laws (Criminal Tribes Act of 1871).",
-      "zh": "“希吉拉”是南亚独特的“第三性别”社群，融合了生理互性、跨性别认同与宗教精神色彩，其根源深植于印度教神话（如湿婆的“半女之主”化身及罗摩去林中隐居的故事）。将其生硬套用现代“跨性别女性”或殖民时期的“阉人”标签，会忽视他们作为神圣祝祷者的角色，以及他们在1871年英国殖民刑法下被定罪迫害的历史。"
+      "en": "Historical documentation spans pre-colonial court records, 19th-century British colonial policing files, and modern constitutional jurisprudence.",
+      "zh": "相关历史材料涵盖前殖民时期宫廷记录、19世纪英属印度警察管制档案及当代宪法判例。"
     },
     "sources": [
       {
@@ -764,12 +764,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "夏洛特·德·埃翁"
     ],
     "summary": {
-      "en": "An 18th-century French diplomat, dragoon captain, and fencer who spent the first half of life as a man and the latter thirty-three years officially recognized by the French Crown as a woman.",
-      "zh": "18世纪法国外交官、龙骑兵军官与剑术家，前半生以男性身份任职，后半生经法国王室诏令认可为女性并生活至逝世。"
+      "en": "An 18th-century French diplomat, dragoon captain, and fencer who spent the latter thirty-three years of life officially recognized by the French Crown as a woman.",
+      "zh": "18世纪法国外交官、龙骑兵军官与剑术家，前半生以男性身份任职，后三十三年经法国王室诏令按女性身份生活。"
     },
     "body": {
-      "en": "Charles-Geneviève d'Éon de Beaumont, known as the Chevalier d'Eon, served France as a diplomat, intelligence agent, and decorated dragoon captain during the Seven Years' War before being posted as minister plenipotentiary in London. By the 1770s, rumors over d'Eon's sex spurred heavy betting on London exchanges. Under a 1777 agreement with King Louis XVI's court, d'Eon returned to France officially recognized as a woman on the condition of wearing women's clothes permanently—which they did for the next thirty-three years, even fencing publicly in skirts. Only after d'Eon's death in London in 1810 did an autopsy reveal male anatomy.",
-      "zh": "夏尔-热纳维耶芙·德·埃翁·德·博蒙特（通称德·埃翁骑士）曾任法国情报员与外交官，相传早年曾着女装出使俄国宫廷，此后在七年战争期间作为龙骑兵上尉立下战功并派驻伦敦担任全权公使。18世纪70年代，伦敦社会对其真实性别猜测纷纷，博彩交易所甚至开出高额赌盘。1777年，依路易十六宫廷签订的回国协定，法国官方承认其为女性，条件是此后必须终身着女装；埃翁在余下的33年里一直以女性身份示人，甚至穿着长裙参加公开击剑表演。直至1810年在伦敦逝世后，医生验尸才确认其具有男性生理特征。"
+      "en": "Charles-Geneviève d'Éon de Beaumont, known as the Chevalier d'Eon, served the French Crown as an intelligence agent, decorated dragoon captain during the Seven Years' War, and minister plenipotentiary in London. By the 1770s, persistent rumors regarding d'Éon's biological sex prompted heavy speculation and formal wagers on the London Stock Exchange.\n\nUnder a 1777 convention negotiated with King Louis XVI's government, d'Éon was permitted to return to France officially recognized as a woman on condition of wearing female dress permanently. D'Éon lived the remaining thirty-three years as Mademoiselle d'Éon, continuing to fence in public exhibitions while wearing skirts until dying in London in 1810, when a post-mortem examination revealed male anatomy.",
+      "zh": "夏尔-热纳维耶芙·德·埃翁·德·博蒙特（通称德·埃翁骑士）早年为法国王室从事外交与情报工作，七年战争期间任龙骑兵上尉并获战功勋章，后派驻伦敦出任全权公使。18世纪70年代，关于其生理性别的传闻在伦敦广为传播，金融交易所甚至就此开出公开赌盘。\n\n1777年，依路易十六政府签订的回国协议，法国官方承认埃翁为女性，条件是此后须终身着女装。埃翁此后三十三年皆以“埃翁小姐”身份公开活动，晚年仍着裙装登台进行击剑表演；1810年在伦敦逝世后，医生验尸确认其具有男性生理特征。"
     },
     "time": {
       "startYear": 1728,
@@ -798,8 +798,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "residence"
     },
     "historiographyNote": {
-      "en": "D'Eon lived the first half of their life as a man (serving as a diplomat and soldier) and the second half as a woman. Their gender transition was officially recognized by the French Crown, though heavily tied to political agreements and speculative bets in London. Applying modern definitions of 'transgender' requires caution regarding the diplomatic espionage and social limitations of the 18th century.",
-      "zh": "埃翁骑士前半生以男性身份生活（担任法国外交官与龙骑兵军官），后半生以女性身份生活（其女性身份得到了法国国王路易十六的官方认可，但也受到外交协议的限制）。将其直接等同于现代“跨性别者”时，需结合18世纪宫廷地缘政治、间谍情报活动以及伦敦社会的博彩赌注背景来进行批判性理解。"
+      "en": "Eighteenth-century French diplomatic correspondence, British betting policies, d'Éon's personal memoirs, and the 1810 medical report document the shift in legal and social status.",
+      "zh": "18世纪法国外交文书、伦敦赌约记录、埃翁本人回忆录及1810年验尸报告共同记录了其公开身份的转变。"
     },
     "sources": [
       {
@@ -830,12 +830,12 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "阿布·努瓦斯"
     ],
     "summary": {
-      "en": "An Abbasid-era Arabic court poet in Baghdad, celebrated for his drinking songs and love poems addressed to young men (*Mudhakkarat*).",
-      "zh": "阿拔斯王朝时期巴格达著名的阿拉伯古典诗人，以酒诗与咏美少年的抒情诗（Mudhakkarat）闻名。"
+      "en": "An Abbasid-era Arabic court poet in Baghdad noted for his wine songs and love lyrics addressed to young men.",
+      "zh": "阿拔斯王朝时期活跃于巴格达宫廷的阿拉伯诗人，以酒诗与咏赞美少年的抒情诗传世。"
     },
     "body": {
-      "en": "Born in Ahvaz of Arab and Persian heritage, Abu Nuwas became one of the leading court poets of Baghdad under the Abbasid caliphs Harun al-Rashid and al-Amin, and later appeared as a recurring wit in *One Thousand and One Nights*. Setting aside older desert-camp poetic conventions, he wrote vividly about Baghdad's taverns, gardens, wine, and male companions (*Mudhakkarat*). His sharp verse won caliphal patronage, though his irreverent themes also landed him in prison more than once.",
-      "zh": "阿布·努瓦斯生于阿瓦士，具有阿拉伯与波斯血统，在阿拔斯王朝哈里发哈伦·拉希德与阿明统治期间活跃于巴格达宫廷，后来也作为机智风趣的诗人形象反复出现在《一千零一夜》中。他的诗歌放下早期阿拉伯荒漠挽歌的旧式套语，转而细腻描写巴格达的酒肆、园林、醇酒与美少年（Mudhakkarat）。其敏锐直白的诗风既为他赢得宫廷赏识，也因屡屡越过教法与礼教规矩而几度下狱。"
+      "en": "Born in Ahvaz of Arab and Persian heritage, Abu Nuwas became a leading court poet in Baghdad under the Abbasid caliphs Harun al-Rashid and al-Amin, and later appeared as a recurring wit in One Thousand and One Nights. Turning away from pre-Islamic desert-camp elegy openings, he composed vivid urban verse centered on Baghdad's taverns, gardens, wine (khamriyyat), and young male companions (mudhakkarat).\n\nHis technical mastery and humor secured caliphal patronage and lasting prominence in the classical Arabic canon, though his open defiance of religious and moral conventions led to several periods of imprisonment.",
+      "zh": "阿布·努瓦斯生于阿瓦士，兼有阿拉伯与波斯血统，在阿拔斯王朝哈里发哈伦·拉希德与阿明统治期间活跃于巴格达宫廷，后世亦在《一千零一夜》中多次作为机智诗人登场。他摆脱早年阿拉伯沙漠悲歌的传统开篇程式，转而书写巴格达城内的酒肆、园林、饮宴酒诗（Khamriyyat）及咏赞美少年的诗篇（Mudhakkarat）。\n\n凭借精湛词律与机锋，他既获哈里发宫廷长期赞助并在古典阿拉伯文学史上占据重要地位，也因屡次逾越教法与道德禁令而数度下狱。"
     },
     "time": {
       "startYear": 756,
@@ -864,8 +864,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "residence"
     },
     "historiographyNote": {
-      "en": "Literary scholars emphasize the delicate balance between formal Arabic poetic tropes and historical personal experience. Classical homoerotic desire in Arabic literature operated within distinct patron-courtly contexts that should not be conflated with modern sexual-identity labels.",
-      "zh": "学者指出，古典阿拉伯诗歌中的男风书写既遵循高度成熟的宫廷颂诗与抒情传统，又融入了诗人真挚的情感。不可脱离阿拔斯都城独特的文学狂欢语境，将其简单比附为现代同性恋身份政治。"
+      "en": "Literary historians read his ghazal and mudhakkarat poems within Abbasid courtly patronage and classical Arabic generic conventions.",
+      "zh": "文学史研究通常结合阿拔斯王朝的宫廷赞助制度与古典阿拉伯诗歌体裁传统来解读其诗作。"
     },
     "sources": [
       {

@@ -64,8 +64,8 @@ export const PENDING_REVIEW_QUEUE: PendingReviewEntry[] = [
     source: { en: "National Archaeological Museum Collections", zh: "雅典国家考古博物馆馆藏" },
     contributor: { en: "Museum Curation", zh: "本馆编撰" },
     holdReason: {
-      en: "Stylistic abstraction in Cycladic art should not be conflated with non-binary social identity without contextual textual evidence.",
-      zh: "基克拉泽斯大理石人像的几何简化风格属史前雕塑美学，不宜径行等同于性别认同表征。"
+      en: "Stylistic abstraction in Cycladic art lacks accompanying textual evidence linking it to social gender categories.",
+      zh: "基克拉泽斯大理石人像的几何简化风格属史前雕塑美学，缺乏同期文献可据以判断具体的社会性别分类。"
     }
   },
   {
