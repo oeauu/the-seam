@@ -192,8 +192,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "court-site"
     },
     "historiographyNote": {
-      "en": "The Book of Han frames Dong Xian's favor within Han court politics and imperial patronage rather than modern sexual-identity categories.",
-      "zh": "《汉书》将该事置于西汉晚期的外戚与恩宠政治叙事中加以评述，不同于现代身份分类。"
+      "en": "The Book of Han situates Dong Xian's favor within late Western Han court politics and imperial patronage.",
+      "zh": "《汉书》将董贤受宠一事置于西汉晚期的外戚与恩宠政治脉络中记述。"
     },
     "sources": [
       {
@@ -973,8 +973,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "公元前4世纪雅典哲学文献（以柏拉图《会饮篇》为代表），反映古典希腊城邦对男性同性爱欲的规范与争论。"
     },
     "body": {
-      "en": "During the late Archaic and Classical periods in Athens, male aristocratic circles institutionalized structured courtship between an older citizen (erastes) and an adolescent youth (eromenos), regulated by civic expectations around education, honor, and restraint. Written around 385–370 BCE, Plato's Symposium sets a banquet conversation in which Athenian speakers offer competing speeches on the nature of Eros—including Aristophanes' myth of divided human halves and Socrates' ascent from bodily attraction to beauty itself.\n\nBecause surviving Attic texts come largely from elite philosophical, comic, and forensic sources rather than everyday voices, historians debate how widely these courtship norms applied beyond aristocratic gymnasia and symposia. Modern scholarship generally agrees that Classical Athens treated same-sex attraction as an accepted facet of male civic life when governed by status and reciprocity rules, while sharply scrutinizing acts seen as compromising citizen autonomy.",
-      "zh": "古风晚期至古典时代的雅典贵族社交圈中，曾形成成年公民（爱者，erastes）与青年（被爱者，eromenos）之间的求爱与师友礼俗，受荣誉感、公民身份与克制原则约束。约成书于公元前385年至前370年的柏拉图《会饮篇》，借雅典文人宴饮对话探讨“爱欲”（Eros），包括阿里斯托芬“人本双体、被剖分后各自寻觅另一半”的著名寓言及苏格拉底“从形体之美走向理念之美”的阐发。\n\n由于现存古典文献多出自精英哲学家、喜剧诗人或法庭演说辞，学界对这一礼俗在普通公民与各城邦间的普及程度仍有不同估计。当代古典史主流看法认为，雅典社会在一定身份与克制边界内认可男性同性爱慕，但对越过公民自律界线的关系则持严格批判。"
+      "en": "During the late Archaic and Classical periods in Athens, male aristocratic circles institutionalized structured courtship between an older citizen (erastes) and an adolescent youth (eromenos), regulated by civic expectations around education, honor, and restraint. Written around 385–370 BCE, Plato's Symposium sets a banquet conversation in which Athenian speakers offer competing speeches on the nature of Eros—including Aristophanes' myth of divided human halves and Socrates' ascent from bodily attraction to beauty itself.\n\nSurviving Attic philosophical, comic, and forensic texts largely reflect elite citizen circles, and norms varied across Greek poleis and social strata. Classical scholarship generally concludes that Athens permitted male same-sex courtship within boundaries of citizen status and reciprocity while censuring conduct seen as compromising citizen autonomy.",
+      "zh": "古风晚期至古典时代的雅典贵族社交圈中，曾形成成年公民（爱者，erastes）与青年（被爱者，eromenos）之间的求爱与师友礼俗，受荣誉感、公民身份与克制原则约束。约成书于公元前385年至前370年的柏拉图《会饮篇》，借雅典文人宴饮对话探讨“爱欲”（Eros），包括阿里斯托芬“人本双体、被剖分后各自寻觅另一半”的著名寓言及苏格拉底“从形体之美走向理念之美”的阐发。\n\n现存雅典哲学、喜剧与法庭演说文本主要反映上层公民观念，各城邦与不同阶层间的礼俗亦有所差异。古典史学界一般认为，雅典社会在身份与克制礼俗的边界内认可男性同性爱慕，对越过公民自律界线的关系则予以批判。"
     },
     "time": {
       "startYear": -385,
@@ -1118,8 +1118,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "见载于沈德符、谢肇淛等晚明文人笔记的福建男子契约伴侣习俗，双方互致聘礼并共同生活。"
     },
     "body": {
-      "en": "In his early seventeenth-century miscellany Wanli Yehuo Bian, Ming scholar-official Shen Defu recorded that men along coastal Fujian entered formalized bonds known as qixiong ('pledged elder brother') and qidi ('pledged younger brother'). According to Shen and Fujian writer Xie Zhaozhe (Wu Zazu, c. 1609), the elder partner presented betrothal-style gifts to the younger man's parents, lived alongside him as a family member, and sometimes later helped finance the younger partner's marriage to a woman.\n\nBecause surviving descriptions come from Jiangnan and Fujian literati essays rather than household contracts or court petitions, historians note the presence of regional stereotyping and moralizing rhetoric in the sources. Mainstream scholarship nevertheless treats qixiong-qidi as a historically documented local institution of same-sex domestic partnership that coexisted with Confucian family reproduction.",
-      "zh": "晚明士人沈德符在《万历野获编》补遗中记载，万历年间福建民间流行男子结为“契兄”“契弟”之俗：双方家长相见行礼，契兄向契弟家馈赠聘礼并如同女婿般往来，二人同寝共居，待契弟日后娶妻时还往往由契兄出资操办。同时代闽籍文人谢肇淛《五杂俎》等笔记亦记述闽中及江南盛行此风。\n\n目前关于“契兄弟”的记述主要出自士大夫笔记与明清小说，暂未见完整的民间立契原件存世。明清社会史学界主流认为，这并非单纯的文学夸饰，而是晚明东南沿海地方社会中真实存在的男子契约伴侣习俗，并与传宗接代的正统婚姻并存，同时需注意文人书写中所带有的地方猎奇与评判色彩。"
+      "en": "In his early seventeenth-century miscellany Wanli Yehuo Bian, Ming scholar-official Shen Defu recorded that men along coastal Fujian entered formalized bonds known as qixiong ('pledged elder brother') and qidi ('pledged younger brother'). According to Shen and Fujian writer Xie Zhaozhe (Wu Zazu, c. 1609), the elder partner presented betrothal-style gifts to the younger man's parents, lived alongside him as a family member, and sometimes later helped finance the younger partner's marriage to a woman.\n\nSurviving accounts of qixiong-qidi appear primarily in literati miscellanies and Ming-Qing fiction. Within late Ming coastal society in Fujian, these contractual male partnerships operated alongside family marriage and lineage reproduction.",
+      "zh": "晚明士人沈德符在《万历野获编》补遗中记载，万历年间福建民间流行男子结为“契兄”“契弟”之俗：双方家长相见行礼，契兄向契弟家馈赠聘礼并如同女婿般往来，二人同寝共居，待契弟日后娶妻时还往往由契兄出资操办。同时代闽籍文人谢肇淛《五杂俎》等笔记亦记述闽中及江南盛行此风。\n\n目前关于“契兄弟”的记录主要出自士大夫笔记与明清小说。在晚明东南沿海地方社会中，这种男子契约伴侣习俗与传宗接代的正统婚姻并行存在。"
     },
     "time": {
       "startYear": 1570,
@@ -1148,8 +1148,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "representative"
     },
     "historiographyNote": {
-      "en": "Known through late Ming literati miscellanies (Wanli Yehuo Bian, Wu Zazu) and seventeenth-century vernacular fiction rather than extant legal deeds.",
-      "zh": "主要依据沈德符《万历野获编》、谢肇淛《五杂俎》等晚明笔记与同时代小说，现暂未见民间立契原件。"
+      "en": "Documented in late Ming literati miscellanies (Wanli Yehuo Bian, Wu Zazu) and Ming-Qing vernacular fiction.",
+      "zh": "主要记述见于沈德符《万历野获编》、谢肇淛《五杂俎》等晚明士大夫笔记与明清小说。"
     },
     "sources": [
       {
@@ -1320,8 +1320,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "清代杭州女词人吴藻创作的独角杂剧，借女子谢絮才身着男装的自画像，抒发才识与礼法规范的冲突。"
     },
     "body": {
-      "en": "Composed around 1819–1825 by the Hangzhou lyric poet and playwright Wu Zao (1799–1862), Qiaoying (also titled Drinking Wine and Reading Li Sao) is a one-act Southern-Northern zaju drama with a single role, the scholar-gentlewoman Xie Xucai. Unwilling to remain confined to domestic expectations, Xie dresses in men's Confucian attire, commissions a portrait of herself in male robes, and addresses the painted image while drinking wine and chanting Qu Yuan's classical lament Li Sao.\n\nCirculated widely among Jiangnan literati and staged in Hangzhou and Suzhou during the Daoguang era, Qiaoying drew prefaces and matching poems from both male and female writers. Literary historians note its prominent use of cross-dressing on stage and in portraiture as a vehicle to critique social barriers placed on women's talent and public ambition.",
-      "zh": "《乔影》（又题《饮酒读骚图曲》）为清代杭州词人吴藻（1799–1862年）约二十岁前后（约1819–1825年流传刊行）所作一折独角杂剧。全剧仅设旦角“谢絮才”一人，写其“生长闺门，性耽书史，自惭巾帼，不爱铅华”，自绘一幅身着男子儒服的《饮酒读骚图》悬于室中，对画斟酒、高歌诵读屈原《离骚》，感叹生为女儿身而抱负无从施展。\n\n该剧道光年间在杭州、苏州及江南文士、闺秀诗社间广泛传抄并搬演一时，诸多名流为其题词唱和。现代文学史与戏曲史研究普遍关注剧中借“乔装男像”对女性才情与清代闺阁性别边界的对照呈现。"
+      "en": "Composed around 1819–1825 by the Hangzhou lyric poet and playwright Wu Zao (1799–1862), Qiaoying (also titled Drinking Wine and Reading Li Sao) is a one-act Southern-Northern zaju drama with a single role, the scholar-gentlewoman Xie Xucai. Unwilling to remain confined to domestic expectations, Xie dresses in men's Confucian attire, commissions a portrait of herself in male robes, and addresses the painted image while drinking wine and chanting Qu Yuan's classical lament Li Sao.\n\nCirculated widely in manuscript and staged in Hangzhou and Suzhou during the Daoguang era, Qiaoying drew prefaces and matching poems from contemporary men and women writers.",
+      "zh": "《乔影》（又题《饮酒读骚图曲》）为清代杭州词人吴藻（1799–1862年）约二十岁前后（约1819–1825年流传刊行）所作一折独角杂剧。全剧仅设旦角“谢絮才”一人，写其“生长闺门，性耽书史，自惭巾帼，不爱铅华”，自绘一幅身着男子儒服的《饮酒读骚图》悬于室中，对画斟酒、高歌诵读屈原《离骚》，感叹生为女儿身而抱负无从施展。\n\n该剧道光年间在杭州、苏州及江南文士、闺秀诗社间广泛传抄并搬演一时，诸多时人为其题词唱和。"
     },
     "time": {
       "startYear": 1819,
@@ -1415,8 +1415,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "relation": "residence"
     },
     "historiographyNote": {
-      "en": "Circulated in manuscript from the late Kangxi era before entering print in 1766; analyzed in modern scholarship as a key Qing literary representation of male-male desire.",
-      "zh": "康熙年间即以抄本流传，1766年首次雕版刊行，常被视为清初文言小说书写男性情欲的重要文本。"
+      "en": "Circulated in manuscript from the late Kangxi era before entering print in 1766.",
+      "zh": "康熙年间以抄本流传，1766年青柯亭首次雕版刊行。"
     },
     "sources": [
       {
@@ -1451,8 +1451,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "蒲松龄《聊斋志异》篇目，描写少女范十一娘与狐女封三娘之间互生爱悦、不愿分离及婚姻安排下的女性处境。"
     },
     "body": {
-      "en": "In Pu Songling's Qing dynasty tale 'Feng Sanniang' (Liaozhai Zhiyi), a young gentry woman named Fan Shiyiniang meets the mysterious maiden Feng Sanniang during a temple festival. Quickly drawn to each other, the two sleep in the same bed, exchange intimate pledges, and wish to remain together without parting.\n\nAlthough Feng Sanniang helps arrange Fan's marriage to a worthy scholar and briefly joins the household as an adopted sister, she eventually leaves to preserve her spiritual cultivation. Modern literary critics note that while the plot resolves within Qing domestic marriage conventions, the opening and middle chapters vividly foreground female same-sex devotion and resistance to forced separation.",
-      "zh": "《封三娘》出自清代蒲松龄《聊斋志异》。故事写乡绅之女范十一娘在孟秋佛会偶遇少女封三娘，二人一见投契、互生爱慕，同榻共寝并倾诉难舍之情，范十一娘更明言愿与封三娘长相厮守、不欲另嫁。\n\n故事中后段写封三娘协助促成范十一娘择得佳婿，并借“姊妹”身份暂留范家共同生活，最终仍为修行悄然离去。现代文学研究指出，全篇虽在婚姻礼制框架下收束结局，但前段对女子间亲密依恋与抗拒拆散的刻画在清代笔记中颇为鲜明。"
+      "en": "In Pu Songling's Qing dynasty tale 'Feng Sanniang' (Liaozhai Zhiyi), a young gentry woman named Fan Shiyiniang meets the mysterious maiden Feng Sanniang during a temple festival. Quickly drawn to each other, the two sleep in the same bed, exchange intimate pledges, and wish to remain together without parting.\n\nFeng Sanniang later helps arrange Fan's marriage to a worthy scholar and briefly stays in the household as an adopted sister before departing to pursue spiritual cultivation.",
+      "zh": "《封三娘》出自清代蒲松龄《聊斋志异》。故事写乡绅之女范十一娘在孟秋佛会偶遇少女封三娘，二人一见投契、互生爱慕，同榻共寝并倾诉难舍之情，范十一娘更明言愿与封三娘长相厮守、不欲另嫁。\n\n故事中后段写封三娘协助促成范十一娘择婿成婚，并借“姊妹”身份暂留范家共同生活，最终为修行悄然离去。"
     },
     "time": {
       "startYear": 1679,
@@ -1517,8 +1517,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "清代陈森撰六十回长篇小说，1849年初刻，描写京师文人雅士与梨园男旦（相公）之间的情谊与戏班生态。"
     },
     "body": {
-      "en": "First printed in 1849 (Daoguang 29) by Chen Sen, Precious Mirror for Judging Flowers (Pinhua Baojian) is a sixty-chapter novel set in early nineteenth-century Beijing. Its narrative centers on theater patronage, contrasting sincere poetic attachments between young scholars (such as Mei Ziyu and Tian Chunhang) and male dan opera actors ('xianggong' like Du Qinyan and Su Huifang) against crude exploitation by wealthy patrons.\n\nBecause Qing law banned actresses from commercial stages in Beijing, male dan actors occupied a prominent social and romantic role in urban elite life. In his Brief History of Chinese Fiction, Lu Xun classified Pinhua Baojian as a foundational work of late Qing 'courtesan/theater' (xiaxie) fiction, while social historians treat it as a rich literary record of Qing Beijing opera culture and male same-sex aesthetics.",
-      "zh": "《品花宝鉴》为清代常州文人陈森所撰六十回长篇小说，现存最早刻本为道光二十九年（1849年）“幻中了幻斋”本。小说以嘉庆、道光年间北京梨园与文士生活为背景，着力对比梅子玉与男旦杜琴言、田春航与苏蕙芳等讲求性情相惜的情感交往，与纨绔子弟狎玩优伶的市井世态。\n\n清代官府严禁女优登台后，京城戏曲旦角多由男性艺人扮演（时称“相公”），由此形成了独特的私人堂会与情感社交网络。鲁迅在《中国小说史略》中将该书列为晚清狭邪小说的开端，而社会史与戏曲史学者则视之为考察清代北京男旦制度与士林审美风尚的重要材料。"
+      "en": "First printed in 1849 (Daoguang 29) by Chen Sen, Precious Mirror for Judging Flowers (Pinhua Baojian) is a sixty-chapter novel set in early nineteenth-century Beijing. Its narrative centers on theater patronage, contrasting sincere poetic attachments between young scholars (such as Mei Ziyu and Tian Chunhang) and male dan opera actors ('xianggong' like Du Qinyan and Su Huifang) against crude exploitation by wealthy patrons.\n\nBecause Qing law banned actresses from commercial stages in Beijing, male dan actors occupied a prominent place in urban theater and literati socializing. In his Brief History of Chinese Fiction, Lu Xun classified Pinhua Baojian as an early work of late Qing 'courtesan and theater' (xiaxie) fiction, while depicting Beijing theater houses and actor residences (tangzi) of the Jiaqing and Daoguang reigns.",
+      "zh": "《品花宝鉴》为清代常州文人陈森所撰六十回长篇小说，现存最早刻本为道光二十九年（1849年）“幻中了幻斋”本。小说以嘉庆、道光年间北京梨园与文士生活为背景，着力对比梅子玉与男旦杜琴言、田春航与苏蕙芳等讲求性情相惜的情感交往，与纨绔子弟狎玩优伶的市井世态。\n\n清代官府禁止女优登台后，京城戏曲旦角多由男性艺人扮演（时称“相公”），由此形成堂会与私人社交网络。鲁迅在《中国小说史略》中将该书列为晚清狭邪小说的开端，全书亦详尽描摹了清中期京师私寓（堂子）与戏园的日常格局。"
     },
     "time": {
       "startYear": 1849,
@@ -1588,8 +1588,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "日本江户时期与年龄、发式及服饰相联系的少年社会角色文化，留有大量浮世绘与武士、町人众道文献。"
     },
     "body": {
-      "en": "In Edo-period Japan (1603–1868), wakashū designated male youths who had not yet undergone the coming-of-age ceremony (genpuku), distinguished visibly by shaved forelocks (maegami) and long-sleeved garments. Within samurai, monastic, and urban theater circles, wakashū could form structured romantic and mentoring bonds (shudō, 'the way of youths') with older men (nenja), while also appearing in ukiyo-e woodblock prints and popular fiction as objects of desire across both male and female patrons.\n\nArt historians such as Joshua Mostow and Gregory Pflugfelder emphasize that Edo society organized erotic and social roles around age, hairstyle, and hierarchy rather than a modern heterosexual-homosexual binary. Following Meiji-era legal and educational Westernization after 1868, shudō traditions declined and were gradually recast in modern sexological terms.",
-      "zh": "江户时期（1603–1868年）日本社会将尚未行元服成人礼、留前发与长振袖的少年称作“若众”（Wakashū）。无论在武士阶层、寺院还是歌舞伎町人社会中，若众与年长男性（念者，nenja）之间的伴侣与庇护关系称为“众道”（Shudō）；大量浮世绘版画、春画与通俗小说均记录了若众在男女两性视线中兼具吸引力的独特角色。\n\n现代日本史与艺术史研究指出，江户时期的性别与情欲区分很大程度上依附于年龄段、发式礼俗与主从等级，并不等同于近代男女/同异性恋二分；明治维新后随着近代西方法律与教育体系引入，传统若众制度逐渐淡出公开社会秩序。"
+      "en": "In Edo-period Japan (1603–1868), wakashū designated male youths who had not yet undergone the coming-of-age ceremony (genpuku), distinguished visibly by shaved forelocks (maegami) and long-sleeved garments. Within samurai, monastic, and urban theater circles, wakashū could form structured romantic and mentoring bonds (shudō, 'the way of youths') with older men (nenja), while appearing in ukiyo-e woodblock prints and popular fiction alongside both male and female patrons.\n\nIn Edo social classification, wakashū status depended on age grade, hairstyle conventions, and status hierarchy. Following Meiji legal and educational reforms after 1868, traditional wakashū and shudō practices faded from public institutions.",
+      "zh": "江户时期（1603–1868年）日本社会将尚未行元服成人礼、留前发与长振袖的少年称作“若众”（Wakashū）。无论在武士阶层、寺院还是歌舞伎町人社会中，若众与年长男性（念者，nenja）之间的伴侣与庇护关系称为“众道”（Shudō）；大量浮世绘版画、春画与通俗小说均载有若众形象。\n\n在江户社会的礼俗结构中，若众的身份界定主要依附于年龄阶段、发式规范与主从等级。明治维新后，随着西方法律与近代学校教育体系推行，传统若众与众道习俗逐渐淡出公开社会秩序。"
     },
     "time": {
       "startYear": 1603,
@@ -1655,8 +1655,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "井原西鹤于1687年在大阪刊行的四十篇浮世草子集，前二十篇记武士众道、后二十篇写歌舞伎若众情爱。"
     },
     "body": {
-      "en": "Published in Osaka in 1687 (Jōkyō 4) by ukiyo-zōshi prose author Ihara Saikaku (1642–1693), Nanshoku Ōkagami (The Great Mirror of Male Love) comprises forty stories across eight volumes. The first twenty chapters focus on samurai codes of male-male devotion (shudō), honoring sworn oaths, duels, and lifelong loyalty among warriors.\n\nThe second half shifts to urban entertainment quarters in Kyoto, Osaka, and Edo, following kabuki young-male performers (iroko and wakashū) and townsmen patrons through theatrical rivalry, economic survival, and romantic heartbreak. Scholars regard the work as one of early modern East Asia's most detailed literary mirrors of male same-sex social customs.",
-      "zh": "《男色大鉴》（副题“本朝若风俗”）为日本江户时代大阪作家井原西鹤（1642–1693年）于贞享四年（1687年）刊印的浮世草子名著，全书八卷共四十章。前半部二十章着力书写武士阶层的“众道”（Shudō）规范，记述武士间立誓忠信、决斗殉情的故事。\n\n后半部二十章则转向京都、大阪与江户都市剧场及茶屋，描写歌舞伎若众艺人（色子）与町人、僧侣赞助者之间的爱怨悲欢与生计现实。学界将该书视为研究十七世纪末日本近世男性同性文化与剧场社会史的重要文献。"
+      "en": "Published in Osaka in 1687 (Jōkyō 4) by ukiyo-zōshi prose author Ihara Saikaku (1642–1693), Nanshoku Ōkagami (The Great Mirror of Male Love) comprises forty stories across eight volumes. The first twenty chapters focus on samurai codes of male-male devotion (shudō), recounting sworn oaths, duels, and warrior loyalty.\n\nThe second half shifts to urban entertainment quarters in Kyoto, Osaka, and Edo, following kabuki young-male performers (iroko and wakashū) alongside townsmen and clerical patrons through theatrical rivalry, economic survival, and personal loss.",
+      "zh": "《男色大鉴》（副题“本朝若风俗”）为日本江户时代大阪作家井原西鹤（1642–1693年）于贞享四年（1687年）刊印的浮世草子，全书八卷共四十章。前半部二十章着力书写武士阶层的“众道”（Shudō）规范，记述武士间立誓忠信、决斗殉情的故事。\n\n后半部二十章则转向京都、大阪与江户都市剧场及茶屋，描写歌舞伎若众艺人（色子）与町人、僧侣赞助者之间的交往与剧场世态。"
     },
     "time": {
       "startYear": 1687,
@@ -1721,8 +1721,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "日本近代女性文艺杂志《青鞜》核心同人，1912年平塚雷鸟发表回忆二人亲密关系的散文并引发日本媒体舆论风波。"
     },
     "body": {
-      "en": "In 1912, artist Otake Kōkichi (later Tomimoto Kazue, 1893–1966) joined Seitō (Bluestocking), the pioneering Tokyo feminist literary society founded by Hiratsuka Raichō (1886–1971). In the August 1912 issue of Seitō and in essays such as 'Ichinenkan' ('One Year'), Hiratsuka wrote candidly about their intense emotional and romantic attachment, addressing Otake as 'my younger brother' and describing their shared hours in Komagome.\n\nTokyo newspapers sensationalized their closeness alongside the 'Five-Colored Liquor' and Yoshiwara visits as a scandal involving 'New Women.' Although Otake left the group later that year and both women subsequently married men, Hiratsuka's 1912 Seitō writings remain foundational primary texts in modern Japanese women's intimacy and feminist history.",
-      "zh": "1912年（明治四十五年/大正元年），年轻画家尾竹红吉（后改名富本一枝，1893–1966年）加入平塚雷鸟（1886–1971年）在东京创办的女性文艺社团《青鞜》。同年，平塚雷鸟在《青鞜》杂志及《一年间》等文章中公开写下对“红吉”浓烈而亲密的爱慕情感，称对方为“我的少年/弟弟”，留下两人书信与交往的直接文本记录。\n\n二人亲密来往很快与“五色酒事件”“吉原登楼事件”一道被东京报界大肆渲染，成为舆论攻击“新女性”的焦点。尾竹红吉于同年秋离开青鞜社，之后两人各自组建家庭，但1912年留下的这批《青鞜》文章至今仍是研究近代日本女性情谊与亲密关系的重要史料。"
+      "en": "In 1912, artist Otake Kōkichi (later Tomimoto Kazue, 1893–1966) joined Seitō (Bluestocking), the Tokyo feminist literary society founded by Hiratsuka Raichō (1886–1971). In the August 1912 issue of Seitō and in essays such as 'Ichinenkan' ('One Year'), Hiratsuka wrote directly about their emotional and romantic attachment, addressing Otake as 'my younger brother' and recording their shared hours in Komagome.\n\nTokyo newspapers publicized their closeness alongside the 'Five-Colored Liquor' and Yoshiwara episodes in press coverage of 'New Women.' Otake left Seitō later that year, and both women subsequently married men.",
+      "zh": "1912年（明治四十五年/大正元年），画家尾竹红吉（后改名富本一枝，1893–1966年）加入平塚雷鸟（1886–1971年）在东京创办的女性文艺社团《青鞜》。同年，平塚雷鸟在《青鞜》杂志及《一年间》等文章中公开写下对“红吉”的情感与爱慕，称对方为“我的少年/弟弟”，留下两人书信与交往的直接文本记录。\n\n二人亲密来往很快与“五色酒事件”“吉原登楼事件”一道成为东京报界围绕“新女性”报道的焦点。尾竹红吉于同年秋离开青鞜社，此后二人各自成婚。"
     },
     "time": {
       "startYear": 1912,
@@ -1853,8 +1853,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "三岛由纪夫于1949年在东京出版的半自传体长篇小说，描写主人公青年时期的同性欲望与在社会期待下的自我掩饰。"
     },
     "body": {
-      "en": "Published in Tokyo in July 1949 by Kawade Shobō, Confessions of a Mask (Kamen no Kokuhaku) established twenty-four-year-old Yukio Mishima (1925–1970) as a leading postwar Japanese novelist. Told in the first person by a narrator named Kochan, the novel traces his childhood fascination with a painting of Saint Sebastian, his unspoken attraction to male classmates, and his painful attempt to perform conventional heterosexual romance with a young woman named Sonoko.\n\nAppearing just four years after the Second World War, the book broke with standard confessional 'I-novel' etiquette by turning sexual concealment itself—the 'mask' worn before family and society—into its central psychological theme. Literary scholars view it as a landmark of postwar Japanese queer fiction.",
-      "zh": "《假面的告白》为日本作家三岛由纪夫（1925–1970年）于1949年7月由东京河出书房初版的长篇小说，也是其步入文坛的成名作。小说以第一人称“我”（公彦）自叙童年凝视圣塞巴斯蒂安受难图画的震撼、学生时代对同性同窗的暗恋，以及成年后勉强向女性“园子”求爱以图融入世俗期待的挣扎。\n\n作品在战后日本文坛引发广泛讨论：全书不再把自我剖析局限于传统私小说的家庭琐事，而是直接把“在规范面前戴上假面”的同性欲望与伪装心理推作核心主题，成为战后日本文学史上探讨同性爱欲与社会压力的关键文本。"
+      "en": "Published in Tokyo in July 1949 by Kawade Shobō, Confessions of a Mask (Kamen no Kokuhaku) established twenty-four-year-old Yukio Mishima (1925–1970) in Japanese literary circles. Told in the first person by a narrator named Kochan, the novel traces his childhood fascination with a painting of Saint Sebastian, his unspoken attraction to male classmates, and his attempt to perform conventional courtship with a young woman named Sonoko.\n\nAppearing four years after the Second World War, the book shifted away from standard confessional I-novel domestic topics by centering its narrative on social concealment—wearing a 'mask' before family and peers.",
+      "zh": "《假面的告白》为日本作家三岛由纪夫（1925–1970年）于1949年7月由东京河出书房初版的长篇小说。小说以第一人称“我”（公彦）自叙童年凝视圣塞巴斯蒂安受难图画的体验、学生时代对同性同窗的暗恋，以及成年后勉强向女性“园子”求爱以图融入世俗期待的历程。\n\n作品于战后第四年面世，一改传统私小说围绕家庭琐事的自叙写法，直接把“在规范面前戴上假面”的同性欲望与自我掩饰推作核心主题。"
     },
     "time": {
       "startYear": 1949,
@@ -1984,8 +1984,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "朝鲜《世宗实录》记载的1436年宫廷事件，记述世子嫔奉氏因与宫女召双之间的行为及审讯证词而被废为庶人。"
     },
     "body": {
-      "en": "Recorded in the Annals of King Sejong (Sejong Sillok, Year 18 / 1436), Crown Princess Consort Bong (Sunbin Bong-ssi), second wife of Crown Prince Yi Hyang (later King Munjong), faced formal investigation at the Joseon palace in Hanseong after rumors circulated regarding her relationship with a palace maid named So-ssang. During questioning ordered by King Sejong and Queen Soheon, So-ssang testified that Bong had insisted she stay constantly by her side and sleep with her, detailing physical intimacy alongside coercion and jealousy.\n\nOn the 26th day of the 10th lunar month of 1436, King Sejong deposed Bong to commoner status. While the public royal edict emphasized Confucian grounds such as jealousy and lack of an heir to shield palace dignity, the Veritable Records preserved Sejong's private remarks to royal secretaries citing the relationship with So-ssang—making the 1436 dossier one of the clearest surviving official records of female same-sex intimacy and palace power hierarchy in premodern Korea.",
-      "zh": "据《朝鲜王朝实录·世宗实录》（世宗十八年，1436年）记载，王世子李珦（后来的朝鲜文宗）第二任世子嫔纯嫔奉氏因婚后失宠，在宫中与贴身宫女召双（소쌍）关系极为密切，引起宫廷议论。朝鲜世宗与昭宪王后传召召双审讯后，实录录有召双供词，述及奉氏长期令其伴寝、不许离身，并涉及强迫要求与嫉妒争执等经过。\n\n1436年农历十月二十六日，世宗下诏将奉氏废为庶人。官方公开教旨主要按儒家“七出”列举嫉妒与无子之罪，但《世宗实录》同时实录了世宗私下向承旨道及奉氏与宫女私通内情以致不能容忍的原委，成为前现代朝鲜半岛官方正史中罕见涉及女性同性行为、宫廷等级强迫与礼法规训的详实档案。"
+      "en": "Recorded in the Annals of King Sejong (Sejong Sillok, Year 18 / 1436), Crown Princess Consort Bong (Sunbin Bong-ssi), second wife of Crown Prince Yi Hyang (later King Munjong), faced formal inquiry at the Joseon palace in Hanseong after reports circulated regarding her relationship with palace maid So-ssang. During questioning ordered by King Sejong and Queen Soheon, So-ssang testified that Bong had insisted she stay constantly by her side and sleep with her, recounting physical intimacy alongside coercion and jealousy.\n\nOn the 26th day of the 10th lunar month of 1436, King Sejong deposed Bong to commoner status. While the public royal edict cited Confucian grounds of jealousy and failure to produce an heir, the Veritable Records also recorded Sejong's private remarks to royal secretaries recounting her relationship with So-ssang.",
+      "zh": "据《朝鲜王朝实录·世宗实录》（世宗十八年，1436年）记载，王世子李珦（后来的朝鲜文宗）第二任世子嫔纯嫔奉氏因婚后失宠，在宫中与贴身宫女召双（소쌍）往来密切，引起宫廷议论。朝鲜世宗与昭宪王后传召召双审讯后，实录录有召双供词，述及奉氏长期令其伴寝、不许离身，并涉及强迫要求与嫉妒争执等经过。\n\n1436年农历十月二十六日，世宗下诏将奉氏废为庶人。对外颁布的教旨按儒家“七出”列举嫉妒与无子之罪，《世宗实录》同时另录了世宗私下向承旨道及奉氏与宫女召双交往内情的口谕。"
     },
     "time": {
       "startYear": 1436,
@@ -2114,8 +2114,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "2000年在韩国首尔大学路以“Rainbow 2000”之名举办的活动，是后来年度首尔酷儿文化节的起点。"
     },
     "body": {
-      "en": "Held in Seoul's Daehangno district in September 2000, 'Queer Culture Festival – Rainbow 2000' brought together roughly fifty participants across a two-day program of cultural events and a small street march. It marked South Korea's first public modern queer pride gathering held openly in urban civic space.\n\nAlthough modest in scale compared with later years, Rainbow 2000 initiated an annual organizational network that grew into the Seoul Queer Culture Festival (SQCF), establishing a lasting civic platform for LGBTQ+ visibility and public advocacy in South Korea.",
-      "zh": "2000年9月，韩国首次面向公众开放的大型多元性别文化活动在首尔大学路举办，当时定名为“酷儿文化节——Rainbow 2000”（퀴어문화축제 무지개2000）。为期两天的活动包含文艺交流与约五十人参与的街头小型游行，标志着韩国当代同志与酷儿社群首次以文化节形式在公共街区公开集结发声。\n\n此次活动虽规模尚小，却直接奠定了此后每年举办的“首尔酷儿文化节”（SQCF）组织基础，逐步发展成为韩国当代最具代表性的年度公共性别平权文化活动。"
+      "en": "Held in Seoul's Daehangno district in September 2000, 'Queer Culture Festival – Rainbow 2000' brought together roughly fifty participants across a two-day program of cultural events and a street march.\n\nFollowing this inaugural gathering, organizers continued the event on an annual basis under the name Seoul Queer Culture Festival (SQCF).",
+      "zh": "2000年9月，名为“酷儿文化节——Rainbow 2000”（퀴어문화축제 무지개2000）的活动在首尔大学路举办，为期两天，内容包含文艺交流及约五十人参与的街头游行。\n\n此后主办方延续该活动组织形式，发展为每年定期举办的“首尔酷儿文化节”（SQCF）。"
     },
     "time": {
       "startYear": 2000,
@@ -2180,8 +2180,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "2001年作为“Rainbow 2001”文化节放映单元在首尔创办，后逐步发展为常设的韩国酷儿电影节（KQFF）。"
     },
     "body": {
-      "en": "In 2001, organizers of Seoul's second queer cultural festival ('Rainbow 2001') launched a dedicated cinema program known as the Rainbow Film Festival. Presenting independent domestic and international films addressing same-sex intimacy and gender diversity, the screenings created a public theatrical venue for queer cinema in South Korea.\n\nRenamed successively the Seoul LGBT Film Festival and later the Korea Queer Film Festival (KQFF), the 2001 screening program became an ongoing cultural institution within the Seoul Queer Culture Festival, supporting Korean independent filmmakers and archival film curation.",
-      "zh": "2001年，作为首尔第二届酷儿文化节（“Rainbow 2001”）的重要文化单元，主办方在首尔开设“彩虹电影放映会”（무지개영화제），集中展映国内外关注多元性别与同性情感的独立影像作品，为韩国公众接触相关题材影展打开固定银幕窗口。\n\n该单元此后先后更名为“首尔LGBT电影节”及“韩国酷儿电影节”（KQFF），随首尔酷儿文化节延续至今，推动了韩国本地独立酷儿影像创作与影史资料保存。"
+      "en": "In 2001, organizers of Seoul's second queer cultural festival ('Rainbow 2001') launched the Rainbow Film Festival, screening domestic and international independent films addressing same-sex intimacy and gender diversity.\n\nRenamed successively the Seoul LGBT Film Festival and later the Korea Queer Film Festival (KQFF), the screening program has continued annually within the Seoul Queer Culture Festival.",
+      "zh": "2001年，作为首尔第二届酷儿文化节（“Rainbow 2001”）的组成部分，主办方在首尔举办“彩虹电影放映会”（무지개영화제），展映国内外涉及同性情感与多元性别题材的独立电影。\n\n该单元此后先后更名为“首尔LGBT电影节”及“韩国酷儿电影节”（KQFF），随首尔酷儿文化节延续至今。"
     },
     "time": {
       "startYear": 2001,
