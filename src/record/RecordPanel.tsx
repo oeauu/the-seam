@@ -38,7 +38,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
     } catch { setCopyFailed(true); }
   };
 
-  const { primaryTitle, secondaryTitle, mapTitle } = getRecordDisplayNames(record, language);
+  const { primaryTitle, secondaryTitle } = getRecordDisplayNames(record, language);
   const summary = record.summary[language] || record.summary.en;
   const body = record.body[language] || record.body.en;
 
@@ -124,7 +124,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
           <div className="seam-record-image-section">
             {record.images.map((img, i) => (
               <figure key={i} className="seam-record-figure">
-                <img src={img.src} alt={img.caption?.[language] || mapTitle} />
+                <img src={img.src} alt={img.caption?.[language] || primaryTitle} />
                 {img.caption && (
                   <figcaption>{img.caption[language]}</figcaption>
                 )}

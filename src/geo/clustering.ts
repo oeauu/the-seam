@@ -1,6 +1,12 @@
 ﻿import type { ArchiveRecord, LocationCluster } from "../types";
 
-export function clusterRecords(records: ArchiveRecord[], distanceThresholdKm = 40): LocationCluster[] {
+/**
+ * Maximum intra-city separation (km) for grouping same-city records into one dot
+ * while keeping neighboring distinct cities strictly separate across all zoom levels.
+ */
+export const CITY_CLUSTER_RADIUS_KM = 12;
+
+export function clusterRecords(records: ArchiveRecord[], distanceThresholdKm = CITY_CLUSTER_RADIUS_KM): LocationCluster[] {
   const clusters: LocationCluster[] = [];
 
   for (const record of records) {

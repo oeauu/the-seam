@@ -3012,7 +3012,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "slug": "old-bugis-street-singapore",
     "title": {
       "en": "Old Bugis Street (1950s–1980s)",
-      "zh": "旧武吉士街（Bugis Street）"
+      "zh": "旧武吉士街"
     },
     "originalName": "Bugis Street",
     "aliases": [
@@ -3142,7 +3142,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "slug": "eleanor-rykener",
     "title": {
       "en": "Eleanor Rykener",
-      "zh": "埃莉诺·里克纳（Eleanor Rykener）"
+      "zh": "埃莉诺·里克纳"
     },
     "originalName": "John / Eleanor Rykener",
     "aliases": [
@@ -3405,7 +3405,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "slug": "herculine-barbin",
     "title": {
       "en": "Herculine Barbin",
-      "zh": "Herculine Barbin（埃居利娜·巴尔班）"
+      "zh": "埃居利娜·巴尔班"
     },
     "originalName": "Adélaïde Herculine Barbin",
     "aliases": [
@@ -3733,7 +3733,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "slug": "institut-fur-sexualwissenschaft-1919",
     "title": {
       "en": "Institut für Sexualwissenschaft (1919–1933)",
-      "zh": "性科学研究所（Institut für Sexualwissenschaft）"
+      "zh": "性科学研究所"
     },
     "originalName": "Institut für Sexualwissenschaft",
     "aliases": [
@@ -3799,7 +3799,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "slug": "anders-als-die-andern-1919",
     "title": {
       "en": "Different from the Others (1919)",
-      "zh": "《与众不同》（Anders als die Andern）"
+      "zh": "《与众不同》"
     },
     "originalName": "Anders als die Andern",
     "aliases": [

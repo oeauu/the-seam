@@ -47,9 +47,10 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
     await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
     await page.getByRole("button", { name: "EN" }).click();
-    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
-    await expect(panel.locator(".seam-record-subtitle")).toHaveText("Thomas(ine) Hall");
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomas(ine) Hall");
+    await expect(panel.locator(".seam-record-subtitle")).toHaveCount(0);
     await page.getByRole("button", { name: "中" }).click();
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
     await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
     await expect(panel.locator(".seam-record-deck")).toBeVisible();
     await expect(panel.locator(".seam-record-aliases")).toHaveCount(0);
@@ -63,9 +64,10 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
     await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
     await page.getByRole("button", { name: "EN" }).click();
-    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
-    await expect(panel.locator(".seam-record-subtitle")).toHaveText("Thomas(ine) Hall");
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomas(ine) Hall");
+    await expect(panel.locator(".seam-record-subtitle")).toHaveCount(0);
     await page.getByRole("button", { name: "中" }).click();
+    await expect(panel.locator(".seam-record-title")).toHaveText("Thomasine Hall / Thomas Hall");
     await expect(panel.locator(".seam-record-subtitle")).toHaveText("托马斯(因)·霍尔");
     await expect(panel.locator(".seam-record-deck")).toBeVisible();
     await expect(panel.locator(".seam-record-aliases")).toHaveCount(0);
@@ -205,18 +207,41 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
   test("globe separates dragging from country clicks, locks on first click, opens 2D map on second click, and renders nameplates", async ({page}) => {
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
-    const firstPlate = page.locator(".seam-globe-nameplate").first();
-    await expect(firstPlate).toBeVisible();
-    const firstPlateTitle = await firstPlate.getAttribute("title");
-    const plateBeforeDrag = await firstPlate.boundingBox();
-    expect(await firstPlate.evaluate(el => ({ left: getComputedStyle(el).left, top: getComputedStyle(el).top }))).toEqual({ left: "0px", top: "0px" });
+    // Far-view hides globe nameplates when S = globeDiameter / minSide <= 1.15
+    await expect(page.locator(".seam-globe-nameplate")).toHaveCount(0);
+    await page.screenshot({path:"test-results/seam-globe.png"});
 
     const canvas = page.locator("canvas");
     const bounds = await canvas.boundingBox();
     if (!bounds) throw new Error("Globe canvas has no bounds");
     const cx = bounds.x + bounds.width / 2, cy = bounds.y + bounds.height / 2;
 
-    // Dragging rotates without locking a country or opening 2D map, and nameplates track projected coordinates
+    // Drag toward Europe/Mediterranean before zooming so archive clusters sit near center,
+    // and verify dragging alone neither locks a country nor opens 2D map.
+    await page.mouse.move(cx, cy);
+    await page.mouse.down();
+    await page.mouse.move(cx - 35, cy + 120, {steps:8});
+    await page.mouse.up();
+    await expect(page.locator(".seam-globe-lock-card")).toHaveCount(0);
+    await expect(page.locator(".seam-country-view")).toHaveCount(0);
+    await expect(page.locator(".seam-record-panel")).toHaveCount(0);
+
+    // Zoom in so S > 1.5: nameplates fade in smoothly and track subsequent drags
+    await page.getByRole("button",{name:"放大地球"}).click();
+    await page.waitForTimeout(260);
+    await page.getByRole("button",{name:"放大地球"}).click();
+    await page.waitForTimeout(300);
+
+    const firstPlate = page.locator(".seam-globe-nameplate").first();
+    await expect(firstPlate).toBeVisible();
+    const overlayOpacity = await page.locator(".seam-globe-nameplates-overlay").evaluate(el => Number(getComputedStyle(el).opacity));
+    expect(overlayOpacity).toBeGreaterThan(0.75);
+    expect(overlayOpacity).toBeLessThanOrEqual(1);
+    const firstPlateTitle = await firstPlate.getAttribute("title");
+    const plateBeforeDrag = await firstPlate.boundingBox();
+    expect(await firstPlate.evaluate(el => ({ left: getComputedStyle(el).left, top: getComputedStyle(el).top }))).toEqual({ left: "0px", top: "0px" });
+    await page.screenshot({path:"test-results/seam-globe-zoomed.png"});
+
     await page.mouse.move(cx, cy);
     await page.mouse.down();
     await page.mouse.move(cx + 70, cy - 30, {steps:8});
@@ -232,9 +257,6 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
         }
       }
     }
-    await expect(page.locator(".seam-globe-lock-card")).toHaveCount(0);
-    await expect(page.locator(".seam-country-view")).toHaveCount(0);
-    await expect(page.locator(".seam-record-panel")).toHaveCount(0);
 
     // Zoom controls, timeline default 2500 BCE range, UN notice, zoom-out dot-only mode & reset view work
     await expect(page.locator(".seam-timeline-active-range")).toContainText("公元前2500年");
@@ -243,12 +265,13 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.getByRole("button", { name: "联合国边界标准" }).click();
     await expect(page.locator(".seam-un-notice-popover")).toBeHidden();
     await page.getByRole("button",{name:"缩小地球"}).click();
+    await page.waitForTimeout(260);
     await page.getByRole("button",{name:"缩小地球"}).click();
+    await page.waitForTimeout(260);
     await expect(page.locator(".seam-globe-nameplate")).toHaveCount(0);
-    await page.getByRole("button",{name:"放大地球"}).click();
     await page.getByRole("button",{name:"重置视角"}).click();
-    await expect(page.locator(".seam-globe-nameplate").first()).toBeVisible();
-    await page.screenshot({path:"test-results/seam-globe.png"});
+    await page.waitForTimeout(260);
+    await expect(page.locator(".seam-globe-nameplate")).toHaveCount(0);
 
     // First click on a land point near 10 E, 15 N locks the country
     await page.mouse.click(cx + bounds.height * .088, cy - bounds.height * .136);
@@ -257,19 +280,19 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.waitForTimeout(450);
     await page.screenshot({path:"test-results/seam-globe-locked.png"});
 
-    // Second click on the locked country (now centered) expands 2D country map with nameplates
+    // Second click on the locked country (now centered) expands 2D country map
     await page.waitForTimeout(150);
     await page.mouse.click(cx, cy);
     await expect(page.locator(".seam-country-view")).toBeVisible();
     await expect(page.locator(".seam-2d-nameplate")).toHaveCount(0);
 
-    // Return to 3D and verify China shows 2D gold-dot nameplates, provinces, and sub-region filters
+    // Return to 3D and verify China uses single-line gold-dot nameplates, provinces, and sub-region filters
     await page.getByRole("button",{name:"← 返回三维地球仪"}).click();
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
     await page.goto("/country/156");
     await expect(page.locator(".seam-2d-nameplate").first()).toBeVisible();
     await expect(page.locator(".seam-2d-nameplate .seam-nameplate-text").first()).toBeVisible();
-    await expect(page.locator(".seam-2d-nameplate .seam-nameplate-orig").first()).toBeVisible();
+    await expect(page.locator(".seam-2d-nameplate .seam-nameplate-orig")).toHaveCount(0);
     await expect(page.locator(".seam-subregions-labels-layer text").first()).toBeVisible();
     await expect(page.locator(".seam-subregion-chip").nth(1)).toBeVisible();
     await page.screenshot({path:"test-results/seam-country-china.png"});
@@ -277,6 +300,14 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(page.locator(".seam-2d-nameplate")).toHaveCount(1);
     await page.locator(".seam-subregion-chip").first().click();
     await expect(page.locator(".seam-2d-nameplate")).toHaveCount(10);
+
+    // Verify China record detail uses single-line UI title and switches cleanly ZH -> EN
+    await page.goto("/record/mizi-xia");
+    await expect(page.locator(".seam-record-title")).toHaveText("弥子瑕与卫灵公");
+    await expect(page.locator(".seam-record-subtitle")).toHaveCount(0);
+    await page.getByRole("button", { name: "EN" }).click();
+    await expect(page.locator(".seam-record-title")).toHaveText("Mizi Xia and Duke Ling of Wey");
+    await expect(page.locator(".seam-record-subtitle")).toHaveCount(0);
   });
 
   test("renders gold pending badges beside info and supports interactive draft submission", async ({ page }) => {

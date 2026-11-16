@@ -7,7 +7,7 @@ import {
   recordOverlapsRange,
   formatYear,
 } from "../timeline/timelineUtils";
-import { clusterRecords } from "../geo/clustering";
+import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
 import { parseRoute, buildRoutePath } from "../state/routing";
 import { getRecordDisplayNames, getRecordOtherNames } from "../data/recordStatus";
 
@@ -104,12 +104,21 @@ describe("The Seam - Timeline Logic", () => {
 });
 
 describe("The Seam - Geographic Clustering", () => {
-  it("groups records with proximate coordinates into single clusters", () => {
-    const clusters = clusterRecords(ARCHIVE_RECORDS);
+  it("groups same-city records within CITY_CLUSTER_RADIUS_KM without merging nearby cities", () => {
+    const clusters = clusterRecords(ARCHIVE_RECORDS, CITY_CLUSTER_RADIUS_KM);
+    expect(CITY_CLUSTER_RADIUS_KM).toBe(12);
     expect(clusters.length).toBeGreaterThan(0);
-    expect(clusters.length).toBeLessThanOrEqual(ARCHIVE_RECORDS.length);
+    expect(clusters.length).toBeLessThan(ARCHIVE_RECORDS.length);
 
-    // Records in Athens or Rome or Chang'an should cluster properly
+    const totalClustered = clusters.reduce((sum, c) => sum + c.records.length, 0);
+    expect(totalClustered).toBe(ARCHIVE_RECORDS.length);
+
+    const chinaClusters = clusterRecords(
+      ARCHIVE_RECORDS.filter((r) => r.place.countryCode === "156"),
+      CITY_CLUSTER_RADIUS_KM
+    );
+    expect(chinaClusters.length).toBe(10);
+
     clusters.forEach((cluster) => {
       expect(cluster.records.length).toBeGreaterThanOrEqual(1);
       expect(typeof cluster.coordinates.latitude).toBe("number");
@@ -139,47 +148,56 @@ describe("The Seam - State & Routing", () => {
 });
 
 describe("The Seam - Multilingual Name Hierarchy", () => {
-  it("elevates historical originalName on detail pages and puts UI language on top of map labels", () => {
-    const sappho = ARCHIVE_RECORDS.find(r => r.id === "entry_sappho")!;
+  it("puts originalName on top and active UI translation below for distinct non-China entries", () => {
+    const sappho = ARCHIVE_RECORDS.find((r) => r.id === "entry_sappho")!;
     const zh = getRecordDisplayNames(sappho, "zh");
     expect(zh.primaryTitle).toBe("Σαπφώ");
     expect(zh.secondaryTitle).toBe("萨福（莱斯博斯的萨福）");
-    expect(zh.mapTitle).toBe("萨福（莱斯博斯的萨福）");
-    expect(zh.mapOriginalName).toBe("Σαπφώ");
 
     const en = getRecordDisplayNames(sappho, "en");
     expect(en.primaryTitle).toBe("Σαπφώ");
     expect(en.secondaryTitle).toBe("Sappho of Lesbos");
-    expect(en.mapTitle).toBe("Sappho of Lesbos");
-    expect(en.mapOriginalName).toBe("Σαπφώ");
   });
 
-  it("omits duplicate or missing original names without leaving empty secondary lines", () => {
-    const elisa = ARCHIVE_RECORDS.find(r => r.id === "entry_elisa_and_marcela")!;
+  it("forces single-line UI titles for all records inside China (countryCode 156)", () => {
+    const chinaRecords = ARCHIVE_RECORDS.filter((r) => r.place.countryCode === "156");
+    expect(chinaRecords.length).toBeGreaterThan(0);
+
+    chinaRecords.forEach((record) => {
+      const zh = getRecordDisplayNames(record, "zh");
+      expect(zh.primaryTitle).toBe(record.title.zh);
+      expect(zh.secondaryTitle).toBeNull();
+
+      const en = getRecordDisplayNames(record, "en");
+      expect(en.primaryTitle).toBe(record.title.en);
+      expect(en.secondaryTitle).toBeNull();
+    });
+  });
+
+  it("omits duplicate, redundant-Latin, or missing original names cleanly", () => {
+    const elisa = ARCHIVE_RECORDS.find((r) => r.id === "entry_elisa_and_marcela")!;
     const elisaEn = getRecordDisplayNames(elisa, "en");
     expect(elisaEn.primaryTitle).toBe("Elisa Sánchez Loriga & Marcela Gracia Ibeas");
     expect(elisaEn.secondaryTitle).toBeNull();
-    expect(elisaEn.mapOriginalName).toBeNull();
 
     const elisaZh = getRecordDisplayNames(elisa, "zh");
     expect(elisaZh.secondaryTitle).toBeNull();
-    expect(elisaZh.mapOriginalName).toBeNull();
 
     const customNoOrig = getRecordDisplayNames({ title: { zh: "待考条目", en: "Pending Entry" } }, "zh");
     expect(customNoOrig.primaryTitle).toBe("待考条目");
     expect(customNoOrig.secondaryTitle).toBeNull();
-    expect(customNoOrig.mapOriginalName).toBeNull();
 
-    const thomasHall = ARCHIVE_RECORDS.find(r => r.id === "entry_thomas_hall")!;
+    const thomasHall = ARCHIVE_RECORDS.find((r) => r.id === "entry_thomas_hall")!;
+    const thomasEn = getRecordDisplayNames(thomasHall, "en");
+    expect(thomasEn.secondaryTitle).toBeNull();
     const otherNamesEn = getRecordOtherNames(thomasHall, "en");
     expect(otherNamesEn).not.toContain("Thomasine Hall / Thomas Hall");
   });
 
   it("preserves Unicode RTL Arabic names cleanly without synthetic markers", () => {
-    const ibnHazm = ARCHIVE_RECORDS.find(r => r.id === "entry_ibn_hazm_dove")!;
+    const ibnHazm = ARCHIVE_RECORDS.find((r) => r.id === "entry_ibn_hazm_dove")!;
     const names = getRecordDisplayNames(ibnHazm, "zh");
     expect(names.primaryTitle).toBe("طوق الحمامة في الألفة والألاف");
     expect(names.secondaryTitle).toBe("伊本·哈兹姆《鸽子的项圈》");
-    expect(names.mapOriginalName).toBe("طوق الحمامة في الألفة والألاف");
   });
 });

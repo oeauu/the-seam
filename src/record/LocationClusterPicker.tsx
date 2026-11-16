@@ -43,7 +43,7 @@ export function LocationClusterPicker({ cluster, onSelectRecord, onClose }: Prop
 
         <ul className="seam-cluster-list">
           {cluster.records.map((r) => {
-            const { mapTitle, mapOriginalName } = getRecordDisplayNames(r, language);
+            const { primaryTitle, secondaryTitle } = getRecordDisplayNames(r, language);
             return (
             <li key={r.id}>
               <button
@@ -53,9 +53,9 @@ export function LocationClusterPicker({ cluster, onSelectRecord, onClose }: Prop
               >
                 <div className="seam-cluster-item-main">
                   <strong className="seam-cluster-item-title">
-                    {mapTitle}
-                    {mapOriginalName && (
-                      <span className="seam-cluster-item-orig" dir="auto"> · {mapOriginalName}</span>
+                    <span dir="auto">{primaryTitle}</span>
+                    {secondaryTitle && (
+                      <span className="seam-cluster-item-orig" dir="auto"> · {secondaryTitle}</span>
                     )}
                   </strong>
                   <span className="seam-cluster-item-time">{r.time.label[language]}</span>

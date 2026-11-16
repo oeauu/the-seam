@@ -100,7 +100,7 @@ export function IndexDrawer({ onClose }: Props) {
                     onClick={() => handleSelect(record)}
                   >
                     <div className="seam-index-item-header">
-                      <strong className="seam-index-title">
+                      <strong className="seam-index-title" dir="auto">
                         {record.title[language] || record.title.en}
                       </strong>
                       <span className="seam-index-era">

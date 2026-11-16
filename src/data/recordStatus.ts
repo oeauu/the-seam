@@ -28,16 +28,13 @@ export function getPendingVerificationLabel(
 }
 
 const CJK_RE = /[\u4e00-\u9fff]/;
+const NON_LATIN_SCRIPT_RE = /[^\p{Script=Latin}\s\d\p{P}\p{S}]/u;
 
 export interface RecordDisplayNames {
-  /** Detail-view main heading: historical/local original name when distinct, otherwise localized title */
+  /** Primary title (shown on top in both map labels and detail view): original/local name when distinct, else UI language title */
   primaryTitle: string;
-  /** Detail-view secondary title in UI language, null when missing or equivalent */
+  /** Secondary UI-language translation shown below primaryTitle, or null when single-line rule applies */
   secondaryTitle: string | null;
-  /** Map label primary line in active UI language */
-  mapTitle: string;
-  /** Map label secondary line in historical/local script, null when missing or equivalent */
-  mapOriginalName: string | null;
 }
 
 function canonicalizeNameForCompare(value: string): string {
@@ -50,6 +47,35 @@ function canonicalizeNameForCompare(value: string): string {
     .replace(/[《》「」『』"'“”‘’·・,.;:!?()（）[\]{}\-–—/\s]+/g, "");
 }
 
+function normalizeLatinTokens(value: string): string[] {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['’]s\b/g, "")
+    .split(/[^a-z0-9]+/)
+    .filter(token => token.length >= 3 && !["the", "and", "from", "with", "for", "of", "in", "into", "on"].includes(token));
+}
+
+function isPureLatinScript(value: string): boolean {
+  return !NON_LATIN_SCRIPT_RE.test(value);
+}
+
+function hasRedundantLatinNameInEnglish(localizedEn: string, original: string): boolean {
+  if (!isPureLatinScript(original)) return false;
+  const origLower = original.toLowerCase();
+  const locLower = localizedEn.toLowerCase();
+  if (locLower.includes(origLower)) return true;
+  const origTokens = normalizeLatinTokens(original);
+  const locTokens = normalizeLatinTokens(localizedEn);
+  if (origTokens.length === 0 || locTokens.length === 0) return false;
+  // Check whether original's core Latin words are already substantially represented in the English title
+  // (e.g. "Thomasine Hall / Thomas Hall" vs "Thomas(ine) Hall", "John / Eleanor Rykener" vs "Eleanor Rykener").
+  const locSet = new Set(locTokens);
+  const overlapCount = origTokens.filter(t => locSet.has(t) || locTokens.some(lt => lt.includes(t) || t.includes(lt))).length;
+  return overlapCount >= Math.min(2, origTokens.length) && overlapCount / Math.min(origTokens.length, locTokens.length) >= 0.5;
+}
+
 export function areRecordNamesEquivalent(a: string, b: string): boolean {
   const ca = canonicalizeNameForCompare(a);
   const cb = canonicalizeNameForCompare(b);
@@ -57,33 +83,44 @@ export function areRecordNamesEquivalent(a: string, b: string): boolean {
 }
 
 /**
- * Resolves map-label and detail-panel naming hierarchy per localization rules:
- * - Map labels place UI language (zh/en) on top and historical original name below.
- * - Detail pages elevate historical original name as main title with UI translation below.
- * - Omitted or equivalent original names collapse to a single line with zero duplication.
+ * Resolves unified display naming across both map labels and detail views:
+ * - Both lines follow "original / local name on top, UI translation below".
+ * - Records located in China (countryCode === "156") always display single-line UI titles.
+ * - Outside China, falls back to single-line UI title when originalName is missing, identical,
+ *   already embedded verbatim, or a Latin-script name needing no separate English translation.
  */
 export function getRecordDisplayNames(
-  record: Pick<ArchiveRecord, "title" | "originalName">,
+  record: Pick<ArchiveRecord, "title" | "originalName"> & {
+    place?: Pick<ArchiveRecord["place"], "countryCode">;
+  },
   language: Language,
 ): RecordDisplayNames {
   const localized = (record.title[language] || record.title.en || record.title.zh || "").trim();
-  const original = (record.originalName || "").trim();
-  const hasDistinctOriginal = Boolean(original) && !areRecordNamesEquivalent(localized, original);
 
-  if (!hasDistinctOriginal) {
-    return {
-      primaryTitle: localized,
-      secondaryTitle: null,
-      mapTitle: localized,
-      mapOriginalName: null,
-    };
+  if (record.place?.countryCode === "156") {
+    return { primaryTitle: localized, secondaryTitle: null };
+  }
+
+  const original = (record.originalName || "").trim();
+  if (!original) {
+    return { primaryTitle: localized, secondaryTitle: null };
+  }
+
+  if (areRecordNamesEquivalent(localized, original)) {
+    return { primaryTitle: localized, secondaryTitle: null };
+  }
+
+  if (localized.toLowerCase().includes(original.toLowerCase())) {
+    return { primaryTitle: localized, secondaryTitle: null };
+  }
+
+  if (language === "en" && hasRedundantLatinNameInEnglish(localized, original)) {
+    return { primaryTitle: localized, secondaryTitle: null };
   }
 
   return {
     primaryTitle: original,
     secondaryTitle: localized,
-    mapTitle: localized,
-    mapOriginalName: original,
   };
 }
 
@@ -100,7 +137,7 @@ export function getRecordOtherNames(record: ArchiveRecord, language: Language): 
   if (secondaryLower) seenLower.add(secondaryLower);
 
   const orig = record.originalName?.trim();
-  if (orig) {
+  if (orig && record.place?.countryCode !== "156") {
     const origSegments = orig.split(/\s*\/\s*/).map(s => s.trim()).filter(Boolean);
     for (const seg of origSegments) seenLower.add(seg.toLowerCase());
   }

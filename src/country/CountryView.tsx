@@ -15,7 +15,7 @@ import {
   resolveRecordSubregion,
   type SubregionGroup,
 } from "../geo/subregions";
-import { clusterRecords } from "../geo/clustering";
+import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
 
 interface CountryViewProps {
   country: CountryFeature;
@@ -316,11 +316,9 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   );
 
   const clusters = useMemo(() => {
-    // Six screen pixels of separation (dot diameter); exact coordinates remain a picker.
-    const latCos = Math.max(0.2, Math.cos((focusCenter[1] * Math.PI) / 180));
-    const kmPerPixel = (6371 * latCos) / projection.scale() / transform.k;
-    return clusterRecords(filteredRecords, 6 * kmPerPixel);
-  }, [filteredRecords, projection, focusCenter, transform.k]);
+    // Fixed per-city threshold: each city renders one marker aggregating all of its records; distinct cities never merge.
+    return clusterRecords(filteredRecords, CITY_CLUSTER_RADIUS_KM);
+  }, [filteredRecords]);
 
   const projectedClustersBase = useMemo(
     () =>
@@ -400,14 +398,14 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   const occupiedNameplates: Array<{ minX: number; minY: number; maxX: number; maxY: number }> = [];
   for (const { cluster, basePoint } of projectedClustersBase) {
     const [x, y] = transform.apply(basePoint);
-    const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], language);
-    const maxLen = Math.max(mapTitle.length, mapOriginalName ? Math.ceil(mapOriginalName.length * 0.9) : 0);
-    const estWidth = Math.min(200, Math.max(76, maxLen * (language === "zh" ? 12.5 : 7.5) + 34));
-    const halfH = mapOriginalName ? 17 : 13;
+    const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], language);
+    const maxLen = Math.max(primaryTitle.length, secondaryTitle ? secondaryTitle.length : 0);
+    const estWidth = Math.min(206, Math.max(80, maxLen * (language === "zh" ? 12.5 : 7.8) + 34));
+    const halfH = secondaryTitle ? 18 : 13;
     const defaultSide: "right" | "left" = x > dimensions.width - estWidth - 28 ? "left" : "right";
     const altSide: "right" | "left" = defaultSide === "right" ? "left" : "right";
 
-    const stepY = mapOriginalName ? 36 : 28;
+    const stepY = secondaryTitle ? 38 : 28;
     const candidates: Array<{ side: "right" | "left"; offsetY: number }> = [
       { side: defaultSide, offsetY: 0 },
       { side: altSide, offsetY: 0 },
@@ -722,21 +720,21 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
         <div className="seam-2d-nameplates-layer" aria-hidden="true">
           {projectedClusters.map(({ cluster, x, y, offsetY, side }) => {
             const count = cluster.records.length;
-            const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], language);
+            const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], language);
             return (
               <button
                 key={cluster.id}
                 type="button"
                 tabIndex={-1}
                 className={`seam-2d-nameplate ${side === "left" ? "is-left" : ""}`}
-                style={{ translate: `${x}px ${y + offsetY}px` }}
+                style={{ translate: `${Math.round(x)}px ${Math.round(y + offsetY)}px` }}
                 onClick={() => activate(cluster)}
               >
                 <span className="seam-nameplate-dot" />
                 <span className="seam-nameplate-labels">
-                  <span className="seam-nameplate-text">{mapTitle}</span>
-                  {mapOriginalName && (
-                    <span className="seam-nameplate-orig" dir="auto">{mapOriginalName}</span>
+                  <span className="seam-nameplate-text" dir="auto">{primaryTitle}</span>
+                  {secondaryTitle && (
+                    <span className="seam-nameplate-orig" dir="auto">{secondaryTitle}</span>
                   )}
                 </span>
                 {count > 1 && <span className="seam-nameplate-count">+{count - 1}</span>}

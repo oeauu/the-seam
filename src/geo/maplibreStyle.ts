@@ -219,20 +219,33 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       },
     },
     {
+      id: "seam-clusters-hit",
+      type: "circle",
+      source: "seam-clusters",
+      paint: {
+        // Generous invisible pointer/touch hit target around the delicate 2px visual pin.
+        "circle-radius": 15,
+        "circle-color": "#c49a45",
+        "circle-opacity": 0,
+        "circle-stroke-width": 0,
+      },
+    },
+    {
       id: "seam-clusters-halo",
       type: "circle",
       source: "seam-clusters",
       paint: {
-        // Scale halos proportionally with globe zoom (2^zoom), clamped between far pinpoint and close-up view.
+        // Non-linear ease-out scaling that plateaus cleanly around ~3px (hovered ~4.2px) glow.
         "circle-radius": [
           "interpolate",
-          ["exponential", 2],
+          ["cubic-bezier", 0.22, 1, 0.36, 1],
           ["zoom"],
-          1.15, ["case", ["boolean", ["get", "hovered"], false], 5.5, 4.2],
-          3.735, ["case", ["boolean", ["get", "hovered"], false], 25.0, 21.0],
+          1.15, ["case", ["boolean", ["get", "hovered"], false], 2.8, 1.6],
+          3.2, ["case", ["boolean", ["get", "hovered"], false], 4.2, 3.0],
+          7.5, ["case", ["boolean", ["get", "hovered"], false], 4.2, 3.0],
         ],
         "circle-color": "#dfb53d",
-        "circle-opacity": ["case", ["boolean", ["get", "hovered"], false], 0.38, 0.24],
+        "circle-opacity": ["case", ["boolean", ["get", "hovered"], false], 0.42, 0.26],
         "circle-stroke-width": 0,
       },
     },
@@ -241,13 +254,14 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
       type: "circle",
       source: "seam-clusters",
       paint: {
-        // Geographic-scale golden marker dot (2.0px radius at min zoom up to 12.0px at close zoom).
+        // Non-linear marker dot decoupled from geographic scale: grows slowly to ~2px diameter (1.0px radius) and plateaus.
         "circle-radius": [
           "interpolate",
-          ["exponential", 2],
+          ["cubic-bezier", 0.22, 1, 0.36, 1],
           ["zoom"],
-          1.15, 2.0,
-          3.735, 12.0,
+          1.15, 0.65,
+          3.2, 1.0,
+          7.5, 1.0,
         ],
         "circle-color": ["case", ["boolean", ["get", "hovered"], false], "#997223", "#c49a45"],
         "circle-stroke-color": "#ffffff",
@@ -255,8 +269,8 @@ function getInteractiveOverlayLayers(): LayerSpecification[] {
           "interpolate",
           ["linear"],
           ["zoom"],
-          1.15, 0.9,
-          3.735, 2.0,
+          1.15, 0.45,
+          3.2, 0.55,
         ],
       },
     },

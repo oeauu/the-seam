@@ -17,7 +17,7 @@ import {
 } from "../geo/maplibreStyle";
 import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
 import { getUNTerritoryInfo, UN_MAP_DISCLAIMER } from "../geo/unStandards";
-import { clusterRecords } from "../geo/clustering";
+import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
 import { getRecordDisplayNames } from "../data/recordStatus";
 import { useApp } from "../state/useApp";
 
@@ -33,11 +33,16 @@ type NameplateDir = "right" | "up" | "left" | "down";
 
 const MIN_GLOBE_ZOOM = 1.15;
 const MAX_GLOBE_ZOOM = 7.5;
-// Nameplate display threshold and fade span, independent from golden-dot zoom scaling.
-const GLOBE_NAMEPLATE_MIN_ZOOM = 1.5;
-const GLOBE_NAMEPLATE_FULL_ZOOM = 1.85;
+// Smoothstep nameplate visibility based on S = globeScreenDiameter / min(viewportWidth, viewportHeight).
+const GLOBE_NAMEPLATE_S_MIN = 1.15;
+const GLOBE_NAMEPLATE_S_MAX = 1.5;
 const GLOBE_NAMEPLATE_FADE_MS = 220;
 const GLOBE_LIMB_MARGIN_PX = 6;
+
+function smoothstep(edge0: number, edge1: number, x: number): number {
+  const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+}
 
 function estimateGlyphWidth(text: string, sizePx: number, wideFactor: number, narrowFactor: number): number {
   let wide = 0;
@@ -52,7 +57,7 @@ function estimateGlyphWidth(text: string, sizePx: number, wideFactor: number, na
 }
 
 function queryDotClusterHit(instance: MapLibreMap, point: maplibregl.Point) {
-  const layers = ["seam-clusters-core", "seam-clusters-halo"];
+  const layers = ["seam-clusters-hit", "seam-clusters-core", "seam-clusters-halo"];
   const direct = instance.queryRenderedFeatures(point, { layers });
   if (direct.length > 0) return direct;
   return instance.queryRenderedFeatures(
@@ -88,10 +93,6 @@ function getLockedCountryZoom(country: CountryFeature, baseZoom: number): number
   const area = Math.max(0.0005, geoArea(country));
   const boost = area > 0.04 ? 1.15 : area > 0.008 ? 1.75 : 2.35;
   return Math.min(5.2, Math.max(baseZoom + 0.9, baseZoom + boost));
-}
-
-function getClusterRadiusForZoom(zoom: number): number {
-  return Math.max(18, Math.min(900, 1150 / Math.pow(2, zoom)));
 }
 
 function getClusterTargetLatLng(country: CountryFeature): [number, number] {
@@ -223,8 +224,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
   const [lockedCountry, setLockedCountry] = useState<CountryFeature | null>(null);
   const [hoveredClusterId, setHoveredClusterId] = useState<string | null>(null);
   const [unNoticeOpen, setUnNoticeOpen] = useState(false);
-  const [showNameplates, setShowNameplates] = useState(true);
-  const [clusterRadius, setClusterRadius] = useState(() => getClusterRadiusForZoom(1.4));
+  const [showNameplates, setShowNameplates] = useState(false);
   const [nameplateDirs, setNameplateDirs] = useState<Record<string, NameplateDir>>({});
 
   // Keep latest callbacks/state cleanly accessible inside native MapLibre event listeners
@@ -236,10 +236,9 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
   const languageRef = useRef(language);
   const setGlobeCamPosRef = useRef(setGlobeCameraPosition);
   const hoveredIdRef = useRef(hoveredClusterId);
-  const showNameplatesRef = useRef(true);
-  const nameplateOpacityRef = useRef(1);
+  const showNameplatesRef = useRef(false);
+  const nameplateOpacityRef = useRef(0);
   const fadeOutTimerRef = useRef<number>(0);
-  const lastClusterZoomRef = useRef(1.4);
   const lastDirZoomRef = useRef(1.4);
   const initialCamRef = useRef(globeCameraPosition);
   const lastLayoutKeyRef = useRef("");
@@ -272,7 +271,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     hoveredIdRef.current = hoveredClusterId;
   });
 
-  const clusters = useMemo(() => clusterRecords(visibleRecords, clusterRadius), [visibleRecords, clusterRadius]);
+  const clusters = useMemo(() => clusterRecords(visibleRecords, CITY_CLUSTER_RADIUS_KM), [visibleRecords]);
   useEffect(() => {
     clustersRef.current = clusters;
   }, [clusters]);
@@ -304,6 +303,17 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     cachedCountryPlacesRef.current = next;
   }, []);
 
+  const getCachedGlobeScreenRadius = useCallback((map: MapLibreMap, width: number, height: number): number | null => {
+    const zoom = map.getZoom();
+    const radiusCacheKey = `${Math.round(zoom * 100)}_${width}x${height}`;
+    if (cachedGlobeRadiusRef.current?.key === radiusCacheKey) {
+      return cachedGlobeRadiusRef.current.radius;
+    }
+    const radiusPx = measureGlobeScreenRadius(map, width, height);
+    cachedGlobeRadiusRef.current = { key: radiusCacheKey, radius: radiusPx };
+    return radiusPx;
+  }, []);
+
   const syncCountryLimbClipping = useCallback((map: MapLibreMap) => {
     const container = mapContainerRef.current;
     if (!container || !map.getSource("openmaptiles")) return;
@@ -313,14 +323,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     if (width <= 0 || height <= 0) return;
 
     const zoom = map.getZoom();
-    const radiusCacheKey = `${Math.round(zoom * 100)}_${width}x${height}`;
-    let radiusPx: number | null;
-    if (cachedGlobeRadiusRef.current?.key === radiusCacheKey) {
-      radiusPx = cachedGlobeRadiusRef.current.radius;
-    } else {
-      radiusPx = measureGlobeScreenRadius(map, width, height);
-      cachedGlobeRadiusRef.current = { key: radiusCacheKey, radius: radiusPx };
-    }
+    const radiusPx = getCachedGlobeScreenRadius(map, width, height);
 
     const excludedSet = new Set<string>();
     if (radiusPx !== null && radiusPx > 0) {
@@ -360,7 +363,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       const baseFilter = baseCountryFiltersRef.current[layerId];
       map.setFilter(layerId, appendCountryNameExclusionFilter(baseFilter, excludedNames) as never);
     }
-  }, [refreshCountryPlaceCache]);
+  }, [getCachedGlobeScreenRadius, refreshCountryPlaceCache]);
 
   const updateNameplateDOM = useCallback((recomputeDirs: boolean) => {
     const map = mapRef.current;
@@ -373,17 +376,17 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
     const center = map.getCenter();
     const zoom = map.getZoom();
-    const shouldShowNameplates = zoom >= GLOBE_NAMEPLATE_MIN_ZOOM;
+    const radiusPx = getCachedGlobeScreenRadius(map, width, height);
+    const minSide = Math.max(1, Math.min(width, height));
+    const scaleRatio = radiusPx === null ? 2.0 : (2 * radiusPx) / minSide;
+    const nextAlpha = smoothstep(GLOBE_NAMEPLATE_S_MIN, GLOBE_NAMEPLATE_S_MAX, scaleRatio);
+    const shouldShowNameplates = scaleRatio > GLOBE_NAMEPLATE_S_MIN && nextAlpha > 0.001;
 
     if (shouldShowNameplates) {
       if (fadeOutTimerRef.current) {
         window.clearTimeout(fadeOutTimerRef.current);
         fadeOutTimerRef.current = 0;
       }
-      const nextAlpha = Math.min(
-        1,
-        Math.max(0.08, (zoom - GLOBE_NAMEPLATE_MIN_ZOOM) / (GLOBE_NAMEPLATE_FULL_ZOOM - GLOBE_NAMEPLATE_MIN_ZOOM)),
-      );
       nameplateOpacityRef.current = nextAlpha;
       if (overlayRef.current) {
         overlayRef.current.style.opacity = String(nextAlpha);
@@ -444,12 +447,14 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         continue;
       }
 
-      projectedCoordsRef.current.set(cluster.id, { x: pt.x, y: pt.y });
+      const rx = Math.round(pt.x);
+      const ry = Math.round(pt.y);
+      projectedCoordsRef.current.set(cluster.id, { x: rx, y: ry });
       if (el) {
-        el.style.translate = `${pt.x}px ${pt.y}px`;
+        el.style.translate = `${rx}px ${ry}px`;
         el.style.visibility = "visible";
       }
-      visibleItems.push({ cluster, x: pt.x, y: pt.y });
+      visibleItems.push({ cluster, x: rx, y: ry });
     }
 
     if (!recomputeDirs) return;
@@ -465,11 +470,11 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     const sorted = [...visibleItems].sort((a, b) => b.cluster.records.length - a.cluster.records.length);
 
     for (const { cluster, x, y } of sorted) {
-      const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], lang);
-      const titleW = estimateGlyphWidth(mapTitle, 11, 1.08, 0.64);
-      const origW = mapOriginalName ? estimateGlyphWidth(mapOriginalName, 9.5, 1.05, 0.62) : 0;
-      const boxW = Math.min(198, Math.max(80, Math.max(titleW, origW) + 32));
-      const boxH = mapOriginalName ? 38 : 26;
+      const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], lang);
+      const primaryW = estimateGlyphWidth(primaryTitle, 11.5, 1.08, 0.65);
+      const secondaryW = secondaryTitle ? estimateGlyphWidth(secondaryTitle, 10.5, 1.06, 0.64) : 0;
+      const boxW = Math.min(204, Math.max(82, Math.max(primaryW, secondaryW) + 32));
+      const boxH = secondaryTitle ? 40 : 28;
 
       const tryDirs: NameplateDir[] = [
         x > width - 210 ? "left" : "right",
@@ -502,7 +507,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     }
 
     setNameplateDirs(nextDirs);
-  }, []);
+  }, [getCachedGlobeScreenRadius]);
 
   // Initialize MapLibre GL JS 3D Globe directly with Positron's native multi-LOD vector
   // coastlines, national borders, and provincial subdivisions (with offline GeoJSON fallback).
@@ -532,7 +537,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         touchPitch: false,
         fadeDuration: 40,
         attributionControl: false,
-        localIdeographFontFamily: '"PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif',
+        localIdeographFontFamily: '"PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Yu Gothic UI", "Malgun Gothic", sans-serif',
         canvasContextAttributes: { antialias: true, powerPreference: "high-performance" },
       });
       map = instance;
@@ -567,8 +572,6 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
       const handleStyleReady = () => {
         if (disposed) return;
-        const zoom = instance.getZoom();
-        lastClusterZoomRef.current = zoom;
         instance.setProjection({ type: "globe" });
         const capturedFilters: Record<string, unknown> = {};
         for (const layerId of COUNTRY_LABEL_LAYER_IDS) {
@@ -583,7 +586,6 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         syncGlobeContextLayers(instance, Boolean(lockedCountryRef.current));
         refreshCountryPlaceCache(instance);
         flushLimbClipSync();
-        setClusterRadius(getClusterRadiusForZoom(zoom));
         setStyleVersion(v => v + 1);
         requestAnimationFrame(() => updateNameplateDOM(true));
       };
@@ -611,19 +613,12 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
       instance.on("move", () => {
         const currentZoom = instance.getZoom();
-        if (Math.abs(currentZoom - lastClusterZoomRef.current) >= 0.4) {
-          lastClusterZoomRef.current = currentZoom;
-          setClusterRadius(getClusterRadiusForZoom(currentZoom));
-        }
         scheduleLimbClipSync();
         const zoomStepChanged = Math.abs(currentZoom - lastDirZoomRef.current) >= 0.25;
         updateNameplateDOM(zoomStepChanged);
       });
 
       instance.on("moveend", () => {
-        const currentZoom = instance.getZoom();
-        lastClusterZoomRef.current = currentZoom;
-        setClusterRadius(getClusterRadiusForZoom(currentZoom));
         flushLimbClipSync();
         updateNameplateDOM(true);
         const c = instance.getCenter();
@@ -825,14 +820,19 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       {/* Crisp archival nameplate overlays hidden smoothly when zoomed out beyond threshold */}
       {showNameplates && (
       <div
-        ref={overlayRef}
+        ref={el => {
+          overlayRef.current = el;
+          if (el) {
+            el.style.opacity = String(nameplateOpacityRef.current);
+          }
+        }}
         className="seam-globe-nameplates-overlay"
         aria-hidden={false}
       >
         {clusters.map(cluster => {
           const count = cluster.records.length;
           const isHovered = hoveredClusterId === cluster.id;
-          const { mapTitle, mapOriginalName } = getRecordDisplayNames(cluster.records[0], language);
+          const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], language);
           const dir = nameplateDirs[cluster.id] ?? (isHovered ? "right" : null);
           if (!dir) return null;
 
@@ -862,14 +862,14 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
               }}
               title={cluster.records.map(r => {
                 const names = getRecordDisplayNames(r, language);
-                return names.mapOriginalName ? `${names.mapTitle} (${names.mapOriginalName})` : names.mapTitle;
+                return names.secondaryTitle ? `${names.primaryTitle} (${names.secondaryTitle})` : names.primaryTitle;
               }).join(" / ")}
             >
               <span className="seam-nameplate-dot" aria-hidden="true" />
               <span className="seam-nameplate-labels">
-                <span className="seam-nameplate-text">{mapTitle}</span>
-                {mapOriginalName && (
-                  <span className="seam-nameplate-orig" dir="auto">{mapOriginalName}</span>
+                <span className="seam-nameplate-text" dir="auto">{primaryTitle}</span>
+                {secondaryTitle && (
+                  <span className="seam-nameplate-orig" dir="auto">{secondaryTitle}</span>
                 )}
               </span>
               {count > 1 && <span className="seam-nameplate-count">+{count - 1}</span>}
