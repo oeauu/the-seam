@@ -214,6 +214,9 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
   const lastFocusTokenRef = useRef(globeFocus?.token);
   const baseCountryFiltersRef = useRef<Record<string, unknown>>({});
   const lastLimbExcludedKeyRef = useRef<string | null>(null);
+  const cachedGlobeRadiusRef = useRef<{ key: string; radius: number | null } | null>(null);
+  const cachedCountryPlacesRef = useRef<Array<{ lng: number; lat: number; filterKey: string; props: Record<string, unknown> }>>([]);
+  const limbSyncTimerRef = useRef<number>(0);
 
   useEffect(() => {
     onCountryClickRef.current = onCountryClick;
@@ -230,6 +233,33 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     clustersRef.current = clusters;
   }, [clusters]);
 
+  const refreshCountryPlaceCache = useCallback((map: MapLibreMap) => {
+    if (!map.getSource("openmaptiles")) return;
+    const features = map.querySourceFeatures("openmaptiles", {
+      sourceLayer: "place",
+      filter: ["==", ["get", "class"], "country"],
+    });
+    const seen = new Set<string>();
+    const next: Array<{ lng: number; lat: number; filterKey: string; props: Record<string, unknown> }> = [];
+    for (const feature of features) {
+      const coords =
+        feature.geometry.type === "Point"
+          ? feature.geometry.coordinates
+          : feature.geometry.type === "MultiPoint"
+            ? feature.geometry.coordinates[0]
+            : null;
+      if (!coords || coords.length < 2) continue;
+      const props = (feature.properties || {}) as Record<string, unknown>;
+      const filterKey = String(props["name:en"] || props.name || "");
+      if (!filterKey) continue;
+      const dedupeKey = `${filterKey}@${Math.round(coords[0] * 10)},${Math.round(coords[1] * 10)}`;
+      if (seen.has(dedupeKey)) continue;
+      seen.add(dedupeKey);
+      next.push({ lng: coords[0], lat: coords[1], filterKey, props });
+    }
+    cachedCountryPlacesRef.current = next;
+  }, []);
+
   const syncCountryLimbClipping = useCallback((map: MapLibreMap) => {
     const container = mapContainerRef.current;
     if (!container || !map.getSource("openmaptiles")) return;
@@ -238,43 +268,40 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     const height = container.clientHeight;
     if (width <= 0 || height <= 0) return;
 
-    const radiusPx = measureGlobeScreenRadius(map, width, height);
-    const excludedSet = new Set<string>();
+    const zoom = map.getZoom();
+    const radiusCacheKey = `${Math.round(zoom * 100)}_${width}x${height}`;
+    let radiusPx: number | null;
+    if (cachedGlobeRadiusRef.current?.key === radiusCacheKey) {
+      radiusPx = cachedGlobeRadiusRef.current.radius;
+    } else {
+      radiusPx = measureGlobeScreenRadius(map, width, height);
+      cachedGlobeRadiusRef.current = { key: radiusCacheKey, radius: radiusPx };
+    }
 
+    const excludedSet = new Set<string>();
     if (radiusPx !== null && radiusPx > 0) {
+      if (cachedCountryPlacesRef.current.length === 0) {
+        refreshCountryPlaceCache(map);
+      }
       const cx = width / 2;
       const cy = height / 2;
-      const zoom = map.getZoom();
       const center = map.getCenter();
       const lang = languageRef.current;
-      const features = map.querySourceFeatures("openmaptiles", {
-        sourceLayer: "place",
-        filter: ["==", ["get", "class"], "country"],
-      });
 
-      for (const feature of features) {
-        const coords =
-          feature.geometry.type === "Point"
-            ? feature.geometry.coordinates
-            : feature.geometry.type === "MultiPoint"
-              ? feature.geometry.coordinates[0]
-              : null;
-        if (!coords || coords.length < 2) continue;
-
-        const [lng, lat] = coords;
-        if (dotOnSphere(lng, lat, center.lng, center.lat) < -0.1) continue;
-
-        const props = (feature.properties || {}) as Record<string, unknown>;
-        const filterKey = String(props["name:en"] || props.name || "");
-        if (!filterKey) continue;
-
-        const pt = map.project([lng, lat]);
+      for (const item of cachedCountryPlacesRef.current) {
+        const dot = dotOnSphere(item.lng, item.lat, center.lng, center.lat);
+        if (dot < -0.1) continue;
+        if (dot < 0.04) {
+          excludedSet.add(item.filterKey);
+          continue;
+        }
+        const pt = map.project([item.lng, item.lat]);
         if (!Number.isFinite(pt.x) || !Number.isFinite(pt.y)) continue;
 
-        const { halfW, halfH } = estimateCountryLabelHalfBox(props, zoom, lang);
+        const { halfW, halfH } = estimateCountryLabelHalfBox(item.props, zoom, lang);
         const cornerDist = Math.hypot(Math.abs(pt.x - cx) + halfW, Math.abs(pt.y - cy) + halfH);
-        if (!isPixelOnGlobe(map, pt.x, pt.y) || cornerDist > radiusPx - GLOBE_LIMB_MARGIN_PX) {
-          excludedSet.add(filterKey);
+        if (cornerDist > radiusPx - GLOBE_LIMB_MARGIN_PX) {
+          excludedSet.add(item.filterKey);
         }
       }
     }
@@ -289,7 +316,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       const baseFilter = baseCountryFiltersRef.current[layerId];
       map.setFilter(layerId, appendCountryNameExclusionFilter(baseFilter, excludedNames) as never);
     }
-  }, []);
+  }, [refreshCountryPlaceCache]);
 
   const updateNameplateDOM = useCallback((recomputeDirs: boolean) => {
     const map = mapRef.current;
@@ -339,8 +366,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
       projectedCoordsRef.current.set(cluster.id, { x: pt.x, y: pt.y });
       if (el) {
-        el.style.left = `${pt.x}px`;
-        el.style.top = `${pt.y}px`;
+        el.style.translate = `${pt.x}px ${pt.y}px`;
         el.style.visibility = "visible";
       }
       visibleItems.push({ cluster, x: pt.x, y: pt.y });
@@ -441,6 +467,22 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         requestAnimationFrame(() => updateNameplateDOM(true));
       };
 
+      const scheduleLimbClipSync = () => {
+        if (limbSyncTimerRef.current) return;
+        limbSyncTimerRef.current = window.setTimeout(() => {
+          limbSyncTimerRef.current = 0;
+          if (!disposed) syncCountryLimbClipping(instance);
+        }, 75);
+      };
+
+      const flushLimbClipSync = () => {
+        if (limbSyncTimerRef.current) {
+          window.clearTimeout(limbSyncTimerRef.current);
+          limbSyncTimerRef.current = 0;
+        }
+        syncCountryLimbClipping(instance);
+      };
+
       const handleStyleReady = () => {
         if (disposed) return;
         const zoom = instance.getZoom();
@@ -454,8 +496,11 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         }
         baseCountryFiltersRef.current = capturedFilters;
         lastLimbExcludedKeyRef.current = null;
+        cachedGlobeRadiusRef.current = null;
+        cachedCountryPlacesRef.current = [];
         syncGlobeContextLayers(instance, Boolean(lockedCountryRef.current));
-        syncCountryLimbClipping(instance);
+        refreshCountryPlaceCache(instance);
+        flushLimbClipSync();
         setClusterRadius(getClusterRadiusForZoom(zoom));
         setStyleVersion(v => v + 1);
         requestAnimationFrame(() => updateNameplateDOM(true));
@@ -464,11 +509,19 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       readyTimer = window.setTimeout(markReady, 2500);
       instance.on("style.load", handleStyleReady);
       instance.once("idle", markReady);
-      instance.on("idle", () => syncCountryLimbClipping(instance));
+      instance.on("idle", () => {
+        refreshCountryPlaceCache(instance);
+        flushLimbClipSync();
+      });
       instance.on("sourcedata", e => {
         if (e.sourceId === "openmaptiles" && e.isSourceLoaded) {
-          syncCountryLimbClipping(instance);
+          refreshCountryPlaceCache(instance);
+          flushLimbClipSync();
         }
+      });
+      instance.on("resize", () => {
+        flushLimbClipSync();
+        updateNameplateDOM(true);
       });
       instance.on("error", err => {
         console.warn("MapLibre warning:", err.error?.message || err);
@@ -476,12 +529,12 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
       instance.on("move", () => {
         const currentZoom = instance.getZoom();
-        if (Math.abs(currentZoom - lastClusterZoomRef.current) >= 0.25) {
+        if (Math.abs(currentZoom - lastClusterZoomRef.current) >= 0.4) {
           lastClusterZoomRef.current = currentZoom;
           setClusterRadius(getClusterRadiusForZoom(currentZoom));
         }
-        syncCountryLimbClipping(instance);
-        const zoomStepChanged = Math.abs(currentZoom - lastDirZoomRef.current) >= 0.2;
+        scheduleLimbClipSync();
+        const zoomStepChanged = Math.abs(currentZoom - lastDirZoomRef.current) >= 0.25;
         updateNameplateDOM(zoomStepChanged);
       });
 
@@ -489,13 +542,14 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         const currentZoom = instance.getZoom();
         lastClusterZoomRef.current = currentZoom;
         setClusterRadius(getClusterRadiusForZoom(currentZoom));
-        syncCountryLimbClipping(instance);
+        flushLimbClipSync();
         updateNameplateDOM(true);
         const c = instance.getCenter();
         setGlobeCamPosRef.current(latLngToVector3(c.lat, c.lng, 6.5));
       });
 
       instance.on("mousemove", e => {
+        if (e.originalEvent.buttons !== 0 || instance.isMoving()) return;
         if (!instance.getLayer("seam-clusters-core")) return;
         const hits = instance.queryRenderedFeatures(e.point, { layers: ["seam-clusters-core", "seam-clusters-halo"] });
         if (hits.length > 0) {
@@ -561,11 +615,13 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
 
     return () => {
       window.clearTimeout(readyTimer);
+      window.clearTimeout(limbSyncTimerRef.current);
+      limbSyncTimerRef.current = 0;
       disposed = true;
       mapRef.current = null;
       map?.remove();
     };
-  }, [worldData, updateNameplateDOM, syncCountryLimbClipping]);
+  }, [worldData, updateNameplateDOM, syncCountryLimbClipping, refreshCountryPlaceCache]);
 
   // Sync dynamic archive clusters into MapLibre GPU circle layers
   useEffect(() => {

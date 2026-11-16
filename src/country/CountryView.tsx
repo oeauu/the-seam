@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo } from "react";
+import { memo, useEffect, useRef, useState, useMemo } from "react";
 import * as d3 from "d3";
 import type { FeatureCollection, Polygon } from "geojson";
 import type { CountryFeature } from "../geo/geoTypes";
@@ -32,6 +32,86 @@ interface ProjectedCluster {
   offsetY: number;
   side: "right" | "left";
 }
+
+interface CountryStaticGeometryProps {
+  surroundingPaths: Array<{ key: string; d: string }>;
+  countryOutlineD: string;
+  chinaOverlayPaths: Array<{ pid: string; d: string; isNanhai: boolean; isSafeFill: boolean }>;
+  selectedProvinceId?: string;
+  borderPaths: string[];
+}
+
+const CountryStaticGeometry = memo(function CountryStaticGeometry({
+  surroundingPaths,
+  countryOutlineD,
+  chinaOverlayPaths,
+  selectedProvinceId,
+  borderPaths,
+}: CountryStaticGeometryProps) {
+  return (
+    <>
+      {surroundingPaths.map(item => (
+        <path
+          key={item.key}
+          d={item.d}
+          fill="#f2efe8"
+          stroke="#dcd6ca"
+          strokeWidth={0.65}
+          vectorEffect="non-scaling-stroke"
+          strokeLinejoin="round"
+        />
+      ))}
+      {countryOutlineD && <path d={countryOutlineD} fill="#fcfbf7" stroke="none" />}
+      {chinaOverlayPaths.map(item => {
+        if (item.isNanhai) {
+          return (
+            <path
+              key={item.pid}
+              d={item.d}
+              fill="none"
+              stroke="#d3ccbf"
+              strokeWidth={0.65}
+              vectorEffect="non-scaling-stroke"
+              strokeOpacity={0.78}
+            />
+          );
+        }
+        if (!item.isSafeFill || !selectedProvinceId || item.pid !== selectedProvinceId) return null;
+        return (
+          <path
+            key={item.pid}
+            d={item.d}
+            fill="rgba(196, 154, 69, 0.2)"
+            stroke="#8f671c"
+            strokeWidth={1.3}
+            vectorEffect="non-scaling-stroke"
+          />
+        );
+      })}
+      {borderPaths.map((d, index) => (
+        <path
+          key={index}
+          d={d}
+          fill="none"
+          stroke="#d3ccbf"
+          strokeWidth={0.65}
+          vectorEffect="non-scaling-stroke"
+          strokeOpacity={0.75}
+        />
+      ))}
+      {countryOutlineD && (
+        <path
+          d={countryOutlineD}
+          fill="none"
+          stroke="#b9ae9c"
+          strokeWidth={1.15}
+          vectorEffect="non-scaling-stroke"
+          strokeLinejoin="round"
+        />
+      )}
+    </>
+  );
+});
 
 export function CountryView({ country, meta, records, onBack, onRecordClick, onClusterClick }: CountryViewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -85,14 +165,35 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
+    let rafId = 0;
+    let pendingTransform = d3.zoomIdentity;
+
     const behavior = d3
       .zoom<SVGSVGElement, unknown>()
       .scaleExtent([0.6, 16])
-      .on("zoom", (event: d3.D3ZoomEvent<SVGSVGElement, unknown>) => setTransform(event.transform));
+      .on("zoom", (event: d3.D3ZoomEvent<SVGSVGElement, unknown>) => {
+        pendingTransform = event.transform;
+        if (event.sourceEvent === null) {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = 0;
+          }
+          setTransform(pendingTransform);
+          return;
+        }
+        if (!rafId) {
+          rafId = requestAnimationFrame(() => {
+            rafId = 0;
+            setTransform(pendingTransform);
+          });
+        }
+      });
+
     zoomRef.current = behavior;
     const selection = d3.select(svg);
     selection.call(behavior).call(behavior.transform, d3.zoomIdentity);
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       selection.on(".zoom", null);
     };
   }, [country]);
@@ -173,47 +274,125 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
     [worldFeatures, countryKey, focusCenter],
   );
 
+  const surroundingPaths = useMemo(
+    () =>
+      surroundingCountries
+        .map((neighbor, idx) => ({
+          key: String(neighbor.id ?? neighbor.properties.name ?? idx),
+          d: path(neighbor) || "",
+        }))
+        .filter(item => item.d.length > 0),
+    [surroundingCountries, path],
+  );
+
+  const countryOutlineD = useMemo(() => path(country) || "", [country, path]);
+
+  const chinaOverlayPaths = useMemo(() => {
+    if (!isChina || !activeChinaProvinces) return [];
+    return activeChinaProvinces.features
+      .map((feature, index) => {
+        const props = (feature.properties || {}) as { id?: string; name?: string };
+        const pid = props.id || props.name || String(index);
+        const d = path(feature) || "";
+        return {
+          pid,
+          d,
+          isNanhai: props.name === "南海诸岛",
+          isSafeFill: d3.geoArea(feature) < Math.PI * 2,
+        };
+      })
+      .filter(item => item.d.length > 0);
+  }, [isChina, activeChinaProvinces, path]);
+
+  const borderPaths = useMemo(
+    () => activeBorders?.features.map(feature => path(feature) || "").filter(d => d.length > 0) ?? [],
+    [activeBorders, path],
+  );
+
   const clusters = useMemo(() => {
     // Eight screen pixels of separation; exact coordinates remain a picker.
     const kmPerPixel = 6371 / projection.scale() / transform.k;
     return clusterRecords(filteredRecords, 8 * kmPerPixel);
   }, [filteredRecords, projection, transform.k]);
 
-  const cities = useMemo(() => {
+  const projectedClustersBase = useMemo(
+    () =>
+      clusters
+        .map(cluster => {
+          const basePoint = projection([cluster.coordinates.longitude, cluster.coordinates.latitude]);
+          return basePoint ? { cluster, basePoint } : null;
+        })
+        .filter((item): item is { cluster: LocationCluster; basePoint: [number, number] } => item !== null),
+    [clusters, projection],
+  );
+
+  const projectedCitiesBase = useMemo(() => {
     const global = getMapCities().filter(
       city =>
         canonicalCountryName(city.countryName) === canonicalCountryName(country.properties.name) ||
         (meta?.codeAlpha3 && city.countryCode === meta.codeAlpha3),
     );
     const combined: CityMetadata[] = [...(meta?.capital ? [meta.capital] : []), ...(meta?.cities || []), ...global];
-    return combined.filter(
-      (city, index) =>
-        combined.findIndex(other => other.name.en === city.name.en) === index && d3.geoContains(country, city.coordinates),
-    );
-  }, [country, meta]);
+    return combined
+      .filter(
+        (city, index) =>
+          combined.findIndex(other => other.name.en === city.name.en) === index && d3.geoContains(country, city.coordinates),
+      )
+      .map(city => {
+        const basePoint = projection(city.coordinates);
+        return basePoint ? { city, basePoint } : null;
+      })
+      .filter((item): item is { city: CityMetadata; basePoint: [number, number] } => item !== null);
+  }, [country, meta, projection]);
 
-  const adminLabels = useMemo(
+  const projectedAdminBase = useMemo(
     () =>
       extractAdminLabels(
         isChina && activeChinaProvinces ? activeChinaProvinces : activeBorders,
         language,
         isChina && Boolean(activeChinaProvinces),
-      ),
-    [isChina, activeChinaProvinces, activeBorders, language],
+      )
+        .filter(label => isChina || d3.geoContains(country, label.coordinates))
+        .map(label => {
+          const basePoint = projection(label.coordinates);
+          return basePoint ? { ...label, basePoint } : null;
+        })
+        .filter((item): item is { id: string; name: string; coordinates: [number, number]; basePoint: [number, number] } => item !== null),
+    [isChina, activeChinaProvinces, activeBorders, language, country, projection],
   );
 
-  const project = (longitude: number, latitude: number): [number, number] | null => {
-    const point = projection([longitude, latitude]);
-    return point ? transform.apply(point) : null;
-  };
+  const projectedNeighborBase = useMemo(
+    () =>
+      surroundingCountries
+        .map(neighbor => {
+          let labelGeom: CountryFeature["geometry"] = neighbor.geometry;
+          if (neighbor.geometry.type === "MultiPolygon") {
+            const largest = [...neighbor.geometry.coordinates].sort(
+              (a, b) => d3.geoArea({ type: "Polygon", coordinates: b }) - d3.geoArea({ type: "Polygon", coordinates: a }),
+            )[0];
+            if (largest) labelGeom = { type: "Polygon", coordinates: largest };
+          }
+          const centroid = d3.geoCentroid(labelGeom);
+          if (!Number.isFinite(centroid[0]) || !Number.isFinite(centroid[1]) || d3.geoContains(country, centroid)) {
+            return null;
+          }
+          const basePoint = projection(centroid);
+          if (!basePoint) return null;
+          return {
+            id: String(neighbor.id ?? neighbor.properties.name),
+            name: getCountryMetadataForFeature(neighbor)?.name[language] || neighbor.properties.name,
+            basePoint,
+          };
+        })
+        .filter((item): item is { id: string; name: string; basePoint: [number, number] } => item !== null),
+    [surroundingCountries, country, projection, language],
+  );
 
   // Compute screen coordinates and resolve 2D AABB collisions across nameplates so adjacent markers never overlap.
   const projectedClusters: ProjectedCluster[] = [];
   const occupiedNameplates: Array<{ minX: number; minY: number; maxX: number; maxY: number }> = [];
-  for (const cluster of clusters) {
-    const point = project(cluster.coordinates.longitude, cluster.coordinates.latitude);
-    if (!point) continue;
-    const [x, y] = point;
+  for (const { cluster, basePoint } of projectedClustersBase) {
+    const [x, y] = transform.apply(basePoint);
     const titleText = cluster.records[0].title[language] || cluster.records[0].title.en;
     const estWidth = Math.min(180, Math.max(72, titleText.length * (language === "zh" ? 13 : 7.5) + 34));
     const halfH = 14;
@@ -252,11 +431,10 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
     projectedClusters.push({ cluster, x, y, offsetY: chosen.offsetY, side: chosen.side });
   }
 
-  const visibleCities = cities
-    .filter(city => city.isCapital || transform.k >= 1.5)
-    .map(city => {
-      const point = project(...city.coordinates);
-      if (!point) return null;
+  const visibleCities = projectedCitiesBase
+    .filter(({ city }) => city.isCapital || transform.k >= 1.5)
+    .map(({ city, basePoint }) => {
+      const point = transform.apply(basePoint);
       if (projectedClusters.some(cluster => Math.hypot(cluster.x - point[0], cluster.y - point[1]) < 46)) {
         return null;
       }
@@ -270,12 +448,9 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
     ...projectedClusters.map(c => ({ minX: c.x - 28, minY: c.y + c.offsetY - 16, maxX: c.x + 115, maxY: c.y + c.offsetY + 16 })),
     ...visibleCities.map(v => ({ minX: v.point[0] - 12, minY: v.point[1] - 12, maxX: v.point[0] + 72, maxY: v.point[1] + 12 })),
   ];
-  for (const label of adminLabels) {
-    const point = project(...label.coordinates);
-    if (!point) continue;
-    const [x, y] = point;
+  for (const label of projectedAdminBase) {
+    const [x, y] = transform.apply(label.basePoint);
     if (x < 28 || x > dimensions.width - 28 || y < 22 || y > dimensions.height - 40) continue;
-    if (!isChina && !d3.geoContains(country, label.coordinates)) continue;
     const halfW = (label.name.length * (language === "zh" ? 11 : 6.4) + 12) / 2;
     const box = { minX: x - halfW, minY: y - 9, maxX: x + halfW, maxY: y + 9 };
     const overlaps = placedBoxes.some(
@@ -288,22 +463,10 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
 
   // Softly render surrounding neighbor country labels outside the focused territory
   const visibleNeighborLabels: Array<{ id: string; name: string; x: number; y: number }> = [];
-  for (const neighbor of surroundingCountries) {
-    let labelGeom: CountryFeature["geometry"] = neighbor.geometry;
-    if (neighbor.geometry.type === "MultiPolygon") {
-      const largest = [...neighbor.geometry.coordinates].sort(
-        (a, b) => d3.geoArea({ type: "Polygon", coordinates: b }) - d3.geoArea({ type: "Polygon", coordinates: a }),
-      )[0];
-      if (largest) labelGeom = { type: "Polygon", coordinates: largest };
-    }
-    const centroid = d3.geoCentroid(labelGeom);
-    if (!Number.isFinite(centroid[0]) || !Number.isFinite(centroid[1]) || d3.geoContains(country, centroid)) continue;
-    const point = project(centroid[0], centroid[1]);
-    if (!point) continue;
-    const [x, y] = point;
+  for (const neighbor of projectedNeighborBase) {
+    const [x, y] = transform.apply(neighbor.basePoint);
     if (x < 36 || x > dimensions.width - 36 || y < 24 || y > dimensions.height - 44) continue;
-    const neighborName = getCountryMetadataForFeature(neighbor)?.name[language] || neighbor.properties.name;
-    const halfW = (neighborName.length * (language === "zh" ? 10.5 : 6.2) + 14) / 2;
+    const halfW = (neighbor.name.length * (language === "zh" ? 10.5 : 6.2) + 14) / 2;
     const box = { minX: x - halfW, minY: y - 9, maxX: x + halfW, maxY: y + 9 };
     const overlaps = placedBoxes.some(
       other => !(box.maxX < other.minX || box.minX > other.maxX || box.maxY < other.minY || box.minY > other.maxY),
@@ -311,8 +474,8 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
     if (overlaps) continue;
     placedBoxes.push(box);
     visibleNeighborLabels.push({
-      id: String(neighbor.id ?? neighbor.properties.name),
-      name: neighborName,
+      id: neighbor.id,
+      name: neighbor.name,
       x,
       y,
     });
@@ -423,62 +586,12 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
           aria-label={language === "zh" ? `${name}详细地图` : `Detailed map of ${name}`}
         >
           <g transform={transform.toString()}>
-            {surroundingCountries.map((neighbor, idx) => (
-              <path
-                key={String(neighbor.id ?? neighbor.properties.name ?? idx)}
-                d={path(neighbor) || ""}
-                fill="#f2efe8"
-                stroke="#dcd6ca"
-                strokeWidth={0.65 / transform.k}
-                strokeLinejoin="round"
-              />
-            ))}
-            <path d={path(country) || ""} fill="#fcfbf7" stroke="none" />
-            {isChina &&
-              activeChinaProvinces?.features.map((feature, index) => {
-                const props = (feature.properties || {}) as { id?: string; name?: string };
-                const pid = props.id || props.name || String(index);
-                if (props.name === "南海诸岛") {
-                  return (
-                    <path
-                      key={pid}
-                      d={path(feature) || ""}
-                      fill="none"
-                      stroke="#d3ccbf"
-                      strokeWidth={0.65 / transform.k}
-                      strokeOpacity={0.78}
-                    />
-                  );
-                }
-                const isSafeFill = d3.geoArea(feature) < Math.PI * 2;
-                const isHighlighted = Boolean(isSafeFill && selectedProvinceId && pid === selectedProvinceId);
-                if (!isHighlighted) return null;
-                return (
-                  <path
-                    key={pid}
-                    d={path(feature) || ""}
-                    fill="rgba(196, 154, 69, 0.2)"
-                    stroke="#8f671c"
-                    strokeWidth={1.3 / transform.k}
-                  />
-                );
-              })}
-            {activeBorders?.features.map((feature, index) => (
-              <path
-                key={index}
-                d={path(feature) || ""}
-                fill="none"
-                stroke="#d3ccbf"
-                strokeWidth={0.65 / transform.k}
-                strokeOpacity={0.75}
-              />
-            ))}
-            <path
-              d={path(country) || ""}
-              fill="none"
-              stroke="#b9ae9c"
-              strokeWidth={1.15 / transform.k}
-              strokeLinejoin="round"
+            <CountryStaticGeometry
+              surroundingPaths={surroundingPaths}
+              countryOutlineD={countryOutlineD}
+              chinaOverlayPaths={chinaOverlayPaths}
+              selectedProvinceId={selectedProvinceId}
+              borderPaths={borderPaths}
             />
           </g>
 
@@ -585,7 +698,7 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
                 type="button"
                 tabIndex={-1}
                 className={`seam-2d-nameplate ${side === "left" ? "is-left" : ""}`}
-                style={{ left: `${x}px`, top: `${y + offsetY}px` }}
+                style={{ translate: `${x}px ${y + offsetY}px` }}
                 onClick={() => activate(cluster)}
               >
                 <span className="seam-nameplate-dot" />

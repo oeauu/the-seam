@@ -381,8 +381,7 @@ a {
   left: 0;
   right: 0;
   z-index: 30;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.97);
   border-top: 1px solid var(--seam-border);
   padding: 9px 28px 12px;
   transition: transform var(--seam-transition);
@@ -1623,18 +1622,20 @@ button:disabled { opacity: .5; cursor: default; }
   align-items: center;
   gap: 5px;
   padding: 3px 8px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(196, 154, 69, 0.65);
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
   font-size: 11px;
   line-height: 1.25;
   color: var(--seam-text-primary);
   white-space: nowrap;
   cursor: pointer;
   pointer-events: auto;
-  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+  left: 0;
+  top: 0;
+  will-change: transform, translate;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .seam-globe-nameplate {
