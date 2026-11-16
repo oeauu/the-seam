@@ -4,7 +4,7 @@ import { AppProvider } from "../state/appContext";
 import { useApp } from "../state/useApp";
 import { Timeline } from "../timeline/Timeline";
 import { ALL_RECORDS, findRecord } from "../data/archive";
-import { getPendingVerificationLabel } from "../data/recordStatus";
+import { getPendingVerificationLabel, getRecordOtherNames } from "../data/recordStatus";
 import { SubmitModal } from "../shell/SubmitModal";
 import { buildGitHubIssueUrl, resolveGitHubRepo } from "../shell/submissionIssue";
 import {
@@ -47,8 +47,11 @@ describe("Completion regressions", () => {
     expect(ALL_RECORDS.filter(record => record.id.startsWith("event-")).every(record => record.place.coordinates === null && record.time.startYear === null)).toBe(true);
     const pendingEvent = ALL_RECORDS.find(record => record.id.startsWith("event-"));
     const verifiedEntry = findRecord("thomas-hall");
+    const lanling = findRecord("lanling-wang");
     expect(pendingEvent && getPendingVerificationLabel(pendingEvent, "zh")).toBe("地点与事件待考证");
     expect(verifiedEntry && getPendingVerificationLabel(verifiedEntry, "zh")).toBeNull();
+    expect(lanling && getRecordOtherNames(lanling, "zh")).toBe("高肃、兰陵武王、面具将军");
+    expect(lanling && getRecordOtherNames(lanling, "zh")).not.toContain("Prince of Lanling");
   });
   it("does not fabricate capitals and handles unknown dates and malformed URLs", () => {
     expect(getCountryMetadataForFeature(country)?.capital).toBeUndefined();

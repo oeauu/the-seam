@@ -114,11 +114,6 @@ export function IndexDrawer({ onClose }: Props) {
                       {pendingLabel && (
                         <span className="seam-pending-tag">{pendingLabel}</span>
                       )}
-                      {record.aliases.length > 0 && (
-                        <span className="seam-index-alias">
-                          · {record.aliases.slice(0, 2).join(", ")}
-                        </span>
-                      )}
                     </div>
                     <p className="seam-index-summary">
                       {record.summary[language] || record.summary.en}

@@ -45,6 +45,8 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     const panel = page.locator(".seam-record-panel");
     await expect(panel).toBeVisible();
     await expect(panel.locator(".seam-record-title")).toContainText("托马斯(因)·霍尔");
+    await expect(panel.locator(".seam-record-deck")).toBeVisible();
+    await expect(panel.locator(".seam-record-aliases")).toHaveCount(0);
   });
 
   test("direct permalink loads record panel at /record/:slug", async ({ page }) => {
@@ -53,6 +55,8 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     const panel = page.locator(".seam-record-panel");
     await expect(panel).toBeVisible();
     await expect(panel.locator(".seam-record-title")).toContainText("托马斯(因)·霍尔");
+    await expect(panel.locator(".seam-record-deck")).toBeVisible();
+    await expect(panel.locator(".seam-record-aliases")).toHaveCount(0);
 
     // Verify key archival sections
     await expect(panel.locator(".seam-record-narrative-section")).toBeVisible();

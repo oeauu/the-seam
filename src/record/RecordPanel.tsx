@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getPendingVerificationLabel } from "../data/recordStatus";
+import { getPendingVerificationLabel, getRecordOtherNames } from "../data/recordStatus";
 import type { ArchiveRecord } from "../types";
 import { useApp } from "../state/useApp";
 
@@ -57,6 +57,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
 
   const relationText = relationLabels[record.place.relation]?.[language] || "";
   const pendingLabel = getPendingVerificationLabel(record, language);
+  const otherNames = getRecordOtherNames(record, language);
 
   return (
     <>
@@ -107,22 +108,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
             </button>
           </div>
 
-          {/* Original Name & Aliases */}
-          {(record.originalName || record.aliases.length > 0) && (
-            <div className="seam-record-aliases">
-              {record.originalName && (
-                <span className="seam-record-original-name">
-                  {record.originalName}
-                </span>
-              )}
-              {record.aliases.length > 0 && (
-                <span className="seam-record-alias-list">
-                  {record.originalName && " · "}
-                  {record.aliases.join(" / ")}
-                </span>
-              )}
-            </div>
-          )}
+          <p className="seam-record-deck">{summary}</p>
         </header>
 
         {/* Optional Image Area - strictly omitted if no image */}
@@ -171,6 +157,18 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               {record.place.notes && <span className="seam-meta-sub">{record.place.notes[language]}</span>}
             </div>
           </div>
+
+          {otherNames && (
+            <div className="seam-meta-block seam-meta-block-wide">
+              <span className="seam-meta-icon" aria-hidden="true">📜</span>
+              <div className="seam-meta-content">
+                <span className="seam-meta-label">
+                  {language === "zh" ? "原名与别称" : "Original & Other Names"}
+                </span>
+                <span className="seam-meta-sub">{otherNames}</span>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Scrollable Body */}
@@ -181,10 +179,6 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               <p>{record.reviewNote[language]}</p>
             </div>
           )}
-          {/* Summary */}
-          <section className="seam-record-summary-section">
-            <p className="seam-record-summary">{summary}</p>
-          </section>
 
           {/* Full Narrative Text */}
           <section className="seam-record-narrative-section">
