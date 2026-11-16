@@ -124,7 +124,7 @@ describe("The Seam - Geographic Clustering", () => {
       ARCHIVE_RECORDS.filter((r) => r.place.countryCode === "156"),
       CITY_CLUSTER_RADIUS_KM
     );
-    expect(chinaClusters.length).toBe(10);
+    expect(chinaClusters.length).toBe(11);
 
     clusters.forEach((cluster) => {
       expect(cluster.records.length).toBeGreaterThanOrEqual(1);

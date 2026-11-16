@@ -7545,5 +7545,1213 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "url": "https://ilga.org/ilga-history/"
       }
     ]
+  },
+  {
+    "id": "entry_tiresias",
+    "slug": "tiresias",
+    "title": {
+      "zh": "提瑞西阿斯",
+      "en": "Tiresias"
+    },
+    "originalName": "Τειρεσίας",
+    "aliases": [],
+    "summary": {
+      "zh": "奥维德写提瑞西阿斯遇见交缠的蛇后变为女性。",
+      "en": "Ovid tells how Tiresias became a woman after encountering entwined snakes."
+    },
+    "body": {
+      "zh": "奥维德写提瑞西阿斯遇见交缠的蛇后变为女性。七年后，他再次遇到蛇，恢复原来的身体。\n\n朱庇特与朱诺争论男女所感受的欢愉，便请两种生活都经历过的提瑞西阿斯裁断。朱诺夺去他的视力，朱庇特则赐给他预言能力。",
+      "en": "Ovid tells how Tiresias became a woman after encountering entwined snakes. Seven years later, a second encounter restored his former body.\n\nJupiter and Juno ask Tiresias to settle a dispute about pleasure because he has lived in both forms. Juno blinds him, and Jupiter gives him the gift of prophecy."
+    },
+    "time": {
+      "startYear": 1,
+      "endYear": 8,
+      "label": {
+        "zh": "1至8年（文本年代）",
+        "en": "1–8 (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "罗马（文本传统）",
+        "en": "Rome (textual tradition)"
+      },
+      "countryName": {
+        "zh": "意大利",
+        "en": "Italy"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 12.49,
+        "latitude": 41.9
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Ovid, Metamorphoses",
+        "citation": "A. S. Kline translation, University of Virginia",
+        "url": "https://ovid.lib.virginia.edu/trans/Ovhome.htm"
+      }
+    ]
+  },
+  {
+    "id": "entry_iphis",
+    "slug": "iphis",
+    "title": {
+      "zh": "伊菲斯",
+      "en": "Iphis"
+    },
+    "originalName": "Īphis",
+    "aliases": [],
+    "summary": {
+      "zh": "《变形记》第九卷中，克里特岛的特勒图萨将出生为女孩的伊菲斯当作男孩抚养。",
+      "en": "In Book 9 of the Metamorphoses, Telethusa raises Iphis, born a girl, as a boy on Crete."
+    },
+    "body": {
+      "zh": "《变形记》第九卷中，克里特岛的特勒图萨将出生为女孩的伊菲斯当作男孩抚养。伊菲斯长大后与伊安忒订婚，两人相爱。\n\n婚礼临近，特勒图萨带伊菲斯到伊西斯神殿祈求帮助。走出神殿时，伊菲斯的身体发生变化，次日与伊安忒完婚。",
+      "en": "In Book 9 of the Metamorphoses, Telethusa raises Iphis, born a girl, as a boy on Crete. Iphis and Ianthe fall in love and are betrothed.\n\nAs the wedding approaches, Telethusa takes Iphis to the temple of Isis. Iphis’s body changes on leaving the temple, and the wedding takes place the next day."
+    },
+    "time": {
+      "startYear": 1,
+      "endYear": 8,
+      "label": {
+        "zh": "1至8年（文本年代）",
+        "en": "1–8 (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "罗马（文本传统）",
+        "en": "Rome (textual tradition)"
+      },
+      "countryName": {
+        "zh": "意大利",
+        "en": "Italy"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 12.49,
+        "latitude": 41.9
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Ovid, Metamorphoses",
+        "citation": "A. S. Kline translation, University of Virginia",
+        "url": "https://ovid.lib.virginia.edu/trans/Ovhome.htm"
+      }
+    ]
+  },
+  {
+    "id": "entry_ganymede",
+    "slug": "ganymede",
+    "title": {
+      "zh": "伽倪墨得斯",
+      "en": "Ganymede"
+    },
+    "originalName": "Γανυμήδης",
+    "aliases": [],
+    "summary": {
+      "zh": "《伊利亚特》第二十卷将伽倪墨得斯列在特洛伊王族谱系中。",
+      "en": "Book 20 of the Iliad places Ganymede in the Trojan royal lineage."
+    },
+    "body": {
+      "zh": "《伊利亚特》第二十卷将伽倪墨得斯列在特洛伊王族谱系中。众神因他的美貌将他带走，使他在神界斟酒。\n\n奥维德在《变形记》第十卷把故事写入俄耳甫斯的歌。朱庇特化作鹰，将伽倪墨得斯带往天上，由他执掌酒杯。",
+      "en": "Book 20 of the Iliad places Ganymede in the Trojan royal lineage. The gods take him away because of his beauty to serve as cupbearer.\n\nOvid puts the story into Orpheus’s song in Book 10. Jupiter takes the form of an eagle and carries Ganymede to heaven, where he serves the cup."
+    },
+    "time": {
+      "startYear": -750,
+      "endYear": 8,
+      "label": {
+        "zh": "约公元前750年至公元8年（文本年代）",
+        "en": "c. 750 BCE–8 CE (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "古希腊（文本传统）",
+        "en": "Ancient Greece (textual tradition)"
+      },
+      "countryName": {
+        "zh": "希腊",
+        "en": "Greece"
+      },
+      "countryCode": "300",
+      "coordinates": {
+        "longitude": 23.73,
+        "latitude": 37.98
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Iliad",
+        "citation": "Homer, Book 20, lines 230–235",
+        "url": "https://www.gutenberg.org/ebooks/2199"
+      },
+      {
+        "title": "Ovid, Metamorphoses",
+        "citation": "A. S. Kline translation, University of Virginia",
+        "url": "https://ovid.lib.virginia.edu/trans/Ovhome.htm"
+      }
+    ]
+  },
+  {
+    "id": "entry_hyacinthus",
+    "slug": "hyacinthus",
+    "title": {
+      "zh": "雅辛托斯",
+      "en": "Hyacinthus"
+    },
+    "originalName": "Ὑάκινθος",
+    "aliases": [],
+    "summary": {
+      "zh": "奥维德写阿波罗与雅辛托斯一同练习掷铁饼。",
+      "en": "Ovid tells how Apollo and Hyacinthus practised throwing the discus."
+    },
+    "body": {
+      "zh": "奥维德写阿波罗与雅辛托斯一同练习掷铁饼。铁饼落地弹起，击中跑去拾取它的雅辛托斯。\n\n阿波罗抱住受伤的青年，无法挽回他的生命。诗中从血迹生出花朵，花瓣上的纹样保留下阿波罗哀悼的声音。",
+      "en": "Ovid tells how Apollo and Hyacinthus practised throwing the discus. It bounced from the ground and struck Hyacinthus as he ran to retrieve it.\n\nApollo holds the injured youth but cannot save him. A flower grows from the blood, bearing markings that preserve the sound of Apollo’s lament."
+    },
+    "time": {
+      "startYear": 1,
+      "endYear": 8,
+      "label": {
+        "zh": "1至8年（文本年代）",
+        "en": "1–8 (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "罗马（文本传统）",
+        "en": "Rome (textual tradition)"
+      },
+      "countryName": {
+        "zh": "意大利",
+        "en": "Italy"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 12.49,
+        "latitude": 41.9
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Ovid, Metamorphoses",
+        "citation": "A. S. Kline translation, University of Virginia",
+        "url": "https://ovid.lib.virginia.edu/trans/Ovhome.htm"
+      }
+    ]
+  },
+  {
+    "id": "entry_ardhanarishvara",
+    "slug": "ardhanarishvara",
+    "title": {
+      "zh": "半女自在天",
+      "en": "Ardhanarishvara"
+    },
+    "originalName": "अर्धनारीश्वर",
+    "aliases": [],
+    "summary": {
+      "zh": "半女自在天将湿婆与帕尔瓦蒂合为一尊神像，身体两侧分别呈现各自的特征。",
+      "en": "Ardhanarishvara combines Shiva and Parvati in a single figure, with attributes of each on opposite sides."
+    },
+    "body": {
+      "zh": "半女自在天将湿婆与帕尔瓦蒂合为一尊神像，身体两侧分别呈现各自的特征。东南亚也留有这一构图。\n\n大都会艺术博物馆的馆藏记录保存了一尊七至八世纪柬埔寨造像的图像和年代。此件作品于2023年归还。",
+      "en": "Ardhanarishvara combines Shiva and Parvati in a single figure, with attributes of each on opposite sides. The form also appears in Southeast Asian sculpture.\n\nThe Metropolitan Museum’s catalogue preserves images and dating for a seventh- to eighth-century Cambodian sculpture of the deity. The work was restituted in 2023."
+    },
+    "time": {
+      "startYear": 600,
+      "endYear": 799,
+      "label": {
+        "zh": "600至799年（造像年代）",
+        "en": "600–799 (sculpture)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "柬埔寨（造像来源）",
+        "en": "Cambodia (sculpture provenance)"
+      },
+      "countryName": {
+        "zh": "柬埔寨",
+        "en": "Cambodia"
+      },
+      "countryCode": "116",
+      "coordinates": {
+        "longitude": 104.91,
+        "latitude": 11.56
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Ardhanarishvara (Composite of Shiva and Parvati)",
+        "citation": "Metropolitan Museum of Art, object 39198",
+        "url": "https://www.metmuseum.org/art/collection/search/39198"
+      }
+    ]
+  },
+  {
+    "id": "entry_achilles_and_patroclus",
+    "slug": "achilles-and-patroclus",
+    "title": {
+      "zh": "阿喀琉斯与帕特罗克洛斯",
+      "en": "Achilles and Patroclus"
+    },
+    "originalName": "Ἀχιλλεύς / Πάτροκλος",
+    "aliases": [],
+    "summary": {
+      "zh": "《伊利亚特》写帕特罗克洛斯借用阿喀琉斯的盔甲出战，被赫克托耳杀死。",
+      "en": "In the Iliad, Patroclus borrows Achilles’ armour and is killed by Hector."
+    },
+    "body": {
+      "zh": "《伊利亚特》写帕特罗克洛斯借用阿喀琉斯的盔甲出战，被赫克托耳杀死。阿喀琉斯得知死讯后哀悼，并重返战场。\n\n柏拉图《会饮篇》中，斐德若用两人的故事讨论爱与勇气。他将阿喀琉斯明知自己会死仍为帕特罗克洛斯复仇的选择，与埃斯库罗斯对二人关系的写法作比较。",
+      "en": "In the Iliad, Patroclus borrows Achilles’ armour and is killed by Hector. Achilles mourns him and returns to battle.\n\nIn Plato’s Symposium, Phaedrus uses their story to discuss love and courage. He compares Achilles’ willingness to die avenging Patroclus with Aeschylus’s treatment of their relationship."
+    },
+    "time": {
+      "startYear": -750,
+      "endYear": -380,
+      "label": {
+        "zh": "约公元前750至前380年（文本年代）",
+        "en": "c. 750 BCE–380 BCE (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "古希腊（文本传统）",
+        "en": "Ancient Greece (textual tradition)"
+      },
+      "countryName": {
+        "zh": "希腊",
+        "en": "Greece"
+      },
+      "countryCode": "300",
+      "coordinates": {
+        "longitude": 23.73,
+        "latitude": 37.98
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Iliad",
+        "citation": "Homer, Books 16, 18 and 23",
+        "url": "https://www.gutenberg.org/ebooks/2199"
+      },
+      {
+        "title": "Symposium",
+        "citation": "Plato, 179e–180b",
+        "url": "https://adfonteslibrary.org/work-plato-symposium"
+      }
+    ]
+  },
+  {
+    "id": "entry_mohini",
+    "slug": "mohini",
+    "title": {
+      "zh": "莫希妮",
+      "en": "Mohini"
+    },
+    "originalName": "मोहिनी",
+    "aliases": [],
+    "summary": {
+      "zh": "《薄伽梵往世书》写诸神与阿修罗搅动乳海，争夺从海中得来的甘露。",
+      "en": "In the Bhagavata Purana, gods and asuras churn the ocean and dispute the nectar that emerges."
+    },
+    "body": {
+      "zh": "《薄伽梵往世书》写诸神与阿修罗搅动乳海，争夺从海中得来的甘露。毗湿奴显为莫希妮，取得分配甘露的权力。\n\n莫希妮安排双方就座，将甘露分给诸神。第八卷的后续章节另写湿婆请求观看毗湿奴以这一形象显现。",
+      "en": "In the Bhagavata Purana, gods and asuras churn the ocean and dispute the nectar that emerges. Vishnu appears as Mohini and takes charge of its distribution.\n\nMohini seats the two parties and distributes the nectar to the gods. A later chapter of Book 8 recounts Shiva asking Vishnu to show him this form."
+    },
+    "time": {
+      "startYear": 800,
+      "endYear": 1000,
+      "label": {
+        "zh": "800至1000年（文本年代）",
+        "en": "800–1000 (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "印度（文本传统）",
+        "en": "India (textual tradition)"
+      },
+      "countryName": {
+        "zh": "印度",
+        "en": "India"
+      },
+      "countryCode": "356",
+      "coordinates": {
+        "longitude": 82.97,
+        "latitude": 25.32
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Bhagavata Purana",
+        "citation": "Book 8, chapters 8–9 and 12",
+        "url": "https://www.wisdomlib.org/hinduism/book/the-bhagavata-purana/d/doc1128822.html"
+      }
+    ]
+  },
+  {
+    "id": "entry_loki",
+    "slug": "loki",
+    "title": {
+      "zh": "洛基",
+      "en": "Loki"
+    },
+    "originalName": "Loki",
+    "aliases": [],
+    "summary": {
+      "zh": "《散文埃达》记载，众神雇筑城者修墙。",
+      "en": "In the Prose Edda, the gods hire a builder to fortify their home."
+    },
+    "body": {
+      "zh": "《散文埃达》记载，众神雇筑城者修墙。为让对方错过工期，洛基变为一匹母马，引开拉运石料的公马斯瓦迪尔法里。\n\n洛基后来生下八足马斯莱普尼尔。《诗体埃达》的《索列姆之歌》另写洛基扮成随行女仆，帮助索尔取回雷神之锤。",
+      "en": "In the Prose Edda, the gods hire a builder to fortify their home. To delay the work, Loki takes the form of a mare and draws away the builder’s stallion, Svadilfari.\n\nLoki later gives birth to the eight-legged horse Sleipnir. In the Poetic Edda’s Þrymskviða, Loki also plays a maidservant to help Thor recover his hammer."
+    },
+    "time": {
+      "startYear": 1200,
+      "endYear": 1299,
+      "label": {
+        "zh": "1200至1299年（文本年代）",
+        "en": "1200–1299 (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "冰岛（手稿传统）",
+        "en": "Iceland (manuscript tradition)"
+      },
+      "countryName": {
+        "zh": "冰岛",
+        "en": "Iceland"
+      },
+      "countryCode": "352",
+      "coordinates": {
+        "longitude": -21.94,
+        "latitude": 64.15
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Gylfaginning",
+        "citation": "Snorri Sturluson, Prose Edda, chapter 42",
+        "url": "https://www.gutenberg.org/ebooks/18947"
+      },
+      {
+        "title": "Þrymskviða",
+        "citation": "Poetic Edda, translated by Henry Adams Bellows",
+        "url": "https://sacred-texts.com/book/the-poetic-edda/shell/thrymskvitha"
+      }
+    ]
+  },
+  {
+    "id": "entry_thor_thrymskvida",
+    "slug": "thor-thrymskvida",
+    "title": {
+      "zh": "索尔与《索列姆之歌》",
+      "en": "Thor in Þrymskviða"
+    },
+    "originalName": "Þórr / Þrymskviða",
+    "aliases": [],
+    "summary": {
+      "zh": "巨人索列姆藏起雷神之锤，要求芙蕾雅嫁给他。",
+      "en": "The giant Thrym hides Thor’s hammer and demands Freyja as his bride."
+    },
+    "body": {
+      "zh": "巨人索列姆藏起雷神之锤，要求芙蕾雅嫁给他。诸神让索尔戴上面纱和首饰，打扮成新娘前往，洛基以女仆身份同行。\n\n宴席上，洛基替索尔解释新娘的食量和目光。索列姆让人拿出锤子为婚礼祝福时，索尔取回武器。",
+      "en": "The giant Thrym hides Thor’s hammer and demands Freyja as his bride. The gods send Thor in a veil and jewellery in her place, accompanied by Loki as the maidservant.\n\nAt the feast Loki explains away the bride’s appetite and piercing gaze. When Thrym has the hammer brought in to bless the wedding, Thor takes it back."
+    },
+    "time": {
+      "startYear": 1200,
+      "endYear": 1299,
+      "label": {
+        "zh": "1200至1299年（文本年代）",
+        "en": "1200–1299 (textual dating)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "冰岛（手稿传统）",
+        "en": "Iceland (manuscript tradition)"
+      },
+      "countryName": {
+        "zh": "冰岛",
+        "en": "Iceland"
+      },
+      "countryCode": "352",
+      "coordinates": {
+        "longitude": -21.94,
+        "latitude": 64.15
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Þrymskviða",
+        "citation": "Poetic Edda, translated by Henry Adams Bellows",
+        "url": "https://sacred-texts.com/book/the-poetic-edda/shell/thrymskvitha"
+      }
+    ]
+  },
+  {
+    "id": "entry_yamato_takeru",
+    "slug": "yamato-takeru",
+    "title": {
+      "zh": "倭建命",
+      "en": "Yamato Takeru"
+    },
+    "originalName": "倭建命",
+    "aliases": [],
+    "summary": {
+      "zh": "《古事记》记载，小碓命奉命前往熊袭。",
+      "en": "The Kojiki recounts how Prince Ōusu was sent against the Kumaso."
+    },
+    "body": {
+      "zh": "《古事记》记载，小碓命奉命前往熊袭。他换上从姑母处得到的衣服，装作年轻女子进入熊袭首领的宴席。\n\n席间，小碓命向两名首领动手。故事将「倭建」之名与这次行动联系起来，写其中一名首领在死前将此名授给他。",
+      "en": "The Kojiki recounts how Prince Ōusu was sent against the Kumaso. Wearing clothing received from his aunt, he entered the leaders’ feast disguised as a young woman.\n\nAt the feast the prince attacks the two leaders. The narrative ties the name Yamato Takeru to this episode: one leader bestows it on him before dying."
+    },
+    "time": {
+      "startYear": 712,
+      "endYear": 712,
+      "label": {
+        "zh": "712年（文本年代）",
+        "en": "712 (textual dating)"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "奈良（编纂背景）",
+        "en": "Nara (compilation context)"
+      },
+      "countryName": {
+        "zh": "日本",
+        "en": "Japan"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 135.8,
+        "latitude": 34.68
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Kojiki: Yamato Text Excerpts",
+        "citation": "Basil Hall Chamberlain translation, UC Berkeley ORIAS",
+        "url": "https://orias.berkeley.edu/yamato-text-excerpts"
+      }
+    ]
+  },
+  {
+    "id": "entry_orlando_woolf",
+    "slug": "orlando-woolf",
+    "title": {
+      "zh": "奥兰多",
+      "en": "Orlando"
+    },
+    "originalName": "Orlando: A Biography",
+    "aliases": [],
+    "summary": {
+      "zh": "弗吉尼亚·伍尔夫的小说让奥兰多从伊丽莎白时代活到1928年。",
+      "en": "Virginia Woolf’s novel follows Orlando from the Elizabethan era to 1928."
+    },
+    "body": {
+      "zh": "弗吉尼亚·伍尔夫的小说让奥兰多从伊丽莎白时代活到1928年。主人公在君士坦丁堡醒来时身体变为女性，仍带着此前的记忆。\n\n小说用传记的口吻叙述奥兰多如何面对衣着、继承和写作的变化。伍尔夫将手稿赠给薇塔·萨克维尔-韦斯特，现由英国国民信托收藏。",
+      "en": "Virginia Woolf’s novel follows Orlando from the Elizabethan era to 1928. In Constantinople Orlando wakes in a female body, retaining the memories of earlier life.\n\nWritten in the voice of a biographer, the novel follows changes in clothing, inheritance and literary life. Woolf gave the manuscript to Vita Sackville-West; it is now held by the National Trust."
+    },
+    "time": {
+      "startYear": 1928,
+      "endYear": 1928,
+      "label": {
+        "zh": "1928年",
+        "en": "1928"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "伦敦",
+        "en": "London"
+      },
+      "countryName": {
+        "zh": "英国",
+        "en": "United Kingdom"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -0.12,
+        "latitude": 51.51
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Manuscript of Orlando",
+        "citation": "National Trust Collections, 3072441",
+        "url": "https://www.nationaltrustcollections.org.uk/object/3072441"
+      },
+      {
+        "title": "Virginia Woolf’s death duty record",
+        "citation": "The National Archives",
+        "url": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/virginia-woolf-death-duty-record/"
+      }
+    ]
+  },
+  {
+    "id": "entry_hatshepsut",
+    "slug": "hatshepsut",
+    "title": {
+      "zh": "哈特谢普苏特",
+      "en": "Hatshepsut"
+    },
+    "originalName": "Ḥꜣt-špswt",
+    "aliases": [],
+    "summary": {
+      "zh": "哈特谢普苏特起初为图特摩斯三世摄政，后来采用法老的王衔。",
+      "en": "Hatshepsut first served as regent for Thutmose III and later assumed royal titulary as pharaoh."
+    },
+    "body": {
+      "zh": "哈特谢普苏特起初为图特摩斯三世摄政，后来采用法老的王衔。她在底比斯西岸代尔拜赫里建造的神庙保存了不同时期的王室造像。\n\n神庙出土造像中，有的保留女性身体特征，有的采用传统男性法老的王冠、服饰与仪式姿态。大都会艺术博物馆的图录逐件说明这些造像的服饰与原有用途。",
+      "en": "Hatshepsut first served as regent for Thutmose III and later assumed royal titulary as pharaoh. Her temple at Deir el-Bahri on the west bank at Thebes preserves multiple forms of royal representation.\n\nSome statues retain feminine features, while others use the crowns, dress and ritual poses conventional for male pharaohs. The Met’s catalogue describes individual examples and their uses."
+    },
+    "time": {
+      "startYear": -1479,
+      "endYear": -1458,
+      "label": {
+        "zh": "约公元前1479至前1458年",
+        "en": "c. 1479 BCE–1458 BCE"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "代尔拜赫里，底比斯",
+        "en": "Deir el-Bahri, Thebes"
+      },
+      "countryName": {
+        "zh": "埃及",
+        "en": "Egypt"
+      },
+      "countryCode": "818",
+      "coordinates": {
+        "longitude": 32.61,
+        "latitude": 25.74
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Hatshepsut Wearing the khat Headdress",
+        "citation": "Metropolitan Museum of Art, object 547761",
+        "url": "https://www.metmuseum.org/art/collection/search/547761"
+      }
+    ]
+  },
+  {
+    "id": "entry_joan_of_arc",
+    "slug": "joan-of-arc",
+    "title": {
+      "zh": "圣女贞德",
+      "en": "Joan of Arc"
+    },
+    "originalName": "Jeanne d’Arc",
+    "aliases": [],
+    "summary": {
+      "zh": "贞德在百年战争中穿男装随军。",
+      "en": "Joan wore men’s clothing while travelling with the army during the Hundred Years’ War."
+    },
+    "body": {
+      "zh": "贞德在百年战争中穿男装随军。1431年，她在鲁昂受审，审讯者反复追问她何时开始穿这种衣服、为什么继续穿。\n\n在审讯记录中，衬衫、马裤和紧身上衣被逐项列出。她在狱中重新穿男装一事进入认定她重犯异端的程序。",
+      "en": "Joan wore men’s clothing while travelling with the army during the Hundred Years’ War. In 1431 her examiners at Rouen repeatedly asked when and why she adopted it.\n\nThe trial record lists garments including a shirt, breeches and doublet. Her resumption of men’s dress in prison became part of the proceedings that declared her a relapsed heretic."
+    },
+    "time": {
+      "startYear": 1429,
+      "endYear": 1431,
+      "label": {
+        "zh": "1429至1431年",
+        "en": "1429–1431"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "鲁昂",
+        "en": "Rouen"
+      },
+      "countryName": {
+        "zh": "法国",
+        "en": "France"
+      },
+      "countryCode": "250",
+      "coordinates": {
+        "longitude": 1.1,
+        "latitude": 49.44
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Trial Transcript: Reading of 70 Articles of Accusations and Joan’s Answers",
+        "citation": "27–28 March 1431, translated transcript",
+        "url": "https://famous-trials.com/the-trial-of-joan-of-arc-1431/2364-trial-transcript-reading-of-70-articles-of-accusations-and-joan-s-"
+      }
+    ]
+  },
+  {
+    "id": "entry_james_i_and_buckingham",
+    "slug": "james-i-and-buckingham",
+    "title": {
+      "zh": "詹姆斯一世与白金汉公爵",
+      "en": "James I and the Duke of Buckingham"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "乔治·维利尔斯在詹姆斯六世兼一世的宫廷中迅速获擢升，最终成为白金汉公爵。",
+      "en": "George Villiers rose quickly at the court of James VI and I, eventually becoming Duke of Buckingham."
+    },
+    "body": {
+      "zh": "乔治·维利尔斯在詹姆斯六世兼一世的宫廷中迅速获擢升，最终成为白金汉公爵。他与国王通信，信件涉及宫廷事务，也保留私人称呼。\n\n大英图书馆的哈利手稿同时收有詹姆斯写给王储查尔斯与维利尔斯的信，以及维利尔斯致国王的两封信，可查看这些通信如何留存在同一卷册中。",
+      "en": "George Villiers rose quickly at the court of James VI and I, eventually becoming Duke of Buckingham. His correspondence with the king combines affairs of court with personal forms of address.\n\nThe British Library’s Harley manuscript includes a letter from James to Prince Charles and Villiers and two letters from Villiers to the king, preserving their exchanges in the same volume."
+    },
+    "time": {
+      "startYear": 1614,
+      "endYear": 1625,
+      "label": {
+        "zh": "1614至1625年",
+        "en": "1614–1625"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "伦敦",
+        "en": "London"
+      },
+      "countryName": {
+        "zh": "英国",
+        "en": "United Kingdom"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -0.12,
+        "latitude": 51.51
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Harley MS 6987",
+        "citation": "British Library, ff. 15r–16v and 168r–170v",
+        "url": "https://searcharchives.bl.uk/catalog/040-002052841"
+      }
+    ]
+  },
+  {
+    "id": "entry_walt_whitman_calamus",
+    "slug": "walt-whitman-calamus",
+    "title": {
+      "zh": "沃尔特·惠特曼与《菖蒲》",
+      "en": "Walt Whitman and Calamus"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "1860年版《草叶集》收入《菖蒲》组诗，惠特曼在其中书写男性之间的亲近、分离与共同生活。",
+      "en": "Whitman included the Calamus cluster in the 1860 edition of Leaves of Grass, writing about closeness, separation and attachment between men."
+    },
+    "body": {
+      "zh": "1860年版《草叶集》收入《菖蒲》组诗，惠特曼在其中书写男性之间的亲近、分离与共同生活。\n\n内战之后，惠特曼在华盛顿与彼得·多伊尔相识。惠特曼档案的多伊尔条目把两人的交往与诗人所写的同伴之爱并读，并指出此后版本删改了部分诗篇。",
+      "en": "Whitman included the Calamus cluster in the 1860 edition of Leaves of Grass, writing about closeness, separation and attachment between men.\n\nAfter the Civil War Whitman met Peter Doyle in Washington. The Whitman Archive’s entry on Doyle reads their relationship alongside the poet’s love of comrades and notes changes to the cluster in later editions."
+    },
+    "time": {
+      "startYear": 1860,
+      "endYear": 1892,
+      "label": {
+        "zh": "1860至1892年",
+        "en": "1860–1892"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "华盛顿",
+        "en": "Washington, D.C."
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -77.03,
+        "latitude": 38.9
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Doyle, Peter (1843–1907)",
+        "citation": "The Walt Whitman Archive",
+        "url": "https://whitmanarchive.org/item/encyclopedia_entry3"
+      },
+      {
+        "title": "Leaves of Grass",
+        "citation": "Walt Whitman, digitized editions",
+        "url": "https://whitmanarchive.org/published/LG/"
+      }
+    ]
+  },
+  {
+    "id": "entry_garcia_lorca_dark_love",
+    "slug": "garcia-lorca-dark-love",
+    "title": {
+      "zh": "费德里科·加西亚·洛尔卡与《暗恋十四行诗》",
+      "en": "Federico García Lorca and the Sonnets of Dark Love"
+    },
+    "originalName": "Sonetos del amor oscuro",
+    "aliases": [],
+    "summary": {
+      "zh": "洛尔卡在生命最后两年写下这组十四行诗。",
+      "en": "Lorca wrote these sonnets during the last two years of his life."
+    },
+    "body": {
+      "zh": "洛尔卡在生命最后两年写下这组十四行诗。诗中说话者直接向恋人诉说等待、嫉妒和分离，书信、电话与夜晚反复进入诗句。\n\n作品在他去世后才广为流传。西班牙国家图书馆书目将其列为《暗恋十四行诗》，并标注1935至1936年的写作时间。",
+      "en": "Lorca wrote these sonnets during the last two years of his life. The speaker addresses a beloved about waiting, jealousy and separation, using images including letters, the telephone and night.\n\nThe poems circulated widely only after his death. Spain’s National Library catalogues them as Sonetos del amor oscuro, dating their composition to 1935–1936."
+    },
+    "time": {
+      "startYear": 1935,
+      "endYear": 1936,
+      "label": {
+        "zh": "1935至1936年",
+        "en": "1935–1936"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "西班牙（写作背景）",
+        "en": "Spain (writing context)"
+      },
+      "countryName": {
+        "zh": "西班牙",
+        "en": "Spain"
+      },
+      "countryCode": "724",
+      "coordinates": {
+        "longitude": -3.7,
+        "latitude": 40.42
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Sonetos del amor oscuro (1935–1936)",
+        "citation": "Biblioteca Nacional de España",
+        "url": "https://datos.bne.es/edicion/a5516005"
+      }
+    ]
+  },
+  {
+    "id": "entry_frida_kahlo",
+    "slug": "frida-kahlo",
+    "title": {
+      "zh": "弗里达·卡罗",
+      "en": "Frida Kahlo"
+    },
+    "originalName": "Frida Kahlo",
+    "aliases": [],
+    "summary": {
+      "zh": "卡罗在墨西哥城科约阿坎生活和作画。",
+      "en": "Kahlo lived and painted in Coyoacán, Mexico City."
+    },
+    "body": {
+      "zh": "卡罗在墨西哥城科约阿坎生活和作画。她经常以自己的身体为题，将伤痛、服饰与亲密关系画进自画像。\n\n她写给摄影师尼古拉斯·默雷的信保留了两人的交往，也写到旅行和展览时期的生活。史密森学会的档案展览将通信、照片及其他材料并列呈现。",
+      "en": "Kahlo lived and painted in Coyoacán, Mexico City. Her self-portraits often use her own body to depict pain, clothing and intimate relationships.\n\nHer letters to photographer Nickolas Muray preserve their relationship and describe life during travel and exhibitions. The Smithsonian’s archival exhibition brings together letters, photographs and other material."
+    },
+    "time": {
+      "startYear": 1907,
+      "endYear": 1954,
+      "label": {
+        "zh": "1907至1954年",
+        "en": "1907–1954"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "科约阿坎，墨西哥城",
+        "en": "Coyoacán, Mexico City"
+      },
+      "countryName": {
+        "zh": "墨西哥",
+        "en": "Mexico"
+      },
+      "countryCode": "484",
+      "coordinates": {
+        "longitude": -99.16,
+        "latitude": 19.35
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Frida Kahlo: Notas Sobre una Vida / Notes on a Life",
+        "citation": "Smithsonian Archives of American Art",
+        "url": "https://www.si.edu/spotlight/frida-kahlo"
+      }
+    ]
+  },
+  {
+    "id": "entry_alan_turing",
+    "slug": "alan-turing",
+    "title": {
+      "zh": "艾伦·图灵",
+      "en": "Alan Turing"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "1952年，图灵因与男性发生性关系被判严重猥亵罪。",
+      "en": "In 1952 Turing was convicted of gross indecency for a sexual relationship with a man."
+    },
+    "body": {
+      "zh": "1952年，图灵因与男性发生性关系被判严重猥亵罪。他在缓刑期间接受激素治疗。此时他已发表关于可计算性、密码分析和机器智能的研究。\n\n图灵于1954年去世。2013年，英国政府公布对这项判决的皇家赦免。",
+      "en": "In 1952 Turing was convicted of gross indecency for a sexual relationship with a man. He underwent hormone treatment as a condition of probation. By then he had made contributions to computability, cryptanalysis and machine intelligence.\n\nTuring died in 1954. In 2013 the British government announced a royal pardon for the conviction."
+    },
+    "time": {
+      "startYear": 1952,
+      "endYear": 1954,
+      "label": {
+        "zh": "1952至1954年",
+        "en": "1952–1954"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "曼彻斯特地区",
+        "en": "Manchester area"
+      },
+      "countryName": {
+        "zh": "英国",
+        "en": "United Kingdom"
+      },
+      "countryCode": "826",
+      "coordinates": {
+        "longitude": -2.24,
+        "latitude": 53.48
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Royal pardon for WW2 code-breaker Dr Alan Turing",
+        "citation": "UK Ministry of Justice, 2013",
+        "url": "https://www.gov.uk/government/news/royal-pardon-for-ww2-code-breaker-dr-alan-turing"
+      },
+      {
+        "title": "Alan Turing",
+        "citation": "GCHQ biography",
+        "url": "https://www.gchq.gov.uk/information/alan-turing"
+      }
+    ]
+  },
+  {
+    "id": "entry_christine_jorgensen",
+    "slug": "christine-jorgensen",
+    "title": {
+      "zh": "克里斯汀·乔根森",
+      "en": "Christine Jorgensen"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "乔根森曾在美国陆军服役，1950年代初赴丹麦，在哥本哈根接受激素治疗和手术。",
+      "en": "Jorgensen had served in the US Army before travelling to Denmark in the early 1950s for hormone treatment and surgery."
+    },
+    "body": {
+      "zh": "乔根森曾在美国陆军服役，1950年代初赴丹麦，在哥本哈根接受激素治疗和手术。她还在当地时，美国报纸就于1952年将她的经历登上头版。\n\n随后，她回到美国并登台演出。1967年出版的自传以她自己的叙述回顾赴丹麦与成为公众人物的过程。",
+      "en": "Jorgensen had served in the US Army before travelling to Denmark in the early 1950s for hormone treatment and surgery. While she was still there, an American newspaper put her story on its front page in 1952.\n\nShe later returned to the United States and worked as a performer. Her 1967 autobiography recounts the journey to Denmark and her emergence as a public figure in her own words."
+    },
+    "time": {
+      "startYear": 1950,
+      "endYear": 1967,
+      "label": {
+        "zh": "1950至1967年",
+        "en": "1950–1967"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "哥本哈根（就医地）",
+        "en": "Copenhagen (site of medical care)"
+      },
+      "countryName": {
+        "zh": "丹麦",
+        "en": "Denmark"
+      },
+      "countryCode": "208",
+      "coordinates": {
+        "longitude": 12.57,
+        "latitude": 55.68
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "From GI Joe to GI Jane: Christine Jorgensen’s Story",
+        "citation": "The National WWII Museum",
+        "url": "https://www.nationalww2museum.org/war/articles/christine-jorgensen"
+      },
+      {
+        "title": "Christine Jorgensen: A Personal Autobiography",
+        "citation": "Christine Jorgensen, Paul S. Eriksson, 1967"
+      }
+    ]
+  },
+  {
+    "id": "entry_james_baldwin_giovannis_room",
+    "slug": "james-baldwin-giovannis-room",
+    "title": {
+      "zh": "詹姆斯·鲍德温与《乔瓦尼的房间》",
+      "en": "James Baldwin and Giovanni’s Room"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "鲍德温1956年的小说让美国人戴维在巴黎回顾自己与乔瓦尼的关系。",
+      "en": "In Baldwin’s 1956 novel, David, an American in Paris, recalls his relationship with Giovanni."
+    },
+    "body": {
+      "zh": "鲍德温1956年的小说让美国人戴维在巴黎回顾自己与乔瓦尼的关系。乔瓦尼租住的房间既是两人相处的地点，也是戴维回忆这段关系时反复回到的空间。\n\n纽约公共图书馆收藏小说的出版用手稿，包括编辑痕迹和卷首材料。卷宗提供了从写作到出版的实物线索。",
+      "en": "In Baldwin’s 1956 novel, David, an American in Paris, recalls his relationship with Giovanni. Giovanni’s rented room is where they live together and the place to which David repeatedly returns in memory.\n\nThe New York Public Library holds the publisher’s manuscript with editorial markings and front matter, documenting the work’s passage into print."
+    },
+    "time": {
+      "startYear": 1956,
+      "endYear": 1956,
+      "label": {
+        "zh": "1956年",
+        "en": "1956"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约",
+        "en": "New York City"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -74,
+        "latitude": 40.73
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "James Baldwin Papers",
+        "citation": "NYPL Schomburg Center, Giovanni’s Room manuscript, box 14",
+        "url": "https://nyplorg-data-archives.s3.amazonaws.com/uploads/collection/pdf_finding_aid/James_Baldwin_Papers_finding_aid_AP__4_.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_marsha_p_johnson",
+    "slug": "marsha-p-johnson",
+    "title": {
+      "zh": "玛莎·P·约翰逊",
+      "en": "Marsha P. Johnson"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "约翰逊在纽约格林尼治村生活，参与石墙起义后兴起的组织活动。",
+      "en": "Johnson lived in Greenwich Village and took part in organizing after Stonewall."
+    },
+    "body": {
+      "zh": "约翰逊在纽约格林尼治村生活，参与石墙起义后兴起的组织活动。她和西尔维娅·里韦拉共同创办 STAR，为无家可归的年轻人提供住处和相互照顾。\n\n1989年，约翰逊与兰迪·威克接受埃里克·马库斯采访。录音保存了她谈及石墙当晚的所见，以及她后来在纽约的生活。",
+      "en": "Johnson lived in Greenwich Village and took part in organizing after Stonewall. With Sylvia Rivera she co-founded STAR, which provided housing and mutual support for young people without homes.\n\nIn 1989 Johnson and Randy Wicker spoke to Eric Marcus. The recording preserves her recollections of what she saw on the night of Stonewall and her later life in New York."
+    },
+    "time": {
+      "startYear": 1969,
+      "endYear": 1992,
+      "label": {
+        "zh": "1969至1992年",
+        "en": "1969–1992"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约",
+        "en": "New York City"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -74,
+        "latitude": 40.73
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Marsha P. Johnson & Randy Wicker",
+        "citation": "Eric Marcus oral history, recorded 1989",
+        "url": "https://makinggayhistory.org/podcast/stonewall-50-minisode-1-marsha-p-johnson-randy-wicker/"
+      }
+    ]
+  },
+  {
+    "id": "entry_audre_lorde_zami",
+    "slug": "audre-lorde-zami",
+    "title": {
+      "zh": "奥德丽·洛德与《Zami》",
+      "en": "Audre Lorde and Zami"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "洛德在《Zami》中写自己在纽约成长、工作和寻找伴侣的经历。",
+      "en": "In Zami, Lorde recounts growing up, working and seeking companionship in New York."
+    },
+    "body": {
+      "zh": "洛德在《Zami》中写自己在纽约成长、工作和寻找伴侣的经历。她借叙事写回那些在不同时期给她照顾、友谊与爱的人。\n\n她以「生平神话」（biomythography）描述这种写法。斯佩尔曼学院收藏她的文稿和通信，可与这部1982年出版的作品一同查阅。",
+      "en": "In Zami, Lorde recounts growing up, working and seeking companionship in New York. The narrative remembers women whose care, friendship and love shaped different years of her life.\n\nShe describes this form of life writing as biomythography. Spelman College holds her papers and correspondence, which can be consulted alongside the book published in 1982."
+    },
+    "time": {
+      "startYear": 1982,
+      "endYear": 1982,
+      "label": {
+        "zh": "1982年",
+        "en": "1982"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约",
+        "en": "New York City"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -74,
+        "latitude": 40.73
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Audre Lorde Papers",
+        "citation": "Spelman College Archives",
+        "url": "https://www.spelman.edu/about/archives/collections/audre-lorde-papers.html"
+      },
+      {
+        "title": "Zami: A New Spelling of My Name",
+        "citation": "Audre Lorde, Crossing Press, 1982"
+      }
+    ]
+  },
+  {
+    "id": "entry_leslie_cheung",
+    "slug": "leslie-cheung",
+    "title": {
+      "zh": "张国荣",
+      "en": "Leslie Cheung"
+    },
+    "originalName": "張國榮",
+    "aliases": [],
+    "summary": {
+      "zh": "张国荣在香港从事音乐和电影表演。",
+      "en": "Leslie Cheung worked in music and cinema in Hong Kong."
+    },
+    "body": {
+      "zh": "张国荣在香港从事音乐和电影表演。1997年，他在王家卫导演的《春光乍泄》中饰演何宝荣，与梁朝伟饰演的黎耀辉在布宜诺斯艾利斯反复分合。\n\n舞台演出也是其档案的一部分。香港文化博物馆的展览汇集唱片、演出资料及由唐鹤德提供的私人收藏，从音乐和电影两方面呈现他的职业生涯。",
+      "en": "Leslie Cheung worked in music and cinema in Hong Kong. In Wong Kar-wai’s Happy Together (1997), he plays Ho Po-wing, whose relationship with Lai Yiu-fai, played by Tony Leung, repeatedly breaks and resumes in Buenos Aires.\n\nHis stage work is also part of the archive. The Hong Kong Heritage Museum exhibition brings together recordings, performance material and items lent from Daffy Tong’s private collection, documenting his work in music and film."
+    },
+    "time": {
+      "startYear": 1956,
+      "endYear": 2003,
+      "label": {
+        "zh": "1956至2003年",
+        "en": "1956–2003"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "香港",
+        "en": "Hong Kong"
+      },
+      "countryName": {
+        "zh": "中国",
+        "en": "China"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 114.17,
+        "latitude": 22.32
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Miss You Much · Leslie",
+        "citation": "Hong Kong Heritage Museum exhibition",
+        "url": "https://www.heritagemuseum.gov.hk/en/exhibitions/leslie70th.html"
+      },
+      {
+        "title": "春光乍泄 / Happy Together",
+        "citation": "Wong Kar-wai, 1997"
+      }
+    ]
   }
 ];
