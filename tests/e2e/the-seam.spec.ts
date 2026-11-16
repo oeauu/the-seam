@@ -257,19 +257,10 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.locator(".seam-subregion-chip").nth(1).click();
     await expect(page.locator(".seam-2d-nameplate")).toHaveCount(1);
     await page.locator(".seam-subregion-chip").first().click();
-    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(4);
+    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(5);
   });
 
   test("renders gold pending badges beside info and supports interactive draft submission", async ({ page }) => {
-    await page.getByRole("button", { name: "档案索引与搜索" }).click();
-    const filterBtn = page.locator(".seam-pending-filter-btn");
-    await expect(filterBtn).toContainText("地点与事件待考");
-    await filterBtn.click();
-    await expect(page.locator(".seam-index-item .seam-pending-tag").first()).toHaveText("地点与事件待考证");
-    await page.locator(".seam-index-item-btn").first().click();
-    await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");
-    await page.locator(".seam-record-close-btn").click();
-
     await page.locator(".seam-nav-btn-submit").click();
     const modal = page.locator(".seam-modal-content");
     await expect(modal.locator("#submit-title")).toHaveText("向 The Seam 投稿");
@@ -303,5 +294,15 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await modal.getByRole("button", { name: "在档案中查看并定位" }).click();
     await expect(page.locator(".seam-record-panel .seam-record-title")).toHaveText("清代徽州契约文献待考录");
     await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");
+    await page.locator(".seam-record-close-btn").click();
+
+    await page.getByRole("button", { name: "档案索引与搜索" }).click();
+    const filterBtn = page.locator(".seam-pending-filter-btn");
+    await expect(filterBtn).toContainText("地点与事件待考 (1)");
+    await filterBtn.click();
+    await expect(page.locator(".seam-index-item .seam-pending-tag").first()).toHaveText("地点与事件待考证");
+    await page.locator(".seam-index-item-btn").first().click();
+    await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");
+    await page.locator(".seam-record-close-btn").click();
   });
 });

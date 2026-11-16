@@ -40,16 +40,22 @@ afterEach(() => {
 });
 
 describe("Completion regressions", () => {
-  it("preserves old record URLs and the complete original event drafts", () => {
+  it("preserves old record URLs and resolves verified vs. unsubstantiated legacy drafts", () => {
     expect(findRecord("entry-thomas-hall")?.slug).toBe("thomas-hall");
     expect(findRecord("entry-sappho")?.slug).toBe("sappho");
-    expect(ALL_RECORDS.filter(record => record.id.startsWith("event-"))).toHaveLength(16);
+    expect(ALL_RECORDS.filter(record => record.id.startsWith("event-"))).toHaveLength(0);
     expect(ALL_RECORDS.some(record => record.title.zh === "数字博物馆时空地图上线")).toBe(false);
-    expect(ALL_RECORDS.filter(record => record.id.startsWith("event-")).every(record => record.place.coordinates === null && record.time.startYear === null)).toBe(true);
-    const pendingEvent = ALL_RECORDS.find(record => record.id.startsWith("event-"));
+    expect(ALL_RECORDS.some(record => record.title.zh === "史前石刻与身体象征")).toBe(false);
+    expect(ALL_RECORDS.some(record => record.title.zh === "汉高祖定都长安")).toBe(false);
+    for (const slug of ["hadrian-antinous", "athenian-symposium", "michelangelo-cavalieri", "fujian-qixiong-qidi"]) {
+      const rec = findRecord(slug);
+      expect(rec).toBeDefined();
+      expect(rec?.place.coordinates).not.toBeNull();
+      expect(rec?.time.startYear).not.toBeNull();
+      expect(rec ? getPendingVerificationLabel(rec, "zh") : "pending").toBeNull();
+    }
     const verifiedEntry = findRecord("thomas-hall");
     const lanling = findRecord("lanling-wang");
-    expect(pendingEvent && getPendingVerificationLabel(pendingEvent, "zh")).toBe("地点与事件待考证");
     expect(verifiedEntry && getPendingVerificationLabel(verifiedEntry, "zh")).toBeNull();
     expect(lanling && getRecordOtherNames(lanling, "zh")).toBe("高肃、兰陵武王、面具将军");
     expect(lanling && getRecordOtherNames(lanling, "zh")).not.toContain("Prince of Lanling");

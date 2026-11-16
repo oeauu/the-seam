@@ -881,5 +881,292 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "citation": "Columbia University Press"
       }
     ]
+  },
+  {
+    "id": "entry_hadrian_antinous",
+    "slug": "hadrian-antinous",
+    "title": {
+      "en": "Hadrian and Antinous",
+      "zh": "哈德良与安提诺乌斯"
+    },
+    "originalName": "Hadrianus & Ἀντίνοος",
+    "aliases": [
+      "Deification of Antinous",
+      "Antinoöpolis",
+      "安提诺乌斯神格化",
+      "安提诺乌波利斯"
+    ],
+    "summary": {
+      "en": "Roman Emperor Hadrian's young companion from Bithynia, whose drowning in the Nile in 130 CE prompted empire-wide deification and cult temples.",
+      "zh": "罗马帝国哈德良在位时期的比提尼亚少年随从，公元130年溺亡于尼罗河后被帝国立庙神格化。"
+    },
+    "body": {
+      "en": "Born in Claudiopolis in Bithynia, Antinous joined the entourage of Emperor Hadrian (r. 117–138 CE) in the 120s and accompanied him during the imperial tour of Egypt in October 130 CE, when Antinous drowned in the Nile. Hadrian founded the city of Antinoöpolis near the site, issued commemorative coinage, and established hero and divine cults across Greece, Egypt, and Italy.\n\nAncient writers such as Cassius Dio (Roman History, Book 69) and the fourth-century Historia Augusta record conflicting rumors—ranging from accidental drowning to voluntary ritual self-sacrifice (devotio) to prolong Hadrian's life. Modern classical historians generally treat accidental drowning as the most probable cause, noting that cultic narratives arose retrospectively around the emperor's public mourning.",
+      "zh": "安提诺乌斯生于小亚细亚比提尼亚的克劳狄乌波利斯，约公元2世纪20年代成为罗马皇帝哈德良（公元117–138年在位）的随行伴侣。公元130年10月哈德良巡幸埃及时，安提诺乌斯在尼罗河溺亡。哈德良随即在当地兴建安提诺乌波利斯城，发行纪念币，并在罗马、希腊与埃及各地建立神庙、祭司与雕塑崇拜。\n\n关于其溺亡原因，卡西乌斯·狄奥《罗马史》与《罗马帝王纪》载有多种流传说法，既提及失足落水，也传为祈福替死的仪式献祭。现代古典学界主流观点认为，意外溺水最为符合常理，所谓神圣献祭或宫廷秘术多为事后围绕帝国追封崇拜产生的追认叙事。"
+    },
+    "time": {
+      "startYear": 130,
+      "endYear": 138,
+      "label": {
+        "en": "130 – 138 CE",
+        "zh": "公元130年 – 138年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Rome, Italy",
+        "zh": "罗马（意大利）"
+      },
+      "countryName": {
+        "en": "Italy",
+        "zh": "意大利"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 12.4964,
+        "latitude": 41.9028
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Surviving literary accounts (Cassius Dio, Historia Augusta) reflect later imperial gossip; archaeological inscriptions and coinage confirm the rapid spread of Antinous' cult across the eastern Mediterranean.",
+      "zh": "文学记述主要出自晚近罗马史家传闻，而安提诺乌波利斯遗址、铭文与纪念钱币则确证了帝国官方对安提诺乌斯的迅速神格化。"
+    },
+    "sources": [
+      {
+        "title": "Roman History (Book 69.11)",
+        "author": "Cassius Dio",
+        "year": "c. 229 CE",
+        "citation": "Loeb Classical Library"
+      },
+      {
+        "title": "Historia Augusta: Life of Hadrian (14.5–7)",
+        "author": "Anonymous",
+        "year": "4th century CE"
+      },
+      {
+        "title": "Beloved and God: The Story of Hadrian and Antinous",
+        "author": "Royston Lambert",
+        "year": 1984,
+        "citation": "Weidenfeld & Nicolson, London"
+      }
+    ]
+  },
+  {
+    "id": "entry_athenian_symposium",
+    "slug": "athenian-symposium",
+    "title": {
+      "en": "Plato's Symposium & Athenian Bonds",
+      "zh": "雅典《会饮篇》与城邦同性爱欲"
+    },
+    "originalName": "Συμπόσιον",
+    "aliases": [
+      "Classical Athenian Symposium",
+      "Erastes and Eromenos",
+      "柏拉图《会饮篇》",
+      "古希腊同性爱欲"
+    ],
+    "summary": {
+      "en": "Fourth-century BCE Athenian philosophical dialogues, notably Plato's Symposium, examining social norms and debates around male same-sex courtship.",
+      "zh": "公元前4世纪雅典哲学文献（以柏拉图《会饮篇》为代表），反映古典希腊城邦对男性同性爱欲的规范与争论。"
+    },
+    "body": {
+      "en": "During the late Archaic and Classical periods in Athens, male aristocratic circles institutionalized structured courtship between an older citizen (erastes) and an adolescent youth (eromenos), regulated by civic expectations around education, honor, and restraint. Written around 385–370 BCE, Plato's Symposium sets a banquet conversation in which Athenian speakers offer competing speeches on the nature of Eros—including Aristophanes' myth of divided human halves and Socrates' ascent from bodily attraction to beauty itself.\n\nBecause surviving Attic texts come largely from elite philosophical, comic, and forensic sources rather than everyday voices, historians debate how widely these courtship norms applied beyond aristocratic gymnasia and symposia. Modern scholarship generally agrees that Classical Athens treated same-sex attraction as an accepted facet of male civic life when governed by status and reciprocity rules, while sharply scrutinizing acts seen as compromising citizen autonomy.",
+      "zh": "古风晚期至古典时代的雅典贵族社交圈中，曾形成成年公民（爱者，erastes）与青年（被爱者，eromenos）之间的求爱与师友礼俗，受荣誉感、公民身份与克制原则约束。约成书于公元前385年至前370年的柏拉图《会饮篇》，借雅典文人宴饮对话探讨“爱欲”（Eros），包括阿里斯托芬“人本双体、被剖分后各自寻觅另一半”的著名寓言及苏格拉底“从形体之美走向理念之美”的阐发。\n\n由于现存古典文献多出自精英哲学家、喜剧诗人或法庭演说辞，学界对这一礼俗在普通公民与各城邦间的普及程度仍有不同估计。当代古典史主流看法认为，雅典社会在一定身份与克制边界内认可男性同性爱慕，但对越过公民自律界线的关系则持严格批判。"
+    },
+    "time": {
+      "startYear": -385,
+      "endYear": -370,
+      "label": {
+        "en": "Classical Athens (c. 385 – 370 BCE)",
+        "zh": "古典雅典（约公元前385年 – 前370年）"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Athens, Greece",
+        "zh": "雅典（古希腊）"
+      },
+      "countryName": {
+        "en": "Greece",
+        "zh": "希腊"
+      },
+      "countryCode": "300",
+      "coordinates": {
+        "longitude": 23.7275,
+        "latitude": 37.9838
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "historiographyNote": {
+      "en": "Attic philosophical dialogues and forensic speeches preserve elite civic ideology; historians note differences across Greek poleis and social classes.",
+      "zh": "现存雅典哲学与演说文本主要反映精英公民观念，各希腊城邦及不同阶层之间的习俗存在差异。"
+    },
+    "sources": [
+      {
+        "title": "Symposium (Συμπόσιον)",
+        "author": "Plato",
+        "year": "c. 385–370 BCE"
+      },
+      {
+        "title": "Greek Homosexuality",
+        "author": "Kenneth J. Dover",
+        "year": 1978,
+        "citation": "Harvard University Press"
+      },
+      {
+        "title": "The Greeks and Greek Love",
+        "author": "James Davidson",
+        "year": 2007,
+        "citation": "Weidenfeld & Nicolson"
+      }
+    ]
+  },
+  {
+    "id": "entry_michelangelo_cavalieri",
+    "slug": "michelangelo-cavalieri",
+    "title": {
+      "en": "Michelangelo & Tommaso dei Cavalieri",
+      "zh": "米开朗基罗与卡瓦列里诗稿"
+    },
+    "originalName": "Michelangelo Buonarroti & Tommaso dei Cavalieri",
+    "aliases": [
+      "Rime (1623)",
+      "Sonnets to Cavalieri",
+      "米开朗基罗十四行诗",
+      "卡瓦列里"
+    ],
+    "summary": {
+      "en": "Renaissance artist Michelangelo Buonarroti's love sonnets, letters, and drawings addressed to Roman nobleman Tommaso dei Cavalieri from 1532 onward.",
+      "zh": "文艺复兴艺术家米开朗基罗自1532年起写给罗马贵族青年托马索·卡瓦列里的情诗、信札与神话素描手稿。"
+    },
+    "body": {
+      "en": "In 1532 in Rome, the fifty-seven-year-old Michelangelo Buonarroti met the young Roman nobleman Tommaso dei Cavalieri, beginning a lifelong devotion documented in dozens of lyric sonnets, letters, and presentation drawings such as The Rape of Ganymede. When Michelangelo's grandnephew published the first printed edition of his poetry (Rime) in 1623, he altered masculine pronouns to feminine ones to obscure the male addressee.\n\nIn 1893, scholar John Addington Symonds examined the surviving Buonarroti family manuscripts in Florence and restored the original masculine grammar. While earlier commentators debated whether the verses were purely allegorical Neoplatonic exercises, modern art and literary historians generally conclude that the poems fuse Renaissance Neoplatonic philosophy with genuine romantic and homoerotic passion toward Cavalieri.",
+      "zh": "1532年，五十七岁的米开朗基罗在罗马结识年轻贵族托马索·卡瓦列里，此后为其创作了数十首十四行诗、书信以及《加尼米德被劫》等赠画素描。1623年，米开朗基罗的侄孙首次刊印其《诗集》（Rime）时，将诗稿中原有的男性人称代词批量篡改为女性，以回避反宗教改革时期的社会压力，这一改动版本沿用了两百余年。\n\n1893年，英国学者约翰·阿丁顿·西蒙兹在佛罗伦萨博纳罗蒂家族藏馆核对原始手稿后，恢复了原本的男性称谓。早期研究曾争论这些诗句究竟属于抽象的新柏拉图主义精神操练还是世俗情诗；当代艺术史与文学史界主流普遍认为，诗稿将文艺复兴新柏拉图主义哲思与米开朗基罗对卡瓦列里真实的同性爱恋融为一体。"
+    },
+    "time": {
+      "startYear": 1532,
+      "endYear": 1564,
+      "label": {
+        "en": "1532 – 1564 CE",
+        "zh": "1532年 – 1564年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Rome, Italy",
+        "zh": "罗马（意大利）"
+      },
+      "countryName": {
+        "en": "Italy",
+        "zh": "意大利"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 12.4964,
+        "latitude": 41.9028
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Original manuscripts at Casa Buonarroti establish the masculine addressees directly, correcting the 1623 printed alterations.",
+      "zh": "佛罗伦萨博纳罗蒂之家现存亲笔手稿已充分证实原本的男性倾诉对象，订正了1623年刊本的代词篡改。"
+    },
+    "sources": [
+      {
+        "title": "Rime (Original Manuscripts, Casa Buonarroti, Florence)",
+        "author": "Michelangelo Buonarroti",
+        "year": "1532–1564"
+      },
+      {
+        "title": "The Life of Michelangelo Buonarroti",
+        "author": "John Addington Symonds",
+        "year": 1893,
+        "citation": "John C. Nimmo, London"
+      },
+      {
+        "title": "The Poetry of Michelangelo: An Annotated Translation",
+        "author": "James M. Saslow",
+        "year": 1991,
+        "citation": "Yale University Press"
+      }
+    ]
+  },
+  {
+    "id": "entry_fujian_qixiong_qidi",
+    "slug": "fujian-qixiong-qidi",
+    "title": {
+      "en": "Fujian Qixiong-Qidi Partnerships",
+      "zh": "晚明福建“契兄契弟”习俗"
+    },
+    "originalName": "契兄契弟",
+    "aliases": [
+      "Qixiong Qidi",
+      "Sworn Brotherhood of Fujian",
+      "契兄弟",
+      "闽地契兄弟"
+    ],
+    "summary": {
+      "en": "Contractual male same-sex partnerships in late Ming coastal Fujian, documented in 17th-century literati miscellanies by Shen Defu and Xie Zhaozhe.",
+      "zh": "见载于沈德符、谢肇淛等晚明文人笔记的福建男子契约伴侣习俗，双方互致聘礼并共同生活。"
+    },
+    "body": {
+      "en": "In his early seventeenth-century miscellany Wanli Yehuo Bian, Ming scholar-official Shen Defu recorded that men along coastal Fujian entered formalized bonds known as qixiong ('pledged elder brother') and qidi ('pledged younger brother'). According to Shen and Fujian writer Xie Zhaozhe (Wu Zazu, c. 1609), the elder partner presented betrothal-style gifts to the younger man's parents, lived alongside him as a family member, and sometimes later helped finance the younger partner's marriage to a woman.\n\nBecause surviving descriptions come from Jiangnan and Fujian literati essays rather than household contracts or court petitions, historians note the presence of regional stereotyping and moralizing rhetoric in the sources. Mainstream scholarship nevertheless treats qixiong-qidi as a historically documented local institution of same-sex domestic partnership that coexisted with Confucian family reproduction.",
+      "zh": "晚明士人沈德符在《万历野获编》补遗中记载，万历年间福建民间流行男子结为“契兄”“契弟”之俗：双方家长相见行礼，契兄向契弟家馈赠聘礼并如同女婿般往来，二人同寝共居，待契弟日后娶妻时还往往由契兄出资操办。同时代闽籍文人谢肇淛《五杂俎》等笔记亦记述闽中及江南盛行此风。\n\n目前关于“契兄弟”的记述主要出自士大夫笔记与明清小说，暂未见完整的民间立契原件存世。明清社会史学界主流认为，这并非单纯的文学夸饰，而是晚明东南沿海地方社会中真实存在的男子契约伴侣习俗，并与传宗接代的正统婚姻并存，同时需注意文人书写中所带有的地方猎奇与评判色彩。"
+    },
+    "time": {
+      "startYear": 1570,
+      "endYear": 1644,
+      "label": {
+        "en": "Late Ming Dynasty (c. 1570 – 1644)",
+        "zh": "晚明时期（约1570年 – 1644年）"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Fuzhou, Fujian, China",
+        "zh": "福州（福建沿海）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 119.3062,
+        "latitude": 26.0753
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "historiographyNote": {
+      "en": "Known through late Ming literati miscellanies (Wanli Yehuo Bian, Wu Zazu) and seventeenth-century vernacular fiction rather than extant legal deeds.",
+      "zh": "主要依据沈德符《万历野获编》、谢肇淛《五杂俎》等晚明笔记与同时代小说，现暂未见民间立契原件。"
+    },
+    "sources": [
+      {
+        "title": "万历野获编（补遗卷三·契兄弟）",
+        "author": "沈德符",
+        "year": "1619年"
+      },
+      {
+        "title": "五杂俎（卷八）",
+        "author": "谢肇淛",
+        "year": "1609年"
+      },
+      {
+        "title": "The Male Queen: Boy Actors and Literati Libertines",
+        "author": "Sophie Volpp",
+        "year": 2001,
+        "citation": "Journal of Asian Studies 60, no. 2"
+      }
+    ]
   }
 ];

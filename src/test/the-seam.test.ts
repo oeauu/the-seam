@@ -12,7 +12,7 @@ import { parseRoute, buildRoutePath } from "../state/routing";
 
 describe("The Seam - Data & Taxonomy Constraints", () => {
   it("contains vetted records with no modern taxonomy labels", () => {
-    expect(ARCHIVE_RECORDS.length).toBeGreaterThanOrEqual(13);
+    expect(ARCHIVE_RECORDS.length).toBeGreaterThanOrEqual(17);
 
     ARCHIVE_RECORDS.forEach((record) => {
       // Must have clean ID and slug
@@ -55,14 +55,13 @@ describe("The Seam - Data & Taxonomy Constraints", () => {
     expect(hall?.historiographyNote).toBeDefined();
   });
 
-  it("includes held records in reviewQueue with explicit hold reasons and citations", () => {
-    expect(PENDING_REVIEW_QUEUE.length).toBeGreaterThanOrEqual(7);
-    PENDING_REVIEW_QUEUE.forEach((entry) => {
-      expect(entry.id).toBeTruthy();
-      expect(entry.holdReason.en).toBeTruthy();
-      expect(entry.holdReason.zh).toBeTruthy();
-      expect(entry.source.en).toBeTruthy();
-    });
+  it("resolves legacy reviewQueue entries cleanly with vetted records promoted and unverified claims removed", () => {
+    expect(PENDING_REVIEW_QUEUE).toHaveLength(0);
+    for (const slug of ["hadrian-antinous", "athenian-symposium", "michelangelo-cavalieri", "fujian-qixiong-qidi"]) {
+      const entry = ARCHIVE_RECORDS.find((r) => r.slug === slug);
+      expect(entry).toBeDefined();
+      expect(entry?.sources.length).toBeGreaterThan(0);
+    }
   });
 
   it("includes bilingual country metadata for relevant countries", () => {
