@@ -18,8 +18,11 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
   useEffect(() => {
     if (!recordId) return;
 
-    // Focus panel on open
-    panelRef.current?.focus();
+    // Reset scroll position and focus panel on open
+    if (panelRef.current) {
+      panelRef.current.scrollTop = 0;
+      panelRef.current.focus();
+    }
 
     setCopied(false);
     setCopyFailed(false);
@@ -70,17 +73,17 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
         aria-labelledby="record-title"
         tabIndex={-1}
       >
-        {/* Header */}
-        <header className="seam-record-header">
-          <div className="seam-record-header-meta">
-            <div className="seam-record-kicker-group">
-              <span className="seam-record-kicker">
-                {language === "zh" ? "The Seam · 历史档案" : "The Seam · Historical Record"}
-              </span>
-              {pendingLabel && (
-                <span className="seam-pending-tag">{pendingLabel}</span>
-              )}
-            </div>
+        {/* Slim Sticky Action Bar */}
+        <div className="seam-record-topbar">
+          <div className="seam-record-kicker-group">
+            <span className="seam-record-kicker">
+              {language === "zh" ? "The Seam · 历史档案" : "The Seam · Historical Record"}
+            </span>
+            {pendingLabel && (
+              <span className="seam-pending-tag">{pendingLabel}</span>
+            )}
+          </div>
+          <div className="seam-record-topbar-actions">
             <button
               type="button"
               className="seam-record-share-btn"
@@ -91,13 +94,6 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
                 ? (language === "zh" ? "✓ 已复制链接" : "✓ Copied")
                 : (language === "zh" ? "分享链接" : "Share URL")}
             </button>
-          </div>
-          {copyFailed && <p role="status"><a href={`/record/${encodeURIComponent(record.slug)}`}>{language === "zh" ? "复制失败，可手动复制此档案链接" : "Copy failed; copy this permalink manually"}</a></p>}
-
-          <div className="seam-record-title-row">
-            <h1 id="record-title" className="seam-record-title">
-              {title}
-            </h1>
             <button
               type="button"
               className="seam-record-close-btn"
@@ -107,6 +103,15 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               ×
             </button>
           </div>
+        </div>
+
+        {/* Scrollable Document Header */}
+        <header className="seam-record-header">
+          {copyFailed && <p className="seam-copy-fallback" role="status"><a href={`/record/${encodeURIComponent(record.slug)}`}>{language === "zh" ? "复制失败，可手动复制此档案链接" : "Copy failed; copy this permalink manually"}</a></p>}
+
+          <h1 id="record-title" className="seam-record-title">
+            {title}
+          </h1>
 
           <p className="seam-record-deck">{summary}</p>
         </header>
@@ -130,7 +135,12 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
         {/* Spatial and Temporal Anchor Strip */}
         <div className="seam-record-meta-strip">
           <div className="seam-meta-block">
-            <span className="seam-meta-icon" aria-hidden="true">⏱</span>
+            <span className="seam-meta-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 14" />
+              </svg>
+            </span>
             <div className="seam-meta-content">
               <span className="seam-meta-label">
                 {language === "zh" ? "历史时期" : "Temporal Period"}
@@ -142,7 +152,12 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
           </div>
 
           <div className="seam-meta-block">
-            <span className="seam-meta-icon" aria-hidden="true">📍</span>
+            <span className="seam-meta-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 21s-6-5.3-6-10.5a6 6 0 1 1 12 0C18 15.7 12 21 12 21z" />
+                <circle cx="12" cy="10.5" r="2" />
+              </svg>
+            </span>
             <div className="seam-meta-content">
               <span className="seam-meta-label">
                 {language === "zh" ? "地理坐标与关系" : "Geographic Anchor"}
@@ -160,12 +175,16 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
 
           {otherNames && (
             <div className="seam-meta-block seam-meta-block-wide">
-              <span className="seam-meta-icon" aria-hidden="true">📜</span>
+              <span className="seam-meta-icon" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 6h16M4 12h12M4 18h8" />
+                </svg>
+              </span>
               <div className="seam-meta-content">
                 <span className="seam-meta-label">
                   {language === "zh" ? "原名与别称" : "Original & Other Names"}
                 </span>
-                <span className="seam-meta-sub">{otherNames}</span>
+                <span className="seam-meta-sub seam-meta-names">{otherNames}</span>
               </div>
             </div>
           )}

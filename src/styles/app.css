@@ -596,6 +596,8 @@ a {
   z-index: 55;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
   outline: none;
   animation: seam-slide-left var(--seam-transition);
 }
@@ -605,32 +607,48 @@ a {
   to { transform: translateX(0); }
 }
 
-.seam-record-header {
-  padding: 24px 28px 16px;
-  border-bottom: 1px solid var(--seam-border);
-}
-
-.seam-record-header-meta {
+.seam-record-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 12px;
+  padding: 10px 24px 10px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #efece6;
+}
+
+.seam-record-topbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.seam-record-header {
+  flex-shrink: 0;
+  padding: 20px 28px 18px;
+  border-bottom: 1px solid var(--seam-border);
 }
 
 .seam-record-kicker {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--seam-gold);
   font-weight: 600;
 }
 
 .seam-record-share-btn {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--seam-text-muted);
   border: 1px solid var(--seam-border);
   border-radius: 12px;
-  padding: 2px 8px;
+  padding: 3px 10px;
   transition: all var(--seam-transition);
 }
 
@@ -639,44 +657,52 @@ a {
   border-color: var(--seam-text-primary);
 }
 
-.seam-record-title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-}
-
 .seam-record-title {
   font-family: var(--seam-font-serif);
-  font-size: 1.55rem;
+  font-size: 1.85rem;
   font-weight: 700;
-  line-height: 1.25;
-  color: var(--seam-text-primary);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: #181613;
 }
 
 .seam-record-close-btn {
-  font-size: 1.7rem;
+  font-size: 1.45rem;
   line-height: 1;
   color: var(--seam-text-muted);
   padding: 2px 6px;
-  transition: color var(--seam-transition);
+  border-radius: 4px;
+  transition: color var(--seam-transition), background-color var(--seam-transition);
 }
 
 .seam-record-close-btn:hover {
   color: var(--seam-text-primary);
+  background-color: var(--seam-surface-subtle);
 }
 
 .seam-record-deck {
   margin-top: 10px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--seam-text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.58;
+  color: #3a3630;
 }
 
-.seam-record-aliases {
-  margin-top: 6px;
-  font-size: 0.82rem;
-  color: var(--seam-text-secondary);
+.seam-meta-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.seam-meta-icon {
+  margin-top: 2px;
+  color: #8c857a;
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.seam-meta-content {
+  min-width: 0;
 }
 
 .seam-meta-block-wide {
@@ -686,32 +712,34 @@ a {
 }
 
 .seam-record-meta-strip {
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 16px 28px;
+  gap: 12px 20px;
+  padding: 13px 28px;
   background-color: var(--seam-surface-subtle);
   border-bottom: 1px solid var(--seam-border);
 }
 
 .seam-meta-label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--seam-text-muted);
-  margin-bottom: 4px;
+  color: #7a756c;
+  margin-bottom: 2px;
 }
 
 .seam-meta-value {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--seam-text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #2f2c27;
 }
 
 .seam-record-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px 28px 40px;
+  flex: 1 0 auto;
+  overflow-y: visible;
+  padding: 20px 28px 44px;
 }
 
 .seam-record-image-frame {
@@ -800,23 +828,38 @@ a {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 11px;
 }
 
 .seam-source-item {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: var(--seam-text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #5c574f;
   padding-left: 12px;
-  border-left: 2px solid var(--seam-border);
+  border-left: 2px solid #dfd9cd;
 }
 
-.seam-source-item strong {
-  color: var(--seam-text-primary);
+.seam-source-title {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #2a2723;
+  margin-bottom: 2px;
+}
+
+.seam-source-author,
+.seam-source-citation {
+  display: block;
+  font-size: 0.76rem;
+  color: #6b665e;
+  line-height: 1.45;
 }
 
 .seam-source-link {
-  color: var(--seam-gold);
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 0.76rem;
+  color: var(--seam-gold-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
   word-break: break-all;
@@ -1339,10 +1382,12 @@ button:disabled { opacity: .5; cursor: default; }
   .seam-main-viewport { padding-top: 82px; padding-bottom: 130px; }
   .has-record .seam-main-viewport, .has-record .seam-timeline, .has-record .seam-timeline-collapsed-bar, .has-record .seam-header { width: 100%; }
   .seam-record-panel { height: 65dvh; overflow-y: auto; }
-  .seam-record-header { padding: 16px; }
-  .seam-record-meta-strip { padding: 12px 16px; }
-  .seam-record-header, .seam-record-meta-strip { flex-shrink: 0; }
-  .seam-record-body { flex: 1 0 auto; }
+  .seam-record-topbar { padding: 8px 16px; }
+  .seam-record-header { padding: 14px 16px 12px; }
+  .seam-record-title { font-size: 1.45rem; }
+  .seam-record-deck { font-size: 0.94rem; margin-top: 8px; }
+  .seam-record-meta-strip { padding: 11px 16px; gap: 10px 14px; }
+  .seam-record-body { flex: 1 0 auto; padding: 16px 16px 32px; }
   .seam-country-header { padding: 8px 10px; gap: 8px; flex-wrap: wrap; }
   .seam-subregion-bar { padding: 7px 10px; gap: 6px; }
   .seam-subregion-chip { font-size: 0.72rem; padding: 4px 10px; }
@@ -1370,10 +1415,12 @@ button:disabled { opacity: .5; cursor: default; }
 .seam-timeline-tick:first-child { transform: none; align-items: flex-start; }
 .seam-timeline-tick:last-child { transform: translateX(-100%); align-items: flex-end; }
 .seam-meta-label, .seam-meta-value, .seam-meta-sub { display: block; }
-.seam-meta-sub { font-size: .75rem; color: #666; line-height: 1.6; margin-top: 4px; }
-.seam-record-narrative-section, .seam-record-sources-section { margin: 24px 0; }
-.seam-section-title { font-size: 1rem; margin-bottom: 14px; }
-.seam-record-text p { font-size: .92rem; line-height: 1.85; margin-bottom: 16px; color: #444; }
+.seam-meta-sub { font-size: .72rem; color: #6e6960; line-height: 1.5; margin-top: 2px; }
+.seam-meta-names { font-size: .78rem; color: #3f3b35; }
+.seam-record-narrative-section { margin: 4px 0 24px; }
+.seam-record-sources-section { margin: 24px 0 0; }
+.seam-section-title { font-size: .76rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #6b5b3e; padding-bottom: 6px; border-bottom: 1px solid #ece8df; margin-bottom: 14px; }
+.seam-record-text p { font-size: .96rem; line-height: 1.85; margin-bottom: 16px; color: #272522; }
 .seam-record-figure { margin-bottom: 12px; }
 .seam-record-figure img { display: block; width: 100%; max-height: 280px; object-fit: contain; }
 .seam-record-figure figcaption, .seam-record-figure a { font-size: .75rem; color: #666; padding: 6px 16px; }
