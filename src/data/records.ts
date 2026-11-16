@@ -99,12 +99,16 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "兔儿神最早见载于清代袁枚的笔记小说集《子不语》卷十九。故事写福建人胡天宝爱慕一名年轻巡按御史，因偷窥被捉并遭杖毙；死后冥府官吏念其痴心，封他为“兔儿神”（借用明清时指代男性伴侣的俗语“兔儿”），专司人间男子相悦之事。\n\n在清代笔记里，这一故事原本带有地方志怪与因果劝诫色彩。2006年，台湾新北市永和区威明堂道士卢威明重新雕像供奉胡天宝，逐渐使其成为当代同性伴侣祈福求姻缘的民间神祇。"
     },
     "time": {
-      "startYear": 1644,
+      "startYear": 1770,
       "endYear": 2026,
       "label": {
-        "en": "Qing Dynasty to Present",
-        "zh": "明清时代至当代"
+        "en": "Qing account; renewed worship from 2006",
+        "zh": "清代记述、2006年起的祭祀"
       },
+      "periods": [
+        { "startYear": 1770, "endYear": 1799, "label": { "zh": "18世纪后期，《子不语》记述", "en": "Late 18th century: account in Zibuyu" } },
+        { "startYear": 2006, "endYear": 2026, "label": { "zh": "2006年起，威明堂祭祀", "en": "From 2006: worship at Wei Ming Temple" } }
+      ],
       "certainty": "period"
     },
     "place": {
@@ -509,20 +513,19 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     },
     "place": {
       "name": {
-        "en": "Kingdom of Israel, Jerusalem",
-        "zh": "古代以色列王国（耶路撒冷）"
+        "en": "Ancient Levant (Jerusalem as map anchor)",
+        "zh": "古代黎凡特（以耶路撒冷作地图参考点）"
       },
-      "countryName": {
-        "en": "Israel",
-        "zh": "以色列"
-      },
-      "countryCode": "376",
       "coordinates": {
         "longitude": 35.2137,
         "latitude": 31.7683
       },
-      "precision": "city",
-      "relation": "activity-area"
+      "precision": "region",
+      "relation": "representative",
+      "notes": {
+        "en": "The account in Samuel takes place across several locations. It places Jonathan’s death at Mount Gilboa.",
+        "zh": "《撒母耳记》的叙事涉及多处地点，其中约拿单阵亡于基利波山。"
+      }
     },
     "historiographyNote": {
       "en": "The Hebrew verb for love ('ahavah') and gestures such as kissing and covenant-making appear in both political treaty texts and personal narratives in ancient Israelite literature.",
@@ -530,8 +533,14 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     },
     "sources": [
       {
-        "title": "希伯来圣经，《撒母耳记上》第十八、二十章及《撒母耳记下》第一章。",
-        "citation": "Hebrew Bible, First Book of Samuel (Chapters 18, 20) & Second Book of Samuel (Chapter 1)."
+        "title": "I Samuel 18 and 20",
+        "citation": "Hebrew Bible, Jonathan’s covenant and farewell",
+        "url": "https://www.sefaria.org/I_Samuel.18-20"
+      },
+      {
+        "title": "II Samuel 1",
+        "citation": "Hebrew Bible, David’s lament",
+        "url": "https://www.sefaria.org/II_Samuel.1"
       },
       {
         "title": "Martti Nissinen，《圣经世界中的同性情欲：历史视角》（英文版），1998年。",
@@ -8527,9 +8536,13 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "startYear": 1950,
       "endYear": 1967,
       "label": {
-        "zh": "1950至1967年",
-        "en": "1950–1967"
+        "zh": "1950年代初就医，1967年出版自传",
+        "en": "Medical care in the early 1950s; autobiography in 1967"
       },
+      "periods": [
+        { "startYear": 1950, "endYear": 1953, "label": { "zh": "1950至1953年，赴丹麦就医与返美", "en": "1950–1953: care in Denmark and return to the United States" } },
+        { "startYear": 1967, "endYear": 1967, "label": { "zh": "1967年，自传出版", "en": "1967: publication of the autobiography" } }
+      ],
       "certainty": "period"
     },
     "place": {
