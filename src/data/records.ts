@@ -6095,57 +6095,6 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     ]
   },
   {
-    "id": "entry_ecuador_article_516_1997",
-    "slug": "ecuador-article-516-1997",
-    "title": {
-      "zh": "厄瓜多尔刑法第516条违宪案",
-      "en": "Ecuador’s Article 516 Constitutional Case"
-    },
-    "originalName": "Resolución n.º 111-97-TC",
-    "aliases": [],
-    "summary": {
-      "zh": "厄瓜多尔宪法法院于1997年废除惩罚自愿同性性行为的条款。",
-      "en": "Ecuador’s Constitutional Tribunal struck down a provision criminalizing consensual same-sex acts in 1997."
-    },
-    "body": {
-      "zh": "1997年，厄瓜多尔活动人士向宪法法院挑战刑法第516条第一款。该款将男性之间的自愿性行为列为犯罪。\n\n宪法法院以第111-97-TC号裁决宣告该款违宪。裁决刊登于11月的官方公报，原条文据此停止适用。",
-      "en": "In 1997 activists in Ecuador challenged the first paragraph of article 516 of the Penal Code, which criminalized consensual sexual acts between men, before the Constitutional Tribunal.\n\nThe tribunal declared the paragraph unconstitutional in ruling No. 111-97-TC. The ruling was published in the official register in November, ending application of the provision."
-    },
-    "time": {
-      "startYear": 1997,
-      "endYear": 1997,
-      "label": {
-        "zh": "1997年",
-        "en": "1997"
-      },
-      "certainty": "exact"
-    },
-    "place": {
-      "name": {
-        "zh": "基多",
-        "en": "Quito"
-      },
-      "countryName": {
-        "zh": "厄瓜多尔",
-        "en": "Ecuador"
-      },
-      "countryCode": "218",
-      "coordinates": {
-        "longitude": -78.51,
-        "latitude": -0.22
-      },
-      "precision": "city",
-      "relation": "event-site"
-    },
-    "sources": [
-      {
-        "title": "Sentencia No. 111-97-TC",
-        "citation": "Registro Oficial no. 203, 27 November 1997, cited in Ecuador’s human rights action plan",
-        "url": "https://www.derechoshumanos.gob.ec/wp-content/uploads/2023/04/PAD_SD_MMDDHH_2023.pdf"
-      }
-    ]
-  },
-  {
     "id": "entry_argentina_archivo_memoria_trans",
     "slug": "argentina-archivo-memoria-trans",
     "title": {

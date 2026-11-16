@@ -124,6 +124,9 @@ export function getRecordDisplayNames(
   };
 }
 
+// Australia, Canada, Ireland, New Zealand, the United Kingdom and the United States.
+const ENGLISH_PRIMARY_COUNTRY_CODES = new Set(["036", "124", "372", "554", "826", "840"]);
+
 export function getRecordNameplateNames(record: ArchiveRecord, language: Language): RecordDisplayNames {
   if (language === "en" && record.place.countryCode === "156") {
     const chinese = record.title.zh.trim();
@@ -135,10 +138,15 @@ export function getRecordNameplateNames(record: ArchiveRecord, language: Languag
   }
 
   const localized = (record.title[language] || record.title.en || record.title.zh || "").trim();
+  const countryCode = record.place.countryCode ?? "";
+  if (countryCode === "156" || ENGLISH_PRIMARY_COUNTRY_CODES.has(countryCode)) {
+    return { primaryTitle: localized, secondaryTitle: null };
+  }
+
   const original = record.originalName?.trim();
   return {
     primaryTitle: localized,
-    secondaryTitle: record.place.countryCode !== "156" && original && !areRecordNamesEquivalent(localized, original)
+    secondaryTitle: original && !areRecordNamesEquivalent(localized, original)
       ? original
       : null,
   };
