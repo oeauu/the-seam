@@ -1936,8 +1936,90 @@ button:disabled { opacity: .5; cursor: default; }
   color: #b91c1c;
 }
 
+.seam-sources-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seam-sources-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.seam-sources-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seam-sources-count {
+  font-size: 0.75rem;
+  color: var(--seam-text-muted);
+}
+
+.seam-source-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--seam-border);
+  background: #ffffff;
+  color: var(--seam-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: background-color var(--seam-transition), border-color var(--seam-transition);
+}
+
+.seam-source-add-btn:hover:not(:disabled) {
+  background: var(--seam-surface-subtle);
+  border-color: var(--seam-gold);
+}
+
+.seam-source-add-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.seam-source-item-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.seam-source-url-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.seam-source-remove-btn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--seam-border);
+  background: #ffffff;
+  color: var(--seam-text-muted);
+  font-size: 1rem;
+  line-height: 1;
+  transition: color var(--seam-transition), border-color var(--seam-transition);
+}
+
+.seam-source-remove-btn:hover {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
 @media (max-width: 640px) {
-  .seam-form-row {
+  .seam-form-row,
+  .seam-source-item-row {
     grid-template-columns: 1fr;
   }
 }

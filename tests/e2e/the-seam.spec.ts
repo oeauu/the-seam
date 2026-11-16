@@ -112,7 +112,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     const submitModal = page.locator(".seam-modal-content");
     await expect(submitModal).toBeVisible();
     await expect(page).toHaveURL(/\/submit$/);
-    await expect(submitModal.locator("#submit-title")).toContainText("向 The Seam 投稿档案");
+    await expect(submitModal.locator("#submit-title")).toHaveText("向 The Seam 投稿");
     await expect(submitModal.locator(".seam-email-address")).toBeVisible();
 
     // Close Submit Modal
@@ -255,6 +255,18 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
     await page.locator(".seam-nav-btn-submit").click();
     const modal = page.locator(".seam-modal-content");
+    await expect(modal.locator("#submit-title")).toHaveText("向 The Seam 投稿");
+    await expect(modal.locator(".seam-no-taxonomy-reminder")).toHaveCount(0);
+
+    const addSourceBtn = modal.getByRole("button", { name: "新增参考文献" });
+    for (let i = 0; i < 4; i++) {
+      await addSourceBtn.click();
+    }
+    await expect(addSourceBtn).toBeDisabled();
+    await expect(modal.locator(".seam-sources-count")).toHaveText("5/5");
+    await modal.getByRole("button", { name: "删除参考文献 5" }).click();
+    await expect(modal.locator(".seam-sources-count")).toHaveText("4/5");
+
     await modal.getByLabel(/人物或事件名称/).fill("清代徽州契约文献待考录");
     await modal.getByLabel(/历史时期/).fill("18世纪中期");
     await modal.getByLabel(/具体年代\/事件待考证/).check();
@@ -262,6 +274,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await modal.getByLabel(/精确地理坐标待考证/).check();
     await modal.getByLabel(/历史简介与文献事实/).fill("地方契约文书中所见历史记载，时间与具体村落尚待进一步比对原始档册。");
     await modal.getByLabel(/第一手史料/).fill("地方文书档案馆藏钞本");
+    await modal.getByLabel("补充参考文献 2").fill("地方志补充文献卷二");
     await modal.getByRole("button", { name: "提交并生成草稿" }).click();
 
     await expect(modal.locator(".seam-submit-success-card .seam-pending-tag")).toHaveText("地点与事件待考证");

@@ -7,13 +7,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        请依循第一手史料记述提交记录，避免预先套用现代性别或性取向分类标签。
+        请填写有据可查的历史人物、事件与参考文献记录。
         提交此 Issue 后，仓库自动化工作流会将其汇总转发至官方审稿邮箱。
   - type: input
     id: title
     attributes:
       label: 人物或事件名称 / Figure or Event Name
-      placeholder: 例如：清代徽州契约文献待考录
+      placeholder: 例如：萨福 / Joan of Arc
     validations:
       required: true
   - type: input

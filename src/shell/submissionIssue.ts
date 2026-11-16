@@ -19,7 +19,11 @@ export function buildGitHubIssueUrl(
   const yearText = record.time.startYear === null
     ? (language === "zh" ? "待考证" : "Pending verification")
     : String(record.time.startYear);
-  const source = record.sources[0];
+  const sourcesMarkdown = record.sources.length > 0
+    ? record.sources
+        .map((s, idx) => `  ${idx + 1}. ${s.title}${s.url ? ` (${s.url})` : ""}`)
+        .join("\n")
+    : "  - 无 / None";
 
   const markdownHeader = [
     "### 档案投稿信息 / Archive Submission",
@@ -31,8 +35,8 @@ export function buildGitHubIssueUrl(
     `- **地点 / Location**: ${record.place.name.zh}`,
     `- **经纬度 / Coordinates**: ${coords}`,
     `- **考证状态 / Verification**: ${pendingStatus || "已有初步年代与坐标，待原始文献复核"}`,
-    `- **第一手史料 / Primary Source**: ${source?.title || ""}`,
-    `- **参考链接 / Source URL**: ${source?.url || "无 / None"}`,
+    "- **参考文献 / Primary Sources**:",
+    sourcesMarkdown,
     "",
     "#### 历史简介与文献事实 / Summary & Documented Facts",
     record.summary.zh,

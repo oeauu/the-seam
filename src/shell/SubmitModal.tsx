@@ -9,6 +9,11 @@ interface Props {
   onClose: () => void;
 }
 
+interface SourceDraft {
+  title: string;
+  url: string;
+}
+
 interface SubmissionDraftState {
   title: string;
   aliases: string;
@@ -19,27 +24,29 @@ interface SubmissionDraftState {
   coordinatesText: string;
   locationPending: boolean;
   summary: string;
-  sourceTitle: string;
-  sourceUrl: string;
+  sources: SourceDraft[];
   website: string; // Hidden honeypot field recognized by HookForms
 }
 
 type DeliveryStatus = "local-only" | "sending" | "sent" | "error";
 
-const INITIAL_FORM: SubmissionDraftState = {
-  title: "",
-  aliases: "",
-  eraLabel: "",
-  year: "",
-  eventPending: false,
-  placeName: "",
-  coordinatesText: "",
-  locationPending: false,
-  summary: "",
-  sourceTitle: "",
-  sourceUrl: "",
-  website: "",
-};
+const MAX_SUBMISSION_SOURCES = 5;
+
+function createInitialForm(): SubmissionDraftState {
+  return {
+    title: "",
+    aliases: "",
+    eraLabel: "",
+    year: "",
+    eventPending: false,
+    placeName: "",
+    coordinatesText: "",
+    locationPending: false,
+    summary: "",
+    sources: [{ title: "", url: "" }],
+    website: "",
+  };
+}
 
 function parseCoordinatesInput(raw: string): Coordinates | null | "invalid" {
   const trimmed = raw.trim();
@@ -61,11 +68,17 @@ function parseCoordinatesInput(raw: string): Coordinates | null | "invalid" {
   return { longitude: Number(lon.toFixed(4)), latitude: Number(lat.toFixed(4)) };
 }
 
+function formatSourcesSummary(record: ArchiveRecord): string {
+  return record.sources
+    .map((s, idx) => `${record.sources.length > 1 ? `${idx + 1}) ` : ""}${s.title}${s.url ? ` (${s.url})` : ""}`)
+    .join(record.sources.length > 1 ? "; " : "");
+}
+
 function buildSubmissionText(record: ArchiveRecord, language: Language): string {
   const coords = record.place.coordinates
     ? `${record.place.coordinates.longitude}, ${record.place.coordinates.latitude}`
     : (language === "zh" ? "待考证" : "Pending");
-  const source = record.sources[0];
+  const sourcesText = formatSourcesSummary(record);
   if (language === "zh") {
     return [
       "【The Seam 历史档案投稿】",
@@ -73,7 +86,7 @@ function buildSubmissionText(record: ArchiveRecord, language: Language): string 
       `2. 历史时间：${record.time.label.zh}`,
       `3. 发生地点：${record.place.name.zh}（坐标：${coords}）`,
       `4. 简介与史料记述：${record.summary.zh}`,
-      `5. 史料/参考文献：${source?.title || ""}${source?.url ? ` (${source.url})` : ""}`,
+      `5. 史料/参考文献：${sourcesText}`,
     ].join("\n");
   }
   return [
@@ -82,7 +95,7 @@ function buildSubmissionText(record: ArchiveRecord, language: Language): string 
     `2. Historical Era: ${record.time.label.en}`,
     `3. Location: ${record.place.name.en} (Coordinates: ${coords})`,
     `4. Summary & Context: ${record.summary.en}`,
-    `5. Primary Source / Citation: ${source?.title || ""}${source?.url ? ` (${source.url})` : ""}`,
+    `5. Primary Sources / Citations: ${sourcesText}`,
   ].join("\n");
 }
 
@@ -94,7 +107,7 @@ function buildHookFormsPayload(
   const coords = record.place.coordinates
     ? `${record.place.coordinates.longitude}, ${record.place.coordinates.latitude}`
     : "Pending verification";
-  const source = record.sources[0];
+  const primarySource = record.sources[0];
   return {
     subject: `[The Seam 投稿] ${record.title.zh}`,
     title: record.title.zh,
@@ -105,8 +118,9 @@ function buildHookFormsPayload(
     coordinates: coords,
     pendingStatus: pendingStatus || "Verified fields supplied",
     summary: record.summary.zh,
-    sourceTitle: source?.title || "",
-    sourceUrl: source?.url || "",
+    sourceTitle: primarySource?.title || "",
+    sourceUrl: primarySource?.url || "",
+    sourcesText: formatSourcesSummary(record),
     submittedAt: new Date().toISOString(),
     recordJson: JSON.stringify(record),
     website: honeypot,
@@ -116,7 +130,7 @@ function buildHookFormsPayload(
 export function SubmitModal({ onClose }: Props) {
   const { language, addSubmittedRecord, openRecord } = useApp();
   const dialogRef = useDialogFocus<HTMLDivElement>(onClose);
-  const [form, setForm] = useState<SubmissionDraftState>(INITIAL_FORM);
+  const [form, setForm] = useState<SubmissionDraftState>(createInitialForm);
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [submittedRecord, setSubmittedRecord] = useState<ArchiveRecord | null>(null);
   const [deliveryStatus, setDeliveryStatus] = useState<DeliveryStatus>("local-only");
@@ -138,6 +152,27 @@ export function SubmitModal({ onClose }: Props) {
     } catch {
       setEmailCopyFailed(true);
     }
+  };
+
+  const handleAddSource = () => {
+    setForm(prev => {
+      if (prev.sources.length >= MAX_SUBMISSION_SOURCES) return prev;
+      return { ...prev, sources: [...prev.sources, { title: "", url: "" }] };
+    });
+  };
+
+  const handleRemoveSource = (index: number) => {
+    setForm(prev => {
+      if (index === 0 || prev.sources.length <= 1) return prev;
+      return { ...prev, sources: prev.sources.filter((_, i) => i !== index) };
+    });
+  };
+
+  const handleSourceChange = (index: number, field: keyof SourceDraft, value: string) => {
+    setForm(prev => ({
+      ...prev,
+      sources: prev.sources.map((item, i) => (i === index ? { ...item, [field]: value } : item)),
+    }));
   };
 
   const sendToHookForms = async (record: ArchiveRecord, honeypot: string) => {
@@ -170,15 +205,38 @@ export function SubmitModal({ onClose }: Props) {
     const eraLabel = form.eraLabel.trim();
     const placeName = form.placeName.trim();
     const summary = form.summary.trim();
-    const sourceTitle = form.sourceTitle.trim();
+    const normalizedSources = form.sources.map(s => ({
+      title: s.title.trim(),
+      url: s.url.trim(),
+    }));
+    const firstSourceTitle = normalizedSources[0]?.title || "";
 
-    if (!title || !eraLabel || !placeName || !summary || !sourceTitle) {
+    if (!title || !eraLabel || !placeName || !summary || !firstSourceTitle) {
       setErrorMsg(
         language === "zh"
-          ? "请填写名称、历史时期、地点、简介及史料来源后再提交。"
-          : "Please complete name, historical era, location, summary, and source before submitting.",
+          ? "请填写名称、历史时期、地点、简介及至少一条参考文献后再提交。"
+          : "Please complete name, historical era, location, summary, and at least one reference before submitting.",
       );
       return;
+    }
+
+    for (const source of normalizedSources) {
+      if (source.url && !source.title) {
+        setErrorMsg(
+          language === "zh"
+            ? "请为填写了参考链接的文献条目补充名称。"
+            : "Please provide a citation title for every reference that includes a URL.",
+        );
+        return;
+      }
+      if (source.url && !/^https?:\/\//i.test(source.url)) {
+        setErrorMsg(
+          language === "zh"
+            ? "参考链接请以 http:// 或 https:// 开头。"
+            : "Reference URL must start with http:// or https://.",
+        );
+        return;
+      }
     }
 
     let parsedYear: number | null = null;
@@ -187,7 +245,7 @@ export function SubmitModal({ onClose }: Props) {
       if (!Number.isInteger(n) || n === 0) {
         setErrorMsg(
           language === "zh"
-            ? "年份请填写非零整数（公元前请使用负数，如 -214），或勾选“具体年代/事件待考证”。"
+            ? "年份请填写非零整数（公元前请使用负数，如 -630），或勾选“具体年代/事件待考证”。"
             : "Year must be a non-zero integer (use negative numbers for BCE), or mark event timing pending.",
         );
         return;
@@ -201,22 +259,12 @@ export function SubmitModal({ onClose }: Props) {
       if (result === "invalid") {
         setErrorMsg(
           language === "zh"
-            ? "坐标格式请填写“经度, 纬度”，例如 116.4074, 39.9042（经度 -180~180，纬度 -90~90）。"
-            : "Coordinates must be formatted as 'longitude, latitude', e.g. 116.4074, 39.9042.",
+            ? "坐标格式请填写“经度, 纬度”，例如 11.2558, 43.7696（经度 -180~180，纬度 -90~90）。"
+            : "Coordinates must be formatted as 'longitude, latitude', e.g. 1.9093, 47.9030.",
         );
         return;
       }
       parsedCoords = result;
-    }
-
-    const sourceUrl = form.sourceUrl.trim();
-    if (sourceUrl && !/^https?:\/\//i.test(sourceUrl)) {
-      setErrorMsg(
-        language === "zh"
-          ? "参考链接请以 http:// 或 https:// 开头。"
-          : "Reference URL must start with http:// or https://.",
-      );
-      return;
     }
 
     const aliases = form.aliases
@@ -256,12 +304,12 @@ export function SubmitModal({ onClose }: Props) {
             zh: "用户投稿草稿。已附初步坐标与年份，仍待编辑依据原始文献复核。",
             en: "User submission draft with preliminary date and coordinates; awaiting editorial source verification.",
           },
-      sources: [
-        {
-          title: sourceTitle,
-          url: sourceUrl || undefined,
-        },
-      ],
+      sources: normalizedSources
+        .filter(s => s.title.length > 0)
+        .map(s => ({
+          title: s.title,
+          url: s.url || undefined,
+        })),
     };
 
     addSubmittedRecord(record);
@@ -309,7 +357,7 @@ export function SubmitModal({ onClose }: Props) {
           <div>
             <span className="seam-modal-eyebrow">The Seam · Contribution</span>
             <h2 id="submit-title" className="seam-modal-title">
-              {language === "zh" ? "向 The Seam 投稿档案" : "Submit to The Seam"}
+              {language === "zh" ? "向 The Seam 投稿" : "Submit to The Seam"}
             </h2>
           </div>
           <button
@@ -352,7 +400,7 @@ export function SubmitModal({ onClose }: Props) {
                   required
                   value={form.title}
                   onChange={e => setForm(prev => ({ ...prev, title: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：李渔 / 某地历史事件" : "e.g. Historical figure or event"}
+                  placeholder={language === "zh" ? "例如：萨福 / 达·芬奇" : "e.g. Joan of Arc / Alexander the Great"}
                 />
               </label>
               <label className="seam-form-field">
@@ -361,7 +409,7 @@ export function SubmitModal({ onClose }: Props) {
                   type="text"
                   value={form.aliases}
                   onChange={e => setForm(prev => ({ ...prev, aliases: e.target.value }))}
-                  placeholder={language === "zh" ? "多个用顿号或逗号分隔" : "Comma-separated"}
+                  placeholder={language === "zh" ? "多个用顿号或逗号分隔，如：列奥纳多·达·芬奇" : "Comma-separated, e.g. Jeanne d'Arc, Maid of Orléans"}
                 />
               </label>
             </div>
@@ -375,7 +423,7 @@ export function SubmitModal({ onClose }: Props) {
                   required
                   value={form.eraLabel}
                   onChange={e => setForm(prev => ({ ...prev, eraLabel: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：约1629年 / 西汉晚期" : "e.g. c. 1629 / Late Han"}
+                  placeholder={language === "zh" ? "例如：公元前6世纪 / 文艺复兴时期" : "e.g. 15th century / Classical Greece"}
                 />
                 <label className="seam-form-checkbox">
                   <input
@@ -394,7 +442,7 @@ export function SubmitModal({ onClose }: Props) {
                   disabled={form.eventPending}
                   value={form.eventPending ? "" : form.year}
                   onChange={e => setForm(prev => ({ ...prev, year: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：1629 或 -214" : "e.g. 1629 or -214"}
+                  placeholder={language === "zh" ? "例如：1452 或 -630" : "e.g. 1431 or -336"}
                 />
               </label>
             </div>
@@ -408,7 +456,7 @@ export function SubmitModal({ onClose }: Props) {
                   required
                   value={form.placeName}
                   onChange={e => setForm(prev => ({ ...prev, placeName: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：中国福建 / 弗吉尼亚詹姆斯敦" : "e.g. Fujian / Jamestown"}
+                  placeholder={language === "zh" ? "例如：意大利佛罗伦萨 / 希腊莱斯博斯岛" : "e.g. Orléans, France / Athens, Greece"}
                 />
                 <label className="seam-form-checkbox">
                   <input
@@ -426,7 +474,7 @@ export function SubmitModal({ onClose }: Props) {
                   disabled={form.locationPending}
                   value={form.locationPending ? "" : form.coordinatesText}
                   onChange={e => setForm(prev => ({ ...prev, coordinatesText: e.target.value }))}
-                  placeholder="116.4074, 39.9042"
+                  placeholder={language === "zh" ? "例如：11.2558, 43.7696" : "e.g. 1.9093, 47.9030"}
                 />
               </label>
             </div>
@@ -438,39 +486,82 @@ export function SubmitModal({ onClose }: Props) {
                 required
                 value={form.summary}
                 onChange={e => setForm(prev => ({ ...prev, summary: e.target.value }))}
-                placeholder={language === "zh" ? "简述有据可查的历史经过，请勿附加现代身份标签..." : "Describe documented facts without modern identity labels..."}
+                placeholder={language === "zh" ? "简述有据可查的历史经过、时间地点与文献依据..." : "Briefly summarize documented historical facts, dates, locations, and sources..."}
               />
             </label>
 
-            <div className="seam-form-row">
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "第一手史料 / 参考文献 *" : "Primary Source / Citation *"}</span>
-                <input
-                  type="text"
-                  required
-                  value={form.sourceTitle}
-                  onChange={e => setForm(prev => ({ ...prev, sourceTitle: e.target.value }))}
-                  placeholder={language === "zh" ? "例如：《史记》卷一二五 / 某馆藏文献" : "e.g. Archival dossier / scholarly edition"}
-                />
-              </label>
-              <label className="seam-form-field">
-                <span className="seam-form-label">{language === "zh" ? "史料参考链接（选填）" : "Source URL (optional)"}</span>
-                <input
-                  type="url"
-                  value={form.sourceUrl}
-                  onChange={e => setForm(prev => ({ ...prev, sourceUrl: e.target.value }))}
-                  placeholder="https://..."
-                />
-              </label>
-            </div>
+            <div className="seam-sources-block">
+              <div className="seam-sources-header">
+                <label htmlFor="submit-source-0" className="seam-form-label">
+                  {language === "zh" ? "第一手史料 / 参考文献 *" : "Primary Source / Citation *"}
+                </label>
+                <div className="seam-sources-header-actions">
+                  <span className="seam-sources-count">
+                    {form.sources.length}/{MAX_SUBMISSION_SOURCES}
+                  </span>
+                  <button
+                    type="button"
+                    className="seam-source-add-btn"
+                    onClick={handleAddSource}
+                    disabled={form.sources.length >= MAX_SUBMISSION_SOURCES}
+                    aria-label={language === "zh" ? "新增参考文献" : "Add reference"}
+                    title={language === "zh" ? "最多添加5条" : "Up to 5 references"}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
 
-            <p className="seam-no-taxonomy-reminder">
-              <em>
-                {language === "zh"
-                  ? "※ 请依循第一手史料记述，勿为人物预设现代性别或性取向分类标签。"
-                  : "※ Adhere strictly to primary documentation without projecting modern categories."}
-              </em>
-            </p>
+              {form.sources.map((sourceItem, index) => (
+                <div key={index} className="seam-source-item-row">
+                  <div className="seam-form-field">
+                    {index > 0 && (
+                      <label htmlFor={`submit-source-${index}`} className="seam-form-label">
+                        {language === "zh" ? `补充参考文献 ${index + 1}` : `Additional Reference ${index + 1}`}
+                      </label>
+                    )}
+                    <input
+                      id={`submit-source-${index}`}
+                      type="text"
+                      required={index === 0}
+                      value={sourceItem.title}
+                      onChange={e => handleSourceChange(index, "title", e.target.value)}
+                      placeholder={
+                        index === 0
+                          ? (language === "zh"
+                              ? "例如：佛罗伦萨国家档案馆藏卷宗 / 联合国教科文组织档案"
+                              : "e.g. British Library Manuscript Collection / Louvre Dossier")
+                          : (language === "zh" ? "填写补充文献名称或馆藏编号" : "Supplementary citation or archival ID")
+                      }
+                    />
+                  </div>
+                  <div className="seam-form-field">
+                    <label htmlFor={`submit-source-url-${index}`} className="seam-form-label">
+                      {language === "zh" ? "史料参考链接（选填）" : "Source URL (optional)"}
+                    </label>
+                    <div className="seam-source-url-wrap">
+                      <input
+                        id={`submit-source-url-${index}`}
+                        type="url"
+                        value={sourceItem.url}
+                        onChange={e => handleSourceChange(index, "url", e.target.value)}
+                        placeholder="https://..."
+                      />
+                      {index > 0 && (
+                        <button
+                          type="button"
+                          className="seam-source-remove-btn"
+                          onClick={() => handleRemoveSource(index)}
+                          aria-label={language === "zh" ? `删除参考文献 ${index + 1}` : `Remove reference ${index + 1}`}
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
             {errorMsg && (
               <p className="seam-form-error" role="alert">{errorMsg}</p>
@@ -633,7 +724,7 @@ export function SubmitModal({ onClose }: Props) {
                 onClick={() => {
                   setSubmittedRecord(null);
                   setDeliveryStatus("local-only");
-                  setForm(INITIAL_FORM);
+                  setForm(createInitialForm());
                   setErrorMsg("");
                 }}
               >
