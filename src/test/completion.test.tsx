@@ -43,7 +43,8 @@ describe("Completion regressions", () => {
   it("preserves old record URLs and the complete original event drafts", () => {
     expect(findRecord("entry-thomas-hall")?.slug).toBe("thomas-hall");
     expect(findRecord("entry-sappho")?.slug).toBe("sappho");
-    expect(ALL_RECORDS.filter(record => record.id.startsWith("event-"))).toHaveLength(17);
+    expect(ALL_RECORDS.filter(record => record.id.startsWith("event-"))).toHaveLength(16);
+    expect(ALL_RECORDS.some(record => record.title.zh === "数字博物馆时空地图上线")).toBe(false);
     expect(ALL_RECORDS.filter(record => record.id.startsWith("event-")).every(record => record.place.coordinates === null && record.time.startYear === null)).toBe(true);
     const pendingEvent = ALL_RECORDS.find(record => record.id.startsWith("event-"));
     const verifiedEntry = findRecord("thomas-hall");

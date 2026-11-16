@@ -441,37 +441,6 @@
     },
     {
       "location": {
-        "en": "Xi'an",
-        "zh": "西安市"
-      },
-      "year": 2026,
-      "yearDisplay": {
-        "en": "2026 CE",
-        "zh": "公元2026年"
-      },
-      "events": [
-        {
-          "name": {
-            "en": "Launch of Spatiotemporal Time-Map",
-            "zh": "数字博物馆时空地图上线"
-          },
-          "summary": {
-            "en": "The Seam launches its 2D drilldown time-map module, incorporating curated entries and crowdsourced UGC contributions for digital humanities studies.",
-            "zh": "“The Seam”博物馆时空地图正式上线，收录自有内容并对大众开放UGC投稿，成为数字人文领域的重大成果。"
-          },
-          "contributor": {
-            "en": "Museum Curation",
-            "zh": "本馆编撰"
-          },
-          "source": {
-            "en": "Digital Humanities Conference Press Release",
-            "zh": "数字人文大会发布"
-          }
-        }
-      ]
-    },
-    {
-      "location": {
         "en": "Taipei",
         "zh": "台北市"
       },
