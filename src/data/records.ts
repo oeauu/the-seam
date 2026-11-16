@@ -4237,6 +4237,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "year": 1970,
         "citation": "American Anthropologist 72(6), pp. 1428–1434",
         "url": "https://doi.org/10.1525/aa.1970.72.6.02a00170"
+      },
+      {
+        "title": "Some Notes on Zande Sex Habits",
+        "citation": "E. E. Evans-Pritchard, American Anthropologist 75(1), 1973, pp. 171–175",
+        "url": "https://www.africabib.org/rec.php?DB=w&RID=P00018127"
       }
     ]
   },
@@ -4253,8 +4258,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "In Nuer kinship, a woman could take the role of husband and marry another woman."
     },
     "body": {
-      "zh": "在努尔人的婚姻中，婚牛从一方家族转交给另一方家族。埃文斯-普里查德在1930年代的田野调查中记下了一种安排：一名女性向另一名女性的亲属交付婚牛，由此成为她的丈夫。\n\n妻子所生的孩子称这名女性为父亲，在亲属制度上归入她的父系宗族。婚牛的转交、夫妻称谓和子女的宗族归属，构成了埃文斯-普里查德1951年出版的《努尔人的亲属与婚姻》所记载的这类婚姻。",
-      "en": "In Nuer marriages, cattle passed between the families involved. During his fieldwork in the 1930s, Evans-Pritchard recorded marriages in which a woman transferred bridewealth cattle to the kin of another woman and became her husband.\n\nChildren born to the wife called the female husband their father and belonged to her patrilineage. Evans-Pritchard described the transfer of cattle, the spouses’ roles and the children’s lineage membership in Kinship and Marriage among the Nuer, published in 1951."
+      "zh": "在努尔人的婚姻中，婚牛从一方家族转交给另一方家族。埃文斯-普里查德在1930年代的田野调查中记下了一种安排：一名女性向另一名女性的亲属交付婚牛，由此成为她的丈夫。\n\n妻子所生的孩子称这名女性为父亲，在亲属制度上归入她的父系宗族。婚牛的转交、夫妻称谓和子女的宗族归属，构成了埃文斯-普里查德1951年出版的《努尔人的亲属与婚姻》所记载的这类婚姻。\n\n沙伦·哈钦森后来的田野研究追踪了牛与货币在努尔人生活中的流通。她把围绕牛能否用钱替代的讨论放进家庭关系和社会变迁中考察。",
+      "en": "In Nuer marriages, cattle passed between the families involved. During his fieldwork in the 1930s, Evans-Pritchard recorded marriages in which a woman transferred bridewealth cattle to the kin of another woman and became her husband.\n\nChildren born to the wife called the female husband their father and belonged to her patrilineage. Evans-Pritchard described the transfer of cattle, the spouses’ roles and the children’s lineage membership in Kinship and Marriage among the Nuer, published in 1951.\n\nIn later fieldwork, Sharon Hutchinson followed the circulation of cattle and cash in Nuer life. She examines debates over their interchangeability in the context of family relations and social change."
     },
     "time": {
       "startYear": 1930,
@@ -4289,6 +4294,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "year": 1951,
         "citation": "Clarendon Press, pp. 108–109",
         "url": "https://ehrafworldcultures.yale.edu/cultures/fj22/documents/002"
+      },
+      {
+        "title": "Nuer Dilemmas: Coping with Money, War, and the State",
+        "citation": "Sharon E. Hutchinson, University of California Press, 1996",
+        "url": "https://www.africabib.org/rec.php?RID=126745757"
       }
     ]
   },
@@ -4394,6 +4404,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "year": 1999,
         "citation": "University of California Press edition",
         "url": "https://www.ucpress.edu/book/9780520213371/history-power-ideology"
+      },
+      {
+        "title": "Work and Power in Maale, Ethiopia",
+        "citation": "Donald L. Donham, Columbia University Press, 1994",
+        "url": "https://cup.columbia.edu/book/work-and-power-in-maale-ethiopia/9780231100472/"
       }
     ]
   },
@@ -4411,8 +4426,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Male workers on South African gold mines formed temporary marriages involving intimacy, domestic work and material exchange."
     },
     "body": {
-      "zh": "威特沃特斯兰德的金矿从南部非洲各地招募劳工，许多人住在矿区的集体宿舍。矿工在口述中回忆，一些年长矿工会和较年轻的同伴结成临时婚姻，给伴侣礼物或经济支持，由对方承担部分家务。\n\n1988年，邓巴·穆迪与维维恩·恩达特谢、布里蒂什·西布耶发表了这些访谈。他们以矿工自己的叙述梳理宿舍里的伴侣生活，以及招工和居住安排改变后，这些关系如何随之变化。",
-      "en": "The Witwatersrand gold mines recruited workers from across southern Africa. Many lived in mine compounds. Miners recalled that some older workers entered temporary marriages with younger men, offering gifts or financial support while their partners took on domestic tasks.\n\nDunbar Moodie, Vivien Ndatshe and British Sibuye published these interviews in 1988. The miners’ accounts describe life with their partners in the compounds and changes in those arrangements as recruitment and housing changed."
+      "zh": "威特沃特斯兰德的金矿从南部非洲各地招募劳工，许多人住在矿区的集体宿舍。矿工在口述中回忆，一些年长矿工会和较年轻的同伴结成临时婚姻，给伴侣礼物或经济支持，由对方承担部分家务。\n\n1988年，邓巴·穆迪与维维恩·恩达特谢、布里蒂什·西布耶发表了这些访谈。他们以矿工自己的叙述梳理宿舍里的伴侣生活，以及招工和居住安排改变后，这些关系如何随之变化。\n\n穆迪与恩达特谢后来在《Going for Gold》中将矿工访谈与家属访谈并读，把矿区宿舍的生活放在流动劳工往返家乡与矿区的经历中考察。",
+      "en": "The Witwatersrand gold mines recruited workers from across southern Africa. Many lived in mine compounds. Miners recalled that some older workers entered temporary marriages with younger men, offering gifts or financial support while their partners took on domestic tasks.\n\nDunbar Moodie, Vivien Ndatshe and British Sibuye published these interviews in 1988. The miners’ accounts describe life with their partners in the compounds and changes in those arrangements as recruitment and housing changed.\n\nIn Going for Gold, Moodie and Ndatshe draw on interviews with miners and their families. They place life in the compounds within the wider experience of migrant workers moving between their homes and the mines."
     },
     "time": {
       "startYear": 1890,
@@ -4447,6 +4462,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "year": 1988,
         "citation": "Journal of Southern African Studies 14(2)",
         "url": "https://doi.org/10.1080/03057078808708172"
+      },
+      {
+        "title": "Going for Gold: Men, Mines, and Migration",
+        "citation": "T. Dunbar Moodie with Vivienne Ndatshe, University of California Press, 1994",
+        "url": "https://www.ucpress.edu/book/9780520086449/going-for-gold"
       }
     ]
   },
@@ -4506,6 +4526,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "year": 1998,
         "citation": "In Boy-Wives and Female Husbands: Studies in African Homosexualities",
         "url": "https://www.africabib.org/rec.php?RID=W00080407"
+      },
+      {
+        "title": "Singing Away the Hunger: The Autobiography of an African Woman",
+        "citation": "Mpho ’M’atsepo Nthunya, edited by K. Limakatso Kendall, Indiana University Press edition",
+        "url": "https://iupress.org/9780253211620/singing-away-the-hunger/"
       }
     ]
   },
@@ -4523,8 +4548,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "The albums of hairdresser and drag performer Kewpie document social life and performance in District Six during apartheid."
     },
     "body": {
-      "zh": "Kewpie 在开普敦第六区汉诺威街的 Salon André 学习美发，后来在肯辛顿开了自己的 Salon Kewpie。她也参加变装表演。她留下的照片里，有美发店里的工作与合影，也有友人聚会、外出和登台的场景。\n\n这批照片从1950年代积累到1980年代，共七百余张。Kewpie 为照片提供了说明，影像和说明一同收藏于 GALA 酷儿档案馆。2018年，档案馆与第六区博物馆用这些照片和说明举办了《Kewpie：第六区的女儿》。",
-      "en": "Kewpie trained as a hairdresser at Salon André on Hanover Street in Cape Town’s District Six and later opened Salon Kewpie in Kensington. She also performed in drag. Her photographs show work and group portraits at the salon, as well as friends together on outings and onstage.\n\nHer collection grew to more than 700 prints from the 1950s through the 1980s. Kewpie supplied captions, which the GALA Queer Archive preserves alongside the prints. In 2018, GALA and the District Six Museum used the photographs and captions in Kewpie: Daughter of District Six."
+      "zh": "Kewpie 在开普敦第六区汉诺威街的 Salon André 学习美发，后来在肯辛顿开了自己的 Salon Kewpie。她也参加变装表演。她留下的照片里，有美发店里的工作与合影，也有友人聚会、外出和登台的场景。\n\n这批照片从1950年代积累到1980年代，共七百余张。Kewpie 为照片提供了说明，影像和说明一同收藏于 GALA 酷儿档案馆。2018年，档案馆与第六区博物馆用这些照片和说明举办了《Kewpie：第六区的女儿》。\n\n数字跨性别档案馆收录了这批照片的数字图像。读者可以按人物和地点查找照片，将美发店、演出和亲友聚会的画面与馆藏描述一同查看。",
+      "en": "Kewpie trained as a hairdresser at Salon André on Hanover Street in Cape Town’s District Six and later opened Salon Kewpie in Kensington. She also performed in drag. Her photographs show work and group portraits at the salon, as well as friends together on outings and onstage.\n\nHer collection grew to more than 700 prints from the 1950s through the 1980s. Kewpie supplied captions, which the GALA Queer Archive preserves alongside the prints. In 2018, GALA and the District Six Museum used the photographs and captions in Kewpie: Daughter of District Six.\n\nThe Digital Transgender Archive provides digitized photographs. Readers can browse by person or place and view salon, performance and social photographs alongside their catalogue descriptions."
     },
     "time": {
       "startYear": 1950,
@@ -4558,6 +4583,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "author": "District Six Museum and GALA Queer Archive",
         "year": 2018,
         "url": "https://www.districtsix.co.za/project/kewpie-daughter-of-district-six/"
+      },
+      {
+        "title": "Kewpie Photographs",
+        "citation": "Digital Transgender Archive, photographs and captions from the GALA Queer Archive",
+        "url": "https://repository.digitaltransgenderarchive.net/col/b5644r52v"
       }
     ]
   },
@@ -4616,6 +4646,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "author": "Beverley Ditsie",
         "year": 2021,
         "url": "https://www.globalcitizen.org/en/content/beverley-ditsie-south-africa-lgbtq-rights/"
+      },
+      {
+        "title": "GALA Archival Guide",
+        "citation": "Eliza Moore collection, AM 2699, first Johannesburg Pride, 1990",
+        "url": "https://gala.co.za/wp-content/uploads/2021/08/GALA-Archival-Guide-20210825.pdf"
       }
     ]
   },
@@ -5242,8 +5277,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Cotita was among those investigated in a colonial criminal case in Mexico City in 1658."
     },
     "body": {
-      "zh": "新西班牙当局在墨西哥城调查男性之间的性关系，科蒂塔·德拉恩卡纳西翁是案中记下的称呼。调查材料和同时代记事提到，案中一些人以女性名字彼此相称。\n\n1658年11月6日，十五人被押出王家监狱。当时的记事记载，其中十四人被处死，另一名年纪较轻的人被判鞭笞和劳役。",
-      "en": "Authorities in New Spain investigated sexual relationships between men in Mexico City. Cotita de la Encarnación was one of the names recorded in the case. The proceedings and contemporary accounts describe some people using women’s names among themselves.\n\nOn 6 November 1658, fifteen people were taken out of the royal jail. A contemporary account records that fourteen were executed and a younger person was sentenced to flogging and forced labour."
+      "zh": "新西班牙当局在墨西哥城调查男性之间的性关系，科蒂塔·德拉恩卡纳西翁是案中记下的称呼。调查材料和同时代记事提到，案中一些人以女性名字彼此相称。\n\n1658年11月6日，十五人被押出王家监狱。当时的记事记载，其中十四人被处死，另一名年纪较轻的人被判鞭笞和劳役。\n\n费德里科·加尔萨·卡瓦哈尔在《Butterflies Will Burn》中把这类审判放在西班牙帝国的司法与社会秩序中考察，比较西班牙本土和新西班牙的卷宗，追踪当局如何使用「鸡奸」这一罪名。",
+      "en": "Authorities in New Spain investigated sexual relationships between men in Mexico City. Cotita de la Encarnación was one of the names recorded in the case. The proceedings and contemporary accounts describe some people using women’s names among themselves.\n\nOn 6 November 1658, fifteen people were taken out of the royal jail. A contemporary account records that fourteen were executed and a younger person was sentenced to flogging and forced labour.\n\nIn Butterflies Will Burn, Federico Garza Carvajal places such trials within the judicial and social order of the Spanish Empire. Comparing records from Spain and New Spain, he traces how officials used the charge of sodomy."
     },
     "time": {
       "startYear": 1658,
@@ -5276,6 +5311,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Locas, maricones, mayales, hombres, homosexuales, gays",
         "citation": "UNAM, chapter 4.3, reproducing the contemporary account",
         "url": "https://tesiunamdocumentos.dgb.unam.mx/pd2008/0624306/0624306.pdf"
+      },
+      {
+        "title": "Butterflies Will Burn: Prosecuting Sodomites in Early Modern Spain and Mexico",
+        "citation": "Federico Garza Carvajal, University of Texas Press, 2003",
+        "url": "https://www.jstor.org/stable/10.7560/701830"
       }
     ]
   },
@@ -5293,8 +5333,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "A North American religious leader who preached under the name Public Universal Friend after 1776."
     },
     "body": {
-      "zh": "1776年重病之后，这位传道者开始使用「公众普世之友」之名，公开以超出男女之分的身份布道。友人往来于新英格兰和中大西洋各地，听众也逐渐组成独立的宗教团体。\n\n一些追随者后来迁往纽约州西部，建立聚居地。康奈尔大学的馆藏保留了友人及追随者的书信、遗嘱、地契和账目。",
-      "en": "After a serious illness in 1776, the preacher took the name Public Universal Friend and preached publicly as a person outside the division between men and women. The Friend travelled through New England and the Mid-Atlantic, gathering followers who formed a religious community.\n\nSome followers later moved to western New York and established a settlement. Cornell’s collection preserves letters, wills, deeds and accounts from the Friend’s community."
+      "zh": "1776年重病之后，这位传道者开始使用「公众普世之友」之名，公开以超出男女之分的身份布道。友人往来于新英格兰和中大西洋各地，听众也逐渐组成独立的宗教团体。\n\n一些追随者后来迁往纽约州西部，建立聚居地。康奈尔大学的馆藏保留了友人及追随者的书信、遗嘱、地契和账目。\n\n历史学家保罗·莫耶把「友人」的传道放在美国革命时期宗教团体重新组织的背景下。他在传记中跟随听众和追随者，考察布道如何逐渐形成一处共同生活的聚居地。",
+      "en": "After a serious illness in 1776, the preacher took the name Public Universal Friend and preached publicly as a person outside the division between men and women. The Friend travelled through New England and the Mid-Atlantic, gathering followers who formed a religious community.\n\nSome followers later moved to western New York and established a settlement. Cornell’s collection preserves letters, wills, deeds and accounts from the Friend’s community.\n\nHistorian Paul Moyer places the Friend’s preaching in the religious upheavals of the American Revolutionary era. His biography follows listeners and followers as the preaching developed into a settled community."
     },
     "time": {
       "startYear": 1776,
@@ -5327,6 +5367,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "William Pierrepont White collection",
         "citation": "Cornell University Library, Rare and Manuscript Collections",
         "url": "https://rmc.library.cornell.edu/EAD/browselists/geneo.html"
+      },
+      {
+        "title": "The Public Universal Friend: Jemima Wilkinson and Religious Enthusiasm in Revolutionary America",
+        "citation": "Paul B. Moyer, Cornell University Press; excerpt at the Museum of the American Revolution",
+        "url": "https://www.amrevmuseum.org/read-the-revolution/the-public-universal-friend"
       }
     ]
   },
@@ -5344,8 +5389,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "A New York theft prosecution in 1836 left court records about Mary Jones."
     },
     "body": {
-      "zh": "1836年，一名男子指控玛丽·琼斯盗取钱包，案件进入纽约市法院。法庭记录保留了金钱、证词和处理结果，也记下审讯者对琼斯服装的追问。\n\n琼斯是一名黑人。报刊和版画把注意力放在她的女性装束上，法庭档案则留下了受审经过。纽约市档案馆公开了案卷中的部分文书。",
-      "en": "In 1836, a man accused Mary Jones of stealing his wallet, and the case went before a New York City court. The papers record the money at issue, testimony and the outcome, as well as questions about Jones’s clothing.\n\nJones was Black. Newspapers and prints drew attention to her feminine clothing, while the court papers preserve the proceedings. The New York City Municipal Archives has reproduced documents from the case."
+      "zh": "1836年，一名男子指控玛丽·琼斯盗取钱包，案件进入纽约市法院。法庭记录保留了金钱、证词和处理结果，也记下审讯者对琼斯服装的追问。\n\n琼斯是一名黑人。报刊和版画把注意力放在她的女性装束上，法庭档案则留下了受审经过。纽约市档案馆公开了案卷中的部分文书。\n\n史密森学会收藏的1836年石版画在肖像下使用了带侮辱性的标题，并并列印出案卷中的两个名字。画页保留了当时印刷品如何把这场审判转成面向公众的图像。",
+      "en": "In 1836, a man accused Mary Jones of stealing his wallet, and the case went before a New York City court. The papers record the money at issue, testimony and the outcome, as well as questions about Jones’s clothing.\n\nJones was Black. Newspapers and prints drew attention to her feminine clothing, while the court papers preserve the proceedings. The New York City Municipal Archives has reproduced documents from the case.\n\nAn 1836 lithograph at the Smithsonian places a derogatory caption beneath the portrait and prints both names used in the case. The sheet shows how the trial was turned into an image for public circulation."
     },
     "time": {
       "startYear": 1836,
@@ -5378,6 +5423,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "The People vs Mary Jones",
         "citation": "NYC Municipal Archives, reproductions of the 1836 case papers",
         "url": "https://www.archives.nyc/blog/2022/8/3/the-people-vs-mary-jones"
+      },
+      {
+        "title": "The Man - Monster",
+        "citation": "Smithsonian National Museum of American History, 1836 lithograph, NMAH 324702",
+        "url": "https://www.si.edu/object/man-monster:nmah_324702"
       }
     ]
   },
@@ -5429,6 +5479,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Photographs of We’wha demonstrating Zuni textile making",
         "citation": "Smithsonian National Anthropological Archives, NAA.PhotoLot.2004-03",
         "url": "https://sova.si.edu/record/naa.photolot.2004-03"
+      },
+      {
+        "title": "Matilda Coxe Stevenson field photographs",
+        "citation": "Smithsonian Collections Search Center, photographs indexed under Stevenson and We’wha",
+        "url": "https://collections.si.edu/search/results.htm?fq=name%3A%22Stevenson%2C+Matilda+Coxe%22&q=%22We%27wha%2C+1849-1896%22"
       }
     ]
   },
@@ -5446,8 +5501,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "A police raid on a private dance in Mexico City became the subject of a Posada broadside."
     },
     "body": {
-      "zh": "1901年11月，墨西哥城警方突袭一场私人舞会。到场者均为男性，有人穿着裙装，报刊以「41人」报道被捕者，并把服饰和舞伴当作讽刺题材。\n\n何塞·瓜达卢佩·波萨达为一张街头印刷品绘制版画，画中穿裙装和西装的男子成对跳舞。大都会艺术博物馆收藏了这张印刷品。",
-      "en": "In November 1901, police in Mexico City raided a private dance attended by men, some of whom wore dresses. The press reported forty-one arrests and made the clothes and dancing partners the subject of satire.\n\nJosé Guadalupe Posada illustrated a broadside with pairs of men dancing in dresses and suits. The Metropolitan Museum of Art holds a copy of the print."
+      "zh": "1901年11月，墨西哥城警方突袭一场私人舞会。到场者均为男性，有人穿着裙装，报刊以「41人」报道被捕者，并把服饰和舞伴当作讽刺题材。\n\n何塞·瓜达卢佩·波萨达为一张街头印刷品绘制版画，画中穿裙装和西装的男子成对跳舞。大都会艺术博物馆收藏了这张印刷品。\n\n罗伯特·麦基·欧文等人编订的《The Famous 41》把报刊报道、版画和后来的文化作品放在一起，追踪「41」如何从新闻中的人数变成墨西哥公共文化里的符号。",
+      "en": "In November 1901, police in Mexico City raided a private dance attended by men, some of whom wore dresses. The press reported forty-one arrests and made the clothes and dancing partners the subject of satire.\n\nJosé Guadalupe Posada illustrated a broadside with pairs of men dancing in dresses and suits. The Metropolitan Museum of Art holds a copy of the print.\n\nThe Famous 41, edited by Robert McKee Irwin and colleagues, brings together press accounts, prints and later cultural works to trace how forty-one became a public symbol in Mexico."
     },
     "time": {
       "startYear": 1901,
@@ -5480,6 +5535,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Dance broadside by José Guadalupe Posada",
         "citation": "The Metropolitan Museum of Art, object 735325",
         "url": "https://www.metmuseum.org/art/collection/search/735325"
+      },
+      {
+        "title": "The Famous 41: Sexuality and Social Control in Mexico, 1901",
+        "citation": "Edited by Robert McKee Irwin, Edward J. McCaughan and Michelle Rocío Nasser, Palgrave Macmillan, 2003",
+        "url": "https://openlibrary.org/works/OL18396479W/The_famous_41"
       }
     ]
   },
@@ -5497,8 +5557,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "A Zapatista fighter from Guerrero who lived as Amelio during and after the revolution."
     },
     "body": {
-      "zh": "墨西哥革命期间，阿梅利奥·罗夫莱斯在格雷罗州加入萨帕塔派武装，以男性姓名和服装在军中生活。军装肖像留下了他戴帽、着军服并佩带武器的形象。\n\n战争结束后，罗夫莱斯继续以阿梅利奥的名字生活。军装照和有关其服役经历的记录，保存了他从革命年代到战后生活的线索。",
-      "en": "During the Mexican Revolution, Amelio Robles joined Zapatista forces in Guerrero and lived in the army under a man’s name and in men’s clothing. Military portraits show him in uniform and hat, carrying weapons.\n\nAfter the fighting ended, Robles continued to live under the name Amelio. His military portraits and service records document parts of his life during and after the revolution."
+      "zh": "墨西哥革命期间，阿梅利奥·罗夫莱斯在格雷罗州加入萨帕塔派武装，以男性姓名和服装在军中生活。军装肖像留下了他戴帽、着军服并佩带武器的形象。\n\n战争结束后，罗夫莱斯继续以阿梅利奥的名字生活。军装照和有关其服役经历的记录，保存了他从革命年代到战后生活的线索。\n\n历史学家加夫列拉·卡诺把罗夫莱斯的军装肖像与服役经历并读。她考察军服、姿势和武器怎样使照片中的男性军人形象为同袍与公众所识别。",
+      "en": "During the Mexican Revolution, Amelio Robles joined Zapatista forces in Guerrero and lived in the army under a man’s name and in men’s clothing. Military portraits show him in uniform and hat, carrying weapons.\n\nAfter the fighting ended, Robles continued to live under the name Amelio. His military portraits and service records document parts of his life during and after the revolution.\n\nHistorian Gabriela Cano reads Robles’s uniformed portraits alongside his military life. She examines how uniform, pose and weapons made his presentation as a male soldier recognizable to comrades and the public."
     },
     "time": {
       "startYear": 1914,
@@ -5531,6 +5591,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Amelio Robles; un hombre trans en la Revolución mexicana",
         "citation": "Secretaría de Cultura, México",
         "url": "https://www.gob.mx/cultura/articulos/amelio-robles-un-hombre-trans-en-la-revolucion-mexicana?idiom=es"
+      },
+      {
+        "title": "Unconcealable Realities of Desire: Amelio Robles’s (Transgender) Masculinity in the Mexican Revolution",
+        "citation": "Gabriela Cano, in Sex in Revolution, Duke University Press, 2006, pp. 35–58",
+        "url": "https://www.dukeupress.edu/Sex-in-Revolution"
       }
     ]
   },
@@ -5582,6 +5647,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Klippert Case, 1967",
         "citation": "Parks Canada, National Historic Event",
         "url": "https://parks.canada.ca/culture/designation/evenement-event/affaire-klippert-case"
+      },
+      {
+        "title": "Klippert v. The Queen",
+        "citation": "Supreme Court Reports, [1967] S.C.R. 822, Government of Canada digitization",
+        "url": "https://publications.gc.ca/collections/collection_2016/csc-scc/JU1-1-1967.pdf"
       }
     ]
   },
@@ -5598,8 +5668,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "A 1969 police raid on New York’s Stonewall Inn sparked several days of protest."
     },
     "body": {
-      "zh": "1969年6月28日凌晨，纽约警察突袭克里斯托弗街的石墙酒吧。警方将人带出酒吧时，人群在门外聚集，随后与警察发生冲突。\n\n接下来的几天，人们继续在酒吧及周边街道集会。次年六月，纽约的克里斯托弗街解放日游行纪念了这场抗议。",
-      "en": "Early on 28 June 1969, New York police raided the Stonewall Inn on Christopher Street. A crowd gathered outside as police brought people out of the bar, and confrontations followed.\n\nOver the following days people continued to gather at the bar and in nearby streets. The following June, New York’s Christopher Street Liberation Day march commemorated the protests."
+      "zh": "1969年6月28日凌晨，纽约警察突袭克里斯托弗街的石墙酒吧。警方将人带出酒吧时，人群在门外聚集，随后与警察发生冲突。\n\n接下来的几天，人们继续在酒吧及周边街道集会。次年六月，纽约的克里斯托弗街解放日游行纪念了这场抗议。\n\n历史学家马丁·杜伯曼的《Stonewall》从六个人的生活写起，把突袭后的几夜放回他们此前的工作、居住和组织经历中叙述。",
+      "en": "Early on 28 June 1969, New York police raided the Stonewall Inn on Christopher Street. A crowd gathered outside as police brought people out of the bar, and confrontations followed.\n\nOver the following days people continued to gather at the bar and in nearby streets. The following June, New York’s Christopher Street Liberation Day march commemorated the protests.\n\nIn Stonewall, historian Martin Duberman follows six people, setting the nights after the raid alongside their earlier work, living arrangements and organizing."
     },
     "time": {
       "startYear": 1969,
@@ -5632,6 +5702,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Stonewall National Monument Foundation Document",
         "citation": "U.S. National Park Service",
         "url": "https://www.nps.gov/ston/learn/historyculture/upload/STON_Foundation-Document.pdf"
+      },
+      {
+        "title": "Stonewall",
+        "citation": "Martin Duberman, first published 1993; Plume reissue",
+        "url": "https://www.penguinrandomhouse.com/books/327710/stonewall-by-martin-duberman/"
       }
     ]
   },
@@ -5683,6 +5758,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Reinaldo Arenas Papers",
         "citation": "Princeton University Library, C0232",
         "url": "https://findingaids.library.upenn.edu/records/PRIN_MUDD_C0232"
+      },
+      {
+        "title": "Before Night Falls",
+        "citation": "Reinaldo Arenas, translated by Dolores M. Koch, Penguin edition",
+        "url": "https://www.penguinrandomhouse.com/books/625447/before-night-falls-by-reinaldo-arenas/9780140157659/"
       }
     ]
   },
@@ -5734,6 +5814,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Toronto bathhouse raids",
         "citation": "Canadian Museum of History, protest photographs and context",
         "url": "https://www.historymuseum.ca/teachers-zone/2slgbtqia-history-and-identities-in-canada/community-and-protest/toronto-bathhouse-raid/"
+      },
+      {
+        "title": "Become 2SLGBTQIA+ Literate",
+        "citation": "The ArQuives, timeline and photograph of the 1981 demonstrations",
+        "url": "https://arquives.ca/wp-content/uploads/2021/03/TheArQuives_Become2SLGBTQIA_LiterateC.pdf"
       }
     ]
   },
@@ -5785,6 +5870,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Felipa de Souza",
         "citation": "Arquivo Nacional da Torre do Tombo, Inquisição de Lisboa, liv. 779",
         "url": "https://brasilhis.usal.es/en/personaje/felipa-de-souza"
+      },
+      {
+        "title": "Processo de Felipa de Sousa",
+        "citation": "Arquivo Nacional da Torre do Tombo, case 1267, PT/TT/TSO-IL/028/01267",
+        "url": "https://digitarq.arquivos.pt/viewer?id=230115"
       }
     ]
   },
@@ -5802,8 +5892,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "Bahia visitation records describe the clothing of this enslaved person from the Congo."
     },
     "body": {
-      "zh": "1591年的巴伊亚宗教裁判所文书以 Francisco Manicongo 记载一位来自刚果的被奴役者。告发者提到其衣着，并以当时对男女服饰的要求质疑其穿着方式。\n\n希卡是后世纪念中采用的名字。殖民时期卷册保存的是告发者及记录员所写的称呼和服饰描述。",
-      "en": "Bahia Inquisition records from 1591 describe an enslaved person from the Congo under the name Francisco Manicongo. A denunciation focused on clothing and challenged how it was worn under the gendered expectations of the time.\n\nXica is the name adopted in later commemorations. The colonial file preserves the name and description of clothing as written by the accuser and officials."
+      "zh": "1591年的巴伊亚宗教裁判所文书以 Francisco Manicongo 记载一位来自刚果的被奴役者。告发者提到其衣着，并以当时对男女服饰的要求质疑其穿着方式。\n\n希卡是后世纪念中采用的名字。殖民时期卷册保存的是告发者及记录员所写的称呼和服饰描述。\n\n雅克琳·戈梅斯·德热苏斯将「希卡」这一后世称谓放在巴西 travesti 社群建构集体记忆的过程中讨论。她的文章区分了殖民文书中的名字与当代纪念所用的名字。",
+      "en": "Bahia Inquisition records from 1591 describe an enslaved person from the Congo under the name Francisco Manicongo. A denunciation focused on clothing and challenged how it was worn under the gendered expectations of the time.\n\nXica is the name adopted in later commemorations. The colonial file preserves the name and description of clothing as written by the accuser and officials.\n\nJaqueline Gomes de Jesus places the later use of the name Xica within the making of collective memory among Brazilian travesti communities, distinguishing the name in the colonial record from the one used in commemoration."
     },
     "time": {
       "startYear": 1591,
@@ -5836,6 +5926,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Primeira Visitação do Santo Ofício às Partes do Brasil",
         "citation": "Bahia visitation records, 1591–1592, IHGB catalogue",
         "url": "https://atom.ihgb.org.br/index.php/inquisicao?onlyDirect=1"
+      },
+      {
+        "title": "Xica Manicongo: a transgeneridade toma a palavra",
+        "citation": "Jaqueline Gomes de Jesus, Revista Docência e Cibercultura, 2019",
+        "url": "https://doi.org/10.12957/redoc.2019.41817"
       }
     ]
   },
@@ -5887,6 +5982,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Somos",
         "citation": "CeDInCI, AméricaLee digital periodicals archive",
         "url": "https://americalee.cedinci.org/s/americalee/item/6028"
+      },
+      {
+        "title": "Revista SOMOS N.º 1",
+        "citation": "CeDInCI, Sexo y Revolución, digitized first issue, December 1973",
+        "url": "https://sexoyrevolucion.cedinci.org/s/la-comunidad-del-archivo/item/63"
       }
     ]
   },
@@ -5938,6 +6038,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Lampião da Esquina",
         "citation": "Biblioteca Nacional, catalogue record 1780677",
         "url": "https://acervo.bn.gov.br/sophia_web/Acervo/Detalhe/1780677"
+      },
+      {
+        "title": "Lampião da Esquina",
+        "citation": "Grupo Dignidade, digitized run of the newspaper",
+        "url": "https://www.grupodignidade.org.br/projetos/lampiao-da-esquina/"
       }
     ]
   },
@@ -5989,6 +6094,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Maricas en movimiento",
         "citation": "Naranjo Yarce, Agudelo Hincapié and Correa Montoya, Estudios Políticos",
         "url": "https://revistas.udea.edu.co/index.php/estudiospoliticos/article/download/342803/20810258?inline=1"
+      },
+      {
+        "title": "Caracterización de la población LGBTI en Colombia",
+        "citation": "Ministerio de Cultura, historical survey of Colombian periodicals",
+        "url": "https://mng.mincultura.gov.co/areas/poblaciones/grupos-de-interes/Documents/Caracterizaci%C3%B3n%20de%20la%20poblaci%C3%B3n%20LGTBI.pdf"
       }
     ]
   },
@@ -6091,6 +6201,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Informe Final: El MRTA",
         "citation": "Comisión de la Verdad y Reconciliación, tomo II, §1.4",
         "url": "https://www.cverdad.org.pe/ifinal/pdf/TOMO%20II/CAPITULO%201%20-%20Los%20actores%20armados%20del%20conflicto/1.4.%20El%20MRTA.pdf"
+      },
+      {
+        "title": "Resolución del expediente 380-2023",
+        "citation": "Peruvian judiciary, records of the Las Gardenias case, 2025",
+        "url": "https://www.pj.gob.pe/wps/wcm/connect/a5a0eb0046c39c31a13cf3758efc2dd4/TEMP_202300380500113700820251216083124.pdf?CACHEID=a5a0eb0046c39c31a13cf3758efc2dd4&MOD=AJPERES"
       }
     ]
   },
@@ -6142,6 +6257,11 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "title": "Archivo de la Memoria Trans",
         "citation": "CIPDH–UNESCO, Memorias Situadas",
         "url": "https://www.cipdh.gob.ar/memorias-situadas/lugar-de-memoria/archivo-de-la-memoria-trans/"
+      },
+      {
+        "title": "Archivo de la Memoria Trans",
+        "citation": "Community archive, digital catalogue",
+        "url": "https://archivotrans.ar/index.php"
       }
     ]
   },
