@@ -5282,5 +5282,973 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "url": "https://doi.org/10.1002/9781118896877.wbiehs546"
       }
     ]
+  },
+  {
+    "id": "entry_cotita_de_la_encarnacion",
+    "slug": "cotita-de-la-encarnacion",
+    "title": {
+      "zh": "科蒂塔·德拉恩卡纳西翁",
+      "en": "Cotita de la Encarnación"
+    },
+    "originalName": "Cotita de la Encarnación",
+    "aliases": [],
+    "summary": {
+      "zh": "1658年，科蒂塔是墨西哥城一桩殖民时期刑事调查中的被告之一。",
+      "en": "Cotita was among those investigated in a colonial criminal case in Mexico City in 1658."
+    },
+    "body": {
+      "zh": "新西班牙当局在墨西哥城调查男性之间的性关系，科蒂塔·德拉恩卡纳西翁是案中记下的称呼。调查材料和同时代记事提到，案中一些人以女性名字彼此相称。\n\n1658年11月6日，十五人被押出王家监狱。当时的记事记载，其中十四人被处死，另一名年纪较轻的人被判鞭笞和劳役。",
+      "en": "Authorities in New Spain investigated sexual relationships between men in Mexico City. Cotita de la Encarnación was one of the names recorded in the case. The proceedings and contemporary accounts describe some people using women’s names among themselves.\n\nOn 6 November 1658, fifteen people were taken out of the royal jail. A contemporary account records that fourteen were executed and a younger person was sentenced to flogging and forced labour."
+    },
+    "time": {
+      "startYear": 1658,
+      "endYear": 1658,
+      "label": {
+        "zh": "1658年",
+        "en": "1658"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "墨西哥城",
+        "en": "Mexico City"
+      },
+      "countryName": {
+        "zh": "墨西哥",
+        "en": "Mexico"
+      },
+      "countryCode": "484",
+      "coordinates": {
+        "longitude": -99.13,
+        "latitude": 19.43
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Locas, maricones, mayales, hombres, homosexuales, gays",
+        "citation": "UNAM, chapter 4.3, reproducing the contemporary account",
+        "url": "https://tesiunamdocumentos.dgb.unam.mx/pd2008/0624306/0624306.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_public_universal_friend",
+    "slug": "public-universal-friend",
+    "title": {
+      "zh": "公众普世之友",
+      "en": "The Public Universal Friend"
+    },
+    "originalName": "Publick Universal Friend",
+    "aliases": [],
+    "summary": {
+      "zh": "1776年后以「公众普世之友」之名布道的北美宗教领袖。",
+      "en": "A North American religious leader who preached under the name Public Universal Friend after 1776."
+    },
+    "body": {
+      "zh": "1776年重病之后，这位传道者开始使用「公众普世之友」之名，公开以超出男女之分的身份布道。友人往来于新英格兰和中大西洋各地，听众也逐渐组成独立的宗教团体。\n\n一些追随者后来迁往纽约州西部，建立聚居地。康奈尔大学的馆藏保留了友人及追随者的书信、遗嘱、地契和账目。",
+      "en": "After a serious illness in 1776, the preacher took the name Public Universal Friend and preached publicly as a person outside the division between men and women. The Friend travelled through New England and the Mid-Atlantic, gathering followers who formed a religious community.\n\nSome followers later moved to western New York and established a settlement. Cornell’s collection preserves letters, wills, deeds and accounts from the Friend’s community."
+    },
+    "time": {
+      "startYear": 1776,
+      "endYear": 1819,
+      "label": {
+        "zh": "1776至1819年",
+        "en": "1776–1819"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约州耶茨县",
+        "en": "Yates County, New York"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -77.1,
+        "latitude": 42.65
+      },
+      "precision": "region",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "William Pierrepont White collection",
+        "citation": "Cornell University Library, Rare and Manuscript Collections",
+        "url": "https://rmc.library.cornell.edu/EAD/browselists/geneo.html"
+      }
+    ]
+  },
+  {
+    "id": "entry_mary_jones_1836",
+    "slug": "mary-jones-1836",
+    "title": {
+      "zh": "玛丽·琼斯案",
+      "en": "The People v. Mary Jones"
+    },
+    "originalName": "Mary Jones",
+    "aliases": [],
+    "summary": {
+      "zh": "1836年的纽约盗窃案留下玛丽·琼斯的法庭记录。",
+      "en": "A New York theft prosecution in 1836 left court records about Mary Jones."
+    },
+    "body": {
+      "zh": "1836年，一名男子指控玛丽·琼斯盗取钱包，案件进入纽约市法院。法庭记录保留了金钱、证词和处理结果，也记下审讯者对琼斯服装的追问。\n\n琼斯是一名黑人。报刊和版画把注意力放在她的女性装束上，法庭档案则留下了受审经过。纽约市档案馆公开了案卷中的部分文书。",
+      "en": "In 1836, a man accused Mary Jones of stealing his wallet, and the case went before a New York City court. The papers record the money at issue, testimony and the outcome, as well as questions about Jones’s clothing.\n\nJones was Black. Newspapers and prints drew attention to her feminine clothing, while the court papers preserve the proceedings. The New York City Municipal Archives has reproduced documents from the case."
+    },
+    "time": {
+      "startYear": 1836,
+      "endYear": 1836,
+      "label": {
+        "zh": "1836年",
+        "en": "1836"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约",
+        "en": "New York City"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -74,
+        "latitude": 40.71
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "The People vs Mary Jones",
+        "citation": "NYC Municipal Archives, reproductions of the 1836 case papers",
+        "url": "https://www.archives.nyc/blog/2022/8/3/the-people-vs-mary-jones"
+      }
+    ]
+  },
+  {
+    "id": "entry_wewha",
+    "slug": "wewha",
+    "title": {
+      "zh": "韦瓦",
+      "en": "We’wha"
+    },
+    "originalName": "We’wha",
+    "aliases": [],
+    "summary": {
+      "zh": "祖尼织工韦瓦于1886年在华盛顿演示纺织技艺。",
+      "en": "Zuni weaver We’wha demonstrated textile making in Washington in 1886."
+    },
+    "body": {
+      "zh": "韦瓦在新墨西哥的祖尼社群长大，承担祖尼语称为 lhamana 的社会角色。韦瓦从事织造和陶器制作，也向研究者介绍祖尼的工艺。\n\n1886年，韦瓦在华盛顿居住数月，协助美国民族学局记录祖尼知识。史密森学会保存了韦瓦演示纺线和织布的照片。",
+      "en": "We’wha grew up in the Zuni community in New Mexico and occupied a social role known in Zuni as lhamana. We’wha worked in weaving and pottery and demonstrated Zuni crafts to researchers.\n\nIn 1886, We’wha stayed in Washington, D.C., for several months and helped the Bureau of American Ethnology document Zuni knowledge. The Smithsonian holds photographs of We’wha demonstrating spinning and weaving."
+    },
+    "time": {
+      "startYear": 1849,
+      "endYear": 1896,
+      "label": {
+        "zh": "约1849至1896年",
+        "en": "c. 1849–1896"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "祖尼普韦布洛",
+        "en": "Zuni Pueblo"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -108.85,
+        "latitude": 35.07
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Photographs of We’wha demonstrating Zuni textile making",
+        "citation": "Smithsonian National Anthropological Archives, NAA.PhotoLot.2004-03",
+        "url": "https://sova.si.edu/record/naa.photolot.2004-03"
+      }
+    ]
+  },
+  {
+    "id": "entry_dance_of_the_forty_one",
+    "slug": "dance-of-the-forty-one",
+    "title": {
+      "zh": "墨西哥「41人舞会」",
+      "en": "The Dance of the Forty-One"
+    },
+    "originalName": "Baile de los cuarenta y uno",
+    "aliases": [],
+    "summary": {
+      "zh": "墨西哥城警方突袭私人舞会，波萨达将事件画成街头版画。",
+      "en": "A police raid on a private dance in Mexico City became the subject of a Posada broadside."
+    },
+    "body": {
+      "zh": "1901年11月，墨西哥城警方突袭一场私人舞会。到场者均为男性，有人穿着裙装，报刊以「41人」报道被捕者，并把服饰和舞伴当作讽刺题材。\n\n何塞·瓜达卢佩·波萨达为一张街头印刷品绘制版画，画中穿裙装和西装的男子成对跳舞。大都会艺术博物馆收藏了这张印刷品。",
+      "en": "In November 1901, police in Mexico City raided a private dance attended by men, some of whom wore dresses. The press reported forty-one arrests and made the clothes and dancing partners the subject of satire.\n\nJosé Guadalupe Posada illustrated a broadside with pairs of men dancing in dresses and suits. The Metropolitan Museum of Art holds a copy of the print."
+    },
+    "time": {
+      "startYear": 1901,
+      "endYear": 1901,
+      "label": {
+        "zh": "1901年",
+        "en": "1901"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "墨西哥城",
+        "en": "Mexico City"
+      },
+      "countryName": {
+        "zh": "墨西哥",
+        "en": "Mexico"
+      },
+      "countryCode": "484",
+      "coordinates": {
+        "longitude": -99.14,
+        "latitude": 19.43
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Dance broadside by José Guadalupe Posada",
+        "citation": "The Metropolitan Museum of Art, object 735325",
+        "url": "https://www.metmuseum.org/art/collection/search/735325"
+      }
+    ]
+  },
+  {
+    "id": "entry_amelio_robles_avila",
+    "slug": "amelio-robles-avila",
+    "title": {
+      "zh": "阿梅利奥·罗夫莱斯·阿维拉",
+      "en": "Amelio Robles Ávila"
+    },
+    "originalName": "Amelio Robles Ávila",
+    "aliases": [],
+    "summary": {
+      "zh": "格雷罗州的萨帕塔派军人，革命期间与战后都以阿梅利奥之名生活。",
+      "en": "A Zapatista fighter from Guerrero who lived as Amelio during and after the revolution."
+    },
+    "body": {
+      "zh": "墨西哥革命期间，阿梅利奥·罗夫莱斯在格雷罗州加入萨帕塔派武装，以男性姓名和服装在军中生活。军装肖像留下了他戴帽、着军服并佩带武器的形象。\n\n战争结束后，罗夫莱斯继续以阿梅利奥的名字生活。军装照和有关其服役经历的记录，保存了他从革命年代到战后生活的线索。",
+      "en": "During the Mexican Revolution, Amelio Robles joined Zapatista forces in Guerrero and lived in the army under a man’s name and in men’s clothing. Military portraits show him in uniform and hat, carrying weapons.\n\nAfter the fighting ended, Robles continued to live under the name Amelio. His military portraits and service records document parts of his life during and after the revolution."
+    },
+    "time": {
+      "startYear": 1914,
+      "endYear": 1984,
+      "label": {
+        "zh": "1914至1984年",
+        "en": "1914–1984"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "格雷罗州索奇帕拉",
+        "en": "Xochipala, Guerrero"
+      },
+      "countryName": {
+        "zh": "墨西哥",
+        "en": "Mexico"
+      },
+      "countryCode": "484",
+      "coordinates": {
+        "longitude": -99.64,
+        "latitude": 17.81
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Amelio Robles; un hombre trans en la Revolución mexicana",
+        "citation": "Secretaría de Cultura, México",
+        "url": "https://www.gob.mx/cultura/articulos/amelio-robles-un-hombre-trans-en-la-revolucion-mexicana?idiom=es"
+      }
+    ]
+  },
+  {
+    "id": "entry_everett_klippert_case",
+    "slug": "everett-klippert-case",
+    "title": {
+      "zh": "埃弗里特·克利珀特案",
+      "en": "The Everett Klippert Case"
+    },
+    "originalName": "Klippert v. The Queen",
+    "aliases": [],
+    "summary": {
+      "zh": "加拿大最高法院于1967年维持克利珀特的无限期拘禁裁定。",
+      "en": "Canada’s Supreme Court upheld Everett Klippert’s indefinite detention in 1967."
+    },
+    "body": {
+      "zh": "1965年，克利珀特在加拿大西北地区派恩波因特接受警方询问，说及他与男性发生过自愿性行为。检方以严重猥亵罪起诉，法院随后依据当时的刑法裁定他为危险性罪犯，判处无限期拘禁。\n\n1967年，加拿大最高法院维持该裁定。判决引发议会和报刊争论。1969年修法使部分成年人之间在私下自愿发生的同性性行为不再受刑事处罚。",
+      "en": "In 1965, police questioned Everett Klippert at Pine Point in the Northwest Territories. He disclosed consensual sexual encounters with men, was prosecuted for gross indecency and was subsequently declared a dangerous sexual offender and detained indefinitely.\n\nIn 1967 the Supreme Court of Canada upheld the ruling. Debate followed in Parliament and in the press. A 1969 amendment partially decriminalized consensual same-sex acts between adults in private."
+    },
+    "time": {
+      "startYear": 1965,
+      "endYear": 1967,
+      "label": {
+        "zh": "1965至1967年",
+        "en": "1965–1967"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "派恩波因特，西北地区",
+        "en": "Pine Point, Northwest Territories"
+      },
+      "countryName": {
+        "zh": "加拿大",
+        "en": "Canada"
+      },
+      "countryCode": "124",
+      "coordinates": {
+        "longitude": -114.46,
+        "latitude": 60.84
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Klippert Case, 1967",
+        "citation": "Parks Canada, National Historic Event",
+        "url": "https://parks.canada.ca/culture/designation/evenement-event/affaire-klippert-case"
+      }
+    ]
+  },
+  {
+    "id": "entry_stonewall_uprising",
+    "slug": "stonewall-uprising",
+    "title": {
+      "zh": "石墙起义",
+      "en": "Stonewall Uprising"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "1969年，警方突袭纽约石墙酒吧，引发持续数日的街头抗议。",
+      "en": "A 1969 police raid on New York’s Stonewall Inn sparked several days of protest."
+    },
+    "body": {
+      "zh": "1969年6月28日凌晨，纽约警察突袭克里斯托弗街的石墙酒吧。警方将人带出酒吧时，人群在门外聚集，随后与警察发生冲突。\n\n接下来的几天，人们继续在酒吧及周边街道集会。次年六月，纽约的克里斯托弗街解放日游行纪念了这场抗议。",
+      "en": "Early on 28 June 1969, New York police raided the Stonewall Inn on Christopher Street. A crowd gathered outside as police brought people out of the bar, and confrontations followed.\n\nOver the following days people continued to gather at the bar and in nearby streets. The following June, New York’s Christopher Street Liberation Day march commemorated the protests."
+    },
+    "time": {
+      "startYear": 1969,
+      "endYear": 1969,
+      "label": {
+        "zh": "1969年",
+        "en": "1969"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约格林尼治村",
+        "en": "Greenwich Village, New York"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -74.002,
+        "latitude": 40.734
+      },
+      "precision": "exact",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Stonewall National Monument Foundation Document",
+        "citation": "U.S. National Park Service",
+        "url": "https://www.nps.gov/ston/learn/historyculture/upload/STON_Foundation-Document.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_reinaldo_arenas_before_night_falls",
+    "slug": "reinaldo-arenas-before-night-falls",
+    "title": {
+      "zh": "雷纳尔多·阿雷纳斯与《夜幕降临前》",
+      "en": "Reinaldo Arenas and Before Night Falls"
+    },
+    "originalName": "Antes que anochezca",
+    "aliases": [],
+    "summary": {
+      "zh": "古巴作家阿雷纳斯在自传中写下同性情感、监禁和流亡。",
+      "en": "The Cuban writer Arenas recounted same-sex desire, imprisonment and exile in his memoir."
+    },
+    "body": {
+      "zh": "古巴作家雷纳尔多·阿雷纳斯在《夜幕降临前》中追述在古巴成长、写作与遭监禁的经历，也直接写到他的同性情感和交往。1980年，他经马里埃尔港离开古巴，后来住在纽约。\n\n阿雷纳斯于1990年在纽约去世，自传的西班牙语版于1992年出版。普林斯顿大学保存其手稿、打字稿和书信。",
+      "en": "In Before Night Falls, the Cuban writer Reinaldo Arenas recalled growing up, writing and being imprisoned in Cuba. He wrote about his desire for and relationships with men. He left Cuba through the port of Mariel in 1980 and later lived in New York.\n\nArenas died in New York in 1990. The Spanish edition of his memoir appeared in 1992. Princeton University holds manuscripts, typescripts and correspondence among his papers."
+    },
+    "time": {
+      "startYear": 1980,
+      "endYear": 1992,
+      "label": {
+        "zh": "1980至1992年",
+        "en": "1980–1992"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "纽约（流亡与写作地）",
+        "en": "New York City (exile and writing)"
+      },
+      "countryName": {
+        "zh": "美国",
+        "en": "United States"
+      },
+      "countryCode": "840",
+      "coordinates": {
+        "longitude": -73.98,
+        "latitude": 40.75
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Reinaldo Arenas Papers",
+        "citation": "Princeton University Library, C0232",
+        "url": "https://findingaids.library.upenn.edu/records/PRIN_MUDD_C0232"
+      }
+    ]
+  },
+  {
+    "id": "entry_toronto_operation_soap",
+    "slug": "toronto-operation-soap",
+    "title": {
+      "zh": "多伦多「肥皂行动」",
+      "en": "Toronto’s Operation Soap"
+    },
+    "originalName": "Operation Soap",
+    "aliases": [],
+    "summary": {
+      "zh": "1981年，多伦多警方突袭四家浴场，引发街头抗议。",
+      "en": "Raids on four Toronto bathhouses in 1981 prompted street demonstrations."
+    },
+    "body": {
+      "zh": "1981年2月5日晚，多伦多警方同时突袭市中心四家同性恋浴场。这场行动被警方称为「肥皂行动」，约三百人被捕。\n\n次日，抗议者走上街头，反对警方突袭和对同性恋社群的执法。二月间仍有人集会，现场照片保留了抗议者举牌列队的情景。",
+      "en": "On the evening of 5 February 1981, Toronto police raided four downtown gay bathhouses simultaneously. The police called the raids Operation Soap, and about three hundred people were arrested.\n\nThe next day protesters took to the streets against the raids and policing of the gay community. Demonstrations continued in February, and photographs show marchers carrying protest signs."
+    },
+    "time": {
+      "startYear": 1981,
+      "endYear": 1981,
+      "label": {
+        "zh": "1981年",
+        "en": "1981"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "多伦多",
+        "en": "Toronto"
+      },
+      "countryName": {
+        "zh": "加拿大",
+        "en": "Canada"
+      },
+      "countryCode": "124",
+      "coordinates": {
+        "longitude": -79.38,
+        "latitude": 43.65
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Toronto bathhouse raids",
+        "citation": "Canadian Museum of History, protest photographs and context",
+        "url": "https://www.historymuseum.ca/teachers-zone/2slgbtqia-history-and-identities-in-canada/community-and-protest/toronto-bathhouse-raid/"
+      }
+    ]
+  },
+  {
+    "id": "entry_felipa_de_souza",
+    "slug": "felipa-de-souza",
+    "title": {
+      "zh": "费莉帕·德索萨",
+      "en": "Felipa de Souza"
+    },
+    "originalName": "Felipa de Souza",
+    "aliases": [],
+    "summary": {
+      "zh": "费莉帕在巴伊亚因与女性交往受到葡萄牙宗教裁判所调查。",
+      "en": "The Portuguese Inquisition investigated Felipa’s relationships with women in Bahia."
+    },
+    "body": {
+      "zh": "1591年，葡萄牙宗教裁判所的巡察官来到巴伊亚，听取对费莉帕·德索萨与其他女性交往的告发。费莉帕受讯时讲及她对女性的爱慕和与她们的关系。\n\n裁判所随后对费莉帕判刑。里斯本国家档案馆保存首次巡察的告发卷册，BRASILHIS 的人物条目列出了这份卷册及相关记载。",
+      "en": "In 1591, a Portuguese Inquisition visitor in Bahia heard denunciations about Felipa de Souza’s relationships with other women. When questioned, Felipa spoke of her affection for women and her relationships with them.\n\nThe Inquisition subsequently sentenced Felipa. The Portuguese national archive holds the first visitation’s book of denunciations, which is listed with related records in BRASILHIS’s entry for her."
+    },
+    "time": {
+      "startYear": 1591,
+      "endYear": 1592,
+      "label": {
+        "zh": "1591至1592年",
+        "en": "1591–1592"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "萨尔瓦多，巴伊亚",
+        "en": "Salvador, Bahia"
+      },
+      "countryName": {
+        "zh": "巴西",
+        "en": "Brazil"
+      },
+      "countryCode": "076",
+      "coordinates": {
+        "longitude": -38.51,
+        "latitude": -12.97
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Felipa de Souza",
+        "citation": "Arquivo Nacional da Torre do Tombo, Inquisição de Lisboa, liv. 779",
+        "url": "https://brasilhis.usal.es/en/personaje/felipa-de-souza"
+      }
+    ]
+  },
+  {
+    "id": "entry_xica_manicongo",
+    "slug": "xica-manicongo",
+    "title": {
+      "zh": "希卡·马尼孔戈",
+      "en": "Xica Manicongo"
+    },
+    "originalName": "Xica Manicongo",
+    "aliases": [],
+    "summary": {
+      "zh": "巴伊亚巡察文书留下这位刚果裔被奴役者的服饰记录。",
+      "en": "Bahia visitation records describe the clothing of this enslaved person from the Congo."
+    },
+    "body": {
+      "zh": "1591年的巴伊亚宗教裁判所文书以 Francisco Manicongo 记载一位来自刚果的被奴役者。告发者提到其衣着，并以当时对男女服饰的要求质疑其穿着方式。\n\n希卡是后世纪念中采用的名字。殖民时期卷册保存的是告发者及记录员所写的称呼和服饰描述。",
+      "en": "Bahia Inquisition records from 1591 describe an enslaved person from the Congo under the name Francisco Manicongo. A denunciation focused on clothing and challenged how it was worn under the gendered expectations of the time.\n\nXica is the name adopted in later commemorations. The colonial file preserves the name and description of clothing as written by the accuser and officials."
+    },
+    "time": {
+      "startYear": 1591,
+      "endYear": 1591,
+      "label": {
+        "zh": "1591年",
+        "en": "1591"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "萨尔瓦多，巴伊亚",
+        "en": "Salvador, Bahia"
+      },
+      "countryName": {
+        "zh": "巴西",
+        "en": "Brazil"
+      },
+      "countryCode": "076",
+      "coordinates": {
+        "longitude": -38.5,
+        "latitude": -12.97
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Primeira Visitação do Santo Ofício às Partes do Brasil",
+        "citation": "Bahia visitation records, 1591–1592, IHGB catalogue",
+        "url": "https://atom.ihgb.org.br/index.php/inquisicao?onlyDirect=1"
+      }
+    ]
+  },
+  {
+    "id": "entry_somos_flh",
+    "slug": "somos-flh",
+    "title": {
+      "zh": "阿根廷《Somos》杂志",
+      "en": "Argentina’s Somos Magazine"
+    },
+    "originalName": "Somos",
+    "aliases": [],
+    "summary": {
+      "zh": "阿根廷同性恋解放阵线于1973至1976年出版的刊物。",
+      "en": "The periodical published by Argentina’s Frente de Liberación Homosexual from 1973 to 1976."
+    },
+    "body": {
+      "zh": "1973年12月，阿根廷同性恋解放阵线发行了《Somos》创刊号。编辑用这份刊物介绍组织的主张，也刊登有关日常生活、性与政治的文章。\n\n第七期起，编辑改用打字后装订的简报形式，延续原有编号。CeDInCI 的 AméricaLee 档案收录了1973年至1976年的各期。",
+      "en": "In December 1973 Argentina’s Frente de Liberación Homosexual issued the first number of Somos. The magazine circulated the group’s positions and published writing on everyday life, sexuality and politics.\n\nFrom issue seven, the editors continued the numbering in a stapled, typewritten bulletin. CeDInCI’s AméricaLee archive preserves issues published between 1973 and 1976."
+    },
+    "time": {
+      "startYear": 1973,
+      "endYear": 1976,
+      "label": {
+        "zh": "1973至1976年",
+        "en": "1973–1976"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "布宜诺斯艾利斯",
+        "en": "Buenos Aires"
+      },
+      "countryName": {
+        "zh": "阿根廷",
+        "en": "Argentina"
+      },
+      "countryCode": "032",
+      "coordinates": {
+        "longitude": -58.38,
+        "latitude": -34.6
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Somos",
+        "citation": "CeDInCI, AméricaLee digital periodicals archive",
+        "url": "https://americalee.cedinci.org/s/americalee/item/6028"
+      }
+    ]
+  },
+  {
+    "id": "entry_lampiao_da_esquina",
+    "slug": "lampiao-da-esquina",
+    "title": {
+      "zh": "《Lampião da Esquina》报",
+      "en": "Lampião da Esquina"
+    },
+    "originalName": "Lampião da Esquina",
+    "aliases": [],
+    "summary": {
+      "zh": "巴西军事统治后期，公开报道同性情感与社群组织的独立报纸。",
+      "en": "An independent newspaper that covered same-sex relationships and organizing during Brazil’s military rule."
+    },
+    "body": {
+      "zh": "《Lampião da Esquina》于1978年创刊。巴西仍处于军事统治时期，编辑把同性情感、歧视和社群组织写进公开发行的独立报纸。\n\n报纸也发表文化报道、访谈和读者来信。末期刊号出版于1981年，巴西国家图书馆收藏了原刊。",
+      "en": "Lampião da Esquina began publishing in 1978 while Brazil was still under military rule. Its editors covered same-sex relationships, discrimination and community organizing in a publicly circulated independent newspaper.\n\nThe paper also ran cultural coverage, interviews and letters from readers. It published its last issues in 1981, and original issues are held by Brazil’s National Library."
+    },
+    "time": {
+      "startYear": 1978,
+      "endYear": 1981,
+      "label": {
+        "zh": "1978至1981年",
+        "en": "1978–1981"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "里约热内卢",
+        "en": "Rio de Janeiro"
+      },
+      "countryName": {
+        "zh": "巴西",
+        "en": "Brazil"
+      },
+      "countryCode": "076",
+      "coordinates": {
+        "longitude": -43.17,
+        "latitude": -22.91
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Lampião da Esquina",
+        "citation": "Biblioteca Nacional, catalogue record 1780677",
+        "url": "https://acervo.bn.gov.br/sophia_web/Acervo/Detalhe/1780677"
+      }
+    ]
+  },
+  {
+    "id": "entry_ventana_gay_bogota",
+    "slug": "ventana-gay-bogota",
+    "title": {
+      "zh": "波哥大《Ventana Gay》杂志",
+      "en": "Ventana Gay in Bogotá"
+    },
+    "originalName": "Ventana Gay",
+    "aliases": [],
+    "summary": {
+      "zh": "波哥大同性恋解放运动成员于1980年创办的杂志。",
+      "en": "A magazine launched by members of Bogotá’s homosexual liberation movement in 1980."
+    },
+    "body": {
+      "zh": "1980年，波哥大的同性恋解放运动成员创办《Ventana Gay》。刊物让本地运动的参与者以自己的文字讨论同性恋者的生活和公共权利。\n\n刊物也介绍国际同性恋组织的消息，使读者能从同一期文章看到本地议题和海外运动的联系。安蒂奥基亚大学期刊刊登的研究引用了这些原刊。",
+      "en": "In 1980, members of Bogotá’s homosexual liberation movement founded Ventana Gay. The periodical gave local organizers a place to write about their lives and public rights in their own words.\n\nThe magazine also reported on international gay organizations, putting local concerns alongside news of movements abroad. Research in a University of Antioquia journal cites surviving issues."
+    },
+    "time": {
+      "startYear": 1980,
+      "endYear": 1980,
+      "label": {
+        "zh": "1980年起",
+        "en": "1980 onward"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "波哥大",
+        "en": "Bogotá"
+      },
+      "countryName": {
+        "zh": "哥伦比亚",
+        "en": "Colombia"
+      },
+      "countryCode": "170",
+      "coordinates": {
+        "longitude": -74.07,
+        "latitude": 4.71
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Maricas en movimiento",
+        "citation": "Naranjo Yarce, Agudelo Hincapié and Correa Montoya, Estudios Políticos",
+        "url": "https://revistas.udea.edu.co/index.php/estudiospoliticos/article/download/342803/20810258?inline=1"
+      }
+    ]
+  },
+  {
+    "id": "entry_lemebel_hablo_por_mi_diferencia",
+    "slug": "lemebel-hablo-por-mi-diferencia",
+    "title": {
+      "zh": "佩德罗·莱梅贝尔《我以差异发声》",
+      "en": "Pedro Lemebel’s I Speak for My Difference"
+    },
+    "originalName": "Manifiesto. Hablo por mi diferencia",
+    "aliases": [],
+    "summary": {
+      "zh": "莱梅贝尔于1986年在智利反独裁集会上朗读的宣言。",
+      "en": "A manifesto read by Lemebel at an anti-dictatorship gathering in Chile in 1986."
+    },
+    "body": {
+      "zh": "1986年，佩德罗·莱梅贝尔在圣地亚哥马波乔车站的一场左翼异议人士秘密集会上朗读《我以差异发声》。他穿着高跟鞋登场，向在场者谈起同性恋者在政治组织中的处境。\n\n宣言以第一人称向集会中的同志发问，将他们对待同性恋者的方式放在反独裁斗争之中讨论。索菲娅王后艺术中心收藏了与宣言有关的作品。",
+      "en": "In 1986 Pedro Lemebel read I Speak for My Difference at a clandestine gathering of left-wing dissidents at Santiago’s Mapocho station. Wearing high heels, he addressed the place of homosexual people in political organizing.\n\nThe manifesto speaks in the first person to comrades at the meeting, placing their treatment of homosexual people within the struggle against the dictatorship. The Museo Reina Sofía holds work associated with the manifesto."
+    },
+    "time": {
+      "startYear": 1986,
+      "endYear": 1986,
+      "label": {
+        "zh": "1986年",
+        "en": "1986"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "圣地亚哥马波乔车站",
+        "en": "Estación Mapocho, Santiago"
+      },
+      "countryName": {
+        "zh": "智利",
+        "en": "Chile"
+      },
+      "countryCode": "152",
+      "coordinates": {
+        "longitude": -70.65,
+        "latitude": -33.43
+      },
+      "precision": "exact",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Manifiesto. Hablo por mi diferencia",
+        "citation": "Museo Nacional Centro de Arte Reina Sofía",
+        "url": "https://www.museoreinasofia.es/colecciones/obra/manifiesto-hablo-por-mi-diferencia/"
+      }
+    ]
+  },
+  {
+    "id": "entry_las_gardenias_massacre",
+    "slug": "las-gardenias-massacre",
+    "title": {
+      "zh": "拉斯加德尼亚斯屠杀",
+      "en": "The Las Gardenias Massacre"
+    },
+    "originalName": "Las Gardenias",
+    "aliases": [],
+    "summary": {
+      "zh": "1989年，MRTA成员在秘鲁塔拉波托杀害八人。",
+      "en": "MRTA members killed eight people in Tarapoto, Peru, in 1989."
+    },
+    "body": {
+      "zh": "1989年5月31日，图帕克·阿马鲁革命运动（MRTA）成员进入秘鲁塔拉波托「四月九日」居民区的拉斯加德尼亚斯酒吧，将八人强行带出并杀害。\n\n秘鲁真相与和解委员会在关于MRTA的报告中记载了这起事件，并将其与该组织以性取向或性别表达为由实施的其他暴力一并讨论。",
+      "en": "On 31 May 1989 members of the Túpac Amaru Revolutionary Movement (MRTA) entered the Las Gardenias bar in Tarapoto’s 9 de Abril neighbourhood. They forced eight people out and killed them.\n\nPeru’s Truth and Reconciliation Commission documented the killings in its account of the MRTA, alongside other violence by the organization targeting people on grounds of sexuality or gender expression."
+    },
+    "time": {
+      "startYear": 1989,
+      "endYear": 1989,
+      "label": {
+        "zh": "1989年",
+        "en": "1989"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "塔拉波托",
+        "en": "Tarapoto"
+      },
+      "countryName": {
+        "zh": "秘鲁",
+        "en": "Peru"
+      },
+      "countryCode": "604",
+      "coordinates": {
+        "longitude": -76.36,
+        "latitude": -6.49
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Informe Final: El MRTA",
+        "citation": "Comisión de la Verdad y Reconciliación, tomo II, §1.4",
+        "url": "https://www.cverdad.org.pe/ifinal/pdf/TOMO%20II/CAPITULO%201%20-%20Los%20actores%20armados%20del%20conflicto/1.4.%20El%20MRTA.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_ecuador_article_516_1997",
+    "slug": "ecuador-article-516-1997",
+    "title": {
+      "zh": "厄瓜多尔刑法第516条违宪案",
+      "en": "Ecuador’s Article 516 Constitutional Case"
+    },
+    "originalName": "Resolución n.º 111-97-TC",
+    "aliases": [],
+    "summary": {
+      "zh": "厄瓜多尔宪法法院于1997年废除惩罚自愿同性性行为的条款。",
+      "en": "Ecuador’s Constitutional Tribunal struck down a provision criminalizing consensual same-sex acts in 1997."
+    },
+    "body": {
+      "zh": "1997年，厄瓜多尔活动人士向宪法法院挑战刑法第516条第一款。该款将男性之间的自愿性行为列为犯罪。\n\n宪法法院以第111-97-TC号裁决宣告该款违宪。裁决刊登于11月的官方公报，原条文据此停止适用。",
+      "en": "In 1997 activists in Ecuador challenged the first paragraph of article 516 of the Penal Code, which criminalized consensual sexual acts between men, before the Constitutional Tribunal.\n\nThe tribunal declared the paragraph unconstitutional in ruling No. 111-97-TC. The ruling was published in the official register in November, ending application of the provision."
+    },
+    "time": {
+      "startYear": 1997,
+      "endYear": 1997,
+      "label": {
+        "zh": "1997年",
+        "en": "1997"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "基多",
+        "en": "Quito"
+      },
+      "countryName": {
+        "zh": "厄瓜多尔",
+        "en": "Ecuador"
+      },
+      "countryCode": "218",
+      "coordinates": {
+        "longitude": -78.51,
+        "latitude": -0.22
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Sentencia No. 111-97-TC",
+        "citation": "Registro Oficial no. 203, 27 November 1997, cited in Ecuador’s human rights action plan",
+        "url": "https://www.derechoshumanos.gob.ec/wp-content/uploads/2023/04/PAD_SD_MMDDHH_2023.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_argentina_archivo_memoria_trans",
+    "slug": "argentina-archivo-memoria-trans",
+    "title": {
+      "zh": "阿根廷跨性别记忆档案",
+      "en": "Argentina’s Trans Memory Archive"
+    },
+    "originalName": "Archivo de la Memoria Trans",
+    "aliases": [],
+    "summary": {
+      "zh": "由阿根廷跨性别与 travesti 社群成员整理的照片、信件和个人文书。",
+      "en": "Photographs, letters and personal records assembled by trans and travesti communities in Argentina."
+    },
+    "body": {
+      "zh": "阿根廷跨性别记忆档案由跨性别者与 travesti 社群成员共同整理。馆藏中的照片、私人信件、日记和证件来自当事人及其社群，最早一件资料的年代为1936年。\n\n照片中有友人聚会和日常生活的场景，档案也保存身份证件与警方文书。不同来源的材料由社群整理到同一馆藏中。",
+      "en": "Argentina’s Trans Memory Archive is organized by trans and travesti community members. Photographs, personal letters, diaries and documents come from the people represented and their communities. The oldest item is dated 1936.\n\nThe photographs show gatherings of friends and everyday scenes. The archive also holds identity documents and police records. Community members brought these materials together in one collection."
+    },
+    "time": {
+      "startYear": 1936,
+      "endYear": 1999,
+      "label": {
+        "zh": "1936至1999年（资料年代）",
+        "en": "1936–1999 (materials)"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "布宜诺斯艾利斯（档案项目）",
+        "en": "Buenos Aires (archive project)"
+      },
+      "countryName": {
+        "zh": "阿根廷",
+        "en": "Argentina"
+      },
+      "countryCode": "032",
+      "coordinates": {
+        "longitude": -58.41,
+        "latitude": -34.6
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Archivo de la Memoria Trans",
+        "citation": "CIPDH–UNESCO, Memorias Situadas",
+        "url": "https://www.cipdh.gob.ar/memorias-situadas/lugar-de-memoria/archivo-de-la-memoria-trans/"
+      }
+    ]
   }
 ];
