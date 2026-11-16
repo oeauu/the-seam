@@ -6,23 +6,20 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
   });
 
   test("renders header branding and switches language", async ({ page }) => {
-    // Brand title
+    // Brand title without subtitle
     const brand = page.locator(".seam-brand-title");
     await expect(brand).toHaveText("The Seam");
-
-    // Subtitle defaults to Chinese
-    const subtitle = page.locator(".seam-brand-subtitle");
-    await expect(subtitle).toHaveText("时空历史数字档案");
+    await expect(page.locator(".seam-brand-subtitle")).toHaveCount(0);
 
     // Switch to English
     const enBtn = page.getByRole("button", { name: "EN" });
     await enBtn.click();
-    await expect(subtitle).toHaveText("Spatiotemporal Historical Archive");
+    await expect(page.getByRole("button", { name: "Index" })).toBeVisible();
 
     // Switch back to Chinese
     const zhBtn = page.getByRole("button", { name: "中" });
     await zhBtn.click();
-    await expect(subtitle).toHaveText("时空历史数字档案");
+    await expect(page.getByRole("button", { name: "档案索引与搜索" })).toBeVisible();
   });
 
   test("opens directory drawer, searches archive, and selects an entry", async ({ page }) => {
@@ -98,6 +95,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(aboutModal).toBeVisible();
     await expect(page).toHaveURL(/\/about$/);
     await expect(aboutModal.locator("#about-title")).toContainText("关于 The Seam");
+    await expect(aboutModal).toContainText("宫廷记录、庭审文书与民间传说");
 
     // Close About Modal
     await page.locator(".seam-modal-close").click();

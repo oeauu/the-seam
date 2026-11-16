@@ -23,9 +23,6 @@ export function Header() {
           aria-label="The Seam 首页"
         >
           <span className="seam-brand-title">The Seam</span>
-          <span className="seam-brand-subtitle">
-            {language === "zh" ? "时空历史数字档案" : "Spatiotemporal Historical Archive"}
-          </span>
         </a>
       </div>
 

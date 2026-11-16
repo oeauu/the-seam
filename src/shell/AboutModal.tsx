@@ -16,7 +16,7 @@ export function AboutModal({ onClose }: Props) {
       <div ref={dialogRef} className="seam-modal-content" onClick={(e) => e.stopPropagation()}>
         <header className="seam-modal-header">
           <div>
-            <span className="seam-modal-eyebrow">The Seam · Project Manifesto</span>
+            <span className="seam-modal-eyebrow">The Seam</span>
             <h2 id="about-title" className="seam-modal-title">
               {language === "zh" ? "关于 The Seam" : "About The Seam"}
             </h2>
@@ -34,35 +34,20 @@ export function AboutModal({ onClose }: Props) {
         <div className="seam-modal-body seam-about-copy">
           <p className="seam-about-lead">
             {language === "zh"
-              ? "The Seam 是一个记录历史人物、事件及相关史料的数字档案空间。项目关注那些挑战传统二元叙事，或揭示既有身份与社会分类局限性的历史记录。"
-              : "The Seam is a digital archive of historical figures, events, and primary documentation. It focuses on records that challenge conventional binary narratives or expose the limitations of static social and identity categories."}
+              ? "The Seam 是一个在线历史档案。我们从各地的宫廷记录、庭审文书与民间传说里，收集关于人们如何生活、如何与彼此相处，以及他们如何被同时代人记下来的故事。"
+              : "The Seam is an online historical archive. Drawing on court annals, trial records, and local folklore around the world, it gathers accounts of how people lived, related to one another, and were recorded by their contemporaries."}
           </p>
 
           <section className="seam-about-section">
-            <h3>{language === "zh" ? "空间、时间与未被定义的历史" : "Space, Time, and Uncategorized Memory"}</h3>
             <p>
               {language === "zh"
-                ? "历史从未按照现代预设的分类系统展开。许多历史人物的身体实践、社会角色与情感联系，在当时的法律裁决、宫廷起居注、民间神话与审判书里留下了深刻的痕迹，却往往被后世强行剪裁以迎合当下的概念。"
-                : "History has never conformed to anachronistic categories. Embodied experiences, social practices, and intimate bonds left profound traces across legal trials, court annals, and folklore, only to be flattened by later eras into rigid concepts."}
-            </p>
-            <p>
-              {language === "zh"
-                ? "The Seam 不预先为人物规定现代身份，也不通过身份标签组织历史。我们以三维空间与时间为主要线索，通过金色坐标连接全球各地留存的第一手史料。"
-                : "The Seam rejects pre-assigned identity labels. By anchoring historical accounts solely through geography and time, brass coordinates invite open exploration across eras and cultures."}
+                ? "你可以转动地球仪，也可以沿时间轴按年代浏览。点开地图上的金色标记，便能读到一则档案——事情发生在何时何地，以及现存的材料究竟写了什么。有时，同一件事会留下几种不同的说法；我们把它们放在一起，分别注明出处，也会标明哪些细节尚存疑问。"
+                : "Turn the globe or move along the timeline to browse across eras. Select any gold marker on the map to open a dossier showing when and where an event took place and what surviving texts actually say. When multiple accounts exist for the same episode, we place them side by side with citations and note where details remain open to question."}
             </p>
           </section>
 
           <section className="seam-about-section">
-            <h3>{language === "zh" ? "考辨与存疑的原则" : "Principles of Evidence and Restraint"}</h3>
-            <p>
-              {language === "zh"
-                ? "对于史料未及之处，我们克制做结论；对于学术界尚存争鸣之处，我们并列呈现不同假说。每一个坐标都是一段待探索的线索，而非盖棺定论的现代标签。"
-                : "Where historical evidence concludes, we refrain from speculation. Where historiographical disputes persist, we present competing theses side by side. Each coordinate is an invitation to examine primary sources, not a verdict."}
-            </p>
-          </section>
-
-          <section className="seam-about-section">
-            <h3>{language === "zh" ? "地理与边界标准" : "Cartographic & Boundary Standards"}</h3>
+            <h3>{language === "zh" ? "地理与边界标准" : "Geographic & Boundary Standards"}</h3>
             <p>{UN_MAP_DISCLAIMER[language]}</p>
           </section>
         </div>
