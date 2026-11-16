@@ -79,6 +79,7 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
     },
     cities: [
       { name: { en: "Athens", zh: "雅典" }, coordinates: [23.7275, 37.9838], isCapital: true },
+      { name: { en: "Corinth", zh: "科林斯" }, coordinates: [22.9322, 37.9386] },
       { name: { en: "Mytilene (Lesbos)", zh: "米蒂利尼（莱斯沃斯）" }, coordinates: [26.5547, 39.1044] },
       { name: { en: "Thessaloniki", zh: "塞萨洛尼基" }, coordinates: [22.9444, 40.6401] },
       { name: { en: "Heraklion", zh: "伊拉克利翁" }, coordinates: [25.1442, 35.3387] }
@@ -97,6 +98,7 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
     },
     cities: [
       { name: { en: "Cairo", zh: "开罗" }, coordinates: [31.2357, 30.0444], isCapital: true },
+      { name: { en: "Hawara", zh: "哈瓦拉" }, coordinates: [30.8989, 29.2742] },
       { name: { en: "Saqqara", zh: "萨卡拉" }, coordinates: [31.2197, 29.8713] },
       { name: { en: "Alexandria", zh: "亚历山大" }, coordinates: [29.9187, 31.2001] },
       { name: { en: "Luxor", zh: "卢克索" }, coordinates: [32.6396, 25.6872] }
@@ -134,7 +136,7 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
     },
     cities: [
       { name: { en: "Ankara", zh: "安卡拉" }, coordinates: [32.8597, 39.9334], isCapital: true },
-      { name: { en: "Istanbul", zh: "伊斯坦布尔" }, coordinates: [28.9784, 41.0082] },
+      { name: { en: "Istanbul", zh: "伊斯坦布尔" }, coordinates: [28.9550, 41.0150] },
       { name: { en: "Bodrum (Halicarnassus)", zh: "博德鲁姆（哈利卡纳苏斯）" }, coordinates: [27.4287, 37.0344] },
       { name: { en: "Pessinus (Sivrihisar)", zh: "佩辛努斯遗址" }, coordinates: [31.5833, 39.3833] },
       { name: { en: "Izmir", zh: "伊兹密尔" }, coordinates: [27.1428, 38.4237] }
@@ -274,6 +276,120 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
       { name: { en: "Seoul", zh: "首尔" }, coordinates: [126.9780, 37.5665], isCapital: true },
       { name: { en: "Wonju", zh: "原州" }, coordinates: [127.9202, 37.3422] },
       { name: { en: "Busan", zh: "釜山" }, coordinates: [129.0756, 35.1796] }
+    ]
+  },
+  // Spain
+  "724": {
+    id: "724",
+    codeAlpha3: "ESP",
+    name: { en: "Spain", zh: "西班牙" },
+    center: [-3.7492, 40.4637],
+    capital: {
+      name: { en: "Madrid", zh: "马德里" },
+      coordinates: [-3.7038, 40.4168],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Madrid", zh: "马德里" }, coordinates: [-3.7038, 40.4168], isCapital: true },
+      { name: { en: "Toledo", zh: "托莱多" }, coordinates: [-4.0273, 39.8628] },
+      { name: { en: "Córdoba", zh: "科尔多瓦" }, coordinates: [-4.7794, 37.8882] }
+    ]
+  },
+  // Cambodia
+  "116": {
+    id: "116",
+    codeAlpha3: "KHM",
+    name: { en: "Cambodia", zh: "柬埔寨" },
+    center: [104.9910, 12.5657],
+    capital: {
+      name: { en: "Phnom Penh", zh: "金边" },
+      coordinates: [104.9282, 11.5564],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Phnom Penh", zh: "金边" }, coordinates: [104.9282, 11.5564], isCapital: true },
+      { name: { en: "Siem Reap (Angkor)", zh: "暹粒（吴哥）" }, coordinates: [103.8670, 13.4125] }
+    ]
+  },
+  // Indonesia
+  "360": {
+    id: "360",
+    codeAlpha3: "IDN",
+    name: { en: "Indonesia", zh: "印度尼西亚" },
+    center: [113.9213, -0.7893],
+    capital: {
+      name: { en: "Jakarta", zh: "雅加达" },
+      coordinates: [106.8456, -6.2088],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Jakarta", zh: "雅加达" }, coordinates: [106.8456, -6.2088], isCapital: true },
+      { name: { en: "Ponorogo", zh: "波诺罗戈" }, coordinates: [111.4667, -7.8667] },
+      { name: { en: "Sengkang (South Sulawesi)", zh: "森康（南苏拉威西）" }, coordinates: [120.0320, -4.1260] }
+    ]
+  },
+  // Philippines
+  "608": {
+    id: "608",
+    codeAlpha3: "PHL",
+    name: { en: "Philippines", zh: "菲律宾" },
+    center: [121.7740, 12.8797],
+    capital: {
+      name: { en: "Manila", zh: "马尼拉" },
+      coordinates: [120.9842, 14.5995],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Manila", zh: "马尼拉" }, coordinates: [120.9842, 14.5995], isCapital: true },
+      { name: { en: "Cebu", zh: "宿务" }, coordinates: [123.8854, 10.3157] }
+    ]
+  },
+  // Thailand
+  "764": {
+    id: "764",
+    codeAlpha3: "THA",
+    name: { en: "Thailand", zh: "泰国" },
+    center: [100.9925, 15.8700],
+    capital: {
+      name: { en: "Bangkok", zh: "曼谷" },
+      coordinates: [100.5018, 13.7563],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Bangkok", zh: "曼谷" }, coordinates: [100.5018, 13.7563], isCapital: true },
+      { name: { en: "Chiang Mai", zh: "清迈" }, coordinates: [98.9853, 18.7883] }
+    ]
+  },
+  // Singapore
+  "702": {
+    id: "702",
+    codeAlpha3: "SGP",
+    name: { en: "Singapore", zh: "新加坡" },
+    center: [103.8198, 1.3521],
+    capital: {
+      name: { en: "Singapore", zh: "新加坡" },
+      coordinates: [103.8198, 1.3521],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Singapore", zh: "新加坡" }, coordinates: [103.8198, 1.3521], isCapital: true }
+    ]
+  },
+  // Myanmar
+  "104": {
+    id: "104",
+    codeAlpha3: "MMR",
+    name: { en: "Myanmar", zh: "缅甸" },
+    center: [95.9560, 21.9162],
+    capital: {
+      name: { en: "Naypyidaw", zh: "内比都" },
+      coordinates: [96.0785, 19.7633],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Naypyidaw", zh: "内比都" }, coordinates: [96.0785, 19.7633], isCapital: true },
+      { name: { en: "Mandalay", zh: "曼德勒" }, coordinates: [96.0891, 21.9588] },
+      { name: { en: "Yangon", zh: "仰光" }, coordinates: [96.1561, 16.8661] }
     ]
   }
 };

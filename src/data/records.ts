@@ -2220,5 +2220,918 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "year": 2001
       }
     ]
+  },
+  {
+    "id": "entry_hawara_papyrus",
+    "slug": "hawara-love-spell-papyrus",
+    "title": {
+      "en": "Hawara Same-Sex Love Spell Papyrus",
+      "zh": "哈瓦拉同性求爱纸草纸"
+    },
+    "originalName": "P. Hawara 312r (PGM XXXIIa)",
+    "aliases": [
+      "Herais and Sarapias",
+      "Suppl. Mag. 37",
+      "赫拉伊丝与萨拉皮亚丝求爱符咒"
+    ],
+    "summary": {
+      "en": "A second-century CE Greek magical papyrus excavated at Hawara in Roman Egypt, inscribed by a woman named Herais to attract another woman, Sarapias.",
+      "zh": "出土于罗马埃及哈瓦拉墓地的公元2世纪希腊文魔法纸草纸，载录女子赫拉伊丝请求神灵促成另一女子萨拉皮亚丝回心转意的咒语。"
+    },
+    "body": {
+      "en": "Excavated in 1889 at the cemetery of Hawara near the Fayum oasis in Egypt, P. Hawara 312r (cataloged as PGM XXXIIa and Supplementum Magicum 37) dates to the second century CE during Roman rule. Written in Koine Greek on papyrus, the binding spell (agoge) was commissioned by a woman named Herais, daughter of Thermoutharin, to draw another woman, Sarapias, daughter of Helen, into mutual longing and devotion.\n\nFollowing standard Greco-Egyptian ritual formulas, the text invokes a restless spirit named Euangelos alongside syncretic deities such as Anubis and Hermes, combining magical names (voces magicae) with the urgent refrain 'now, now; quickly, quickly.' Most surviving love-spell amulets from Graeco-Roman Egypt use open placeholders or pair men and women, making this manuscript one of the few extant ancient spells addressed directly from one named woman to another.",
+      "zh": "哈瓦拉求爱纸草纸（编号 P. Hawara 312r / PGM XXXIIa / Suppl. Mag. 37）于1889年出土于埃及法尤姆绿洲入口处的哈瓦拉墓地，年代约为罗马统治时期的公元2世纪。这件以通用希腊语写就的爱欲绑定咒（agoge）由名叫赫拉伊丝（Herais，特穆萨琳之女）的女性委托制作，祈愿令另一位名为萨拉皮亚丝（Sarapias，海伦之女）的女子对其生出爱慕并常伴身旁。\n\n咒文沿用当时希腊—埃及合流魔法纸草惯例，向亡灵“欧安格洛斯”（Euangelos）及阿努比斯、赫耳墨斯等神祇祷告，并附有神秘咒音与“就在此刻，速速显灵”的叠句。罗马时期埃及保存下来的大多数求爱护身符多为空白模板或男女配对，这件手稿直接写明了施术女方与受术女方的姓名与母名。"
+    },
+    "time": {
+      "startYear": 100,
+      "endYear": 200,
+      "label": {
+        "en": "Roman Egypt (2nd Century CE)",
+        "zh": "罗马时期埃及（公元2世纪）"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Hawara, Fayum, Egypt",
+        "zh": "哈瓦拉（埃及法尤姆）"
+      },
+      "countryName": {
+        "en": "Egypt",
+        "zh": "埃及"
+      },
+      "countryCode": "818",
+      "coordinates": {
+        "longitude": 30.8989,
+        "latitude": 29.2742
+      },
+      "precision": "city",
+      "relation": "burial-site"
+    },
+    "historiographyNote": {
+      "en": "Preserved on original second-century papyrus excavated at Hawara in 1889 and edited in Papyri Graecae Magicae and Supplementum Magicum.",
+      "zh": "依据1889年哈瓦拉墓地出土原件及《希腊魔法纸草集成》（PGM XXXIIa）校勘本。"
+    },
+    "sources": [
+      {
+        "title": "Supplementum Magicum I (No. 37 / PGM XXXIIa)",
+        "author": "Robert W. Daniel & Franco Maltomini",
+        "year": 1990,
+        "citation": "Westdeutscher Verlag"
+      },
+      {
+        "title": "Love Between Women: Early Christian Responses to Female Homoeroticism",
+        "author": "Bernadette J. Brooten",
+        "year": 1996,
+        "citation": "University of Chicago Press, pp. 73–89"
+      }
+    ]
+  },
+  {
+    "id": "entry_harmodius_aristogeiton",
+    "slug": "harmodius-and-aristogeiton",
+    "title": {
+      "en": "Harmodius and Aristogeiton",
+      "zh": "哈尔摩狄奥斯与阿里斯托革顿"
+    },
+    "originalName": "Ἁρμόδιος καὶ Ἀριστογείτων",
+    "aliases": [
+      "The Tyrannicides",
+      "Tyrannoktonoi",
+      "弑僭主者"
+    ],
+    "summary": {
+      "en": "Two sixth-century BCE Athenian lovers who assassinated Hipparchus in 514 BCE and were later commemorated by Athens as the Tyrannicides.",
+      "zh": "公元前514年刺杀雅典执政官家族成员希帕库斯的同性伴侣，后被雅典城邦立像祀为“弑僭主者”。"
+    },
+    "body": {
+      "en": "In 514 BCE, during the Great Panathenaic festival in Athens, the young citizen Harmodius and his older lover Aristogeiton assassinated Hipparchus, brother of the reigning tyrant Hippias. Harmodius was cut down immediately by Hipparchus' bodyguards, and Aristogeiton was arrested, tortured, and executed soon afterward.\n\nIn Book 6 of his History of the Peloponnesian War (6.54–59), Thucydides recorded that the plot grew out of a personal clash after Hipparchus courted Harmodius unsuccessfully and publicly insulted Harmodius' sister at a festival procession, while Sparta actually ended Hippias' tyranny four years later in 510 BCE. Subsequent Athenian democratic tradition nevertheless honored the pair as founders of civic liberty, erecting bronze statues of the Tyrannicides in the Agora and singing banquet skolia in their praise.",
+      "zh": "公元前514年雅典泛雅典娜节游行期间，青年公民哈尔摩狄奥斯与年长伴侣阿里斯托革顿刺杀了僭主希庇阿斯之弟希帕库斯。哈尔摩狄奥斯当场被卫兵格杀，阿里斯托革顿随后被捕并经刑讯处死。\n\n修昔底德在《伯罗奔尼撒战争史》第六卷记述，此案起因于希帕库斯追求哈尔摩狄奥斯遭拒后，公然羞辱其妹的宗教仪仗资格，而希庇阿斯的统治直至公元前510年斯巴达军干预方才结束；雅典城邦在建立民主政体后，仍在广场为其铸造“弑僭主者”青铜群像，并在宴饮歌谣中长期传颂二人。"
+    },
+    "time": {
+      "startYear": -514,
+      "endYear": -514,
+      "label": {
+        "en": "514 BCE",
+        "zh": "公元前514年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Athens, Greece",
+        "zh": "雅典（古希腊）"
+      },
+      "countryName": {
+        "en": "Greece",
+        "zh": "希腊"
+      },
+      "countryCode": "300",
+      "coordinates": {
+        "longitude": 23.7275,
+        "latitude": 37.9838
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Reported by Herodotus (5.55–56), Thucydides (6.54–59), and Aristotle's Constitution of the Athenians (18), alongside Agora statue bases and drinking songs.",
+      "zh": "主要史料见于希罗多德《历史》第五卷、修昔底德《伯罗奔尼撒战争史》第六卷及《雅典政制》第18章。"
+    },
+    "sources": [
+      {
+        "title": "History of the Peloponnesian War (Book 6.54–59)",
+        "author": "Thucydides",
+        "year": "c. 400 BCE"
+      },
+      {
+        "title": "Constitution of the Athenians (Chapter 18)",
+        "author": "Aristotle",
+        "year": "c. 325 BCE"
+      }
+    ]
+  },
+  {
+    "id": "entry_lucian_megillus",
+    "slug": "lucian-dialogues-megillus",
+    "title": {
+      "en": "Megillus in Lucian's Dialogues of the Courtesans",
+      "zh": "卢奇安《妓女对话》中的 Megillus"
+    },
+    "originalName": "Ἑταιρικοὶ διάλογοι (V: Μέγιλλα / Μέγιλλος)",
+    "aliases": [
+      "Megilla of Lesbos",
+      "Leaena and Clonarium",
+      "Dialogue 5 of Dialogi Meretricii"
+    ],
+    "summary": {
+      "en": "A second-century CE Greek dialogue by Lucian of Samosata portraying Megillus, born Megilla, who uses a masculine name and declares having the mind and desires of a man.",
+      "zh": "公元2世纪希腊语作家卢奇安《妓女对话》第五篇中的人物，生名麦吉拉、自称男性名麦吉鲁斯（Megillus），言明自身在心智与欲望上皆为男子。"
+    },
+    "body": {
+      "en": "Written in Greek around 160–180 CE by satirist Lucian of Samosata, the fifth piece of Dialogues of the Courtesans stages a conversation between two hetairai, Clonarium and Leaena. Asked about rumors involving the wealthy Megilla from Lesbos and Demonassa of Corinth, Leaena describes being hired to play at their banquet and later propositioned in bed.\n\nWhen Leaena asks whether Megilla was magically transformed like Tiresias, the speaker removes a wig to reveal a closely shaved head and declares: 'Do not call me Megilla, call me Megillus; I have been married to Demonassa for a long time, and I was born like the rest of you, but my mind, desire, and everything else belong to a man.' In the original Greek text, speakers shift back and forth between masculine and feminine grammatical forms around Megillus' name.",
+      "zh": "萨摩萨塔的卢奇安约于公元160–180年间以希腊语写就的《妓女对话》第五篇，描写两名交际花克洛纳里翁与莉艾娜的谈话。克洛纳里翁追问出身莱斯博斯岛的富贵人物“麦吉拉”与科林斯女子德摩娜萨之间的传闻，莉艾娜随之回忆受雇赴宴及宴后相处的经过。\n\n面对莉艾娜如同提瑞西阿斯变形般的疑问，对方取下假发露出剃短的头发并说道：“别叫我女性名字麦吉拉，叫我麦吉鲁斯（Megillus）。我已经娶德摩娜萨为妻很久了；我虽生为女子之身，但我的心智、情欲与其余一切都是男子。”希腊语原文在指称麦吉鲁斯时兼用了阴性与阳性词形。"
+    },
+    "time": {
+      "startYear": 160,
+      "endYear": 180,
+      "label": {
+        "en": "c. 160 – 180 CE",
+        "zh": "约公元160年 – 180年"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Corinth, Greece",
+        "zh": "科林斯（希腊语文学设定地）"
+      },
+      "countryName": {
+        "en": "Greece",
+        "zh": "希腊"
+      },
+      "countryCode": "300",
+      "coordinates": {
+        "longitude": 22.9322,
+        "latitude": 37.9386
+      },
+      "precision": "city",
+      "relation": "representative"
+    },
+    "historiographyNote": {
+      "en": "Literary text composed in the Second Sophistic era; classical scholarship debates its satirical genre conventions alongside its depiction of masculine female self-identification.",
+      "zh": "作品属第二智者学派时期的希腊语讽刺对话体，古典学界对其兼及文学体裁套语与古代性别越界书写多有讨论。"
+    },
+    "sources": [
+      {
+        "title": "Dialogues of the Courtesans (Dialogue 5)",
+        "author": "Lucian of Samosata",
+        "year": "c. 160–180 CE",
+        "citation": "Loeb Classical Library"
+      },
+      {
+        "title": "Courtesans and Christians in the Ancient Mediterranean",
+        "author": "Sandra Boehringer",
+        "year": 2021,
+        "citation": "Female Homosexuality in Ancient Greece and Rome (Routledge)"
+      }
+    ]
+  },
+  {
+    "id": "entry_ibn_hazm_dove",
+    "slug": "ibn-hazm-ring-of-the-dove",
+    "title": {
+      "en": "Ibn Hazm's The Ring of the Dove",
+      "zh": "伊本·哈兹姆《鸽子的项圈》"
+    },
+    "originalName": "طوق الحمامة في الألفة والألاف (Ṭawq al-Ḥamāmah)",
+    "aliases": [
+      "Tawq al-Hamamah",
+      "The Ring of the Dove",
+      "鸽子的项圈"
+    ],
+    "summary": {
+      "en": "An eleventh-century Arabic treatise on love written in Al-Andalus by jurist and poet Ibn Hazm, containing prose anecdotes and poetry on both male-female and same-sex longing.",
+      "zh": "11世纪安达卢斯学者伊本·哈兹姆用阿拉伯文撰写的论爱之书，在论述情感体验的章节与诗行中兼及男女之恋与男性之间的爱慕。"
+    },
+    "body": {
+      "en": "Composed around 1022 CE in Játiva by the Cordoban polymath and Zahiri jurist Ibn Hazm (994–1064), The Ring of the Dove (Ṭawq al-Ḥamāmah) examines thirty aspects of love—including falling in love at first sight, correspondence by glances, union, separation, and chastity ('iffa)—drawn from his youth in Umayyad Córdoba.\n\nAlongside accounts of passion between men and women, the treatise includes prose narratives and poems depicting men captivated by handsome youths and mutual devotion between men, while elsewhere in his juristic writings Ibn Hazm upheld strict Islamic legal prohibitions on illicit sexual acts. In surviving manuscripts, poetic Arabic diction and grammatical conventions often frame longing across courtly Andalusian society without rigid division by the beloved's gender.",
+      "zh": "伊本·哈兹姆（994–1064年）生于科尔多瓦，是安达卢斯扎希里学派著名法学家与诗文作家，约于1022年在哈蒂瓦写成《鸽子的项圈》（Ṭawq al-Ḥamāmah）。全书分三十章探讨一见倾心、眼神传意、相聚、离别与贞守（iffa）等情感形态，大量素材取材自其在后倭马亚王朝科尔多瓦的见闻。\n\n在书写男女恋情之外，该书亦以同样的诗意笔法与心理观察记述男子倾慕美少年的故事并附相应诗作；与此同时，伊本·哈兹姆在其法学著作中仍坚持伊斯兰教法对同性性行为的严厉禁令。"
+    },
+    "time": {
+      "startYear": 1022,
+      "endYear": 1022,
+      "label": {
+        "en": "c. 1022 CE",
+        "zh": "约1022年"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Córdoba, Al-Andalus (Spain)",
+        "zh": "科尔多瓦（安达卢斯，今西班牙）"
+      },
+      "countryName": {
+        "en": "Spain",
+        "zh": "西班牙"
+      },
+      "countryCode": "724",
+      "coordinates": {
+        "longitude": -4.7794,
+        "latitude": 37.8882
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Preserved in a unique medieval manuscript at Leiden University Library; studied alongside Abbasid and Andalusian Arabic love theory and Zahiri jurisprudence.",
+      "zh": "传世唯一完整中世纪抄本现藏莱顿大学图书馆，研究多与安达卢斯情爱文学传统及其扎希里派法学思想对照并读。"
+    },
+    "sources": [
+      {
+        "title": "Ṭawq al-Ḥamāmah (The Ring of the Dove)",
+        "author": "Ibn Hazm of Córdoba",
+        "year": "c. 1022 CE",
+        "citation": "Trans. A. J. Arberry, Luzac & Co., 1953"
+      },
+      {
+        "title": "Sexuality and Eroticism Among Males in Moslem Societies",
+        "author": "Camilla Adang / Everett K. Rowson",
+        "year": 2003,
+        "citation": "Al-Qanṭara / Islamic Law and Society"
+      }
+    ]
+  },
+  {
+    "id": "entry_florence_ufficiali_notte",
+    "slug": "florence-ufficiali-di-notte",
+    "title": {
+      "en": "Florence's Office of the Night (Ufficiali di Notte)",
+      "zh": "佛罗伦萨夜间官署"
+    },
+    "originalName": "Ufficiali di Notte",
+    "aliases": [
+      "Office of the Night",
+      "Ufficiali di Notte e Conservatori dell'Onestà",
+      "夜巡署"
+    ],
+    "summary": {
+      "en": "A special Florentine magistracy established in 1432 and dissolved in 1502 to investigate same-sex offenses, whose surviving dockets record thousands of men and youths.",
+      "zh": "1432年至1502年间设立于佛罗伦萨共和国的专门司法机构，专司审理男子同性性行为指控，留有大量审判卷宗。"
+    },
+    "body": {
+      "en": "Founded by the Florentine Republic in April 1432 and abolished on December 29, 1502, the Ufficiali di Notte ('Officers of the Night') was a civic court of six citizens tasked with receiving anonymous denunciations via city drop-boxes (tamburi) and prosecuting male same-sex conduct. Compared with earlier capital statutes, the court largely imposed graduated fines, brief public dishonor, or temporary disqualification from public office.\n\nIn Forbidden Friendships (1996), historian Michael Rocke analyzed the court's surviving registers in the Archivio di Stato di Firenze, showing that roughly 16,000 to 17,000 individuals were implicated and around 3,000 convicted across seventy years in a city of around 40,000 residents. The dockets record predominantly age-structured bonds between youths in their teens and young adults in their twenties and early thirties before marriage.",
+      "zh": "佛罗伦萨共和国于1432年4月设立“夜间官署”（Ufficiali di Notte），由六名市政官组成，专门受理市民投置于各教堂密报箱（tamburi）的匿名检举，追查与审理男子同性性行为案件，直至1502年12月29日撤销。与此前更为严酷的死刑条文相比，该官署在七十年间通常科以罚金或剥夺公职等刑罚。\n\n历史学家迈克尔·罗克在《禁忌的友谊》（Forbidden Friendships，1996）中统计佛罗伦萨国家档案馆现存卷宗：在一座当时总人口仅约四万的城市里，前后约有16,000至17,000名男子被记入审讯档案，约3,000人被定罪，案卷内容普遍呈现未婚成年青年与十几岁少年之间的交往模式。"
+    },
+    "time": {
+      "startYear": 1432,
+      "endYear": 1502,
+      "label": {
+        "en": "1432 – 1502 CE",
+        "zh": "1432年 – 1502年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Florence, Italy",
+        "zh": "佛罗伦萨（意大利）"
+      },
+      "countryName": {
+        "en": "Italy",
+        "zh": "意大利"
+      },
+      "countryCode": "380",
+      "coordinates": {
+        "longitude": 11.2558,
+        "latitude": 43.7696
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Documented directly through the original judicial registers of the Ufficiali di Notte preserved in the Archivio di Stato di Firenze.",
+      "zh": "依据佛罗伦萨国家档案馆现存1432–1502年夜间官署原始司法审判与罚金账簿。"
+    },
+    "sources": [
+      {
+        "title": "Forbidden Friendships: Homosexuality and Male Culture in Renaissance Florence",
+        "author": "Michael Rocke",
+        "year": 1996,
+        "citation": "Oxford University Press"
+      },
+      {
+        "title": "Archivio di Stato di Firenze: Fondi degli Ufficiali di Notte (1432–1502)",
+        "author": "Archivio di Stato di Firenze",
+        "year": "1432–1502"
+      }
+    ]
+  },
+  {
+    "id": "entry_eleno_de_cespedes",
+    "slug": "eleno-de-cespedes",
+    "title": {
+      "en": "Eleno de Céspedes",
+      "zh": "埃莱诺·德·塞斯佩德斯"
+    },
+    "originalName": "Eleno de Céspedes / Elena de Céspedes",
+    "aliases": [
+      "Elena de Céspedes",
+      "Eleno de Céspedes Toledo Inquisition Trial"
+    ],
+    "summary": {
+      "en": "A sixteenth-century Afro-Spanish soldier, tailor, and licensed surgeon who lived and married a woman as Eleno de Céspedes before facing a 1587–1588 Inquisition trial in Toledo.",
+      "zh": "16世纪西班牙非洲裔外科学士、裁缝与士兵，后半生以男性身份“埃莱诺”生活并与女性成婚，1587年在托莱多宗教裁判所受审。"
+    },
+    "body": {
+      "en": "Born around 1545 in Alhama de Granada to an enslaved African woman and a Castilian peasant, Céspedes was brought up under the name Elena and married briefly as a young woman before separating permanently from that husband. Adopting male attire and the name Eleno, Céspedes served as a soldier during the War of the Alpujarras, worked as a tailor, and trained in medicine to receive a royal surgical license in Madrid.\n\nIn 1586, after examinations by physicians and royal surgeons attested to male anatomy, Eleno received church permission to marry María del Caño in Ciempozuelos. Following a neighbor's denunciation in 1587, the Spanish Inquisition at Toledo tried Céspedes for bigamy, sorcery, and contempt of marriage; Céspedes argued in court that their body possessed both male and female natures, while inquisitors concluded the body was female and sentenced Céspedes to two hundred lashes and ten years of hospital labor in women's dress.",
+      "zh": "塞斯佩德斯约1545年生于格拉纳达省阿尔哈马，母为获释非洲裔女奴、父为卡斯蒂利亚农民，早年以“埃莱娜”名义成长并曾短暂嫁人育有一子。离异后，塞斯佩德斯改着男装并以“埃莱诺”（Eleno）之名参军参与阿尔普哈拉斯战争，随后改任裁缝并在马德里考取王室颁发的执业外科医生资格。\n\n1586年，经包括宫廷御医在内的多名医生体检确认，埃莱诺获教会批准与女子玛丽亚·德尔卡尼奥正式成婚。次年遭邻人举报后，案件移交托莱多西班牙宗教裁判所审理；庭审中塞斯佩德斯自陈兼具男女双性体征，裁判所经多轮复验裁定其为女性生理性别，判处游街鞭刑二百下并以女装在公立医院服苦役十年。"
+    },
+    "time": {
+      "startYear": 1545,
+      "endYear": 1588,
+      "label": {
+        "en": "c. 1545 – 1588 CE",
+        "zh": "约1545年 – 1588年"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Toledo, Castile, Spain",
+        "zh": "托莱多（西班牙卡斯蒂利亚）"
+      },
+      "countryName": {
+        "en": "Spain",
+        "zh": "西班牙"
+      },
+      "countryCode": "724",
+      "coordinates": {
+        "longitude": -4.0273,
+        "latitude": 39.8628
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Preserved in the 1587–1588 Inquisition dossier in Spain's Archivo Histórico Nacional (Inquisición, leg. 234, exp. 24).",
+      "zh": "原始庭审、体检记录与判决档案藏于西班牙国家历史档案馆宗教裁判所全宗（AHN Inquisición, leg. 234, exp. 24）。"
+    },
+    "sources": [
+      {
+        "title": "Transvestite and Soldier, Tailor and Surgeon: The Case of Eleno de Céspedes",
+        "author": "Israel Burshatin",
+        "year": 1999,
+        "citation": "Written on the Body / Queer Iberia (Duke University Press)"
+      },
+      {
+        "title": "Archivo Histórico Nacional (Madrid): Proceso de Fe contra Elena/Eleno de Céspedes",
+        "author": "Tribunal de la Inquisición de Toledo",
+        "year": "1587–1588"
+      }
+    ]
+  },
+  {
+    "id": "entry_ottoman_kocek",
+    "slug": "ottoman-kocek-dancers",
+    "title": {
+      "en": "Ottoman Köçek Performers",
+      "zh": "奥斯曼帝国 Köçek 舞者"
+    },
+    "originalName": "Köçek (كوچك)",
+    "aliases": [
+      "Köçekçe",
+      "Rakkas",
+      "奥斯曼女装男舞者"
+    ],
+    "summary": {
+      "en": "Young male dancers in the Ottoman Empire who wore skirts, jewelry, and long hair for court festivities and Istanbul tavern performances until mid-nineteenth-century bans.",
+      "zh": "奥斯曼帝国时期在宫廷庆典、广场游艺与伊斯坦布尔酒馆（meyhane）中着裙装、留长发并佩戴饰物献舞的男性职业舞者群体。"
+    },
+    "body": {
+      "en": "From the seventeenth through the early nineteenth centuries, köçeks—derived from the Persian word meaning 'young'—were professional male dancers recruited predominantly from non-Muslim Ottoman subject communities such as Greek, Armenian, Roma, and Balkan populations. Trained from childhood in dance, finger cymbals, and music, they performed in braided long hair, embroidered skirts, and makeup at royal circumcision festivals—illustrated in Levni's 1720 miniatures for Surname-i Vehbi—and in Istanbul taverns frequented by merchants, sailors, and Janissaries.\n\nFollowing the destruction of the Janissary corps in 1826, recurring tavern brawls over performers, and Tanzimat-era administrative reforms, Sultan Abdülmecid I banned köçek performances in Istanbul by the 1850s. After urban prohibitions in the capital, localized rural folk equivalents persisted across northern and western Anatolia.",
+      "zh": "自17世纪至19世纪中叶，奥斯曼帝国宫廷与城市娱乐场所活跃着被称为“Köçek”（源自波斯语“年少者”）的职业男性舞者。依据当时制度，舞者多招收自帝国境内的希腊裔、亚美尼亚裔、罗姆人及巴尔干等非穆斯林社群，自幼接受乐器、铃钹与舞蹈训练，演出时蓄长发、敷粉着女式长裙并配以铃饰，在伊斯坦布尔的宫廷庆典（如1720年莱夫尼《维赫比节庆纪》细密画所绘）与酒馆中献演。\n\n1826年苏丹解散耶尼切里近卫军团后，酒馆内因争夺舞者频发械斗，加之坦齐马特时期移风易俗，苏丹阿卜杜勒-梅吉德一世于19世纪50年代明令禁止伊斯坦布尔公开的 Köçek 演出；部分地方乡村民间演出传统则继续留存于安纳托利亚北部等地。"
+    },
+    "time": {
+      "startYear": 1600,
+      "endYear": 1857,
+      "label": {
+        "en": "c. 1600 – 1857 CE",
+        "zh": "约17世纪至19世纪中叶"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "en": "Istanbul, Ottoman Empire (Turkey)",
+        "zh": "伊斯坦布尔（奥斯曼帝国，今土耳其）"
+      },
+      "countryName": {
+        "en": "Turkey",
+        "zh": "土耳其"
+      },
+      "countryCode": "792",
+      "coordinates": {
+        "longitude": 28.955,
+        "latitude": 41.015
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "historiographyNote": {
+      "en": "Documented in Ottoman court festival manuscripts such as Levni's Surname-i Vehbi (1720), Ottoman poetry, European travel accounts, and nineteenth-century prohibition decrees.",
+      "zh": "史料见于奥斯曼宫廷细密画《维赫比节庆纪》（1720年）、奥斯曼诗歌集、欧洲旅人笔记及19世纪禁演政令档案。"
+    },
+    "sources": [
+      {
+        "title": "Surname-i Vehbi (Illustrated Manuscript of the 1720 Imperial Festival)",
+        "author": "Seyyid Vehbi & Abdulcelil Levni",
+        "year": 1720,
+        "citation": "Topkapı Palace Museum Library"
+      },
+      {
+        "title": "A History of Turkish Theatre / Ottoman Male Dancers",
+        "author": "Metin And",
+        "year": 1963,
+        "citation": "Forum Yayınları / Middle East Studies"
+      }
+    ]
+  },
+  {
+    "id": "entry_zhenla_erxingren",
+    "slug": "zhenla-fengtu-ji-erxingren",
+    "title": {
+      "en": "Erxingren in Customs of Cambodia (1296–1297)",
+      "zh": "《真腊风土记》中的“二形人”"
+    },
+    "originalName": "真臘風土記·二形人",
+    "aliases": [
+      "Zhenla Fengtu Ji",
+      "Zhou Daguan",
+      "真腊风土记"
+    ],
+    "summary": {
+      "en": "A passage in Yuan envoy Zhou Daguan's 1296–1297 travelogue Zhenla Fengtu Ji recording groups called 'erxingren' in Angkor's marketplaces.",
+      "zh": "元代使臣随员周达观于1296–1297年滞留吴哥期间所作《真腊风土记》中的一则记载，提及当地集市中有被称为“二形人”的群体。"
+    },
+    "body": {
+      "en": "Traveling to Angkor with a Yuan diplomatic embassy between 1296 and 1297, Wenzhou writer Zhou Daguan compiled Customs of Cambodia (Zhenla Fengtu Ji) after returning to China. In a brief note under local customs, Zhou wrote that groups of ten or more people termed erxingren walked daily through Angkor's markets and sought out Chinese merchants (Tangren) with generous gifts, which Zhou himself described in disapproving terms.\n\nIn modern philological and historical commentary, translations and interpretations of Zhou's phrase erxingren differ—variously rendering it as intersex persons, gender-nonconforming people, or individuals presenting both masculine and feminine traits in Khmer market life—while the passage itself reflects the brief observation of a visiting Yuan observer.",
+      "zh": "元成宗元贞二年（1296年）至大德元年（1297年），温州人周达观随元朝使团前往真腊（今柬埔寨吴哥王朝），归国后撰成《真腊风土记》四十则。书中所记“人物”或风俗条目提到，真腊城中常见“二形人”每日以十数为群行走于墟场集市间，常有招徕前来贸易之“唐人”并赠以厚馈之举，周达观对此以中土儒士口吻表示嫌恶。\n\n在现代汉学与东南亚史注译中，各版本对原文“二形人”一词的译解不尽相同，既有理解为生理双性特征者，亦有释为兼采男女服饰与仪态之群体，文本本身亦体现出外来行旅者的短暂观察与主观看法。"
+    },
+    "time": {
+      "startYear": 1296,
+      "endYear": 1297,
+      "label": {
+        "en": "1296 – 1297 CE",
+        "zh": "1296年 – 1297年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Angkor (Siem Reap), Cambodia",
+        "zh": "吴哥（今柬埔寨暹粒）"
+      },
+      "countryName": {
+        "en": "Cambodia",
+        "zh": "柬埔寨"
+      },
+      "countryCode": "116",
+      "coordinates": {
+        "longitude": 103.867,
+        "latitude": 13.4125
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Primary source is the extant classical Chinese text of Zhou Daguan's Zhenla Fengtu Ji; modern translations differ over the exact sense of 'erxingren'.",
+      "zh": "依据元代周达观《真腊风土记》原始汉文传本；现代学者对“二形人”一词的具体涵义存在翻译与阐释差异。"
+    },
+    "sources": [
+      {
+        "title": "真腊风土记",
+        "author": "周达观",
+        "year": "约1297–1312年成书"
+      },
+      {
+        "title": "A Record of Cambodia: The Land and Its People",
+        "author": "Peter Harris (trans.)",
+        "year": 2007,
+        "citation": "Silkworm Books"
+      }
+    ]
+  },
+  {
+    "id": "entry_bugis_bissu",
+    "slug": "bugis-bissu-1544",
+    "title": {
+      "en": "Bugis Bissu Ritual Specialists",
+      "zh": "布吉人 Bissu 祭司"
+    },
+    "originalName": "Bissu",
+    "aliases": [
+      "Bugis Fifth Gender",
+      "Calabai & Calalai Ritual Priests"
+    ],
+    "summary": {
+      "en": "Pre-Islamic Bugis ritual specialists in South Sulawesi documented in Portuguese merchant António de Paiva's 1544 letter describing their feminine dress, religious status, and marriages to men.",
+      "zh": "南苏拉威西布吉人社会中的传统祭司群体，1544年葡萄牙商人 António de Paiva 的书信即记述了其女性化装束、宗教地位及与男性缔结婚姻的习俗。"
+    },
+    "body": {
+      "en": "In 1544, Portuguese merchant António de Paiva visited the Bugis and Makassar ports of Suppa' and Siang in South Sulawesi and wrote letters describing local customs prior to regional Islamization. In his account, de Paiva recorded priests called bissu who adopted women's dress and manners, presided over royal and agricultural rituals as spiritual intermediaries, and married men.\n\nWithin Bugis society of South Sulawesi, bissu are traditionally distinguished alongside categories such as oroane (men), makkunrai (women), calalai, and calabai as ritual specialists embodying combined male and female elements. Following seventeenth-century conversions to Islam and twentieth-century political campaigns against pre-Islamic shrines, fewer bissu communities remain active today, though royal houses and local elders in regions such as Bone and Wajo continue to preserve the tradition.",
+      "zh": "1544年，葡萄牙商人安东尼奥·德·派瓦（António de Paiva）航抵印度尼西亚南苏拉威西岛的苏帕（Suppa'）与锡昂（Siang）等港邦，并在书信中记下该地伊斯兰化之前的宗教与社会风俗。信件提及被称为“Bissu”的本地祭司：他们穿着女性服饰、举止女性化，担负王室礼仪与神灵沟通职能，并与男性缔结婚姻。\n\n在南苏拉威西布吉人传统社会分类中，Bissu 与男性、女性以及 calalai、calabai 并列，通常承担主持传统仪式、保管神圣法器与祈福降灵的职责。17世纪以后当地逐步皈依伊斯兰教，20世纪中期亦曾历经打击传统神祠的运动，如今在瓦焦（Wajo）、博内（Bone）等地仍有少数 Bissu 传承延续相关礼俗。"
+    },
+    "time": {
+      "startYear": 1544,
+      "endYear": 1544,
+      "label": {
+        "en": "1544 CE (Early Written Account)",
+        "zh": "1544年（最早欧洲书面记录）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "South Sulawesi (Wajo / Sengkang), Indonesia",
+        "zh": "南苏拉威西（今印尼瓦焦/森康一带）"
+      },
+      "countryName": {
+        "en": "Indonesia",
+        "zh": "印度尼西亚"
+      },
+      "countryCode": "360",
+      "coordinates": {
+        "longitude": 120.032,
+        "latitude": -4.126
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "historiographyNote": {
+      "en": "Earliest external written account appears in António de Paiva's 1544 letter, complemented by Bugis La Galigo epic manuscripts and modern ethnography.",
+      "zh": "最早外来文字记载见于1544年 António de Paiva 书信，并有布吉语《拉加里戈》史诗手稿及现代民族志调查相印证。"
+    },
+    "sources": [
+      {
+        "title": "Letters on South Sulawesi (1544–1545)",
+        "author": "António de Paiva",
+        "year": 1544,
+        "citation": "Reproduced in Christian Pelras, The Bugis (1996)"
+      },
+      {
+        "title": "Gender Diversity in Indonesia: Sexuality, Islam and Queer Selves",
+        "author": "Sharyn Graham Davies",
+        "year": 2010,
+        "citation": "Routledge"
+      }
+    ]
+  },
+  {
+    "id": "entry_philippines_bayog_asog",
+    "slug": "philippines-bayog-asog",
+    "title": {
+      "en": "Bayog and Asog Ritual Specialists",
+      "zh": "Bayog / Asog 祭司"
+    },
+    "originalName": "Bayoguin / Asog",
+    "aliases": [
+      "Bayog",
+      "Asog",
+      "Babaylan"
+    ],
+    "summary": {
+      "en": "Indigenous ritual practitioners across Luzon and the Visayas described in sixteenth- and seventeenth-century Spanish chronicles as wearing women's clothing and sometimes marrying men.",
+      "zh": "16至17世纪西班牙殖民文献所载菲律宾吕宋及米沙鄢地区的宗教实践者，在装束、劳动分工与婚姻生活上呈女性化特征，部分人与男性同居成婚。"
+    },
+    "body": {
+      "en": "Late sixteenth-century manuscripts such as the Boxer Codex (c. 1590), alongside seventeenth-century Jesuit accounts by Pedro Chirino (Relación de las Islas Filipinas, 1604) and Francisco Ignacio Alcina (Historia de las Islas e Indios de Bisayas, 1668), document male-assigned ritual specialists called bayog or bayoguin among the Tagalog and asog in the Visayas and Bicol regions.\n\nWriting from Catholic missionary viewpoints, these chroniclers note that bayog and asog grew long hair, wore women's garments, performed domestic weaving and agricultural tasks alongside women, and acted as babaylan shamans presiding over community healing and sacrifices; several sources, including dictionaries by Marcos de Lisboa and the Boxer Codex, also state that some cohabited or entered marriage with men before colonial ecclesiastical campaigns suppressed native priesthoods.",
+      "zh": "16世纪末的《博克瑟手抄本》（Boxer Codex）及17世纪西班牙耶稣会士佩德罗·奇里诺（1604年《菲律宾群岛记》）、弗朗西斯科·阿尔西纳（1668年《米沙鄢群岛史》）等多部文献，均记述了他加禄地区的“Bayog / Bayoguin”与米沙鄢、比科尔地区的“Asog”祭司群体。\n\n西班牙传教士以天主教立场记录称，这类出生于男身的人员自幼蓄长发、穿戴女性衣裙（lambung），在日常生计中同女子一道纺织与耕作，并担任地方“Babaylan”灵媒主持祭祀与医病；多部辞典与手抄本亦记载其中部分人员与男子同居或结为配偶，随后在西班牙殖民教化与司法管束下逐步遭到取缔。"
+    },
+    "time": {
+      "startYear": 1570,
+      "endYear": 1668,
+      "label": {
+        "en": "16th – 17th Century CE",
+        "zh": "16至17世纪"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "en": "Visayas (Cebu), Philippines",
+        "zh": "米沙鄢与吕宋地区（菲律宾）"
+      },
+      "countryName": {
+        "en": "Philippines",
+        "zh": "菲律宾"
+      },
+      "countryCode": "608",
+      "coordinates": {
+        "longitude": 123.8854,
+        "latitude": 10.3157
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "historiographyNote": {
+      "en": "Preserved primarily in sixteenth- and seventeenth-century Spanish colonial codices, missionary dictionaries, and Jesuit histories (Chirino, Alcina).",
+      "zh": "依据《博克瑟手抄本》、早期传教士辞典及奇里诺、阿尔西纳等西班牙殖民文献记录。"
+    },
+    "sources": [
+      {
+        "title": "Historia de las Islas e Indios de Bisayas (1668)",
+        "author": "Francisco Ignacio Alcina",
+        "year": 1668,
+        "citation": "CSIC / University of Santo Tomas Press"
+      },
+      {
+        "title": "Bayoguin and Asog: Pre-Colonial Gender-Crossing Shamans in the Philippines",
+        "author": "Carolyn Brewer / J. Neil C. Garcia",
+        "year": 2004,
+        "citation": "Philippine Gay Culture / Intersections (ANU)"
+      }
+    ]
+  },
+  {
+    "id": "entry_warok_gemblak",
+    "slug": "warok-and-gemblak-ponorogo",
+    "title": {
+      "en": "Warok and Gemblak",
+      "zh": "Warok 与 Gemblak"
+    },
+    "originalName": "Warok & Gemblak (Ponorogo)",
+    "aliases": [
+      "Reog Ponorogo",
+      "Gemblakan"
+    ],
+    "summary": {
+      "en": "An age-structured patronage relationship in East Java's Ponorogo region between adult martial leaders (warok) and adolescent male performers (gemblak), documented into the modern era.",
+      "zh": "印度尼西亚东爪哇波诺罗戈地区传统表演与武术文化中成年男性头领（Warok）与少年伴舞（Gemblak）之间的依附伴侣制度，近现代仍有调查记录。"
+    },
+    "body": {
+      "en": "In the Ponorogo region of East Java, warok are respected rural strongmen, martial arts practitioners, and patrons of the traditional masked dance Reog Ponorogo. Traditional local belief held that sexual relations with women would weaken a warok's ascetic spiritual power (ngilmu), leading senior warok during their active years to maintain exclusive arrangements with an adolescent boy (typically aged 8 to 16) known as a gemblak.\n\nHistorical studies and twentieth-century ethnography note that gemblak lived under the economic patronage of a warok—receiving household support, clothing, and livestock for their families—while fulfilling domestic, sexual, and theatrical duties as feminine-dressed jathil dancers in Reog troupes. Alongside intimate companionship, scholars highlight stark age and economic power asymmetries between adult patrons and boys; from the late twentieth century onward, Indonesian state policies and religious pressures curtailed the keeping of gemblak.",
+      "zh": "在东爪哇波诺罗戈（Ponorogo）的民间武术及大型传统舞剧“Reog Ponorogo”传统中，“Warok”指具备地方威望的武术与秘传修行头领。当地传统观念认为与女子发生性关系会损耗 Warok 的内功修为，因此成年的 Warok 往往转而供养一名年约八至十六岁的农家少年（称为“Gemblak”）。\n\n人类学与历史研究记载，Gemblak 由 Warok 承担饮食、服饰与经济供给，既充当其日常生活与性伴侣，也在 Reog 表演中化妆出演着女装或少年装束的马舞舞者（Jathil）；研究者同时指出这一制度内部存在显著的年龄与经济权力不对等。20世纪下半叶以来，随印尼新秩序时期整顿、现代法律规范及宗教观念变化，公开供养 Gemblak 的习俗大幅消减。"
+    },
+    "time": {
+      "startYear": 1850,
+      "endYear": 2000,
+      "label": {
+        "en": "19th – Late 20th Century CE",
+        "zh": "近现代（19世纪至20世纪末仍有记录）"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "en": "Ponorogo, East Java, Indonesia",
+        "zh": "波诺罗戈（印尼东爪哇）"
+      },
+      "countryName": {
+        "en": "Indonesia",
+        "zh": "印度尼西亚"
+      },
+      "countryCode": "360",
+      "coordinates": {
+        "longitude": 111.4667,
+        "latitude": -7.8667
+      },
+      "precision": "city",
+      "relation": "cultural-origin"
+    },
+    "historiographyNote": {
+      "en": "Documented in Dutch colonial observations, historical studies by Onghokham, and twentieth-century ethnographic fieldwork in East Java.",
+      "zh": "依据殖民时期地方志、印尼史学家 Onghokham 研究及20世纪东爪哇民族志田野调查记录。"
+    },
+    "sources": [
+      {
+        "title": "The Inscrutable and the Paranoid: An Investigation into the Sources of the Brotodiningrat Affair",
+        "author": "Onghokham",
+        "year": 1978,
+        "citation": "Southeast Asian Transitions / Reog Studies"
+      },
+      {
+        "title": "Gemblak and Warok: Male Homosociality and Power in East Java",
+        "author": "Ian Wilson",
+        "year": 1999,
+        "citation": "Intersections: Gender, History and Culture in the Asian Context, Issue 2"
+      }
+    ]
+  },
+  {
+    "id": "entry_chiangmai_pumia",
+    "slug": "chiang-mai-pu-mia",
+    "title": {
+      "en": "Chiang Mai Pu-mia Records",
+      "zh": "清迈 Pu-mia 记录"
+    },
+    "originalName": "Pu-mia (ผู้เมีย / ปู้เมีย)",
+    "aliases": [
+      "Pu Mia",
+      "Chiang Mai Cross-Dressing Accounts"
+    ],
+    "summary": {
+      "en": "Late nineteenth- and early twentieth-century traveler and administrative accounts from Chiang Mai recording northern Thai individuals locally termed 'pu-mia' who crossed binary dress and gender norms.",
+      "zh": "19世纪末至20世纪初造访泰北清迈的旅行者与外地官员笔记，记录了当地被称为“Pu-mia”的跨性别装束与社会生活现象。"
+    },
+    "body": {
+      "en": "In late nineteenth- and early twentieth-century accounts of northern Siam, foreign travelers and officials noted individuals in Chiang Mai referred to in Northern Thai (Lanna) dialect as pu-mia (literally 'male-female'). Norwegian naturalist Carl Bock in the 1880s and British consular official W. A. R. Wood in the early twentieth century recorded encounters with pu-mia living and dressing across customary binary boundaries.\n\nHistorians such as Peter Jackson and Andrew Matzner note that Siamese officials transferred north from Bangkok often expressed unfamiliarity with the Lanna category pu-mia and required local residents to explain it—indicating regional variations in gender terminology between northern Siam and central Bangkok prior to modern national standardization.",
+      "zh": "19世纪末至20世纪初，多位旅居泰北兰纳故地清迈的外国博物学者与驻外官员在笔记中记述了当地被称为“Pu-mia”（泰北方言意近“男—女”）的群体。挪威学者卡尔·博克（Carl Bock，19世纪80年代）及长期担任英国驻清迈领事的W·A·R·伍德（W. A. R. Wood）均曾描述他们改着女装并从事特定社会分工的情形。\n\n研究指出，彼时由曼谷调派至清迈的暹罗中央官员常对当地公开存在的 Pu-mia 现象感到陌生，需经本地居民解释方知其习俗，显示出近代全国统合之前泰北与曼谷在性别称谓与社会认知上的地方差异。"
+    },
+    "time": {
+      "startYear": 1880,
+      "endYear": 1930,
+      "label": {
+        "en": "Late 19th – Early 20th Century CE",
+        "zh": "19世纪末 – 20世纪初"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "en": "Chiang Mai, Thailand",
+        "zh": "清迈（泰国北部）"
+      },
+      "countryName": {
+        "en": "Thailand",
+        "zh": "泰国"
+      },
+      "countryCode": "764",
+      "coordinates": {
+        "longitude": 98.9853,
+        "latitude": 18.7883
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "historiographyNote": {
+      "en": "Documented in late nineteenth-century traveler narratives (Carl Bock), consular memoirs (W. A. R. Wood), and Peter Jackson's historical studies of Thai gender categories.",
+      "zh": "主要出自19世纪末旅行见闻（如 Carl Bock）、驻清迈领事回忆录（W. A. R. Wood）及彼得·杰克逊的相关史学考证。"
+    },
+    "sources": [
+      {
+        "title": "Performative Genders, Perverse Desires: A Bio-History of Thailand's Same-Sex and Transgender Cultures",
+        "author": "Peter A. Jackson",
+        "year": 2003,
+        "citation": "Intersections: Gender, History and Culture in the Asian Context, Issue 9"
+      },
+      {
+        "title": "Temples and Elephants: The Narrative of a Journey of Exploration through Upper Siam and Lao",
+        "author": "Carl Bock",
+        "year": 1884,
+        "citation": "Sampson Low, London"
+      }
+    ]
+  },
+  {
+    "id": "entry_old_bugis_street",
+    "slug": "old-bugis-street-singapore",
+    "title": {
+      "en": "Old Bugis Street (1950s–1980s)",
+      "zh": "旧武吉士街（Bugis Street）"
+    },
+    "originalName": "Bugis Street (Singapore)",
+    "aliases": [
+      "Boogie Street",
+      "Old Bugis Street",
+      "老武吉士街"
+    ],
+    "summary": {
+      "en": "An open-air nocturnal street in Singapore famed from the 1950s until its 1985 redevelopment for late-night food stalls, visiting sailors, and transgender street performers.",
+      "zh": "1950至1980年代新加坡著名夜间露天街区，以夜市摊贩、驻港水兵与跨性别街头表演者闻名，现存资料由新加坡国家文物局收存。"
+    },
+    "body": {
+      "en": "Between North Bridge Road and Victoria Street in downtown Singapore, old Bugis Street operated from the 1950s to the mid-1980s as an open-air night market lined with hawker stalls and pre-war shophouses. Drawn by cheap food and nocturnal street life, British servicemen, foreign sailors, and travelers packed the narrow lane each evening alongside local diners.\n\nAfter 11:00 PM, transgender women and cross-dressing performers gathered regularly along the street, staging impromptu runway walks and cabaret banter captured in contemporary press photography and travelogues. In 1985, the city cleared and demolished the original street during construction of the Bugis MRT station and modern Bugis Junction complex; archival photographs and oral histories are preserved by Singapore's National Heritage Board (Roots.sg).",
+      "zh": "位于新加坡市区北桥路与维多利亚街之间的旧武吉士街（Bugis Street），在1950年代至1980年代中期曾是昼伏夜出的露天市集。入夜后街头挤满熟食摊贩、英国驻军官兵、各国海员与观光旅客，通宵营业直至黎明。\n\n每晚十一点过后，本地跨性别女性与变装表演者经常汇集于此，在店屋前的马路与食摊间即兴走秀互动。1985年因修筑武吉士地铁站及后续白沙浮广场工程，旧街原址全面拆迁改建；相关影像档案与口述史现保存于新加坡国家文物局 Roots 资料库。"
+    },
+    "time": {
+      "startYear": 1950,
+      "endYear": 1985,
+      "label": {
+        "en": "1950s – 1985 CE",
+        "zh": "1950年代 – 1985年"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "en": "Bugis Street, Singapore",
+        "zh": "武吉士街（新加坡）"
+      },
+      "countryName": {
+        "en": "Singapore",
+        "zh": "新加坡"
+      },
+      "countryCode": "702",
+      "coordinates": {
+        "longitude": 103.8555,
+        "latitude": 1.3005
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in Singapore National Heritage Board (Roots.sg), National Library Board Infopedia records, and mid-twentieth-century oral histories.",
+      "zh": "史料见于新加坡国家文物局 Roots 档案库、国家图书馆历史百科（Infopedia）及口述史访谈。"
+    },
+    "sources": [
+      {
+        "title": "Bugis Street (Singapore Infopedia & Roots Heritage Archive)",
+        "author": "National Library Board & National Heritage Board Singapore",
+        "year": 2016
+      },
+      {
+        "title": "People Like Us: Sexual Minorities in Singapore",
+        "author": "Joseph Lo & Huang Guoqin (eds.)",
+        "year": 2003,
+        "citation": "Select Publishing, Singapore"
+      }
+    ]
+  },
+  {
+    "id": "entry_myanmar_acault",
+    "slug": "myanmar-acault-nat-spirit",
+    "title": {
+      "en": "Acault and Nat Spirit Mediumship (1992 Study)",
+      "zh": "Acault 与纳特神灵信仰"
+    },
+    "originalName": "Acault / Nat Kadaw (နတ်ကတော်)",
+    "aliases": [
+      "Nat Kadaw",
+      "Manguedon Spirit Mediums"
+    ],
+    "summary": {
+      "en": "A 1992 clinical and ethnographic paper by Eli Coleman, Philip Colgan, and Louis Gooren documenting Burmese acault acting as spirit mediums in Myanmar's nat worship.",
+      "zh": "1992年的一项民族志与临床观察研究，记录了缅甸部分呈女性化性别表达者（Acault）在民间“纳特”（Nat）神灵信仰中担任灵媒并获得社会角色的机制。"
+    },
+    "body": {
+      "en": "In June 1992, researchers Eli Coleman, Philip Colgan, and Louis J. Gooren published 'Male Cross-Gender Behavior in Myanmar (Burma): A Description of the Acault' in the Archives of Sexual Behavior (vol. 21, no. 3). Based on fieldwork in Myanmar, the study recorded individuals assigned male at birth—referred to in the paper as acault—who wore women's garments, adopted feminine social roles, and participated in religious life.\n\nWithin Myanmar's traditional pantheon of thirty-seven nats (spirits) existing alongside Theravada Buddhism, spiritual possession by female nat figures such as Manguedon authorized acault and nat kadaw ('spirit wives') to act as ritual mediums, dancers, and seers at household ceremonies and regional shrine festivals around Mandalay.",
+      "zh": "1992年6月，学者伊莱·科尔曼（Eli Coleman）、菲利普·科尔根与路易·J·胡伦在《性行为档案》（Archives of Sexual Behavior）发表题为《缅甸男性跨性别行为：关于 Acault 的记述》的调查论文，依据缅甸田野访谈记录了一批出生时被登记为男性、日常穿着女装并采取女性社会生活角色的人群（文中称为 acault）。\n\n在缅甸上座部佛教民间信仰中，长期并存三十七尊“纳特”（Nat）神灵祭祀；通过女性神灵（如 Manguedon）附身降灵与仪式联姻，担任“神灵妻子”（Nat Kadaw）的 Acault 灵媒得以在曼德勒等地的节庆庙会及家宅祈福中获得公认的宗教与社会职责。"
+    },
+    "time": {
+      "startYear": 1992,
+      "endYear": 1992,
+      "label": {
+        "en": "1992 CE (Ethnographic Study)",
+        "zh": "1992年（民族志研究记录）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Mandalay, Myanmar",
+        "zh": "曼德勒地区（缅甸）"
+      },
+      "countryName": {
+        "en": "Myanmar",
+        "zh": "缅甸"
+      },
+      "countryCode": "104",
+      "coordinates": {
+        "longitude": 96.0891,
+        "latitude": 21.9588
+      },
+      "precision": "region",
+      "relation": "activity-area"
+    },
+    "historiographyNote": {
+      "en": "Documented in Eli Coleman, Philip Colgan, and Louis J. Gooren's 1992 Archives of Sexual Behavior study alongside anthropological research on Burmese nat kadaw.",
+      "zh": "依据 Eli Coleman 等人1992年发表于《性行为档案》的田野研究及缅甸纳特神灵（Nat Kadaw）人类学文献。"
+    },
+    "sources": [
+      {
+        "title": "Male Cross-Gender Behavior in Myanmar (Burma): A Description of the Acault",
+        "author": "Eli Coleman, Philip Colgan & Louis J. Gooren",
+        "year": 1992,
+        "citation": "Archives of Sexual Behavior 21, no. 3, pp. 313–321"
+      },
+      {
+        "title": "Transgender and Third-Gender Traditions in Burma (Nat Kadaw)",
+        "author": "Tamara C. Ho",
+        "year": 2009,
+        "citation": "Journal of Burma Studies"
+      }
+    ]
   }
 ];
