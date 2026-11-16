@@ -6195,5 +6195,671 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "url": "https://www.cipdh.gob.ar/memorias-situadas/lugar-de-memoria/archivo-de-la-memoria-trans/"
       }
     ]
+  },
+  {
+    "id": "entry_stalhammar_lohnman",
+    "slug": "stalhammar-lohnman",
+    "title": {
+      "zh": "乌尔丽卡·斯托尔哈马尔与玛丽亚·勒恩曼",
+      "en": "Ulrika Eleonora Stålhammar and Maria Löhnman"
+    },
+    "originalName": "Ulrika Eleonora Stålhammar / Maria Löhnman",
+    "aliases": [],
+    "summary": {
+      "zh": "以男性姓名在卡尔马服役的斯托尔哈马尔与勒恩曼结婚，两人的婚姻后来受到调查。",
+      "en": "Stålhammar served in Kalmar under a man’s name and married Löhnman. Their marriage was later investigated."
+    },
+    "body": {
+      "zh": "斯托尔哈马尔以维尔赫尔姆·埃德斯泰特之名加入卡尔马炮兵部队，与玛丽亚·勒恩曼结婚。两人在卡尔马共同生活，直至斯托尔哈马尔于1726年离开部队。\n\n1729年，卡尔马市法院调查斯托尔哈马尔的服役和婚姻。卷宗留下两人的陈述，案件也进入司法复核，1730年的复核记录现存于瑞典国家档案馆。",
+      "en": "Stålhammar joined the Kalmar artillery under the name Vilhelm Edstedt and married Maria Löhnman. They lived together in Kalmar until Stålhammar left the artillery in 1726.\n\nIn 1729 the Kalmar municipal court investigated Stålhammar’s service and marriage. Its papers preserve statements by both spouses. The case went to judicial review, and the 1730 review record survives in Sweden’s National Archives."
+    },
+    "time": {
+      "startYear": 1716,
+      "endYear": 1730,
+      "label": {
+        "zh": "1716至1730年",
+        "en": "1716–1730"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "卡尔马",
+        "en": "Kalmar"
+      },
+      "countryName": {
+        "zh": "瑞典",
+        "en": "Sweden"
+      },
+      "countryCode": "752",
+      "coordinates": {
+        "longitude": 16.36,
+        "latitude": 56.66
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Svenskt kvinnobiografiskt lexikon",
+        "citation": "Kalmar rådhusrätt, February 1729; Justitierevisionens protokoll, 25 February 1730",
+        "url": "https://skbl.se/sv/artikel/UlrikaEleonoraStalhammar"
+      }
+    ]
+  },
+  {
+    "id": "entry_lili_elbe",
+    "slug": "lili-elbe",
+    "title": {
+      "zh": "莉莉·埃尔伯",
+      "en": "Lili Elbe"
+    },
+    "originalName": "Lili Elbe",
+    "aliases": [],
+    "summary": {
+      "zh": "丹麦画家莉莉·埃尔伯于1930至1931年在德国接受手术，其经历见于《从男人到女人》。",
+      "en": "Danish painter Lili Elbe underwent surgery in Germany in 1930–1931. Her experiences appear in Man into Woman."
+    },
+    "body": {
+      "zh": "1930年3月，埃尔伯在柏林性学研究所接受检查，后来在德累斯顿接受多次手术。她此前在丹麦以画家的身份工作。1931年，她在德累斯顿去世。\n\n埃尔伯去世后，编者将有关她生活的材料整理成书。丹麦语、德语和英语版本陆续出版，书名与编辑措辞有所不同。莉莉·埃尔伯数字档案提供手稿与各版文本的对照。",
+      "en": "Elbe was examined at Berlin’s Institute for Sexual Science in March 1930 and later underwent several operations in Dresden. She had previously worked as a painter in Denmark. She died in Dresden in 1931.\n\nAfter Elbe’s death, editors assembled material about her life into a book. Danish, German and English versions appeared with differences in title and wording. The Lili Elbe Digital Archive makes the manuscripts and versions available for comparison."
+    },
+    "time": {
+      "startYear": 1930,
+      "endYear": 1931,
+      "label": {
+        "zh": "1930至1931年",
+        "en": "1930–1931"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "德累斯顿（就医地）",
+        "en": "Dresden (site of medical care)"
+      },
+      "countryName": {
+        "zh": "德国",
+        "en": "Germany"
+      },
+      "countryCode": "276",
+      "coordinates": {
+        "longitude": 13.74,
+        "latitude": 51.05
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Lili Elbe Digital Archive",
+        "citation": "Man into Woman: A Comparative Scholarly Edition",
+        "url": "https://lilielbe.luc.edu/"
+      }
+    ]
+  },
+  {
+    "id": "entry_tom_of_finland",
+    "slug": "tom-of-finland",
+    "title": {
+      "zh": "芬兰汤姆",
+      "en": "Tom of Finland"
+    },
+    "originalName": "Touko Laaksonen",
+    "aliases": [],
+    "summary": {
+      "zh": "图科·拉克索宁以「芬兰汤姆」署名发表描绘男性身体与欲望的画作。",
+      "en": "Touko Laaksonen published drawings of male bodies and desire under the name Tom of Finland."
+    },
+    "body": {
+      "zh": "1957年春，美国杂志《Physique Pictorial》把拉克索宁画的一名笑着的伐木工放上封面，以「Tom of Finland」署名。此后他继续以这个名字发表画作，常画穿皮衣、制服或工作服的男子。\n\n他的作品经杂志和独立画册传播。芬兰汤姆基金会保存他的画作及个人材料，1957年的封面把早期发表的作品与后来通行的署名联系在一起。",
+      "en": "In spring 1957 the American magazine Physique Pictorial put Laaksonen’s drawing of a laughing lumberjack on its cover, crediting it to Tom of Finland. He kept the name for subsequent drawings, often depicting men in leather, uniforms or work clothes.\n\nHis work circulated through magazines and separately published books of drawings. The Tom of Finland Foundation preserves his art and personal materials. The 1957 cover documents an early appearance of the name he continued to use."
+    },
+    "time": {
+      "startYear": 1957,
+      "endYear": 1991,
+      "label": {
+        "zh": "1957至1991年",
+        "en": "1957–1991"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "赫尔辛基（工作地）",
+        "en": "Helsinki (place of work)"
+      },
+      "countryName": {
+        "zh": "芬兰",
+        "en": "Finland"
+      },
+      "countryCode": "246",
+      "coordinates": {
+        "longitude": 24.94,
+        "latitude": 60.17
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "About Tom of Finland",
+        "citation": "Tom of Finland Foundation; Physique Pictorial, spring 1957",
+        "url": "https://www.tomoffinland.org/about-tom-of-finland"
+      }
+    ]
+  },
+  {
+    "id": "entry_hervor_heidrek_saga",
+    "slug": "hervor-heidrek-saga",
+    "title": {
+      "zh": "《赫尔沃尔与海德雷克传奇》",
+      "en": "The Saga of Hervör and Heidrek"
+    },
+    "originalName": "Hervarar saga ok Heiðreks konungs",
+    "aliases": [],
+    "summary": {
+      "zh": "古诺尔斯语传奇写到赫尔沃尔身着男装、以男性名字出行，并向亡父索取宝剑。",
+      "en": "In the Old Norse saga, Hervör travels in men’s clothing under a man’s name and claims a sword from her dead father."
+    },
+    "body": {
+      "zh": "赫尔沃尔离家后换上男性服饰，以赫约瓦尔德之名随人出海。她来到萨姆瑟岛寻找父亲安甘蒂尔的坟丘，在坟前呼唤亡父，要求接过随他下葬的剑提尔锋。\n\n传奇以父女在坟丘前的诗体对话记下这场交锋。剑后来传给赫尔沃尔的儿子海德雷克，成为后续故事中的争夺对象。",
+      "en": "After leaving home, Hervör puts on men’s clothing and goes to sea under the name Hjǫrvarðr. On Samsø she seeks out the burial mound of her father, Angantýr, calls him from the mound and demands Tyrfing, the sword buried with him.\n\nThe saga records the encounter in verse exchanged between father and daughter at the mound. The sword later passes to Hervör’s son Heidrek and becomes the object of conflict in the rest of the story."
+    },
+    "time": {
+      "startYear": 1200,
+      "endYear": 1299,
+      "label": {
+        "zh": "约13世纪（成文）",
+        "en": "Around the 13th century (composition)"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "zh": "冰岛（文本传统）",
+        "en": "Iceland (textual tradition)"
+      },
+      "countryName": {
+        "zh": "冰岛",
+        "en": "Iceland"
+      },
+      "countryCode": "352",
+      "coordinates": {
+        "longitude": -21.94,
+        "latitude": 64.15
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Hervarar saga ok Heiðreks konungs",
+        "citation": "Old Norse edition, Bodleian Libraries digital scan",
+        "url": "https://dbooks.bodleian.ox.ac.uk/books/PDFs/300150841.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_samtokin_78_founding",
+    "slug": "samtokin-78-founding",
+    "title": {
+      "zh": "Samtökin ’78 成立",
+      "en": "Founding of Samtökin ’78"
+    },
+    "originalName": "Samtökin ’78",
+    "aliases": [],
+    "summary": {
+      "zh": "冰岛同性恋权益组织 Samtökin ’78 于1978年成立。",
+      "en": "Iceland’s gay and lesbian rights organization Samtökin ’78 was founded in 1978."
+    },
+    "body": {
+      "zh": "1978年，冰岛的同性恋活动人士成立 Samtökin ’78。组织自己的历史记载，成立前人们多在小圈子里见面。公开谈及同性恋生活的访谈，引发了围绕这些经历的讨论。\n\n组织成立后开始以团体名义举行活动，也推动讨论同性恋者的公共处境与法律权利。Samtökin ’78 保存了这段组织史的公开年表。",
+      "en": "In 1978 gay and lesbian activists in Iceland formed Samtökin ’78. The organization’s own history recalls meetings in small circles before its founding. Interviews about living openly as gay prompted public debate.\n\nMembers began to hold events as an organization and brought the public standing and legal rights of gay people into debate. Samtökin ’78 maintains a public chronology of that history."
+    },
+    "time": {
+      "startYear": 1978,
+      "endYear": 1978,
+      "label": {
+        "zh": "1978年",
+        "en": "1978"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "雷克雅未克",
+        "en": "Reykjavík"
+      },
+      "countryName": {
+        "zh": "冰岛",
+        "en": "Iceland"
+      },
+      "countryCode": "352",
+      "coordinates": {
+        "longitude": -21.94,
+        "latitude": 64.15
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Short history of LGBTI rights in Iceland",
+        "citation": "Samtökin ’78, organizational history",
+        "url": "https://samtokin78.is/nc/short-history-of-lgbti-rights-in-iceland/"
+      }
+    ]
+  },
+  {
+    "id": "entry_kim_friele_wenche_lowzow",
+    "slug": "kim-friele-wenche-lowzow",
+    "title": {
+      "zh": "金·弗里勒与文克·洛措",
+      "en": "Kim Friele and Wenche Lowzow"
+    },
+    "originalName": "Kim Friele / Wenche Lowzow",
+    "aliases": [],
+    "summary": {
+      "zh": "1993年8月，金·弗里勒与文克·洛措在挪威登记伴侣关系。",
+      "en": "Kim Friele and Wenche Lowzow registered their partnership in Norway in August 1993."
+    },
+    "body": {
+      "zh": "金·弗里勒多年参与挪威同性恋权益运动。文克·洛措曾任国会议员，并在任内公开谈及自己的同性恋身份。1993年，挪威的登记伴侣法为同性伴侣提供了登记途径。\n\n同年8月，两人在奥斯陆登记伴侣关系。挪威《大百科全书》的弗里勒传记将她们列为新法下第一对登记的伴侣。",
+      "en": "Kim Friele spent years organizing for gay and lesbian rights in Norway. Wenche Lowzow had served in Parliament and spoken publicly about being a lesbian while in office. Norway’s 1993 partnership law created a registration route for same-sex couples.\n\nThat August they registered their partnership in Oslo. The Store norske leksikon biography of Friele identifies them as the first couple to register under the law."
+    },
+    "time": {
+      "startYear": 1993,
+      "endYear": 1993,
+      "label": {
+        "zh": "1993年",
+        "en": "1993"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "奥斯陆",
+        "en": "Oslo"
+      },
+      "countryName": {
+        "zh": "挪威",
+        "en": "Norway"
+      },
+      "countryCode": "578",
+      "coordinates": {
+        "longitude": 10.75,
+        "latitude": 59.91
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Kim Friele",
+        "citation": "Store norske leksikon, Norsk biografisk leksikon",
+        "url": "https://snl.no/Kim_Friele"
+      }
+    ]
+  },
+  {
+    "id": "entry_aleksandr_aleksandrov",
+    "slug": "aleksandr-aleksandrov",
+    "title": {
+      "zh": "亚历山大·亚历山德罗夫",
+      "en": "Aleksandr Aleksandrov"
+    },
+    "originalName": "Александр Александров",
+    "aliases": [
+      "Надежда Дурова",
+      "Nadezhda Durova"
+    ],
+    "summary": {
+      "zh": "以亚历山德罗夫之名服役的俄国骑兵军官留下了从军回忆。",
+      "en": "A Russian cavalry officer who served as Aleksandr Aleksandrov left a memoir of military life."
+    },
+    "body": {
+      "zh": "拿破仑战争期间，亚历山德罗夫以男性身份在俄国骑兵部队服役。1807年末，亚历山大一世授予其军官任命，此后他使用亚历山大·亚历山德罗夫这一姓名。\n\n退役后，亚历山德罗夫仍使用这个名字，并写下军旅生活。回忆录于1830年代刊行，出版时与娜杰日达·杜罗娃这一名字相联系。",
+      "en": "Aleksandrov served as a man in the Russian cavalry during the Napoleonic Wars. Alexander I granted a commission in late 1807, after which the officer used the name Aleksandr Aleksandrov.\n\nAfter leaving the army, Aleksandrov continued to use the name and wrote about military life. The memoir appeared in the 1830s and was published in association with the name Nadezhda Durova."
+    },
+    "time": {
+      "startYear": 1807,
+      "endYear": 1866,
+      "label": {
+        "zh": "1807至1866年",
+        "en": "1807–1866"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "叶拉布加（晚年居住地）",
+        "en": "Yelabuga (later residence)"
+      },
+      "countryName": {
+        "zh": "俄罗斯",
+        "en": "Russia"
+      },
+      "countryCode": "643",
+      "coordinates": {
+        "longitude": 52.06,
+        "latitude": 55.76
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "The Cavalry Maiden: Journals of a Female Russian Officer in the Napoleonic Wars",
+        "citation": "Memoir, translated by Mary Fleming Zirin",
+        "url": "https://books.google.com/books/about/The_Cavalry_Maiden_Journals_of_a_Female.html?id=0jhpAAAAMAAJ"
+      }
+    ]
+  },
+  {
+    "id": "entry_kuzmin_wings",
+    "slug": "kuzmin-wings",
+    "title": {
+      "zh": "米哈伊尔·库兹明《翅膀》",
+      "en": "Mikhail Kuzmin’s Wings"
+    },
+    "originalName": "Крылья",
+    "aliases": [],
+    "summary": {
+      "zh": "库兹明于1906年发表的中篇小说，以一名年轻男子的经历写男性之间的欲望和亲密关系。",
+      "en": "Kuzmin’s 1906 novella follows a young man as he encounters male desire and intimacy."
+    },
+    "body": {
+      "zh": "小说以年轻的瓦尼亚·斯莫罗杜罗夫为中心。瓦尼亚结识拉里昂·施特鲁普，与他及身边人物交谈，逐渐接触他们谈论男性之间的爱慕、艺术和生活的方式。\n\n作品分为三部分，叙事从俄国延伸至意大利。1906年，《天秤》杂志刊出这部小说。现有俄语电子文本可按原书结构查阅。",
+      "en": "The novella follows the young Vanya Smorodurov. Through his acquaintance with Larion Stroop and conversations with those around him, Vanya encounters ways of speaking about love between men, art and everyday life.\n\nThe story is in three parts and moves from Russia to Italy. The journal Vesy published the novella in 1906. The digitized Russian text retains its three-part structure."
+    },
+    "time": {
+      "startYear": 1906,
+      "endYear": 1906,
+      "label": {
+        "zh": "1906年",
+        "en": "1906"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "莫斯科（首刊地）",
+        "en": "Moscow (place of first publication)"
+      },
+      "countryName": {
+        "zh": "俄罗斯",
+        "en": "Russia"
+      },
+      "countryCode": "643",
+      "coordinates": {
+        "longitude": 37.62,
+        "latitude": 55.75
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Крылья: Повесть в трёх частях",
+        "citation": "Михаил Кузмин, Весы, 1906",
+        "url": "https://ru.wikisource.org/wiki/Крылья_(Кузмин)"
+      }
+    ]
+  },
+  {
+    "id": "entry_parnok_tsvetaeva",
+    "slug": "parnok-tsvetaeva",
+    "title": {
+      "zh": "索菲娅·帕尔诺克与玛丽娜·茨维塔耶娃",
+      "en": "Sofia Parnok and Marina Tsvetaeva"
+    },
+    "originalName": "София Парнок / Марина Цветаева",
+    "aliases": [],
+    "summary": {
+      "zh": "两位俄语诗人1914至1916年间的关系留在她们写下的诗里。",
+      "en": "The relationship between the two Russian poets from 1914 to 1916 found its way into their poems."
+    },
+    "body": {
+      "zh": "帕尔诺克与茨维塔耶娃在1914年相识，随后建立亲密关系。茨维塔耶娃在1914至1915年间写下后来题为《女友》的组诗，以第二人称向诗中的女性说话。\n\n帕尔诺克也把两人的交往写进诗歌。她1915年的一首诗援引萨福，借古希腊诗人的词句写对女性的爱慕。两位作者留下各自的声音。",
+      "en": "Parnok and Tsvetaeva met in 1914 and became lovers. In 1914–1915 Tsvetaeva wrote the cycle later known as Girlfriend, addressing the woman in the poems directly.\n\nParnok also wrote poems shaped by the relationship. One poem from 1915 invokes Sappho, using the Greek poet’s words in a poem about desire for a woman. The two writers left accounts in their own voices."
+    },
+    "time": {
+      "startYear": 1914,
+      "endYear": 1916,
+      "label": {
+        "zh": "1914至1916年",
+        "en": "1914–1916"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "莫斯科",
+        "en": "Moscow"
+      },
+      "countryName": {
+        "zh": "俄罗斯",
+        "en": "Russia"
+      },
+      "countryCode": "643",
+      "coordinates": {
+        "longitude": 37.62,
+        "latitude": 55.75
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Подруга",
+        "citation": "Marina Tsvetaeva, poems dedicated to Sofia Parnok",
+        "url": "https://laidinen.ru/cikl-mariny-cvetaevoj-podruga-posvjashhennyj-sofii-parnok/"
+      }
+    ]
+  },
+  {
+    "id": "entry_hlas_sexualni_mensiny",
+    "slug": "hlas-sexualni-mensiny",
+    "title": {
+      "zh": "《Hlas sexuální menšiny》杂志",
+      "en": "Hlas sexuální menšiny"
+    },
+    "originalName": "Hlas sexuální menšiny",
+    "aliases": [],
+    "summary": {
+      "zh": "1931年布拉格创刊的捷克语刊物，讨论同性情感和刑事法律。",
+      "en": "A Czech-language periodical launched in Prague in 1931 that discussed same-sex relationships and criminal law."
+    },
+    "body": {
+      "zh": "1931年，《Hlas sexuální menšiny》在捷克斯洛伐克的布拉格创刊。刊名意为「性少数之声」。编辑把同性情感、读者的处境和公共舆论放在刊物中讨论。\n\n杂志也讨论刑事法律如何对待男性间的同性性行为。创刊号封面后来被收入档案展览出版物，可与当时的标题及排版一并查看。",
+      "en": "Hlas sexuální menšiny began publishing in Prague, Czechoslovakia, in 1931. Its title means Voice of the Sexual Minority. Its editors discussed same-sex relationships, readers’ circumstances and public attitudes.\n\nThe magazine also discussed criminal laws governing same-sex acts between men. The first issue’s cover has been reproduced in an archival exhibition publication, where its original title and layout can be seen."
+    },
+    "time": {
+      "startYear": 1931,
+      "endYear": 1931,
+      "label": {
+        "zh": "1931年",
+        "en": "1931"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "布拉格",
+        "en": "Prague"
+      },
+      "countryName": {
+        "zh": "捷克",
+        "en": "Czechia"
+      },
+      "countryCode": "203",
+      "coordinates": {
+        "longitude": 14.44,
+        "latitude": 50.08
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "In Search for Queer Ancestors",
+        "citation": "Karol Radziszewski, reproduction of Hlas no. 1 (1931)",
+        "url": "https://www.internationaleonline.org/site/assets/files/7486/lio_decolonisingarchives_2016.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_lasky_nacerno",
+    "slug": "lasky-nacerno",
+    "title": {
+      "zh": "《Lásky načerno》",
+      "en": "Lásky načerno"
+    },
+    "originalName": "Lásky načerno",
+    "aliases": [],
+    "summary": {
+      "zh": "在布拉格同性恋男性社群中私下流传的捷克语散文作品。",
+      "en": "A Czech prose work circulated privately in Prague’s gay community."
+    },
+    "body": {
+      "zh": "《Lásky načerno》在布拉格的同性恋男性社群中以地下出版形式流传。作品写男性之间的情感和交往，将私人生活放在当时的城市生活中。\n\n捷克酷儿记忆协会将它和《Ozvěny pochybností》等作品编成四篇散文的电子版。该馆把这些文本的创作与传播年代列为1960年代至天鹅绒革命后不久。",
+      "en": "Lásky načerno circulated as samizdat among gay men in Prague. The prose depicts affection and relationships between men in the setting of contemporary urban life.\n\nThe Society for Queer Memory brought it together with Ozvěny pochybností and related works in a digital edition of four prose pieces. The archive dates the writing and circulation of this group of texts from the 1960s to shortly after the Velvet Revolution."
+    },
+    "time": {
+      "startYear": 1960,
+      "endYear": 1991,
+      "label": {
+        "zh": "1960年代至天鹅绒革命后不久",
+        "en": "1960s to shortly after the Velvet Revolution"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "布拉格",
+        "en": "Prague"
+      },
+      "countryName": {
+        "zh": "捷克",
+        "en": "Czechia"
+      },
+      "countryCode": "203",
+      "coordinates": {
+        "longitude": 14.44,
+        "latitude": 50.08
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Queer knihovna",
+        "citation": "Společnost pro queer paměť, electronic edition of four samizdat prose works",
+        "url": "https://www.queerpamet.cz/queer-knihovna/"
+      }
+    ]
+  },
+  {
+    "id": "entry_magnus_festival_1984",
+    "slug": "magnus-festival-1984",
+    "title": {
+      "zh": "首届马格努斯文化节",
+      "en": "The First Magnus Festival"
+    },
+    "originalName": "Magnus",
+    "aliases": [],
+    "summary": {
+      "zh": "1984年，卢布尔雅那学生文化中心 ŠKUC 举办首届马格努斯文化节。",
+      "en": "Ljubljana’s student cultural centre ŠKUC organized the first Magnus Festival in 1984."
+    },
+    "body": {
+      "zh": "1984年，ŠKUC 在当时属于南斯拉夫的卢布尔雅那举办马格努斯文化节。活动中放映来自欧洲和美国的同性恋主题电影，也展出相关出版物。\n\n组织者还安排关于同性恋文化的讲座和讨论。电影、出版物和公开发言在同一活动中面向观众。",
+      "en": "In 1984 ŠKUC organized the Magnus Festival in Ljubljana, then part of Yugoslavia. The programme screened gay-themed films from Europe and the United States and presented publications on related subjects.\n\nThe organizers also scheduled talks and discussions on gay culture. The event gave audiences access to films, publications and public discussion in the same programme."
+    },
+    "time": {
+      "startYear": 1984,
+      "endYear": 1984,
+      "label": {
+        "zh": "1984年",
+        "en": "1984"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "卢布尔雅那",
+        "en": "Ljubljana"
+      },
+      "countryName": {
+        "zh": "斯洛文尼亚",
+        "en": "Slovenia"
+      },
+      "countryCode": "705",
+      "coordinates": {
+        "longitude": 14.51,
+        "latitude": 46.05
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Kako smo hodile v feministično gimnazijo",
+        "citation": "Moderna galerija networked museum, recollections citing the first Magnus programme",
+        "url": "https://mrezni-muzej.mg-lj.si/media/4ac0fd0aaf/Kako-smo-hodile-v-feministicno-gimnazijo.pdf"
+      }
+    ]
+  },
+  {
+    "id": "entry_naglis_magazine",
+    "slug": "naglis-magazine",
+    "title": {
+      "zh": "立陶宛《Naglis》杂志",
+      "en": "Lithuania’s Naglis Magazine"
+    },
+    "originalName": "Naglis",
+    "aliases": [],
+    "summary": {
+      "zh": "立陶宛早期面向男同性恋读者的文化杂志。",
+      "en": "An early Lithuanian cultural magazine for gay men."
+    },
+    "body": {
+      "zh": "《Naglis》是20世纪末立陶宛面向男同性恋读者出版的刊物之一，刊载文学、读者通信和社群消息。读者在纸刊上接触其他人的生活经验，也可通过来信参与交流。\n\n立陶宛同性恋联盟回顾早期刊物时，将《Naglis》与《Amsterdamas》并列，并公开了刊物图像与参与者的回忆。",
+      "en": "Naglis was among the Lithuanian periodicals published for gay men at the end of the twentieth century. It printed literature, correspondence and community news. Readers could encounter accounts of other people’s lives and take part through letters.\n\nIn its account of the early press, the Lithuanian Gay League discusses Naglis alongside Amsterdamas and reproduces images of the magazines with recollections from people involved."
+    },
+    "time": {
+      "startYear": 1993,
+      "endYear": 1997,
+      "label": {
+        "zh": "1993至1997年",
+        "en": "1993–1997"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "立陶宛（代表坐标）",
+        "en": "Lithuania (representative location)"
+      },
+      "countryName": {
+        "zh": "立陶宛",
+        "en": "Lithuania"
+      },
+      "countryCode": "440",
+      "coordinates": {
+        "longitude": 25.28,
+        "latitude": 54.69
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Amsterdamas ir Naglis",
+        "citation": "Lithuanian Gay League, reproduced periodical images and interviews",
+        "url": "https://www.lgl.lt/naujienos/amsterdamas-ir-naglis-kaip-atrode-bei-apie-ka-rase-pirmieji-lietuvos-geju-zurnalai/"
+      }
+    ]
   }
 ];
