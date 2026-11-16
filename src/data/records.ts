@@ -365,16 +365,21 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "zh": "希腊神话中赫耳墨斯与阿芙洛狄忒之子，在古典文献和雕塑中兼有男女两性身体特征。"
     },
     "body": {
-      "en": "In Book IV of Ovid's Metamorphoses, Hermaphroditus was the son of Hermes and Aphrodite who bathed in a spring in Caria inhabited by the nymph Salmacis. Embracing him in the water, Salmacis prayed to the gods that they might never part, and their two bodies merged into a single form combining male and female anatomy.\n\nIn Greek religion, minor shrines honored Hermaphroditus in association with marriage and domestic union. During the Hellenistic and Roman periods, sculptors popularized the type known as the Sleeping Hermaphroditus—a reclining marble figure appearing female from behind and revealing male features from the front.",
-      "zh": "据古罗马诗人奥维德《变形记》卷四记载，赫耳玛佛洛狄托斯是赫耳墨斯与阿芙洛狄忒之子，少年时在卡里亚泉水中沐浴，水仙女萨尔玛西斯拥住他并向神明祈求永不分离，两人躯体遂合而为一，兼有男女两性特征。\n\n在古希腊各地，民间亦设小神龛祭祀此神以祈愿婚姻和合；到了希腊化与罗马帝国时期，大理石雕像《沉睡的赫耳玛佛洛狄托斯》广有摹本，从背面观之呈女性曲线，转至正面则显露男性形体。"
+      "en": "In Book 4 of Ovid’s Metamorphoses, Hermaphroditus, the child of Hermes and Aphrodite, enters a spring in Caria. Salmacis seizes him in the water and asks the gods to keep them together. The two bodies become one, combining male and female features.\n\nThe Louvre’s Sleeping Hermaphroditus preserves the figure as a reclining Roman marble carved in the second century CE. In 1620 Gian Lorenzo Bernini added a marble pillow and mattress. The museum catalogues the ancient figure and the seventeenth-century additions separately.",
+      "zh": "奥维德《变形记》第四卷写赫耳墨斯与阿芙洛狄忒之子赫耳玛佛洛狄托斯来到卡里亚的一处泉水。萨尔玛西斯在水中抓住他，向众神请求两人永不分离。两具躯体合为一体，呈现男女两性特征。\n\n卢浮宫的《沉睡的赫耳玛佛洛狄托斯》是一尊公元2世纪的罗马大理石卧像。1620年，吉安·洛伦佐·贝尼尼为它配上大理石枕头和床垫。馆藏目录分别标明了古代卧像与17世纪附加部分的年代。"
     },
     "time": {
-      "startYear": -400,
-      "endYear": 2026,
+      "startYear": 8,
+      "endYear": 1620,
       "label": {
-        "en": "Classical Antiquity to Present",
-        "zh": "古典时代至当代"
+        "en": "c. 8 CE (text); 2nd century CE and 1620 (sculpture)",
+        "zh": "约公元8年（文本）、2世纪与1620年（雕塑）"
       },
+      "periods": [
+        { "startYear": 8, "endYear": 8, "label": { "zh": "约公元8年，奥维德《变形记》", "en": "c. 8 CE: Ovid’s Metamorphoses" } },
+        { "startYear": 101, "endYear": 200, "label": { "zh": "公元2世纪，罗马大理石卧像", "en": "2nd century CE: Roman marble figure" } },
+        { "startYear": 1620, "endYear": 1620, "label": { "zh": "1620年，贝尼尼添加枕头与床垫", "en": "1620: Bernini’s pillow and mattress" } }
+      ],
       "certainty": "period"
     },
     "place": {
@@ -400,16 +405,15 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     },
     "sources": [
       {
-        "title": "奥维德，《变形记》卷四，罗马帝国时期。",
-        "citation": "Ovid, 'Metamorphoses' (变形记), Book IV, Roman Empire."
+        "title": "Metamorphoses",
+        "author": "Ovid",
+        "citation": "Book 4, lines 274–388, translated by A. S. Kline",
+        "url": "https://ovid.lib.virginia.edu/trans/Metamorph4.htm"
       },
       {
-        "title": "Lucilla de Arcangelis，《希腊化艺术中的赫耳玛佛洛狄托斯雕塑》（英文版），2008年。",
-        "citation": "Lucilla de Arcangelis, 'The Sculpture of Hermaphroditus in Hellenistic Art', 2008."
-      },
-      {
-        "title": "Lauren B. Plume，《古希腊宗教中的间性与神圣身体形态》（英文版），2017年。",
-        "citation": "Lauren B. Plume, 'Intersexuality and Sacred Bodily Forms in Ancient Greek Religion', 2017."
+        "title": "Hermaphrodite endormi",
+        "citation": "Musée du Louvre, Ma 231 and Ma 231.1",
+        "url": "https://collections.louvre.fr/en/ark:/53355/cl010250571"
       }
     ]
   },
@@ -4497,12 +4501,16 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       "en": "In Judith Gay’s account of school life in Lesotho, an older girl took the role of mummy and a younger girl the role of baby. The terms carried everyday responsibilities. The older girl offered advice and care and might step in to protect her companion. The girls exchanged gifts and letters as they built relationships of their own at school.\n\nSome of Gay’s interviewees described arranging to meet in private. Others recalled physical affection. Gifts, letters and meetings appeared alongside accounts of everyday care. In ‘Mummies and Babies’ and Friends and Lovers in Lesotho, Gay drew on these accounts to describe how girls used the two terms at school.\n\nKendall’s 1998 chapter also discusses mummy–baby relationships in boarding schools. It goes on to describe relationships between adult women, drawing in part on the Lesotho writer Mpho ’M’atsepo Nthunya’s recollections of her own life. Gay’s interviews describe the terms and routines of school relationships, while Nthunya’s account takes the story into adult women’s lives."
     },
     "time": {
-      "startYear": 1979,
+      "startYear": 1986,
       "endYear": 1998,
       "label": {
-        "zh": "20世纪末",
-        "en": "Late 20th century"
+        "zh": "1986年、1998年（研究发表）",
+        "en": "1986 and 1998 (publication dates)"
       },
+      "periods": [
+        { "startYear": 1986, "endYear": 1986, "label": { "zh": "1986年，朱迪思·盖伊的论文", "en": "1986: Judith Gay’s article" } },
+        { "startYear": 1998, "endYear": 1998, "label": { "zh": "1998年，肯德尔的文集章节", "en": "1998: K. L. Kendall’s chapter" } }
+      ],
       "certainty": "period"
     },
     "place": {
@@ -4526,6 +4534,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
       {
         "title": "‘Mummies and Babies’ and Friends and Lovers in Lesotho",
         "author": "Judith Gay",
+        "year": 1986,
         "citation": "Journal of Homosexuality 11(3–4), pp. 97–116",
         "url": "https://doi.org/10.1300/J082v11n03_07"
       },
