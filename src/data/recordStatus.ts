@@ -124,6 +124,22 @@ export function getRecordDisplayNames(
   };
 }
 
+export function getRecordNameplateNames(record: ArchiveRecord, language: Language): RecordDisplayNames {
+  if (language === "en" && record.place.countryCode === "156") {
+    const chinese = record.title.zh.trim();
+    const english = record.title.en.trim();
+    return {
+      primaryTitle: chinese || english,
+      secondaryTitle: chinese && english && !areRecordNamesEquivalent(chinese, english) ? english : null,
+    };
+  }
+
+  const { primaryTitle, secondaryTitle } = getRecordDisplayNames(record, language);
+  return secondaryTitle
+    ? { primaryTitle: secondaryTitle, secondaryTitle: primaryTitle }
+    : { primaryTitle, secondaryTitle };
+}
+
 /**
  * Formats non-redundant variant names and language-matched aliases
  * without repeating the displayed primary or secondary header titles.

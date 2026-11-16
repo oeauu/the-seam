@@ -9,7 +9,7 @@ import {
 } from "../timeline/timelineUtils";
 import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
 import { parseRoute, buildRoutePath } from "../state/routing";
-import { getRecordDisplayNames, getRecordOtherNames } from "../data/recordStatus";
+import { getRecordDisplayNames, getRecordNameplateNames, getRecordOtherNames } from "../data/recordStatus";
 import {
   MAX_GLOBE_ZOOM,
   MIN_GLOBE_ZOOM,
@@ -155,6 +155,20 @@ describe("The Seam - State & Routing", () => {
 });
 
 describe("The Seam - Multilingual Name Hierarchy", () => {
+  it("uses the selected language on the first line of map nameplates", () => {
+    const german = ARCHIVE_RECORDS.find((record) => record.originalName === "Institut für Sexualwissenschaft")!;
+    expect(getRecordNameplateNames(german, "zh")).toEqual({
+      primaryTitle: german.title.zh,
+      secondaryTitle: german.originalName,
+    });
+
+    const mulan = ARCHIVE_RECORDS.find((record) => record.originalName === "木兰")!;
+    expect(getRecordNameplateNames(mulan, "en")).toEqual({
+      primaryTitle: mulan.title.zh,
+      secondaryTitle: "Hua Mulan",
+    });
+  });
+
   it("puts originalName on top and active UI translation below for distinct non-China entries", () => {
     const sappho = ARCHIVE_RECORDS.find((r) => r.id === "entry_sappho")!;
     const zh = getRecordDisplayNames(sappho, "zh");

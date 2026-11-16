@@ -5,7 +5,7 @@ import type { CountryFeature } from "../geo/geoTypes";
 import type { CountryMetadata, CityMetadata } from "../data/countriesMeta";
 import type { ArchiveRecord, LocationCluster } from "../types";
 import { useApp } from "../state/useApp";
-import { getRecordDisplayNames } from "../data/recordStatus";
+import { getRecordNameplateNames } from "../data/recordStatus";
 import { getCountryMetadataForFeature } from "../geo/countryLookup";
 import { getUNTerritoryInfo } from "../geo/unStandards";
 import { loadWorldData, loadAdministrativeBorders, getMapCities, canonicalCountryName } from "../geo/worldGeometry";
@@ -398,7 +398,7 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   const occupiedNameplates: Array<{ minX: number; minY: number; maxX: number; maxY: number }> = [];
   for (const { cluster, basePoint } of projectedClustersBase) {
     const [x, y] = transform.apply(basePoint);
-    const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], language);
+    const { primaryTitle, secondaryTitle } = getRecordNameplateNames(cluster.records[0], language);
     const maxLen = Math.max(primaryTitle.length, secondaryTitle ? secondaryTitle.length : 0);
     const estWidth = Math.min(206, Math.max(80, maxLen * (language === "zh" ? 12.5 : 7.8) + 34));
     const halfH = secondaryTitle ? 18 : 13;
@@ -720,7 +720,7 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
         <div className="seam-2d-nameplates-layer" aria-hidden="true">
           {projectedClusters.map(({ cluster, x, y, offsetY, side }) => {
             const count = cluster.records.length;
-            const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], language);
+            const { primaryTitle, secondaryTitle } = getRecordNameplateNames(cluster.records[0], language);
             return (
               <button
                 key={cluster.id}

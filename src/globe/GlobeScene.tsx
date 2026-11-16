@@ -22,7 +22,7 @@ import {
 import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
 import { getUNTerritoryInfo, UN_MAP_DISCLAIMER } from "../geo/unStandards";
 import { CITY_CLUSTER_RADIUS_KM, clusterRecords } from "../geo/clustering";
-import { getRecordDisplayNames } from "../data/recordStatus";
+import { getRecordNameplateNames } from "../data/recordStatus";
 import { useApp } from "../state/useApp";
 
 maplibregl.setWorkerUrl(maplibreWorkerUrl);
@@ -471,7 +471,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
     const sorted = [...visibleItems].sort((a, b) => b.cluster.records.length - a.cluster.records.length);
 
     for (const { cluster, x, y } of sorted) {
-      const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], lang);
+      const { primaryTitle, secondaryTitle } = getRecordNameplateNames(cluster.records[0], lang);
       const primaryW = estimateGlyphWidth(primaryTitle, 11.5, 1.08, 0.65);
       const secondaryW = secondaryTitle ? estimateGlyphWidth(secondaryTitle, 10.5, 1.06, 0.64) : 0;
       const boxW = Math.min(204, Math.max(82, Math.max(primaryW, secondaryW) + 32));
@@ -851,7 +851,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         {clusters.map(cluster => {
           const count = cluster.records.length;
           const isHovered = hoveredClusterId === cluster.id;
-          const { primaryTitle, secondaryTitle } = getRecordDisplayNames(cluster.records[0], language);
+          const { primaryTitle, secondaryTitle } = getRecordNameplateNames(cluster.records[0], language);
           const dir = nameplateDirs[cluster.id] ?? (isHovered ? "right" : null);
           if (!dir) return null;
 
@@ -880,7 +880,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
                 onClusterClick(cluster);
               }}
               title={cluster.records.map(r => {
-                const names = getRecordDisplayNames(r, language);
+                const names = getRecordNameplateNames(r, language);
                 return names.secondaryTitle ? `${names.primaryTitle} (${names.secondaryTitle})` : names.primaryTitle;
               }).join(" / ")}
             >
