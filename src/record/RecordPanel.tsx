@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { getPendingVerificationLabel } from "../data/recordStatus";
 import type { ArchiveRecord } from "../types";
-import { useApp } from "../state/appContext";
-import { loadWorldData } from "../geo/worldGeometry";
-import { findCountryAtPoint, getCountryMetadataForFeature } from "../geo/countryLookup";
+import { useApp } from "../state/useApp";
 
 interface RecordPanelProps {
   record: ArchiveRecord | null;
@@ -15,21 +14,6 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
   const [copied, setCopied] = useState(false);
   const [copyFailed, setCopyFailed] = useState(false);
   const recordId = record?.id;
-  const longitude = record?.place.coordinates?.longitude;
-  const latitude = record?.place.coordinates?.latitude;
-  const [modernPlace, setModernPlace] = useState<{en:string;zh:string} | null>(null);
-
-  useEffect(() => {
-    let active = true;
-    setModernPlace(null);
-    if (longitude !== undefined && latitude !== undefined) {
-      void loadWorldData().then(data => {
-        const feature = findCountryAtPoint(data.features, longitude, latitude);
-        if (active && feature) setModernPlace(getCountryMetadataForFeature(feature)?.name || null);
-      }).catch(() => undefined);
-    }
-    return () => {active = false;};
-  }, [longitude, latitude]);
 
   useEffect(() => {
     if (!recordId) return;
@@ -54,9 +38,6 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
   const title = record.title[language] || record.title.en;
   const summary = record.summary[language] || record.summary.en;
   const body = record.body[language] || record.body.en;
-  const historiography = record.historiographyNote
-    ? record.historiographyNote[language] || record.historiographyNote.en
-    : null;
 
   const placeName = record.place.name[language] || record.place.name.en;
   const historicalPlace = record.place.historicalName
@@ -75,6 +56,7 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
   };
 
   const relationText = relationLabels[record.place.relation]?.[language] || "";
+  const pendingLabel = getPendingVerificationLabel(record, language);
 
   return (
     <>
@@ -90,9 +72,14 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
         {/* Header */}
         <header className="seam-record-header">
           <div className="seam-record-header-meta">
-            <span className="seam-record-kicker">
-              {language === "zh" ? "The Seam · 历史档案" : "The Seam · Historical Record"}
-            </span>
+            <div className="seam-record-kicker-group">
+              <span className="seam-record-kicker">
+                {language === "zh" ? "The Seam · 历史档案" : "The Seam · Historical Record"}
+              </span>
+              {pendingLabel && (
+                <span className="seam-pending-tag">{pendingLabel}</span>
+              )}
+            </div>
             <button
               type="button"
               className="seam-record-share-btn"
@@ -181,8 +168,6 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               {relationText && (
                 <span className="seam-meta-sub">{relationText}</span>
               )}
-              <span className="seam-meta-sub">{language === "zh" ? "坐标精度" : "Location precision"}: {language === "zh" ? ({exact:"精确地点",city:"城市级",region:"地区级", "cultural-region":"文化区域（近似）",transregional:"跨区域（近似）",pending:"地点待考"})[record.place.precision] : record.place.precision}</span>
-              {modernPlace && <span className="seam-meta-sub">{language === "zh" ? "现代地图位置（非历史国籍）" : "Modern map location (not historical nationality)"}: {modernPlace[language]}</span>}
               {record.place.notes && <span className="seam-meta-sub">{record.place.notes[language]}</span>}
             </div>
           </div>
@@ -190,7 +175,12 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
 
         {/* Scrollable Body */}
         <div className="seam-record-body">
-          {record.reviewNote && <p className="seam-historiography-box">{record.reviewNote[language]}</p>}
+          {record.reviewNote && (
+            <div className="seam-pending-note">
+              {pendingLabel && <span className="seam-pending-tag">{pendingLabel}</span>}
+              <p>{record.reviewNote[language]}</p>
+            </div>
+          )}
           {/* Summary */}
           <section className="seam-record-summary-section">
             <p className="seam-record-summary">{summary}</p>
@@ -207,19 +197,6 @@ export function RecordPanel({ record, onClose }: RecordPanelProps) {
               ))}
             </div>
           </section>
-
-          {/* Historiographical & Methodological Notes */}
-          {historiography && (
-            <section className="seam-record-historiography-section">
-              <div className="seam-historiography-box">
-                <h3 className="seam-historiography-title">
-                  <span aria-hidden="true">✦ </span>
-                  {language === "zh" ? "史料解读与边界说明" : "Historiographical & Contextual Note"}
-                </h3>
-                <p className="seam-historiography-content">{historiography}</p>
-              </div>
-            </section>
-          )}
 
           {/* Sources and External References */}
           {record.sources && record.sources.length > 0 && (

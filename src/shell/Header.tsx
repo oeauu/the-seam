@@ -1,4 +1,4 @@
-import { useApp } from "../state/appContext";
+import { useApp } from "../state/useApp";
 
 export function Header() {
   const {
@@ -53,7 +53,7 @@ export function Header() {
           className="seam-nav-btn-submit"
           onClick={() => setSubmitOpen(true)}
         >
-          <span>Submit</span>
+          <span>{language === "zh" ? "投稿" : "Submit"}</span>
         </button>
 
         <div className="seam-lang-toggle" role="group" aria-label="Language selection">

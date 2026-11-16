@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Seam | Historical Digital Archive</title>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get("__seam_redirect");
+        if (!redirect) return;
+        var decoded = "/" + redirect.replace(/^\/+/, "");
+        var base = "%BASE_URL%";
+        var prefix = base === "/" ? "" : base.replace(/\/+$/, "");
+        window.history.replaceState(null, "", prefix + decoded);
+      })();
+    </script>
     <meta property="og:title" content="The Seam" />
     <meta property="og:description" content="以空间与时间探索历史人物、事件及相关史料。" />
     <meta property="og:type" content="website" />

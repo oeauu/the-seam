@@ -179,14 +179,9 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
     codeAlpha3: "ISR",
     name: { en: "Israel", zh: "以色列" },
     center: [34.8516, 31.0461],
-    capital: {
-      name: { en: "Jerusalem", zh: "耶路撒冷" },
-      coordinates: [35.2137, 31.7683],
-      isCapital: true
-    },
     cities: [
-      { name: { en: "Jerusalem", zh: "耶路撒冷" }, coordinates: [35.2137, 31.7683], isCapital: true },
       { name: { en: "Tel Aviv", zh: "特拉维夫" }, coordinates: [34.7818, 32.0853] },
+      { name: { en: "Jerusalem", zh: "耶路撒冷" }, coordinates: [35.2137, 31.7683] },
       { name: { en: "Haifa", zh: "海法" }, coordinates: [34.9896, 32.7940] }
     ]
   },

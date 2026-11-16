@@ -1,13 +1,16 @@
-import { AppProvider, useApp } from "./state/appContext";
+import { lazy, Suspense } from "react";
+import { AppProvider } from "./state/appContext";
+import { useApp } from "./state/useApp";
 import { Header } from "./shell/Header";
 import { GlobeContainer } from "./globe/GlobeContainer";
-import { CountryView } from "./country/CountryView";
 import { Timeline } from "./timeline/Timeline";
 import { RecordPanel } from "./record/RecordPanel";
 import { LocationClusterPicker } from "./record/LocationClusterPicker";
 import { AboutModal } from "./shell/AboutModal";
 import { SubmitModal } from "./shell/SubmitModal";
 import { IndexDrawer } from "./shell/IndexDrawer";
+
+const CountryView = lazy(() => import("./country/CountryView").then(m => ({ default: m.CountryView })));
 
 function MainLayout() {
   const {
@@ -39,14 +42,16 @@ function MainLayout() {
           <GlobeContainer />
         ) : (
           selectedCountry && (
-            <CountryView
-              country={selectedCountry}
-              meta={countryMeta}
-              records={visibleRecords}
-              onBack={() => returnToGlobe()}
-              onRecordClick={openRecord}
-              onClusterClick={selectCluster}
-            />
+            <Suspense fallback={null}>
+              <CountryView
+                country={selectedCountry}
+                meta={countryMeta}
+                records={visibleRecords}
+                onBack={() => returnToGlobe()}
+                onRecordClick={openRecord}
+                onClusterClick={selectCluster}
+              />
+            </Suspense>
           )
         )}
       </main>

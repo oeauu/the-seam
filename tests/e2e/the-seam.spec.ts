@@ -58,7 +58,8 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(panel.locator(".seam-record-title")).toContainText("托马斯(因)·霍尔");
 
     // Verify key archival sections
-    await expect(panel.locator(".seam-historiography-box")).toBeVisible();
+    await expect(panel.locator(".seam-record-narrative-section")).toBeVisible();
+    await expect(panel.locator(".seam-record-historiography-section")).toHaveCount(0);
     await expect(panel.locator(".seam-record-sources-section")).toBeVisible();
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
     await page.screenshot({path:"test-results/seam-desktop-record.png"});
@@ -95,24 +96,29 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
     const aboutModal = page.locator(".seam-modal-content");
     await expect(aboutModal).toBeVisible();
+    await expect(page).toHaveURL(/\/about$/);
     await expect(aboutModal.locator("#about-title")).toContainText("关于 The Seam");
 
     // Close About Modal
     await page.locator(".seam-modal-close").click();
     await expect(aboutModal).toBeHidden();
+    await expect(page).toHaveURL(/\/$/);
 
     // Open Submit Modal
     const submitBtn = page.locator(".seam-nav-btn-submit");
+    await expect(submitBtn).toHaveText("投稿");
     await submitBtn.click();
 
     const submitModal = page.locator(".seam-modal-content");
     await expect(submitModal).toBeVisible();
+    await expect(page).toHaveURL(/\/submit$/);
     await expect(submitModal.locator("#submit-title")).toContainText("向 The Seam 投稿档案");
     await expect(submitModal.locator(".seam-email-address")).toBeVisible();
 
     // Close Submit Modal
     await page.locator(".seam-modal-close").click();
     await expect(submitModal).toBeHidden();
+    await expect(page).toHaveURL(/\/$/);
   });
 
   test("country map survives reload and history, and filtering works beside a record", async ({ page }) => {
@@ -125,8 +131,8 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.keyboard.press("Enter");
     if (await page.locator(".seam-cluster-picker-modal").isVisible()) await page.locator(".seam-cluster-item-btn").first().click();
     await expect(page.locator(".seam-record-panel")).toBeVisible();
-    await page.getByRole("slider").first().focus();
-    await page.keyboard.press("End");
+    await page.getByRole("slider").nth(1).focus();
+    await page.keyboard.press("Home");
     await expect(markers).toHaveCount(0);
     await page.getByRole("button", {name:"收起时间轴"}).click();
     await expect(page.locator(".seam-record-panel")).toBeVisible();
@@ -140,11 +146,10 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(page.locator(".seam-record-panel")).toBeVisible();
   });
 
-  test("unconfigured submissions never use a fabricated mailbox", async ({page}) => {
-    await page.getByRole("button",{name:"Submit"}).click();
-    await expect(page.locator(".seam-email-address")).toHaveText("投稿邮箱尚未公布");
-    await expect(page.getByRole("button",{name:"复制邮箱"})).toBeDisabled();
-    await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
+  test("configured mailbox uses the.seam@outlook.com without fabricated placeholders", async ({ page }) => {
+    await page.getByRole("button", { name: /投稿|Submit/ }).click();
+    await expect(page.locator(".seam-email-address")).toHaveText("the.seam@outlook.com");
+    await expect(page.getByRole("button", { name: "复制邮箱" })).toBeEnabled();
     await page.keyboard.press("Escape");
     await expect(page.locator("#submit-title")).toBeHidden();
   });
@@ -153,6 +158,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.setViewportSize({width:390,height:844});
     await page.goto("/country/156");
     await expect(page.locator(".seam-country-name")).toHaveText("中国");
+    await expect(page.locator(".seam-subregions-labels-layer text").first()).toBeVisible();
     await page.getByRole("button",{name:"放大地图"}).click();
     await page.screenshot({path:"test-results/seam-mobile-country.png"});
     await page.getByRole("button",{name:"档案索引与搜索"}).click();
@@ -171,32 +177,96 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.goto("/record/entry-sappho");
     await expect(page.locator(".seam-record-title")).toContainText("萨福");
     await page.locator(".seam-record-close-btn").click();
-    await page.getByRole("button",{name:"二维浏览",exact:true}).click();
-    await page.locator(".seam-accessible-map select").selectOption("156");
-    await expect(page.locator(".seam-country-name")).toHaveText("中国");
     await page.addInitScript(() => {HTMLCanvasElement.prototype.getContext = () => null;});
     await page.goto("/");
     await expect(page.locator(".seam-accessible-map")).toBeVisible();
+    await page.locator(".seam-accessible-map select").selectOption("156");
+    await expect(page.locator(".seam-country-name")).toHaveText("中国");
   });
 
-  test("globe separates dragging from country clicks and returns to 3D", async ({page}) => {
+  test("globe separates dragging from country clicks, locks on first click, opens 2D map on second click, and renders nameplates", async ({page}) => {
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
+    await expect(page.locator(".seam-globe-nameplate").first()).toBeVisible();
+
     const canvas = page.locator("canvas");
     const bounds = await canvas.boundingBox();
     if (!bounds) throw new Error("Globe canvas has no bounds");
     const cx = bounds.x + bounds.width / 2, cy = bounds.y + bounds.height / 2;
+
+    // Dragging rotates without locking a country or opening 2D map
     await page.mouse.move(cx, cy);
     await page.mouse.down();
     await page.mouse.move(cx + 70, cy - 30, {steps:8});
     await page.mouse.up();
+    await expect(page.locator(".seam-globe-lock-card")).toHaveCount(0);
     await expect(page.locator(".seam-country-view")).toHaveCount(0);
     await expect(page.locator(".seam-record-panel")).toHaveCount(0);
+
+    // Zoom controls, timeline default 2500 BCE range, UN notice, zoom-out dot-only mode & reset view work
+    await expect(page.locator(".seam-timeline-active-range")).toContainText("公元前2500年");
+    await page.getByRole("button", { name: "联合国边界标准" }).click();
+    await expect(page.locator(".seam-un-notice-popover")).toBeVisible();
+    await page.getByRole("button", { name: "联合国边界标准" }).click();
+    await expect(page.locator(".seam-un-notice-popover")).toBeHidden();
+    await page.getByRole("button",{name:"缩小地球"}).click();
+    await page.getByRole("button",{name:"缩小地球"}).click();
+    await expect(page.locator(".seam-globe-nameplate")).toHaveCount(0);
+    await page.getByRole("button",{name:"放大地球"}).click();
     await page.getByRole("button",{name:"重置视角"}).click();
+    await expect(page.locator(".seam-globe-nameplate").first()).toBeVisible();
     await page.screenshot({path:"test-results/seam-globe.png"});
-    // Project a land point near 10 E, 15 N on the reset globe.
+
+    // First click on a land point near 10 E, 15 N locks the country
     await page.mouse.click(cx + bounds.height * .088, cy - bounds.height * .136);
+    await expect(page.locator(".seam-globe-lock-card")).toBeVisible();
+    await expect(page.locator(".seam-country-view")).toHaveCount(0);
+    await page.waitForTimeout(450);
+    await page.screenshot({path:"test-results/seam-globe-locked.png"});
+
+    // Second click on the locked country (now centered) expands 2D country map with nameplates
+    await page.waitForTimeout(150);
+    await page.mouse.click(cx, cy);
     await expect(page.locator(".seam-country-view")).toBeVisible();
+    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(0);
+
+    // Return to 3D and verify China shows 2D gold-dot nameplates, provinces, and sub-region filters
     await page.getByRole("button",{name:"← 返回三维地球仪"}).click();
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
+    await page.goto("/country/156");
+    await expect(page.locator(".seam-2d-nameplate").first()).toBeVisible();
+    await expect(page.locator(".seam-subregions-labels-layer text").first()).toBeVisible();
+    await expect(page.locator(".seam-subregion-chip").nth(1)).toBeVisible();
+    await page.screenshot({path:"test-results/seam-country-china.png"});
+    await page.locator(".seam-subregion-chip").nth(1).click();
+    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(1);
+    await page.locator(".seam-subregion-chip").first().click();
+    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(4);
+  });
+
+  test("renders gold pending badges beside info and supports interactive draft submission", async ({ page }) => {
+    await page.getByRole("button", { name: "档案索引与搜索" }).click();
+    const filterBtn = page.locator(".seam-pending-filter-btn");
+    await expect(filterBtn).toContainText("地点与事件待考");
+    await filterBtn.click();
+    await expect(page.locator(".seam-index-item .seam-pending-tag").first()).toHaveText("地点与事件待考证");
+    await page.locator(".seam-index-item-btn").first().click();
+    await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");
+    await page.locator(".seam-record-close-btn").click();
+
+    await page.locator(".seam-nav-btn-submit").click();
+    const modal = page.locator(".seam-modal-content");
+    await modal.getByLabel(/人物或事件名称/).fill("清代徽州契约文献待考录");
+    await modal.getByLabel(/历史时期/).fill("18世纪中期");
+    await modal.getByLabel(/具体年代\/事件待考证/).check();
+    await modal.getByLabel(/发生或活动地点/).fill("安徽徽州");
+    await modal.getByLabel(/精确地理坐标待考证/).check();
+    await modal.getByLabel(/历史简介与文献事实/).fill("地方契约文书中所见历史记载，时间与具体村落尚待进一步比对原始档册。");
+    await modal.getByLabel(/第一手史料/).fill("地方文书档案馆藏钞本");
+    await modal.getByRole("button", { name: "提交并生成草稿" }).click();
+
+    await expect(modal.locator(".seam-submit-success-card .seam-pending-tag")).toHaveText("地点与事件待考证");
+    await modal.getByRole("button", { name: "在档案中查看并定位" }).click();
+    await expect(page.locator(".seam-record-panel .seam-record-title")).toHaveText("清代徽州契约文献待考录");
+    await expect(page.locator(".seam-record-panel .seam-pending-tag").first()).toHaveText("地点与事件待考证");
   });
 });

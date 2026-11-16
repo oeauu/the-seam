@@ -1,5 +1,5 @@
 import type { LocationCluster, ArchiveRecord } from "../types";
-import { useApp } from "../state/appContext";
+import { useApp } from "../state/useApp";
 import { useDialogFocus } from "../shell/useDialogFocus";
 
 interface Props {

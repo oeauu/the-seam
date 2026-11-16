@@ -3,7 +3,7 @@ import { GlobeScene } from "./GlobeScene";
 import { loadWorldData } from "../geo/worldGeometry";
 import type { WorldData, CountryFeature } from "../geo/geoTypes";
 import type { LocationCluster } from "../types";
-import { useApp } from "../state/appContext";
+import { useApp } from "../state/useApp";
 import { GlobeBoundary } from "./GlobeBoundary";
 
 let webglAvailable: boolean | undefined;
@@ -21,10 +21,8 @@ export function GlobeContainer() {
   const [worldData, setWorldData] = useState<WorldData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [flatBrowse, setFlatBrowse] = useState(false);
 
   const {
-    clusters,
     selectCountry,
     openRecord,
     selectCluster,
@@ -94,18 +92,11 @@ export function GlobeContainer() {
 
   return (
     <div className="seam-globe-container">
-      {flatBrowse || !supportsWebGL() ? fallback : <GlobeBoundary fallback={fallback}><GlobeScene
+      {!supportsWebGL() ? fallback : <GlobeBoundary fallback={fallback}><GlobeScene
         worldData={worldData}
-        clusters={clusters}
         onCountryClick={handleCountryClick}
         onClusterClick={handleClusterClick}
       /></GlobeBoundary>}
-      <button type="button" className="seam-map-alternative" onClick={() => setFlatBrowse(!flatBrowse)}>{flatBrowse ? (language === "zh" ? "三维地球仪" : "3D globe") : (language === "zh" ? "二维浏览" : "2D browsing")}</button>
-      
-      {/* Discreet interaction hint */}
-      <div className="seam-globe-hint" aria-hidden="true">
-        <span>{language === "zh" ? "拖动旋转 · 滚轮缩放 · 点击国家进入详细地图" : "Drag to rotate · Scroll to zoom · Click country for 2D map"}</span>
-      </div>
     </div>
   );
 }

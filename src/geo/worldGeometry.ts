@@ -1,13 +1,18 @@
 import { feature, mesh } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
-import type { FeatureCollection, Geometry } from "geojson";
+import type { FeatureCollection } from "geojson";
 import type { CountryFeature, CountryFeatureProperties, WorldData, MapCity } from "./geoTypes";
 import { BufferGeometry, Float32BufferAttribute } from "three";
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import ConicPolygonGeometry from "three-conic-polygon-geometry";
 import { geoArea } from "d3";
+import { mergeUnTerritories } from "./unStandards";
+import { withBasePath } from "../state/routing";
 
 export const GLOBE_RADIUS = 2.0;
 export const BORDER_RADIUS = 2.002;
-export const MARKER_RADIUS = 2.025;
+export const LOCKED_TOP_RADIUS = 2.0034;
+export const MARKER_RADIUS = 2.016;
 
 export function latLngToVector3(lat: number, lon: number, radius: number): [number, number, number] {
   const phi = (lat * Math.PI) / 180;
@@ -36,7 +41,6 @@ interface WorldTopology extends Topology {
 }
 
 let cachedWorldData: WorldData | null = null;
-let cachedChinaProvinces: FeatureCollection | null = null;
 let worldRequest: Promise<WorldData> | null = null;
 
 export async function loadWorldData(): Promise<WorldData> {
@@ -49,24 +53,68 @@ export async function loadWorldData(): Promise<WorldData> {
   return worldRequest;
 }
 
-async function readWorldData(): Promise<WorldData> {
-
-  let res = await fetch("/countries-50m.json");
-  if (!res.ok) {
-    res = await fetch("/countries-110m.json");
+function appendSphericalPolyline(positions: number[], coords: number[][], radius: number) {
+  for (let i = 0; i < coords.length - 1; i++) {
+    const [lon1, lat1] = coords[i];
+    const [lon2, lat2] = coords[i + 1];
+    const deltaLon = ((lon2 - lon1 + 540) % 360) - 180;
+    const steps = Math.max(1, Math.ceil(Math.max(Math.abs(lat2 - lat1), Math.abs(deltaLon))));
+    // Short segments stay above the sphere instead of disappearing inside it.
+    for (let step = 0; step < steps; step++) {
+      const t1 = step / steps;
+      const t2 = (step + 1) / steps;
+      const p1 = latLngToVector3(lat1 + (lat2 - lat1) * t1, lon1 + deltaLon * t1, radius);
+      const p2 = latLngToVector3(lat1 + (lat2 - lat1) * t2, lon1 + deltaLon * t2, radius);
+      positions.push(...p1, ...p2);
+    }
   }
-  if (!res.ok) throw new Error("Failed to load world map data");
+}
 
-  const topo = (await res.json()) as WorldTopology;
-  if (topo.type !== "Topology" || !Array.isArray(topo.arcs) || topo.objects?.countries?.type !== "GeometryCollection") {
-    throw new Error("Invalid world geometry");
+export function buildCountryHighlightGeometry(
+  country: CountryFeature,
+  bottomRadius = GLOBE_RADIUS + 0.001,
+  topRadius = LOCKED_TOP_RADIUS,
+): BufferGeometry | null {
+  const polygons = country.geometry.type === "Polygon"
+    ? [country.geometry.coordinates]
+    : country.geometry.coordinates;
+  const geoms: BufferGeometry[] = [];
+  for (const poly of polygons) {
+    try {
+      geoms.push(new ConicPolygonGeometry(poly, bottomRadius, topRadius, false, true, true, 5));
+    } catch {
+      // Skip degenerate sub-polygons
+    }
   }
+  if (geoms.length === 0) return null;
+  if (geoms.length === 1) return geoms[0];
+  const merged = mergeGeometries(geoms, false);
+  for (const g of geoms) g.dispose();
+  return merged;
+}
+
+export function createCountryBorderGeometry(country: CountryFeature, radius: number): BufferGeometry {
+  const positions: number[] = [];
+  const polygons = country.geometry.type === "Polygon"
+    ? [country.geometry.coordinates]
+    : country.geometry.coordinates;
+  for (const polygon of polygons) {
+    for (const ring of polygon) {
+      appendSphericalPolyline(positions, ring, radius);
+    }
+  }
+  return createBorderGeometry(positions);
+}
+
+function parseFeatures(topo: WorldTopology): CountryFeature[] {
   const countriesCollection = feature(topo, topo.objects.countries);
   const features: CountryFeature[] = countriesCollection.features.flatMap(f => {
     if (f.geometry.type !== "Polygon" && f.geometry.type !== "MultiPolygon") return [];
     const properties = f.properties;
     if (!properties || typeof properties.name !== "string") return [];
-    const id = f.id === undefined || String(f.id) === "-99" ? `country-${properties.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` : f.id;
+    const id = f.id === undefined || String(f.id) === "-99"
+      ? `country-${properties.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`
+      : f.id;
     return [{ ...f, id, geometry: f.geometry, properties: { name: properties.name } }];
   });
   for (const country of features) {
@@ -74,34 +122,36 @@ async function readWorldData(): Promise<WorldData> {
       country.id = `country-${country.properties.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
     }
   }
+  return features;
+}
+
+async function readWorldData(): Promise<WorldData> {
+  const [primaryRes, cities] = await Promise.all([
+    fetch(withBasePath("countries-50m.json")).then(async r => (r.ok ? r : fetch(withBasePath("countries-110m.json")))),
+    loadCities(),
+  ]);
+
+  if (!primaryRes.ok) throw new Error("Failed to load world map data");
+
+  const topo = (await primaryRes.json()) as WorldTopology;
+  if (topo.type !== "Topology" || !Array.isArray(topo.arcs) || topo.objects?.countries?.type !== "GeometryCollection") {
+    throw new Error("Invalid world geometry");
+  }
+  const features = mergeUnTerritories(parseFeatures(topo));
 
   const bordersMultiLine = mesh(topo, topo.objects.countries);
   const lines: number[][][] = bordersMultiLine.coordinates || [];
 
   const positions: number[] = [];
-
   for (const line of lines) {
-    for (let i = 0; i < line.length - 1; i++) {
-      const [lon1, lat1] = line[i];
-      const [lon2, lat2] = line[i + 1];
-
-      const deltaLon = ((lon2 - lon1 + 540) % 360) - 180;
-      const steps = Math.max(1, Math.ceil(Math.max(Math.abs(lat2 - lat1), Math.abs(deltaLon))));
-      // Short segments stay above the sphere instead of disappearing inside it.
-      for (let step = 0; step < steps; step++) {
-        const t1 = step / steps, t2 = (step + 1) / steps;
-        const p1 = latLngToVector3(lat1 + (lat2 - lat1) * t1, lon1 + deltaLon * t1, BORDER_RADIUS);
-        const p2 = latLngToVector3(lat1 + (lat2 - lat1) * t2, lon1 + deltaLon * t2, BORDER_RADIUS);
-        positions.push(...p1, ...p2);
-      }
-    }
+    appendSphericalPolyline(positions, line, BORDER_RADIUS);
   }
 
   cachedWorldData = {
     features,
     borderMesh: positions,
     borderLines2D: lines,
-    cities: await loadCities(),
+    cities,
   };
 
   return cachedWorldData;
@@ -121,7 +171,7 @@ export function canonicalCountryName(name: string): string {
 
 async function loadCities(): Promise<MapCity[]> {
   try {
-    const response = await fetch("/geo/cities.json");
+    const response = await fetch(withBasePath("geo/cities.json"));
     if (!response.ok) return [];
     const value: unknown = await response.json();
     if (!Array.isArray(value)) return [];
@@ -137,32 +187,16 @@ async function loadCities(): Promise<MapCity[]> {
 
 export async function loadAdministrativeBorders(name: string): Promise<FeatureCollection | null> {
   try {
-    const indexResponse = await fetch("/geo/admin-index.json");
+    const indexResponse = await fetch(withBasePath("geo/admin-index.json"));
     if (!indexResponse.ok) return null;
     const index: Record<string, string> = await indexResponse.json();
     const filename = index[name] || index[canonicalCountryName(name)];
     if (!filename) return null;
-    const response = await fetch(`/geo/${filename}`);
+    const response = await fetch(withBasePath(`geo/${filename}`));
     if (!response.ok) return null;
     const data: FeatureCollection = await response.json();
     return data.type === "FeatureCollection" && Array.isArray(data.features) ? data : null;
   } catch { return null; }
-}
-
-export async function loadChinaProvinces(): Promise<FeatureCollection<Geometry> | null> {
-  if (cachedChinaProvinces) return cachedChinaProvinces;
-  try {
-    const res = await fetch("/china.json");
-    if (res.ok) {
-      const data: FeatureCollection = await res.json();
-      if (data.type !== "FeatureCollection" || !Array.isArray(data.features)) return null;
-      cachedChinaProvinces = data;
-      return cachedChinaProvinces;
-    }
-  } catch (err) {
-    console.warn("Could not load china.json", err);
-  }
-  return null;
 }
 
 export function createBorderGeometry(positions: number[]): BufferGeometry {

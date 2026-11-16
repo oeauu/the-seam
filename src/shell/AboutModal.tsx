@@ -1,4 +1,5 @@
-import { useApp } from "../state/appContext";
+import { useApp } from "../state/useApp";
+import { UN_MAP_DISCLAIMER } from "../geo/unStandards";
 
 import { useDialogFocus } from "./useDialogFocus";
 
@@ -58,6 +59,11 @@ export function AboutModal({ onClose }: Props) {
                 ? "对于史料未及之处，我们克制做结论；对于学术界尚存争鸣之处，我们并列呈现不同假说。每一个坐标都是一段待探索的线索，而非盖棺定论的现代标签。"
                 : "Where historical evidence concludes, we refrain from speculation. Where historiographical disputes persist, we present competing theses side by side. Each coordinate is an invitation to examine primary sources, not a verdict."}
             </p>
+          </section>
+
+          <section className="seam-about-section">
+            <h3>{language === "zh" ? "地理与边界标准" : "Cartographic & Boundary Standards"}</h3>
+            <p>{UN_MAP_DISCLAIMER[language]}</p>
           </section>
         </div>
 

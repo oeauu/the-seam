@@ -1,7 +1,14 @@
-import { useRef, useState, useEffect, useCallback } from "react";
-import { formatYear, timelineTicks, normalizeYear } from "./timelineUtils";
+import { useRef, useState, useEffect, useCallback, useMemo } from "react";
+import {
+  TIMELINE_INTERVAL_YEARS,
+  formatYear,
+  normalizeYear,
+  snapYearToInterval,
+  timelineIntervalTicks,
+  timelineTicks,
+} from "./timelineUtils";
 import type { KeyboardEvent } from "react";
-import { useApp } from "../state/appContext";
+import { useApp } from "../state/useApp";
 
 export function Timeline() {
   const {
@@ -12,6 +19,7 @@ export function Timeline() {
     setTimeRange,
     isTimelineCollapsed,
     toggleTimelineCollapse,
+    records,
     language
   } = useApp();
 
@@ -26,10 +34,10 @@ export function Timeline() {
     return Math.max(0, Math.min(100, ((year - earliestYear) / totalSpan) * 100));
   };
 
-  // Convert percentage (0 - 100) to year
+  // Convert percentage (0 - 100) to year snapped on 100-year intervals
   const percentToYear = useCallback((percent: number) => {
     const raw = earliestYear + (percent / 100) * totalSpan;
-    return normalizeYear(Math.max(earliestYear, Math.min(latestYear, Math.round(raw))));
+    return snapYearToInterval(raw, earliestYear, latestYear, TIMELINE_INTERVAL_YEARS);
   }, [earliestYear, latestYear, totalSpan]);
 
   const startPercent = yearToPercent(startYear);
@@ -51,11 +59,12 @@ export function Timeline() {
       } else if (draggingThumb === "range") {
         const deltaPx = e.clientX - dragStartRef.current.clientX;
         const deltaPercent = (deltaPx / rect.width) * 100;
-        const deltaYear = Math.round((deltaPercent / 100) * totalSpan);
+        const rawDelta = (deltaPercent / 100) * totalSpan;
+        const deltaYear = Math.round(rawDelta / TIMELINE_INTERVAL_YEARS) * TIMELINE_INTERVAL_YEARS;
 
         const rangeSpan = dragStartRef.current.endVal - dragStartRef.current.startVal;
-        let nextStart = dragStartRef.current.startVal + deltaYear;
-        let nextEnd = dragStartRef.current.endVal + deltaYear;
+        let nextStart = normalizeYear(dragStartRef.current.startVal + deltaYear, deltaYear);
+        let nextEnd = normalizeYear(dragStartRef.current.endVal + deltaYear, deltaYear);
 
         if (nextStart < earliestYear) {
           nextStart = earliestYear;
@@ -86,15 +95,34 @@ export function Timeline() {
     }
   }, [draggingThumb, startYear, endYear, earliestYear, latestYear, totalSpan, percentToYear, setTimeRange]);
 
-  // Major ticks to display along the bottom
+  // 100-year interval hairline ticks, major labeled milestones & record density dots
+  const intervalTicks = useMemo(
+    () => timelineIntervalTicks(earliestYear, latestYear, TIMELINE_INTERVAL_YEARS),
+    [earliestYear, latestYear],
+  );
   const ticks = timelineTicks(earliestYear, latestYear);
+  const recordMarkerPercents = useMemo(() => {
+    if (totalSpan <= 0) return [];
+    const seen = new Set<number>();
+    const points: number[] = [];
+    for (const r of records) {
+      if (r.time.startYear === null || !r.place.coordinates) continue;
+      const pct = Math.max(0.5, Math.min(99.5, ((r.time.startYear - earliestYear) / totalSpan) * 100));
+      const bucket = Math.round(pct * 2);
+      if (!seen.has(bucket)) {
+        seen.add(bucket);
+        points.push(pct);
+      }
+    }
+    return points;
+  }, [records, earliestYear, totalSpan]);
 
   function moveWithKeyboard(e: KeyboardEvent<HTMLButtonElement>, thumb: "start" | "end") {
     const value = thumb === "start" ? startYear : endYear;
-    const step = e.shiftKey ? 100 : 1;
+    const step = e.shiftKey ? TIMELINE_INTERVAL_YEARS * 5 : TIMELINE_INTERVAL_YEARS;
     const delta = ["ArrowLeft", "ArrowDown"].includes(e.key) ? -step : ["ArrowRight", "ArrowUp"].includes(e.key) ? step : 0;
     let next = value;
-    if (delta) next = normalizeYear(value + delta, delta);
+    if (delta) next = snapYearToInterval(value + delta, earliestYear, latestYear, TIMELINE_INTERVAL_YEARS);
     else if (e.key === "Home") next = thumb === "start" ? earliestYear : startYear;
     else if (e.key === "End") next = thumb === "start" ? endYear : latestYear;
     else return;
@@ -138,11 +166,6 @@ export function Timeline() {
             <strong>
               {formatYear(startYear, language)} — {formatYear(endYear, language)}
             </strong>
-            {isFullRange && (
-              <span className="seam-timeline-tag">
-                {language === "zh" ? "全部时期" : "All Eras"}
-              </span>
-            )}
           </div>
 
           <div className="seam-timeline-controls">
@@ -208,6 +231,16 @@ export function Timeline() {
             }}
           />
 
+          {/* Subtle Archive Temporal Distribution Dots */}
+          {recordMarkerPercents.map((pct, idx) => (
+            <span
+              key={idx}
+              className="seam-timeline-record-dot"
+              style={{ left: `${pct}%` }}
+              aria-hidden="true"
+            />
+          ))}
+
           {/* Start Thumb Handle */}
           <button
             type="button"
@@ -245,8 +278,19 @@ export function Timeline() {
           />
         </div>
 
-        {/* Bottom Year Ticks */}
+        {/* Bottom Year Ticks (100-year interval marks + readable major year labels) */}
         <div className="seam-timeline-ticks" aria-hidden="true">
+          {intervalTicks.map(year => {
+            const p = yearToPercent(year);
+            const isMajor = year % 1000 === 0;
+            return (
+              <span
+                key={`i-${year}`}
+                className={`seam-timeline-interval-mark ${isMajor ? "is-major" : ""}`}
+                style={{ left: `${p}%` }}
+              />
+            );
+          })}
           {ticks.map(tick => {
             const p = yearToPercent(tick);
             return (

@@ -1,6 +1,7 @@
 import { geoContains, geoCentroid, geoDistance } from "d3-geo";
 import type { CountryFeature } from "./geoTypes";
 import { COUNTRIES_META, type CountryMetadata } from "../data/countriesMeta";
+import { getUNTerritoryInfo } from "./unStandards";
 import { getMapCities, canonicalCountryName } from "./worldGeometry";
 
 export function findCountryAtPoint(
@@ -58,12 +59,13 @@ export function getCountryMetadataForFeature(feature: CountryFeature): CountryMe
     }
   }
 
-  // Generic fallback if not in pre-seeded meta
+  // Generic fallback if not in pre-seeded meta (applying UN territory designations where defined)
+  const unInfo = getUNTerritoryInfo(feature);
   const centroid = geoCentroid(feature);
   const cities = getMapCities().filter(city => canonicalCountryName(city.countryName) === canonicalCountryName(name));
   return {
     id: id || name,
-    name: { en: name, zh: name },
+    name: unInfo?.displayName ?? { en: name, zh: name },
     center: centroid,
     capital: cities.find(city => city.isCapital),
     cities,

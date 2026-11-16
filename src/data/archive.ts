@@ -49,10 +49,6 @@ export const ALL_RECORDS: ArchiveRecord[] = [
           zh: "沿用原稿的近似地域浏览坐标，不代表出生地或传统的唯一发源地。",
           en: "Approximate browsing anchor retained from the original draft; not a birthplace or a unique cultural origin.",
         } } : record.place,
-      reviewNote: legacy ? {
-        zh: "迁移自原有演示档案；参考资料与历史解释仍需人工逐条核查。",
-        en: "Migrated from the existing demonstration archive; references and interpretations still require individual review.",
-      } : record.reviewNote,
     };
   }),
   ...retainedEvents,

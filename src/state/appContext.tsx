@@ -1,78 +1,78 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import type { ArchiveRecord, Language, LocationCluster } from "../types";
-import { ALL_RECORDS, findRecord } from "../data/archive";
+import { ALL_RECORDS } from "../data/archive";
 import type { CountryFeature } from "../geo/geoTypes";
 import type { CountryMetadata } from "../data/countriesMeta";
 import { getCountryMetadataForFeature } from "../geo/countryLookup";
-import { clusterRecords } from "../geo/clustering";
-import { calculateTimelineBounds, recordOverlapsRange } from "../timeline/timelineUtils";
-import { parseRoute, pushRoute } from "./routing";
+import {
+  TIMELINE_DEFAULT_EARLIEST_YEAR,
+  calculateTimelineBounds,
+  normalizeYear,
+  recordOverlapsRange,
+} from "../timeline/timelineUtils";
+import { buildRoutePath, isModalPath, parseRoute, pushRoute, withBasePath } from "./routing";
 import { loadWorldData, latLngToVector3 } from "../geo/worldGeometry";
-import { normalizeYear } from "../timeline/timelineUtils";
+import { AppContext, type AppContextValue } from "./useApp";
 
-interface AppContextValue {
-  language: Language;
-  records: ArchiveRecord[];
-  visibleRecords: ArchiveRecord[];
-  clusters: LocationCluster[];
-  viewMode: "globe" | "country";
-  selectedCountry: CountryFeature | null;
-  countryMeta: CountryMetadata | null;
-  selectedRecord: ArchiveRecord | null;
-  selectedCluster: LocationCluster | null;
-  earliestYear: number;
-  latestYear: number;
-  startYear: number;
-  endYear: number;
-  isTimelineCollapsed: boolean;
-  submitOpen: boolean;
-  aboutOpen: boolean;
-  indexOpen: boolean;
-  searchQuery: string;
-  globeCameraPosition: [number, number, number];
-  setGlobeCameraPosition: (pos: [number, number, number]) => void;
-  globeFocus: { position: [number, number, number]; token: number } | null;
-  focusGlobe: (longitude: number, latitude: number) => void;
-  setLanguage: (lang: Language) => void;
-  openRecord: (record: ArchiveRecord, locate?: boolean) => void;
-  closeRecord: () => void;
-  selectCluster: (cluster: LocationCluster | null) => void;
-  selectCountry: (country: CountryFeature, meta?: CountryMetadata) => void;
-  returnToGlobe: (resetHome?: boolean) => void;
-  setTimeRange: (start: number, end: number) => void;
-  setTimelineCollapsed: (collapsed: boolean) => void;
-  toggleTimelineCollapse: () => void;
-  setSubmitOpen: (open: boolean) => void;
-  setAboutOpen: (open: boolean) => void;
-  setIndexOpen: (open: boolean) => void;
-  setSearchQuery: (query: string) => void;
+const SUBMISSIONS_STORAGE_KEY = "the-seam:user-submissions:v1";
+
+function loadSubmittedRecords(): ArchiveRecord[] {
+  try {
+    const raw = window.localStorage.getItem(SUBMISSIONS_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (item): item is ArchiveRecord =>
+        Boolean(item)
+        && typeof item.id === "string"
+        && typeof item.slug === "string"
+        && Boolean(item.title?.zh || item.title?.en)
+        && Boolean(item.place?.name)
+        && Boolean(item.time?.label),
+    );
+  } catch {
+    return [];
+  }
 }
 
-const AppContext = createContext<AppContextValue | null>(null);
+function getDefaultGlobeDistance(): number {
+  const aspect = window.innerWidth / Math.max(300, window.innerHeight - 220);
+  return Math.max(6.5, 6.5 / Math.max(0.5, aspect));
+}
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("zh");
+  const [submittedRecords, setSubmittedRecords] = useState<ArchiveRecord[]>(() => loadSubmittedRecords());
+  const records = useMemo(() => [...ALL_RECORDS, ...submittedRecords], [submittedRecords]);
   const [viewMode, setViewMode] = useState<"globe" | "country">("globe");
   const [selectedCountry, setSelectedCountry] = useState<CountryFeature | null>(null);
   const [countryMeta, setCountryMeta] = useState<CountryMetadata | null>(null);
   const [selectedRecord, setSelectedRecord] = useState<ArchiveRecord | null>(null);
   const [selectedCluster, setSelectedCluster] = useState<LocationCluster | null>(null);
-  const [submitOpen, setSubmitOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [indexOpen, setIndexOpen] = useState(false);
+  const [submitOpen, setSubmitOpenState] = useState(false);
+  const [aboutOpen, setAboutOpenState] = useState(false);
+  const [indexOpen, setIndexOpenState] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [globeCameraPosition, setGlobeCameraPosition] = useState<[number, number, number]>(() => [0, 0, Math.max(6.5, 6.5 / Math.max(0.5, window.innerWidth / Math.max(300, window.innerHeight - 220)))]);
+  const [globeCameraPosition, setGlobeCameraPosition] = useState<[number, number, number]>(() => [0, 0, getDefaultGlobeDistance()]);
   const [globeFocus, setGlobeFocus] = useState<{ position: [number, number, number]; token: number } | null>(null);
+
   const focusGlobe = (longitude: number, latitude: number) => {
-    const position = latLngToVector3(latitude, longitude, 6.5);
+    const position = latLngToVector3(latitude, longitude, getDefaultGlobeDistance());
     setGlobeCameraPosition(position);
     setGlobeFocus(previous => ({ position, token: (previous?.token || 0) + 1 }));
   };
 
-  // Timeline bounds calculated from vetted records
+  // Timeline bounds calculated from vetted + submitted records
+  const recordsRef = useRef<ArchiveRecord[]>(records);
+  recordsRef.current = records;
+
   const minRecordYear = useMemo(() => {
-    return Math.min(...ALL_RECORDS.flatMap(r => r.time.startYear === null ? [] : [r.time.startYear]));
-  }, []);
+    return Math.min(
+      TIMELINE_DEFAULT_EARLIEST_YEAR,
+      ...records.flatMap(r => r.time.startYear === null ? [] : [r.time.startYear]),
+    );
+  }, [records]);
   const [earliestYear, latestYear] = useMemo(() => calculateTimelineBounds(minRecordYear), [minRecordYear]);
 
   const [startYear, setStartYear] = useState<number>(earliestYear);
@@ -84,9 +84,20 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     let routeVersion = 0;
     function handleRoute() {
       const version = ++routeVersion;
-      const route = parseRoute();
+      const pathname = window.location.pathname.trim().replace(/\/+$/, "") || "/";
+      setIndexOpenState(pathname === "/archive");
+      setSubmitOpenState(pathname === "/submit");
+      setAboutOpenState(pathname === "/about");
+
+      // Modal routes overlay the current view when navigating within the session.
+      if (isModalPath(pathname)) return;
+
+      const route = parseRoute(pathname, window.location.search);
       const routeHref = window.location.href;
-      const found = route.kind === "record" && route.slug ? findRecord(route.slug) : null;
+      const slug = route.slug;
+      const found = route.kind === "record" && slug
+        ? recordsRef.current.find(r => r.slug === slug || r.id === slug || r.legacySlugs?.includes(slug))
+        : null;
       setSelectedRecord(found || null);
       setSelectedCluster(null);
       if (!route.countryId) {
@@ -103,9 +114,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           setViewMode(country ? "country" : "globe");
         }).catch(() => { if (version === routeVersion) setViewMode("globe"); });
       }
-      setIndexOpen(window.location.pathname === "/archive");
-      setSubmitOpen(window.location.pathname === "/submit");
-      setAboutOpen(window.location.pathname === "/about");
     }
 
     handleRoute();
@@ -116,15 +124,79 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   // Filter records by timeline (if collapsed, shows ALL records)
   const visibleRecords = useMemo(() => {
     const allEras = isTimelineCollapsed || (startYear === earliestYear && endYear === latestYear);
-    return ALL_RECORDS.filter(record =>
+    return records.filter(record =>
       recordOverlapsRange(record.time.startYear, record.time.endYear, startYear, endYear, allEras)
     );
-  }, [startYear, endYear, isTimelineCollapsed, earliestYear, latestYear]);
+  }, [records, startYear, endYear, isTimelineCollapsed, earliestYear, latestYear]);
 
-  // Geographical clustering of visible records
-  const clusters = useMemo(() => {
-    return clusterRecords(visibleRecords);
-  }, [visibleRecords]);
+  const restoreUnderlyingRoute = (
+    nextViewMode = viewMode,
+    nextCountry = selectedCountry,
+    nextRecord = selectedRecord,
+  ) => {
+    if (nextRecord) {
+      pushRoute({
+        kind: "record",
+        slug: nextRecord.slug,
+        countryId: nextViewMode === "country" && nextCountry ? String(nextCountry.id || "") : undefined,
+      });
+    } else if (nextViewMode === "country" && nextCountry) {
+      pushRoute({ kind: "country", countryId: String(nextCountry.id || "") });
+    } else {
+      pushRoute({ kind: "globe" });
+    }
+  };
+
+  const setModalOpen = (
+    path: "/archive" | "/submit" | "/about",
+    open: boolean,
+    setter: React.Dispatch<React.SetStateAction<boolean>>,
+  ) => {
+    setter(open);
+    const fullPath = withBasePath(path);
+    if (open) {
+      if (window.location.pathname !== fullPath) {
+        window.history.pushState({}, "", fullPath);
+      }
+    } else if (window.location.pathname === fullPath) {
+      const target = selectedRecord
+        ? buildRoutePath({
+            kind: "record",
+            slug: selectedRecord.slug,
+            countryId: viewMode === "country" && selectedCountry ? String(selectedCountry.id || "") : undefined,
+          })
+        : viewMode === "country" && selectedCountry
+          ? buildRoutePath({ kind: "country", countryId: String(selectedCountry.id || "") })
+          : buildRoutePath({ kind: "globe" });
+      if (window.location.pathname + window.location.search !== target) {
+        window.history.pushState({}, "", target);
+      }
+    }
+  };
+
+  const setIndexOpen = (open: boolean) => {
+    if (open) {
+      setSubmitOpenState(false);
+      setAboutOpenState(false);
+    }
+    setModalOpen("/archive", open, setIndexOpenState);
+  };
+
+  const setSubmitOpen = (open: boolean) => {
+    if (open) {
+      setIndexOpenState(false);
+      setAboutOpenState(false);
+    }
+    setModalOpen("/submit", open, setSubmitOpenState);
+  };
+
+  const setAboutOpen = (open: boolean) => {
+    if (open) {
+      setIndexOpenState(false);
+      setSubmitOpenState(false);
+    }
+    setModalOpen("/about", open, setAboutOpenState);
+  };
 
   const openRecord = (record: ArchiveRecord, locate = false) => {
     if (locate && record.place.coordinates) {
@@ -140,11 +212,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const closeRecord = () => {
     setSelectedRecord(null);
-    if (viewMode === "country" && selectedCountry) {
-      pushRoute({ kind: "country", countryId: String(selectedCountry.id || "") });
-    } else {
-      pushRoute({ kind: "globe" });
-    }
+    restoreUnderlyingRoute(viewMode, selectedCountry, null);
   };
 
   const selectCountry = (country: CountryFeature, meta?: CountryMetadata) => {
@@ -162,13 +230,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setSelectedCountry(null);
     setCountryMeta(null);
     setSelectedCluster(null);
+    setIndexOpenState(false);
+    setSubmitOpenState(false);
+    setAboutOpenState(false);
     if (resetHome) {
       setSelectedRecord(null);
-      pushRoute({kind:"globe"});
+      pushRoute({ kind: "globe" });
     } else if (!selectedRecord) {
       pushRoute({ kind: "globe" });
     } else {
-      pushRoute({kind:"record",slug:selectedRecord.slug});
+      pushRoute({ kind: "record", slug: selectedRecord.slug });
     }
   };
 
@@ -194,11 +265,26 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setTimelineCollapsed(!isTimelineCollapsed);
   };
 
+  const addSubmittedRecord = (record: ArchiveRecord) => {
+    setSubmittedRecords(prev => {
+      const next = [record, ...prev.filter(item => item.id !== record.id)];
+      try {
+        window.localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Ignore quota / privacy mode storage errors; in-memory state still updates.
+      }
+      return next;
+    });
+    if (record.time.startYear !== null && record.time.startYear < startYear) {
+      const [nextMin] = calculateTimelineBounds(record.time.startYear);
+      setStartYear(nextMin);
+    }
+  };
+
   const value: AppContextValue = {
     language,
-    records: ALL_RECORDS,
+    records,
     visibleRecords,
-    clusters,
     viewMode,
     selectedCountry,
     countryMeta,
@@ -230,13 +316,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setAboutOpen,
     setIndexOpen,
     setSearchQuery,
+    addSubmittedRecord,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-}
-
-export function useApp() {
-  const ctx = useContext(AppContext);
-  if (!ctx) throw new Error("useApp must be used within AppProvider");
-  return ctx;
 }

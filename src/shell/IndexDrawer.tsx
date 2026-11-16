@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { useApp } from "../state/appContext";
+import { getPendingVerificationLabel } from "../data/recordStatus";
+import { useApp } from "../state/useApp";
 import type { ArchiveRecord } from "../types";
 import { useDialogFocus } from "./useDialogFocus";
 
@@ -13,10 +14,15 @@ export function IndexDrawer({ onClose }: Props) {
   const [search, setSearch] = useState("");
   const [pendingOnly, setPendingOnly] = useState(false);
 
+  const pendingCount = useMemo(
+    () => records.filter(r => getPendingVerificationLabel(r, language) !== null).length,
+    [records, language],
+  );
+
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return records.filter(r => {
-      if (pendingOnly && r.place.coordinates) return false;
+      if (pendingOnly && getPendingVerificationLabel(r, language) === null) return false;
       if (!q) return true;
       const matchTitle = (r.title.en + " " + r.title.zh).toLowerCase().includes(q);
       const matchAlias = r.aliases.some(a => a.toLowerCase().includes(q));
@@ -26,7 +32,7 @@ export function IndexDrawer({ onClose }: Props) {
       const matchBody = (r.body.en + " " + r.body.zh).toLowerCase().includes(q);
       return matchTitle || matchAlias || matchPlace || matchOriginal || matchSummary || matchBody;
     });
-  }, [records, search, pendingOnly]);
+  }, [records, search, pendingOnly, language]);
 
   const handleSelect = (record: ArchiveRecord) => {
     openRecord(record, true);
@@ -67,8 +73,13 @@ export function IndexDrawer({ onClose }: Props) {
         </div>
 
         <div className="seam-index-stats">
-          <button type="button" aria-pressed={pendingOnly} onClick={() => setPendingOnly(!pendingOnly)}>
-            {language === "zh" ? "地点待考" : "Location pending"} ({records.filter(r => !r.place.coordinates).length})
+          <button
+            type="button"
+            className="seam-pending-filter-btn"
+            aria-pressed={pendingOnly}
+            onClick={() => setPendingOnly(!pendingOnly)}
+          >
+            {language === "zh" ? "地点与事件待考" : "Pending verification"} ({pendingCount})
           </button>
           <span>
             {language === "zh"
@@ -79,37 +90,43 @@ export function IndexDrawer({ onClose }: Props) {
 
         <div className="seam-index-body">
           <ul className="seam-index-list">
-            {filtered.map(record => (
-              <li key={record.id} className="seam-index-item">
-                <button
-                  type="button"
-                  className="seam-index-item-btn"
-                  onClick={() => handleSelect(record)}
-                >
-                  <div className="seam-index-item-header">
-                    <strong className="seam-index-title">
-                      {record.title[language] || record.title.en}
-                    </strong>
-                    <span className="seam-index-era">
-                      {record.time.label[language]}
-                    </span>
-                  </div>
-                  <div className="seam-index-item-meta">
-                    <span className="seam-index-place">
-                      📍 {record.place.name[language] || record.place.name.en}
-                    </span>
-                    {record.aliases.length > 0 && (
-                      <span className="seam-index-alias">
-                        · {record.aliases.slice(0, 2).join(", ")}
+            {filtered.map(record => {
+              const pendingLabel = getPendingVerificationLabel(record, language);
+              return (
+                <li key={record.id} className="seam-index-item">
+                  <button
+                    type="button"
+                    className="seam-index-item-btn"
+                    onClick={() => handleSelect(record)}
+                  >
+                    <div className="seam-index-item-header">
+                      <strong className="seam-index-title">
+                        {record.title[language] || record.title.en}
+                      </strong>
+                      <span className="seam-index-era">
+                        {record.time.label[language]}
                       </span>
-                    )}
-                  </div>
-                  <p className="seam-index-summary">
-                    {record.summary[language] || record.summary.en}
-                  </p>
-                </button>
-              </li>
-            ))}
+                    </div>
+                    <div className="seam-index-item-meta">
+                      <span className="seam-index-place">
+                        📍 {record.place.name[language] || record.place.name.en}
+                      </span>
+                      {pendingLabel && (
+                        <span className="seam-pending-tag">{pendingLabel}</span>
+                      )}
+                      {record.aliases.length > 0 && (
+                        <span className="seam-index-alias">
+                          · {record.aliases.slice(0, 2).join(", ")}
+                        </span>
+                      )}
+                    </div>
+                    <p className="seam-index-summary">
+                      {record.summary[language] || record.summary.en}
+                    </p>
+                  </button>
+                </li>
+              );
+            })}
             {filtered.length === 0 && (
               <li className="seam-index-empty">
                 <p>
