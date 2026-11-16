@@ -424,7 +424,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
         touchPitch: false,
         fadeDuration: 40,
         attributionControl: false,
-        localIdeographFontFamily: '"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif',
+        localIdeographFontFamily: '"PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif',
         canvasContextAttributes: { antialias: true, powerPreference: "high-performance" },
       });
       map = instance;
