@@ -63,7 +63,13 @@ describe("Completion regressions", () => {
     };
     const otherRecord = { ...testRecord, id: "submission-other", summary: { zh: "其他投稿", en: "Other submission" } };
     const numberedTest = { ...otherRecord, id: "submission-1-1794858284222", title: { zh: "1", en: "1" } };
-    window.localStorage.setItem(key, JSON.stringify([testRecord, { ...testRecord, id: "submission-test-2" }, numberedTest, otherRecord]));
+    const theodoreTest = {
+      ...otherRecord,
+      id: "submission-theodore-test",
+      title: { zh: "Theodore", en: "Theodore" },
+      place: { ...otherRecord.place, coordinates: null },
+    };
+    window.localStorage.setItem(key, JSON.stringify([testRecord, { ...testRecord, id: "submission-test-2" }, numberedTest, theodoreTest, otherRecord]));
     try {
       render(<AppProvider><Probe /></AppProvider>);
       expect(JSON.parse(window.localStorage.getItem(key) ?? "[]")).toEqual([otherRecord]);

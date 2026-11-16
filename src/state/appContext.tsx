@@ -32,12 +32,17 @@ function loadSubmittedRecords(): ArchiveRecord[] {
         && Boolean(item.place?.name)
         && Boolean(item.time?.label),
     );
-    const cleaned = records.filter(record => record.id !== "submission-1-1794858284222" && !(
-      record.id.startsWith("submission-")
-      && record.title.zh === "【测试投稿】The Seam 表单连通性验证"
-      && record.place.name.zh === "测试地点"
-      && record.summary?.zh === "这是一条用于验证网站投稿和邮件投递的测试记录，请忽略。"
-    ));
+    const cleaned = records.filter(record => {
+      if (!record.id.startsWith("submission-")) return true;
+      const numberedTest = record.id === "submission-1-1794858284222";
+      const theodoreTest = record.title.zh === "Theodore"
+        && record.title.en === "Theodore"
+        && (record.place.coordinates == null || record.time.startYear == null);
+      const connectivityTest = record.title.zh === "【测试投稿】The Seam 表单连通性验证"
+        && record.place.name.zh === "测试地点"
+        && record.summary?.zh === "这是一条用于验证网站投稿和邮件投递的测试记录，请忽略。";
+      return !numberedTest && !theodoreTest && !connectivityTest;
+    });
     if (cleaned.length !== records.length) {
       window.localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(cleaned));
     }
