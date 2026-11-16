@@ -12,6 +12,7 @@ export function buildGitHubIssueUrl(
   language: Language,
   pendingStatus: string | null,
   repoSlug: string = resolveGitHubRepo(),
+  contributorName?: string,
 ): string {
   const coords = record.place.coordinates
     ? `${record.place.coordinates.longitude}, ${record.place.coordinates.latitude}`
@@ -25,9 +26,14 @@ export function buildGitHubIssueUrl(
         .join("\n")
     : "  - 无 / None";
 
+  const contributorLine = contributorName?.trim()
+    ? [`- **投稿人署名 / Contributor**: ${contributorName.trim()}`]
+    : [];
+
   const markdownHeader = [
     "### 档案投稿信息 / Archive Submission",
     "",
+    ...contributorLine,
     `- **人物/事件名称 / Title**: ${record.title.zh}`,
     `- **别名 / Aliases**: ${record.aliases.length ? record.aliases.join("、") : "无 / None"}`,
     `- **历史时期 / Era**: ${record.time.label.zh}`,

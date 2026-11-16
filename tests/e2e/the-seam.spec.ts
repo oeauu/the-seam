@@ -99,7 +99,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await expect(aboutModal).toBeVisible();
     await expect(page).toHaveURL(/\/about$/);
     await expect(aboutModal.locator("#about-title")).toContainText("关于 The Seam");
-    await expect(aboutModal).toContainText("同性爱恋、跨越性别装束与身份");
+    await expect(aboutModal).toContainText("性别气质不明或流动");
 
     // Close About Modal
     await page.locator(".seam-modal-close").click();
@@ -188,18 +188,33 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
 
   test("globe separates dragging from country clicks, locks on first click, opens 2D map on second click, and renders nameplates", async ({page}) => {
     await expect(page.locator(".seam-globe-canvas-wrapper")).toHaveAttribute("data-ready", "true");
-    await expect(page.locator(".seam-globe-nameplate").first()).toBeVisible();
+    const firstPlate = page.locator(".seam-globe-nameplate").first();
+    await expect(firstPlate).toBeVisible();
+    const firstPlateTitle = await firstPlate.getAttribute("title");
+    const plateBeforeDrag = await firstPlate.boundingBox();
+    expect(await firstPlate.evaluate(el => ({ left: getComputedStyle(el).left, top: getComputedStyle(el).top }))).toEqual({ left: "0px", top: "0px" });
 
     const canvas = page.locator("canvas");
     const bounds = await canvas.boundingBox();
     if (!bounds) throw new Error("Globe canvas has no bounds");
     const cx = bounds.x + bounds.width / 2, cy = bounds.y + bounds.height / 2;
 
-    // Dragging rotates without locking a country or opening 2D map
+    // Dragging rotates without locking a country or opening 2D map, and nameplates track projected coordinates
     await page.mouse.move(cx, cy);
     await page.mouse.down();
     await page.mouse.move(cx + 70, cy - 30, {steps:8});
     await page.mouse.up();
+    if (firstPlateTitle && plateBeforeDrag) {
+      const samePlateAfter = page.locator(`.seam-globe-nameplate[title="${firstPlateTitle}"]`);
+      if (await samePlateAfter.count() > 0 && await samePlateAfter.isVisible()) {
+        const plateAfterDrag = await samePlateAfter.boundingBox();
+        expect(await samePlateAfter.evaluate(el => ({ left: getComputedStyle(el).left, top: getComputedStyle(el).top }))).toEqual({ left: "0px", top: "0px" });
+        if (plateAfterDrag) {
+          expect(plateAfterDrag.x).toBeGreaterThan(plateBeforeDrag.x);
+          expect(Math.hypot(plateAfterDrag.x - plateBeforeDrag.x, plateAfterDrag.y - plateBeforeDrag.y)).toBeGreaterThan(10);
+        }
+      }
+    }
     await expect(page.locator(".seam-globe-lock-card")).toHaveCount(0);
     await expect(page.locator(".seam-country-view")).toHaveCount(0);
     await expect(page.locator(".seam-record-panel")).toHaveCount(0);

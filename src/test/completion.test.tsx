@@ -135,15 +135,23 @@ describe("Completion regressions", () => {
     fireEvent.change(screen.getByLabelText(/发生或活动地点/), { target: { value: "南京" } });
     fireEvent.change(screen.getByLabelText(/历史简介与文献事实/), { target: { value: "文献记载摘录测试。" } });
     fireEvent.change(screen.getByLabelText(/第一手史料/), { target: { value: "地方志钞本" } });
+    fireEvent.change(screen.getByLabelText(/投稿人署名/), { target: { value: "李四" } });
+    fireEvent.change(screen.getByLabelText(/联系邮箱/), { target: { value: "lisi@example.com" } });
     fireEvent.click(screen.getByRole("button", { name: "提交投稿" }));
 
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
     expect(fetchMock.mock.calls[0]?.[0]).toBe("https://hooks.example.test/hooks/the-seam");
+    const sentBody = JSON.parse(String((fetchMock.mock.calls[0]?.[1] as RequestInit | undefined)?.body || "{}"));
+    expect(sentBody.contributorName).toBe("李四");
+    expect(sentBody.contributorEmail).toBe("lisi@example.com");
+    expect(sentBody._replyto).toBe("lisi@example.com");
+    expect(sentBody._subject).toBe("[The Seam 投稿] 测试档案稿件");
     await waitFor(() => expect(screen.getByRole("status")).toHaveTextContent("the.seam@outlook.com"));
 
     const issueLink = screen.getByRole("link", { name: /通过 GitHub Issue 投递/ });
     expect(issueLink.getAttribute("href")).toContain("https://github.com/oeauu/the-seam/issues/new");
     expect(issueLink.getAttribute("href")).toContain("labels=archive-submission");
+    expect(issueLink.getAttribute("href")).not.toContain("lisi%40example.com");
     expect(resolveGitHubRepo("invalid repo")).toBe("oeauu/the-seam");
     const sampleRecord = findRecord("thomas-hall");
     if (sampleRecord) {

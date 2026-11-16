@@ -344,22 +344,33 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
       return;
     }
 
-    // Strict horizon culling when globe shows full curvature; relaxes smoothly at city/region zoom
-    const minDot = zoom >= 4.2 ? -1 : Math.max(0.02, 0.22 - Math.max(0, zoom - 1.5) * 0.12);
-
     const visibleItems: Array<{ cluster: LocationCluster; x: number; y: number }> = [];
 
     for (const cluster of clustersRef.current) {
       const el = nameplateRefs.current.get(cluster.id);
       const { longitude, latitude } = cluster.coordinates;
       const hemisphereDot = dotOnSphere(longitude, latitude, center.lng, center.lat);
-      if (hemisphereDot < minDot) {
+      if (hemisphereDot < 0.02) {
         if (el) el.style.visibility = "hidden";
         continue;
       }
 
       const pt = map.project([longitude, latitude]);
       if (!Number.isFinite(pt.x) || !Number.isFinite(pt.y) || pt.x < 16 || pt.x > width - 16 || pt.y < 16 || pt.y > height - 16) {
+        if (el) el.style.visibility = "hidden";
+        continue;
+      }
+
+      // Exact perspective-horizon check: if MapLibre wrapped a back-horizon point onto the
+      // visible disc, unprojecting its screen pixel will land at a different coordinate.
+      let onVisibleSurface = false;
+      try {
+        const unprojected = map.unproject([pt.x, pt.y]);
+        onVisibleSurface = dotOnSphere(unprojected.lng, unprojected.lat, longitude, latitude) > 0.999;
+      } catch {
+        onVisibleSurface = false;
+      }
+      if (!onVisibleSurface) {
         if (el) el.style.visibility = "hidden";
         continue;
       }
@@ -756,8 +767,7 @@ export function GlobeScene({ worldData, onCountryClick, onClusterClick }: GlobeC
                   nameplateRefs.current.set(cluster.id, el);
                   const pos = projectedCoordsRef.current.get(cluster.id);
                   if (pos) {
-                    el.style.left = `${pos.x}px`;
-                    el.style.top = `${pos.y}px`;
+                    el.style.translate = `${pos.x}px ${pos.y}px`;
                     el.style.visibility = "visible";
                   }
                 } else {

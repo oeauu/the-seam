@@ -1865,6 +1865,7 @@ button:disabled { opacity: .5; cursor: default; }
 }
 
 .seam-submit-form input[type="text"],
+.seam-submit-form input[type="email"],
 .seam-submit-form input[type="url"],
 .seam-submit-form textarea {
   width: 100%;

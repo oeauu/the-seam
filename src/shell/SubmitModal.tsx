@@ -25,7 +25,14 @@ interface SubmissionDraftState {
   locationPending: boolean;
   summary: string;
   sources: SourceDraft[];
+  contributorName: string;
+  contributorEmail: string;
   website: string; // Hidden honeypot field recognized by HookForms
+}
+
+interface SubmissionContactMeta {
+  contributorName: string;
+  contributorEmail: string;
 }
 
 type DeliveryStatus = "local-only" | "sending" | "sent" | "error";
@@ -44,6 +51,8 @@ function createInitialForm(): SubmissionDraftState {
     locationPending: false,
     summary: "",
     sources: [{ title: "", url: "" }],
+    contributorName: "",
+    contributorEmail: "",
     website: "",
   };
 }
@@ -74,7 +83,11 @@ function formatSourcesSummary(record: ArchiveRecord): string {
     .join(record.sources.length > 1 ? "; " : "");
 }
 
-function buildSubmissionText(record: ArchiveRecord, language: Language): string {
+function buildSubmissionText(
+  record: ArchiveRecord,
+  language: Language,
+  meta?: SubmissionContactMeta,
+): string {
   const coords = record.place.coordinates
     ? `${record.place.coordinates.longitude}, ${record.place.coordinates.latitude}`
     : (language === "zh" ? "待考证" : "Pending");
@@ -87,6 +100,8 @@ function buildSubmissionText(record: ArchiveRecord, language: Language): string 
       `3. 发生地点：${record.place.name.zh}（坐标：${coords}）`,
       `4. 简介与史料记述：${record.summary.zh}`,
       `5. 史料/参考文献：${sourcesText}`,
+      ...(meta?.contributorName ? [`6. 投稿人署名：${meta.contributorName}`] : []),
+      ...(meta?.contributorEmail ? [`7. 联系邮箱：${meta.contributorEmail}`] : []),
     ].join("\n");
   }
   return [
@@ -96,6 +111,8 @@ function buildSubmissionText(record: ArchiveRecord, language: Language): string 
     `3. Location: ${record.place.name.en} (Coordinates: ${coords})`,
     `4. Summary & Context: ${record.summary.en}`,
     `5. Primary Sources / Citations: ${sourcesText}`,
+    ...(meta?.contributorName ? [`6. Contributor Name: ${meta.contributorName}`] : []),
+    ...(meta?.contributorEmail ? [`7. Contact Email: ${meta.contributorEmail}`] : []),
   ].join("\n");
 }
 
@@ -103,14 +120,18 @@ function buildHookFormsPayload(
   record: ArchiveRecord,
   pendingStatus: string | null,
   honeypot: string,
+  meta?: SubmissionContactMeta,
 ): Record<string, string> {
   const coords = record.place.coordinates
     ? `${record.place.coordinates.longitude}, ${record.place.coordinates.latitude}`
     : "Pending verification";
   const primarySource = record.sources[0];
+  const contributorName = meta?.contributorName.trim() || "";
+  const contributorEmail = meta?.contributorEmail.trim() || "";
   return {
     _subject: `[The Seam 投稿] ${record.title.zh}`,
     subject: `[The Seam 投稿] ${record.title.zh}`,
+    ...(contributorEmail ? { _replyto: contributorEmail } : {}),
     title: record.title.zh,
     aliases: record.aliases.join(", "),
     era: record.time.label.zh,
@@ -122,6 +143,8 @@ function buildHookFormsPayload(
     sourceTitle: primarySource?.title || "",
     sourceUrl: primarySource?.url || "",
     sourcesText: formatSourcesSummary(record),
+    contributorName,
+    contributorEmail,
     submittedAt: new Date().toISOString(),
     recordJson: JSON.stringify(record),
     website: honeypot,
@@ -134,6 +157,7 @@ export function SubmitModal({ onClose }: Props) {
   const [form, setForm] = useState<SubmissionDraftState>(createInitialForm);
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [submittedRecord, setSubmittedRecord] = useState<ArchiveRecord | null>(null);
+  const [submittedMeta, setSubmittedMeta] = useState<SubmissionContactMeta>({ contributorName: "", contributorEmail: "" });
   const [deliveryStatus, setDeliveryStatus] = useState<DeliveryStatus>("local-only");
   const [emailCopied, setEmailCopied] = useState(false);
   const [emailCopyFailed, setEmailCopyFailed] = useState(false);
@@ -176,7 +200,7 @@ export function SubmitModal({ onClose }: Props) {
     }));
   };
 
-  const sendToHookForms = async (record: ArchiveRecord, honeypot: string) => {
+  const sendToHookForms = async (record: ArchiveRecord, honeypot: string, meta: SubmissionContactMeta) => {
     if (!hookFormsEndpoint) {
       setDeliveryStatus("local-only");
       return;
@@ -190,7 +214,7 @@ export function SubmitModal({ onClose }: Props) {
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify(buildHookFormsPayload(record, pendingStatus, honeypot)),
+        body: JSON.stringify(buildHookFormsPayload(record, pendingStatus, honeypot, meta)),
       });
       setDeliveryStatus(response.ok ? "sent" : "error");
     } catch {
@@ -268,6 +292,17 @@ export function SubmitModal({ onClose }: Props) {
       parsedCoords = result;
     }
 
+    const contributorName = form.contributorName.trim();
+    const contributorEmail = form.contributorEmail.trim();
+    if (contributorEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contributorEmail)) {
+      setErrorMsg(
+        language === "zh"
+          ? "联系邮箱格式有误，请检查后重试（或留空不填）。"
+          : "Contact email format appears invalid (or leave blank).",
+      );
+      return;
+    }
+
     const aliases = form.aliases
       .split(/[,，、;；]/)
       .map(s => s.trim())
@@ -313,16 +348,18 @@ export function SubmitModal({ onClose }: Props) {
         })),
     };
 
+    const contactMeta: SubmissionContactMeta = { contributorName, contributorEmail };
     addSubmittedRecord(record);
     setSubmittedRecord(record);
+    setSubmittedMeta(contactMeta);
     setDraftCopied(false);
-    void sendToHookForms(record, form.website);
+    void sendToHookForms(record, form.website, contactMeta);
   };
 
   const handleCopyDraft = async () => {
     if (!submittedRecord) return;
     try {
-      await navigator.clipboard.writeText(buildSubmissionText(submittedRecord, language));
+      await navigator.clipboard.writeText(buildSubmissionText(submittedRecord, language, submittedMeta));
       setDraftCopied(true);
     } catch {
       setDraftCopied(false);
@@ -343,12 +380,12 @@ export function SubmitModal({ onClose }: Props) {
   };
 
   const mailtoHref = submittedRecord && displayEmail
-    ? `mailto:${encodeURIComponent(displayEmail)}?subject=${encodeURIComponent(`Submission: ${submittedRecord.title.zh}`)}&body=${encodeURIComponent(buildSubmissionText(submittedRecord, language))}`
+    ? `mailto:${encodeURIComponent(displayEmail)}?subject=${encodeURIComponent(`Submission: ${submittedRecord.title.zh}`)}&body=${encodeURIComponent(buildSubmissionText(submittedRecord, language, submittedMeta))}`
     : "";
 
   const pendingBadge = submittedRecord ? getPendingVerificationLabel(submittedRecord, language) : null;
   const githubIssueHref = submittedRecord
-    ? buildGitHubIssueUrl(submittedRecord, language, pendingBadge)
+    ? buildGitHubIssueUrl(submittedRecord, language, pendingBadge, undefined, submittedMeta.contributorName)
     : "";
 
   return (
@@ -558,6 +595,27 @@ export function SubmitModal({ onClose }: Props) {
               ))}
             </div>
 
+            <div className="seam-form-row">
+              <label className="seam-form-field">
+                <span className="seam-form-label">{language === "zh" ? "投稿人署名（选填）" : "Your Name / Attribution (optional)"}</span>
+                <input
+                  type="text"
+                  value={form.contributorName}
+                  onChange={e => setForm(prev => ({ ...prev, contributorName: e.target.value }))}
+                  placeholder={language === "zh" ? "例如：张三 / 历史系研究者" : "e.g. Jane Doe"}
+                />
+              </label>
+              <label className="seam-form-field">
+                <span className="seam-form-label">{language === "zh" ? "联系邮箱（选填）" : "Contact Email (optional)"}</span>
+                <input
+                  type="email"
+                  value={form.contributorEmail}
+                  onChange={e => setForm(prev => ({ ...prev, contributorEmail: e.target.value }))}
+                  placeholder="name@example.com"
+                />
+              </label>
+            </div>
+
             {errorMsg && (
               <p className="seam-form-error" role="alert">{errorMsg}</p>
             )}
@@ -623,7 +681,7 @@ export function SubmitModal({ onClose }: Props) {
                   <button
                     type="button"
                     className="seam-btn-outline"
-                    onClick={() => { void sendToHookForms(submittedRecord, form.website); }}
+                    onClick={() => { void sendToHookForms(submittedRecord, form.website, submittedMeta); }}
                   >
                     {language === "zh" ? "重新发送" : "Retry"}
                   </button>
@@ -718,6 +776,7 @@ export function SubmitModal({ onClose }: Props) {
                 className="seam-btn-secondary"
                 onClick={() => {
                   setSubmittedRecord(null);
+                  setSubmittedMeta({ contributorName: "", contributorEmail: "" });
                   setDeliveryStatus("local-only");
                   setForm(createInitialForm());
                   setErrorMsg("");
