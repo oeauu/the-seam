@@ -4182,5 +4182,418 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "citation": "28 février 2003 (entered into force June 1, 2003)"
       }
     ]
+  },
+  {
+    "id": "entry_azande_male_marriage",
+    "slug": "azande-male-marriage",
+    "title": {
+      "zh": "阿赞德人的男性婚姻",
+      "en": "Male Marriage among the Azande"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "埃文斯-普里查德记录了阿赞德战士与年轻男性之间的婚姻式关系，也记述了女性之间的亲密关系。",
+      "en": "Evans-Pritchard documented marriage relationships between Azande warriors and younger males, as well as intimate relationships between women."
+    },
+    "body": {
+      "zh": "在埃文斯-普里查德1970年发表的民族志文章中，受访者回忆了早期战士队伍中的婚姻。一些战士向年轻伴侣的家人支付婚资，双方在战士队伍中以配偶相称。文章也记录了女性之间结成伴侣的叙述。",
+      "en": "In his 1970 article, Evans-Pritchard drew on accounts of marriage in earlier warrior companies. Some warriors gave marriage payments to the families of their younger partners, and the pair used spousal terms within the company. The article also recounts partnerships between women."
+    },
+    "time": {
+      "startYear": 1900,
+      "endYear": 1929,
+      "label": {
+        "zh": "20世纪初",
+        "en": "Early 20th century"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "上韦莱地区",
+        "en": "Upper Uele region"
+      },
+      "countryName": {
+        "zh": "刚果民主共和国",
+        "en": "Democratic Republic of the Congo"
+      },
+      "countryCode": "180",
+      "coordinates": {
+        "longitude": 28.58,
+        "latitude": 2.77
+      },
+      "precision": "transregional",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Sexual Inversion among the Azande",
+        "author": "E. E. Evans-Pritchard",
+        "year": 1970,
+        "url": "https://doi.org/10.1525/aa.1970.72.6.02a00170"
+      }
+    ]
+  },
+  {
+    "id": "entry_nuer_woman_marriage",
+    "slug": "nuer-woman-marriage",
+    "title": {
+      "zh": "努尔人的女性婚姻",
+      "en": "Woman Marriage among the Nuer"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "努尔亲属制度中，女性可以作为丈夫与另一名女性结婚。",
+      "en": "In Nuer kinship, a woman could take the role of husband and marry another woman."
+    },
+    "body": {
+      "zh": "埃文斯-普里查德在1930年代调查努尔人的亲属与婚姻制度。书中记载，一名女性可以向妻子的家族交付婚牛，在亲属关系中承担丈夫的职责。妻子所生的子女称这名女性为父亲，并归入她的父系宗族。",
+      "en": "Evans-Pritchard studied Nuer kinship and marriage in the 1930s. He described marriages in which a woman transferred bridewealth cattle to her wife's kin and took on the obligations of a husband. Children born to the wife recognized the female husband as their father and belonged to her patrilineage."
+    },
+    "time": {
+      "startYear": 1930,
+      "endYear": 1936,
+      "label": {
+        "zh": "1930年代田野调查",
+        "en": "Fieldwork in the 1930s"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "上尼罗河地区",
+        "en": "Upper Nile region"
+      },
+      "countryName": {
+        "zh": "南苏丹",
+        "en": "South Sudan"
+      },
+      "countryCode": "728",
+      "coordinates": {
+        "longitude": 31.4,
+        "latitude": 8.9
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Kinship and Marriage among the Nuer",
+        "author": "E. E. Evans-Pritchard",
+        "year": 1951,
+        "url": "https://ehrafworldcultures.yale.edu/cultures/fj22/documents/002"
+      }
+    ]
+  },
+  {
+    "id": "entry_mudoko_dako",
+    "slug": "mudoko-dako",
+    "title": {
+      "zh": "兰戈人的 Mudoko Dako",
+      "en": "Mudoko Dako among the Lango"
+    },
+    "originalName": "Mudoko Dako",
+    "aliases": [],
+    "summary": {
+      "zh": "德里伯格于1923年出版的民族志记录了兰戈人社会中的 Mudoko Dako。",
+      "en": "Driberg's 1923 ethnography documented Mudoko Dako among the Lango."
+    },
+    "body": {
+      "zh": "杰克·德里伯格在《兰戈人》中记述，当地称为 Mudoko Dako 的人穿女性服饰，在社会交往中承担女性角色。书中也记载了他们与男性缔结婚姻的情形。",
+      "en": "In The Lango, Jack Driberg described people called Mudoko Dako who wore women's clothing and occupied women's social roles. He also recorded marriages with men."
+    },
+    "time": {
+      "startYear": 1923,
+      "endYear": 1923,
+      "label": {
+        "zh": "1923年（民族志出版）",
+        "en": "1923 (publication)"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "兰戈地区",
+        "en": "Lango region"
+      },
+      "countryName": {
+        "zh": "乌干达",
+        "en": "Uganda"
+      },
+      "countryCode": "800",
+      "coordinates": {
+        "longitude": 32.9,
+        "latitude": 2.26
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "The Lango: A Nilotic Tribe of Uganda",
+        "author": "J. H. Driberg",
+        "year": 1923,
+        "url": "https://wellcomecollection.org/works/zwnx6x3j"
+      }
+    ]
+  },
+  {
+    "id": "entry_maale_ashtime",
+    "slug": "maale-ashtime",
+    "title": {
+      "zh": "马阿勒人的 Ashtime",
+      "en": "Ashtime among the Maale"
+    },
+    "originalName": "Ashtime",
+    "aliases": [],
+    "summary": {
+      "zh": "唐纳德·多纳姆在埃塞俄比亚南部的马阿勒地区记录了 Ashtime 的社会角色。",
+      "en": "Donald Donham documented the social roles of Ashtime in the Maale region of southern Ethiopia."
+    },
+    "body": {
+      "zh": "多纳姆在1970年代调查马阿勒社会。他以 Ashtime 记录了当地穿女性服饰、从事女性劳动的人，并从马阿勒人的社会分工和礼仪生活写起，描述他们在社区中的位置。",
+      "en": "Donham conducted fieldwork among the Maale in the 1970s. He used Ashtime for people who wore women's clothing and undertook work associated with women, describing their place in local divisions of labour and ritual life."
+    },
+    "time": {
+      "startYear": 1970,
+      "endYear": 1979,
+      "label": {
+        "zh": "1970年代田野调查",
+        "en": "Fieldwork in the 1970s"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "马阿勒地区",
+        "en": "Maale region"
+      },
+      "countryName": {
+        "zh": "埃塞俄比亚",
+        "en": "Ethiopia"
+      },
+      "countryCode": "231",
+      "coordinates": {
+        "longitude": 36.75,
+        "latitude": 5.55
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "History, Power, Ideology",
+        "author": "Donald L. Donham",
+        "year": 1990,
+        "url": "https://www.ucpress.edu/book/9780520213371/history-power-ideology"
+      }
+    ]
+  },
+  {
+    "id": "entry_bukhontxana_mine_marriages",
+    "slug": "bukhontxana-mine-marriages",
+    "title": {
+      "zh": "Bukhontxana 矿工婚姻",
+      "en": "Bukhontxana Mine Marriages"
+    },
+    "originalName": "Bukhontxana",
+    "aliases": [],
+    "summary": {
+      "zh": "南非金矿的男性劳工在矿区结成临时婚姻，关系涉及亲密生活、家务和物资交换。",
+      "en": "Male workers on South African gold mines formed temporary marriages involving intimacy, domestic work and material exchange."
+    },
+    "body": {
+      "zh": "兰德金矿招收来自南部非洲各地的流动劳工，许多人住在矿区宿舍。邓巴·穆迪、维维恩·恩达特谢和布里蒂什·西布耶收集的矿工口述记载，一些年长矿工与年轻矿工结成伴侣，一方提供礼物或经济支持，另一方承担部分家务。这些关系随矿区劳动和居住安排而变化。",
+      "en": "Gold mines on the Rand recruited migrant labourers across southern Africa, many of whom lived in mine compounds. In interviews collected by Dunbar Moodie, Vivien Ndatshe and British Sibuye, miners described partnerships in which older workers gave gifts or financial support and younger partners took on domestic tasks. The arrangements changed with work and housing on the mines."
+    },
+    "time": {
+      "startYear": 1890,
+      "endYear": 1988,
+      "label": {
+        "zh": "19世纪末至20世纪",
+        "en": "Late 19th to 20th century"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "威特沃特斯兰德金矿区",
+        "en": "Witwatersrand goldfields"
+      },
+      "countryName": {
+        "zh": "南非",
+        "en": "South Africa"
+      },
+      "countryCode": "710",
+      "coordinates": {
+        "longitude": 27.76,
+        "latitude": -26.17
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "Migrancy and Male Sexuality on the South African Gold Mines",
+        "author": "T. Dunbar Moodie, with Vivien Ndatshe and British Sibuye",
+        "year": 1988,
+        "url": "https://doi.org/10.1080/03057078808708172"
+      }
+    ]
+  },
+  {
+    "id": "entry_lesotho_mummy_baby",
+    "slug": "lesotho-mummy-baby",
+    "title": {
+      "zh": "莱索托的 Mummy–Baby 关系",
+      "en": "Mummy–Baby Relationships in Lesotho"
+    },
+    "originalName": "Mummy–Baby",
+    "aliases": [],
+    "summary": {
+      "zh": "莱索托年轻女性以 mummy 与 baby 相称，建立包含照顾与身体亲密的关系。",
+      "en": "Young women in Lesotho used the terms mummy and baby in relationships that involved care and physical affection."
+    },
+    "body": {
+      "zh": "肯德尔在莱索托的访谈与田野记录中写到，年轻女性以 mummy 与 baby 相称。受访者讲述了彼此陪伴、表达亲密和照顾对方的经历。肯德尔将这些叙述收入1998年发表的《当莱索托的一名女性爱上另一名女性》。",
+      "en": "In interviews and field accounts from Lesotho, Kendall recorded young women addressing each other as mummy and baby. Participants spoke about companionship, affection and caring for one another. Kendall published these accounts in the 1998 chapter When a Woman Loves a Woman in Lesotho."
+    },
+    "time": {
+      "startYear": 1990,
+      "endYear": 1998,
+      "label": {
+        "zh": "20世纪末",
+        "en": "Late 20th century"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "莱索托",
+        "en": "Lesotho"
+      },
+      "countryName": {
+        "zh": "莱索托",
+        "en": "Lesotho"
+      },
+      "countryCode": "426",
+      "coordinates": {
+        "longitude": 28.24,
+        "latitude": -29.58
+      },
+      "precision": "region",
+      "relation": "representative"
+    },
+    "sources": [
+      {
+        "title": "When a Woman Loves a Woman in Lesotho",
+        "author": "K. L. Kendall",
+        "year": 1998,
+        "url": "https://www.africabib.org/rec.php?RID=W00080407"
+      }
+    ]
+  },
+  {
+    "id": "entry_kewpie_district_six",
+    "slug": "kewpie-district-six",
+    "title": {
+      "zh": "Kewpie 与开普敦第六区",
+      "en": "Kewpie and Cape Town’s District Six"
+    },
+    "originalName": "Kewpie",
+    "aliases": [],
+    "summary": {
+      "zh": "发型师与变装表演者 Kewpie 的相册记录了种族隔离时期第六区的社交与表演。",
+      "en": "The albums of hairdresser and drag performer Kewpie document social life and performance in District Six during apartheid."
+    },
+    "body": {
+      "zh": "Kewpie 在开普敦第六区生活和工作。她从1950年代到1980年代积累了七百多张照片，留下了朋友聚会、舞台表演和日常生活的影像。Kewpie 为照片补写的说明与照片一同保存在 GALA 酷儿档案馆。第六区博物馆与该馆以这些藏品举办了《Kewpie：第六区的女儿》展览。",
+      "en": "Kewpie lived and worked in Cape Town's District Six. From the 1950s to the 1980s she built a collection of more than 700 prints showing friends, performances and everyday life. Her captions are preserved alongside the photographs at the GALA Queer Archive. GALA and the District Six Museum drew on the collection for the exhibition Kewpie: Daughter of District Six."
+    },
+    "time": {
+      "startYear": 1950,
+      "endYear": 1989,
+      "label": {
+        "zh": "1950至1980年代",
+        "en": "1950s–1980s"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "zh": "开普敦第六区",
+        "en": "District Six, Cape Town"
+      },
+      "countryName": {
+        "zh": "南非",
+        "en": "South Africa"
+      },
+      "countryCode": "710",
+      "coordinates": {
+        "longitude": 18.43,
+        "latitude": -33.93
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "sources": [
+      {
+        "title": "Kewpie: Daughter of District Six",
+        "author": "District Six Museum and GALA Queer Archive",
+        "year": 2018,
+        "url": "https://www.districtsix.co.za/project/kewpie-daughter-of-district-six/"
+      }
+    ]
+  },
+  {
+    "id": "entry_johannesburg_first_pride",
+    "slug": "johannesburg-first-pride",
+    "title": {
+      "zh": "南非首次骄傲游行",
+      "en": "South Africa’s First Pride March"
+    },
+    "aliases": [],
+    "summary": {
+      "zh": "1990年10月13日，约翰内斯堡举行了南非首次公开的同性恋骄傲游行。",
+      "en": "On 13 October 1990, Johannesburg hosted South Africa's first public lesbian and gay Pride march."
+    },
+    "body": {
+      "zh": "维特沃特斯兰德同性恋组织（GLOW）在约翰内斯堡组织了这场游行。队伍从维特沃特斯兰德大学出发，活动人士在反种族隔离运动争取平等权利的同时，公开提出同性恋群体的权利诉求。GLOW 保存的游行影像收入了彩虹历史项目数字馆藏。",
+      "en": "The Gay and Lesbian Organisation of the Witwatersrand (GLOW) organized the march in Johannesburg. It set out from the University of the Witwatersrand, where activists publicly called for lesbian and gay rights alongside demands for equality in the struggle against apartheid. Footage preserved by GLOW is held in the Rainbow History Project's digital collection."
+    },
+    "time": {
+      "startYear": 1990,
+      "endYear": 1990,
+      "label": {
+        "zh": "1990年10月13日",
+        "en": "13 October 1990"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "zh": "约翰内斯堡",
+        "en": "Johannesburg"
+      },
+      "countryName": {
+        "zh": "南非",
+        "en": "South Africa"
+      },
+      "countryCode": "710",
+      "coordinates": {
+        "longitude": 28.0305,
+        "latitude": -26.1907
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "sources": [
+      {
+        "title": "Lesbian and Gay Pride Marches: Johannesburg 1990 & 1992 [film]",
+        "author": "Gay and Lesbian Organisation of the Witwatersrand",
+        "year": 1992,
+        "url": "https://archives.rainbowhistory.org/items/show/1728"
+      }
+    ]
   }
 ];

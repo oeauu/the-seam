@@ -40,6 +40,25 @@ afterEach(() => {
 });
 
 describe("Completion regressions", () => {
+  it("removes both archived form connectivity tests and keeps other local submissions", () => {
+    const key = "the-seam:user-submissions:v1";
+    const testRecord = {
+      ...ALL_RECORDS[0],
+      id: "submission-test-1",
+      title: { zh: "【测试投稿】The Seam 表单连通性验证", en: "Connectivity test" },
+      place: { ...ALL_RECORDS[0].place, name: { zh: "测试地点", en: "Test site" } },
+      summary: { zh: "这是一条用于验证网站投稿和邮件投递的测试记录，请忽略。", en: "Test summary" },
+    };
+    const otherRecord = { ...testRecord, id: "submission-other", summary: { zh: "其他投稿", en: "Other submission" } };
+    window.localStorage.setItem(key, JSON.stringify([testRecord, { ...testRecord, id: "submission-test-2" }, otherRecord]));
+    try {
+      render(<AppProvider><Probe /></AppProvider>);
+      expect(JSON.parse(window.localStorage.getItem(key) ?? "[]")).toEqual([otherRecord]);
+    } finally {
+      window.localStorage.removeItem(key);
+    }
+  });
+
   it("preserves old record URLs and resolves verified vs. unsubstantiated legacy drafts", () => {
     expect(findRecord("entry-thomas-hall")?.slug).toBe("thomas-hall");
     expect(findRecord("entry-sappho")?.slug).toBe("sappho");
