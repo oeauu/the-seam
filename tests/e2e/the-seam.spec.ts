@@ -268,7 +268,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     const issueLink = modal.getByRole("link", { name: /通过 GitHub Issue 投递/ });
     await expect(issueLink).toBeVisible();
     const issueHref = await issueLink.getAttribute("href");
-    expect(issueHref).toContain("https://github.com/oeauu/Thequeerarchive/issues/new");
+    expect(issueHref).toContain("https://github.com/oeauu/the-seam/issues/new");
     expect(issueHref).toContain("labels=archive-submission");
     await modal.getByRole("button", { name: "在档案中查看并定位" }).click();
     await expect(page.locator(".seam-record-panel .seam-record-title")).toHaveText("清代徽州契约文献待考录");

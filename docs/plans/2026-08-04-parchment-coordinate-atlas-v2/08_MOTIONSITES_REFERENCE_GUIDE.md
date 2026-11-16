@@ -100,7 +100,7 @@ Applied component:
 Extracted pattern:
 Original dependency assumptions:
 Final implementation:
-Visual changes made for The Queer Archive:
+Visual changes made for The Seam:
 License or rights note:
 ```
 

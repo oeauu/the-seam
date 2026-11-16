@@ -1,4 +1,4 @@
-# The Queer Archive 三维博物馆时空地图 MVP 执行报告
+# The Seam 三维博物馆时空地图 MVP 执行报告
 
 > 执行分支：`feat/museum-atlas-3d`
 >

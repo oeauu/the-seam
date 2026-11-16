@@ -139,13 +139,13 @@ describe("Completion regressions", () => {
     await waitFor(() => expect(screen.getByRole("status")).toHaveTextContent("the.seam@outlook.com"));
 
     const issueLink = screen.getByRole("link", { name: /通过 GitHub Issue 投递/ });
-    expect(issueLink.getAttribute("href")).toContain("https://github.com/oeauu/Thequeerarchive/issues/new");
+    expect(issueLink.getAttribute("href")).toContain("https://github.com/oeauu/the-seam/issues/new");
     expect(issueLink.getAttribute("href")).toContain("labels=archive-submission");
-    expect(resolveGitHubRepo("invalid repo")).toBe("oeauu/Thequeerarchive");
+    expect(resolveGitHubRepo("invalid repo")).toBe("oeauu/the-seam");
     const sampleRecord = findRecord("thomas-hall");
     if (sampleRecord) {
-      const issueUrl = buildGitHubIssueUrl(sampleRecord, "zh", null, "oeauu/Thequeerarchive");
-      expect(issueUrl).toContain("https://github.com/oeauu/Thequeerarchive/issues/new");
+      const issueUrl = buildGitHubIssueUrl(sampleRecord, "zh", null, "oeauu/the-seam");
+      expect(issueUrl).toContain("https://github.com/oeauu/the-seam/issues/new");
       expect(issueUrl).toContain("Summary+%26+Documented+Facts");
       expect(issueUrl.length).toBeLessThanOrEqual(7500);
     }

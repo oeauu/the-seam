@@ -174,7 +174,7 @@
 
 ### 4.7 README 仍为 Vite 模板
 
-项目 README 仍是 React + Vite 模板说明，没有反映 The Queer Archive 的项目定位、运行方式和架构。
+项目 README 仍是 React + Vite 模板说明，没有反映 The Seam 的项目定位、运行方式和架构。
 
 本轮完成后必须更新。
 

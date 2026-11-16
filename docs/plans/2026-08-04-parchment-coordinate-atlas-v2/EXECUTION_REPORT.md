@@ -1,7 +1,7 @@
 # Parchment Coordinate Atlas V2 execution report
 
 日期：2026-08-04
-仓库：`Adrerie/Thequeerarchive`
+仓库：`oeauu/the-seam`
 功能分支：`feat/parchment-coordinate-atlas-v2`
 禁止操作：未修改、未合并 `main`
 

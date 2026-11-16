@@ -1,4 +1,4 @@
-# The Queer Archive 三维羊皮纸坐标地图 V2 计划
+# The Seam 三维羊皮纸坐标地图 V2 计划
 
 本目录是下一轮 Codex 执行的唯一计划入口。
 

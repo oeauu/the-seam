@@ -2,7 +2,7 @@
 
 ## 1. 任务名称
 
-The Queer Archive 三维博物馆时空地图 MVP
+The Seam 三维博物馆时空地图 MVP
 
 ## 2. 本轮最终目标
 
@@ -154,7 +154,7 @@ interface AtlasNavigationState {
 
 参考视频只提供空间叙事和镜头语言，不提供最终视觉规范。
 
-最终视觉必须符合 The Queer Archive 的博物馆式数字档案美学：
+最终视觉必须符合 The Seam 的博物馆式数字档案美学：
 
 - 低饱和
 - 清晰

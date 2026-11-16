@@ -1,6 +1,6 @@
 import type { ArchiveRecord, Language } from "../types";
 
-const DEFAULT_GITHUB_REPO = "oeauu/Thequeerarchive";
+const DEFAULT_GITHUB_REPO = "oeauu/the-seam";
 
 export function resolveGitHubRepo(rawRepo?: string): string {
   const raw = (rawRepo ?? import.meta.env.VITE_GITHUB_REPO ?? DEFAULT_GITHUB_REPO).trim();
