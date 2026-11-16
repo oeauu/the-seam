@@ -257,7 +257,7 @@ test.describe("The Seam - Spatiotemporal Archive Core E2E Tests", () => {
     await page.locator(".seam-subregion-chip").nth(1).click();
     await expect(page.locator(".seam-2d-nameplate")).toHaveCount(1);
     await page.locator(".seam-subregion-chip").first().click();
-    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(5);
+    await expect(page.locator(".seam-2d-nameplate")).toHaveCount(10);
   });
 
   test("renders gold pending badges beside info and supports interactive draft submission", async ({ page }) => {

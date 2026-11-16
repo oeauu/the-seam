@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState, useMemo } from "react";
+import { memo, useEffect, useLayoutEffect, useRef, useState, useMemo } from "react";
 import * as d3 from "d3";
 import type { FeatureCollection, Polygon } from "geojson";
 import type { CountryFeature } from "../geo/geoTypes";
@@ -129,12 +129,17 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   const name = unInfo?.displayName?.[language] || meta?.name[language] || country.properties.name;
   const isChina = countryKey === "156" || canonicalCountryName(country.properties.name) === "China";
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    const observer = new ResizeObserver(() =>
-      setDimensions({ width: Math.max(200, container.clientWidth), height: Math.max(200, container.clientHeight) }),
-    );
+    const syncDimensions = () => {
+      if (container.clientWidth === 0 || container.clientHeight === 0) return;
+      const nextWidth = Math.max(200, container.clientWidth);
+      const nextHeight = Math.max(200, container.clientHeight);
+      setDimensions(prev => (prev.width === nextWidth && prev.height === nextHeight ? prev : { width: nextWidth, height: nextHeight }));
+    };
+    syncDimensions();
+    const observer = new ResizeObserver(syncDimensions);
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
@@ -310,10 +315,11 @@ export function CountryView({ country, meta, records, onBack, onRecordClick, onC
   );
 
   const clusters = useMemo(() => {
-    // Eight screen pixels of separation; exact coordinates remain a picker.
-    const kmPerPixel = 6371 / projection.scale() / transform.k;
-    return clusterRecords(filteredRecords, 8 * kmPerPixel);
-  }, [filteredRecords, projection, transform.k]);
+    // Six screen pixels of separation (dot diameter); exact coordinates remain a picker.
+    const latCos = Math.max(0.2, Math.cos((focusCenter[1] * Math.PI) / 180));
+    const kmPerPixel = (6371 * latCos) / projection.scale() / transform.k;
+    return clusterRecords(filteredRecords, 6 * kmPerPixel);
+  }, [filteredRecords, projection, focusCenter, transform.k]);
 
   const projectedClustersBase = useMemo(
     () =>

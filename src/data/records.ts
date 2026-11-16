@@ -1109,6 +1109,7 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     "aliases": [
       "Qixiong Qidi",
       "Sworn Brotherhood of Fujian",
+      "福建契兄弟",
       "契兄弟",
       "闽地契兄弟"
     ],
@@ -1166,6 +1167,1057 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
         "author": "Sophie Volpp",
         "year": 2001,
         "citation": "Journal of Asian Studies 60, no. 2"
+      }
+    ]
+  },
+  {
+    "id": "entry_mizi_xia",
+    "slug": "mizi-xia",
+    "title": {
+      "en": "Mizi Xia and Duke Ling of Wey",
+      "zh": "弥子瑕与卫灵公"
+    },
+    "originalName": "彌子瑕與衛靈公",
+    "aliases": [
+      "The Half-Eaten Peach",
+      "Yutao",
+      "余桃",
+      "分桃之爱"
+    ],
+    "summary": {
+      "en": "A Spring and Autumn courtier of the state of Wey whose favor and fall under Duke Ling are recorded in the third-century BCE treatise Han Feizi.",
+      "zh": "春秋卫国臣子，《韩非子·说难》记其向卫灵公分食半桃由宠获罪的逸事，后衍生为“余桃”典故。"
+    },
+    "body": {
+      "en": "In the Legalist treatise Han Feizi (chapter 'Difficulties of Persuasion'), third-century BCE philosopher Han Fei recounts the relationship between Duke Ling of Wey (r. 534–493 BCE) and his favorite courtier, Mizi Xia. While in favor, Mizi Xia drove the duke's carriage without permission to visit his sick mother and once offered the ruler a half-eaten peach because it tasted sweet; Duke Ling praised both acts as signs of filial devotion and affection.\n\nYears later, after Mizi Xia's youth faded and royal favor cooled, Duke Ling cited the exact same episodes—the unauthorized carriage and the leftover peach—as offenses deserving punishment. Although Han Fei used the anecdote primarily to warn counselors that a ruler's affection shifts unpredictably, later imperial writers adopted 'sharing the peach' (fentao or yutao) alongside 'the cut sleeve' as a standard classical allusion to love between men.",
+      "zh": "战国法家著作《韩非子·说难》记载了春秋卫灵公（公元前534–前493年在位）与宠臣弥子瑕的故事：弥子瑕母病，曾矫驾君车夜出探母，卫灵公赞其至孝而不罪；另一次两人同游果园，弥子瑕食桃觉甜，遂将吃剩的一半奉与灵公，灵公亦称赏其“忘口而啖寡人”。\n\n待日后弥子瑕年长色衰、宠爱渐弛，卫灵公便翻出旧事责其昔日擅乘君车、并以余桃相侮。《韩非子》原意借此阐发“弥子之行未变于初，而爱憎之变也”的游说戒律；汉唐以降的诗文笔记则常以“余桃”“分桃”与“断袖”并举，指代男子间的情爱典故。"
+    },
+    "time": {
+      "startYear": -534,
+      "endYear": -493,
+      "label": {
+        "en": "Spring and Autumn Period (534 – 493 BCE)",
+        "zh": "春秋时期（公元前534年 – 前493年）"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Puyang (Diqiu, State of Wey), China",
+        "zh": "濮阳（春秋卫国帝丘）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 115.0293,
+        "latitude": 35.7622
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "The earliest surviving version appears in the Warring States text Han Feizi as a political parable rather than an eyewitness chronicle from sixth-century Wey.",
+      "zh": "现存最早文本见于战国末期政论集《韩非子》，以君臣爱憎寓言形式追记春秋卫国旧事。"
+    },
+    "sources": [
+      {
+        "title": "韩非子·说难",
+        "author": "韩非",
+        "year": "战国末期"
+      },
+      {
+        "title": "Passions of the Cut Sleeve: The Male Homosexual Tradition in China",
+        "author": "Bret Hinsch",
+        "year": 1990,
+        "citation": "University of California Press"
+      }
+    ]
+  },
+  {
+    "id": "entry_xiong_ersheng",
+    "slug": "xiong-ersheng",
+    "title": {
+      "en": "Xiong Ersheng",
+      "zh": "熊尔圣"
+    },
+    "originalName": "熊爾聖",
+    "aliases": [
+      "Xiong Mumu",
+      "熊姆姆",
+      "熊氏"
+    ],
+    "summary": {
+      "en": "An eighteenth-century Hunan resident who lived for decades as a woman and midwife before a 1744 property lawsuit led to an imperial investigation.",
+      "zh": "清代湖南人，长期以女性身份行接生业并建立家庭，1744年因田产诉讼受官府审讯并由乾隆朝核议发配。"
+    },
+    "body": {
+      "en": "According to Qing dynasty archival records from 1744 (Qianlong 9), Xiong Ersheng of Wuling County in Hunan grew long hair, pierced his ears, bound his feet, and adopted women's dress around age twenty-six. Settling in Anfu County in 1723 under the name Widow Xiong ('Xiong Mumu'), he lived openly as a woman for more than twenty years, earning a living as a midwife, acquiring farmland and housing, and adopting children into a household.\n\nIn 1744, when Xiong filed a civil suit accusing his younger brother Xiong Erliang of seizing family fields, the brother exposed Xiong's assigned male sex in court. Because the Great Qing Code contained no statute specifically addressing long-term gender passing without fraud or heresy, Hunan Governor Jiang Pu petitioned the throne; Emperor Qianlong ordered Xiong to shave his forehead in male style, wear men's clothes, and be exiled to Heilongjiang.",
+      "zh": "据清乾隆九年（1744年）湖南官府审理档案记载，湖南武陵人熊尔圣自二十六七岁起蓄发、穿耳、缠足并改着女装，雍正元年（1723年）迁居澧州安福县（今湖南临澧），自称夫亡避嫁的孀妇“熊姆姆”。此后二十余年间，熊尔圣以女性身份立足乡里，凭担任稳婆（接生婆）谋生，置办房屋六间及田产三十二亩，并收养干女、过继子侄为其娶妻成家。\n\n1744年，熊尔圣因田产纠纷赴县衙控告胞弟熊尔谅“弟占姊产”，庭审中其弟当堂揭发其原本男身，安福县令张浚遂令稳婆查验确认。因《大清律例》并无单纯长期易装的对应明文，湖南巡抚蒋溥奏请朝廷裁夺，乾隆帝最终下旨责令其薙发改回男装，并发配黑龙江充当兵丁奴隶。"
+    },
+    "time": {
+      "startYear": 1723,
+      "endYear": 1744,
+      "label": {
+        "en": "1723 – 1744 CE",
+        "zh": "1723年 – 1744年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Anfu (Linli), Hunan, China",
+        "zh": "安福县（今湖南临澧）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 111.6512,
+        "latitude": 29.4416
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented through Qianlong-era administrative memorials and judicial interrogation transcripts preserved in Qing central archives.",
+      "zh": "主要依据清代乾隆朝内阁刑科题本及地方官府审讯奏折档案。"
+    },
+    "sources": [
+      {
+        "title": "清代内阁刑科题本·乾隆九年湖南巡抚蒋溥题报熊尔圣案档案",
+        "author": "第一历史档案馆 / 中央研究院历史语言研究所藏",
+        "year": "1744年"
+      },
+      {
+        "title": "The Qing State and Gender Crossing in Eighteenth-Century China",
+        "author": "Matthew H. Sommer",
+        "year": 2000,
+        "citation": "Stanford University Press (Sex, Law, and Society in Late Imperial China)"
+      }
+    ]
+  },
+  {
+    "id": "entry_wu_zao_qiaoying",
+    "slug": "wu-zao-qiaoying",
+    "title": {
+      "en": "Wu Zao's Qiaoying",
+      "zh": "吴藻《乔影》"
+    },
+    "originalName": "喬影（飲酒讀騷圖曲）",
+    "aliases": [
+      "Yinjiu Du Sao Tu",
+      "Xie Xucai",
+      "饮酒读骚图曲",
+      "谢絮才"
+    ],
+    "summary": {
+      "en": "A one-act Qing zaju play by Hangzhou poet Wu Zao in which a woman dons male scholar robes to drink wine and recite Qu Yuan's Li Sao.",
+      "zh": "清代杭州女词人吴藻创作的独角杂剧，借女子谢絮才身着男装的自画像，抒发才识与礼法规范的冲突。"
+    },
+    "body": {
+      "en": "Composed around 1819–1825 by the Hangzhou lyric poet and playwright Wu Zao (1799–1862), Qiaoying (also titled Drinking Wine and Reading Li Sao) is a one-act Southern-Northern zaju drama with a single role, the scholar-gentlewoman Xie Xucai. Unwilling to remain confined to domestic expectations, Xie dresses in men's Confucian attire, commissions a portrait of herself in male robes, and addresses the painted image while drinking wine and chanting Qu Yuan's classical lament Li Sao.\n\nCirculated widely among Jiangnan literati and staged in Hangzhou and Suzhou during the Daoguang era, Qiaoying drew prefaces and matching poems from both male and female writers. Literary historians note its prominent use of cross-dressing on stage and in portraiture as a vehicle to critique social barriers placed on women's talent and public ambition.",
+      "zh": "《乔影》（又题《饮酒读骚图曲》）为清代杭州词人吴藻（1799–1862年）约二十岁前后（约1819–1825年流传刊行）所作一折独角杂剧。全剧仅设旦角“谢絮才”一人，写其“生长闺门，性耽书史，自惭巾帼，不爱铅华”，自绘一幅身着男子儒服的《饮酒读骚图》悬于室中，对画斟酒、高歌诵读屈原《离骚》，感叹生为女儿身而抱负无从施展。\n\n该剧道光年间在杭州、苏州及江南文士、闺秀诗社间广泛传抄并搬演一时，诸多名流为其题词唱和。现代文学史与戏曲史研究普遍关注剧中借“乔装男像”对女性才情与清代闺阁性别边界的对照呈现。"
+    },
+    "time": {
+      "startYear": 1819,
+      "endYear": 1825,
+      "label": {
+        "en": "c. 1819 – 1825 CE",
+        "zh": "约1819年 – 1825年"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Hangzhou, Zhejiang, China",
+        "zh": "杭州（浙江）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 120.1551,
+        "latitude": 30.2741
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Preserved in Wu Zao's collected works (Hualian Ci) alongside contemporary Daoguang-era colophons and performance accounts.",
+      "zh": "曲本附载于吴藻《花帘词》及清代道光年间江南名士题跋诗文之中。"
+    },
+    "sources": [
+      {
+        "title": "乔影（附花帘词后）",
+        "author": "吴藻",
+        "year": "约1825年刊"
+      },
+      {
+        "title": "Women Playwrights in Early Modern China: Wu Zao and the Cross-Dressing Stage",
+        "author": "Sophie Volpp / Kang-i Sun Chang",
+        "year": 1999,
+        "citation": "Writing Women in Late Imperial China (Stanford University Press)"
+      }
+    ]
+  },
+  {
+    "id": "entry_huang_jiulang",
+    "slug": "huang-jiulang",
+    "title": {
+      "en": "Strange Tales: Huang Jiulang",
+      "zh": "《聊斋志异·黄九郎》"
+    },
+    "originalName": "聊齋志異·黃九郎",
+    "aliases": [
+      "Huang Jiulang",
+      "Liaozhai Zhiyi: Huang Jiulang",
+      "黄九郎"
+    ],
+    "summary": {
+      "en": "A classical tale by Qing writer Pu Songling depicting the intense attraction and boundary tensions between a scholar and the fox youth Huang Jiulang.",
+      "zh": "清代蒲松龄《聊斋志异》名篇，借何师与狐少年黄九郎的交往，描写男性间的欲望、依恋与世俗礼法冲突。"
+    },
+    "body": {
+      "en": "Written by Shandong author Pu Songling (1640–1715) in his classical story collection Strange Tales from a Chinese Studio (Liaozhai Zhiyi, first printed in 1766), 'Huang Jiulang' follows a scholar named He Shi who becomes infatuated with Huang Jiulang, a handsome youth who proves to be a fox spirit. Huang cares deeply for He Shi's well-being, repeatedly warning him against excessive passion and arranging a marriage for him while remaining by his side.\n\nWhen a corrupt local magistrate attempts to abduct Huang Jiulang and later dies under supernatural retribution, the story weaves same-sex desire together with Qing-era anxieties over power abuse, physical exhaustion, and karmic balance. At the end of the tale, Pu Songling's authorial 'Historian of the Strange' commentary frames male same-sex obsession through sharp satire alongside genuine empathy for Huang's loyalty.",
+      "zh": "《黄九郎》为清代山东文人蒲松龄（1640–1715年）短篇小说集《聊斋志异》（1766年青柯亭首次刊行）中的代表篇目之一。故事写读书人何师偶遇貌美狐少年黄九郎，对其爱慕痴迷；黄九郎一面顾惜何师体弱，劝其节欲保身并替他置产成婚，一面仍与何师长期亲近往还。\n\n其后贪官强欲霸占黄九郎不成反致祸亡，全篇将同性吸引、权势强夺与因果报应交织并叙。篇末“异史氏曰”既借世俗男色话题对当时官场风气加以讽喻，又在叙事里保留了对黄九郎忠厚深情的肯定。"
+    },
+    "time": {
+      "startYear": 1679,
+      "endYear": 1766,
+      "label": {
+        "en": "c. 1679 – 1766 CE",
+        "zh": "清初（约1679年成稿 – 1766年初刻）"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Zibo, Shandong, China",
+        "zh": "淄博（山东蒲松龄故里）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 118.0548,
+        "latitude": 36.8131
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Circulated in manuscript from the late Kangxi era before entering print in 1766; analyzed in modern scholarship as a key Qing literary representation of male-male desire.",
+      "zh": "康熙年间即以抄本流传，1766年首次雕版刊行，常被视为清初文言小说书写男性情欲的重要文本。"
+    },
+    "sources": [
+      {
+        "title": "聊斋志异·黄九郎",
+        "author": "蒲松龄",
+        "year": "1766年青柯亭刻本"
+      },
+      {
+        "title": "Homoerotic Sensibilities in Late Imperial China",
+        "author": "Wu Cuncun",
+        "year": 2004,
+        "citation": "RoutledgeCurzon"
+      }
+    ]
+  },
+  {
+    "id": "entry_feng_sanniang",
+    "slug": "feng-sanniang",
+    "title": {
+      "en": "Strange Tales: Feng Sanniang",
+      "zh": "《聊斋志异·封三娘》"
+    },
+    "originalName": "聊齋志異·封三娘",
+    "aliases": [
+      "Feng Sanniang",
+      "Fan Shiyiniang and Feng Sanniang",
+      "封三娘",
+      "范十一娘"
+    ],
+    "summary": {
+      "en": "A Liaozhai Zhiyi story by Pu Songling portraying mutual affection and shared domestic life between two young women, Fan Shiyiniang and Feng Sanniang.",
+      "zh": "蒲松龄《聊斋志异》篇目，描写少女范十一娘与狐女封三娘之间互生爱悦、不愿分离及婚姻安排下的女性处境。"
+    },
+    "body": {
+      "en": "In Pu Songling's Qing dynasty tale 'Feng Sanniang' (Liaozhai Zhiyi), a young gentry woman named Fan Shiyiniang meets the mysterious maiden Feng Sanniang during a temple festival. Quickly drawn to each other, the two sleep in the same bed, exchange intimate pledges, and wish to remain together without parting.\n\nAlthough Feng Sanniang helps arrange Fan's marriage to a worthy scholar and briefly joins the household as an adopted sister, she eventually leaves to preserve her spiritual cultivation. Modern literary critics note that while the plot resolves within Qing domestic marriage conventions, the opening and middle chapters vividly foreground female same-sex devotion and resistance to forced separation.",
+      "zh": "《封三娘》出自清代蒲松龄《聊斋志异》。故事写乡绅之女范十一娘在孟秋佛会偶遇少女封三娘，二人一见投契、互生爱慕，同榻共寝并倾诉难舍之情，范十一娘更明言愿与封三娘长相厮守、不欲另嫁。\n\n故事中后段写封三娘协助促成范十一娘择得佳婿，并借“姊妹”身份暂留范家共同生活，最终仍为修行悄然离去。现代文学研究指出，全篇虽在婚姻礼制框架下收束结局，但前段对女子间亲密依恋与抗拒拆散的刻画在清代笔记中颇为鲜明。"
+    },
+    "time": {
+      "startYear": 1679,
+      "endYear": 1766,
+      "label": {
+        "en": "c. 1679 – 1766 CE",
+        "zh": "清初（约1679年成稿 – 1766年初刻）"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Zibo, Shandong, China",
+        "zh": "淄博（山东蒲松龄故里）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 118.0748,
+        "latitude": 36.7931
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Read alongside late imperial women's poetry and fiction as one of the clearest Qing narratives of romantic female attachment.",
+      "zh": "在晚清与当代文学史研究中，常与明清闺秀诗词、弹词并读，用以考察清代对女性同性亲密关系的想象。"
+    },
+    "sources": [
+      {
+        "title": "聊斋志异·封三娘",
+        "author": "蒲松龄",
+        "year": "1766年青柯亭刻本"
+      },
+      {
+        "title": "Sisterhood, Passion, and Marriage in Liaozhai Zhiyi",
+        "author": "Judith T. Zeitlin",
+        "year": 1993,
+        "citation": "Historian of the Strange (Stanford University Press)"
+      }
+    ]
+  },
+  {
+    "id": "entry_pinhua_baojian",
+    "slug": "pinhua-baojian",
+    "title": {
+      "en": "Precious Mirror for Judging Flowers",
+      "zh": "《品花宝鉴》"
+    },
+    "originalName": "品花寶鑑",
+    "aliases": [
+      "Pinhua Baojian",
+      "Precious Mirror of Flowers",
+      "怡情佚史",
+      "陈森"
+    ],
+    "summary": {
+      "en": "A sixty-chapter Qing novel by Chen Sen, first printed in 1849, chronicling relationships between Beijing literati and male dan opera performers.",
+      "zh": "清代陈森撰六十回长篇小说，1849年初刻，描写京师文人雅士与梨园男旦（相公）之间的情谊与戏班生态。"
+    },
+    "body": {
+      "en": "First printed in 1849 (Daoguang 29) by Chen Sen, Precious Mirror for Judging Flowers (Pinhua Baojian) is a sixty-chapter novel set in early nineteenth-century Beijing. Its narrative centers on theater patronage, contrasting sincere poetic attachments between young scholars (such as Mei Ziyu and Tian Chunhang) and male dan opera actors ('xianggong' like Du Qinyan and Su Huifang) against crude exploitation by wealthy patrons.\n\nBecause Qing law banned actresses from commercial stages in Beijing, male dan actors occupied a prominent social and romantic role in urban elite life. In his Brief History of Chinese Fiction, Lu Xun classified Pinhua Baojian as a foundational work of late Qing 'courtesan/theater' (xiaxie) fiction, while social historians treat it as a rich literary record of Qing Beijing opera culture and male same-sex aesthetics.",
+      "zh": "《品花宝鉴》为清代常州文人陈森所撰六十回长篇小说，现存最早刻本为道光二十九年（1849年）“幻中了幻斋”本。小说以嘉庆、道光年间北京梨园与文士生活为背景，着力对比梅子玉与男旦杜琴言、田春航与苏蕙芳等讲求性情相惜的情感交往，与纨绔子弟狎玩优伶的市井世态。\n\n清代官府严禁女优登台后，京城戏曲旦角多由男性艺人扮演（时称“相公”），由此形成了独特的私人堂会与情感社交网络。鲁迅在《中国小说史略》中将该书列为晚清狭邪小说的开端，而社会史与戏曲史学者则视之为考察清代北京男旦制度与士林审美风尚的重要材料。"
+    },
+    "time": {
+      "startYear": 1849,
+      "endYear": 1849,
+      "label": {
+        "en": "1849 CE (Daoguang 29)",
+        "zh": "1849年（清道光二十九年）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Beijing, China",
+        "zh": "北京（宣南梨园）"
+      },
+      "countryName": {
+        "en": "China",
+        "zh": "中国"
+      },
+      "countryCode": "156",
+      "coordinates": {
+        "longitude": 116.4074,
+        "latitude": 39.9042
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "historiographyNote": {
+      "en": "Though fictionalized, the novel mirrors historical Qing ban regulations on female stage performers and documented Beijing theater-house patronage.",
+      "zh": "小说虽属虚构创作，但其所写“禁女伶”背景下的京师私寓（堂子）与梨园交往格局均有清代笔记与官书可相印证。"
+    },
+    "sources": [
+      {
+        "title": "品花宝鉴（六十回）",
+        "author": "陈森",
+        "year": "1849年（幻中了幻斋刻本）"
+      },
+      {
+        "title": "中国小说史略（第二十六篇）",
+        "author": "鲁迅",
+        "year": "1924年"
+      },
+      {
+        "title": "The Precious Mirror: Male Love and Theater in Late Qing Beijing",
+        "author": "Chloe Starr",
+        "year": 2007,
+        "citation": "Redefining Literary Tradition (Harvard University Asia Center)"
+      }
+    ]
+  },
+  {
+    "id": "entry_edo_wakashu",
+    "slug": "edo-wakashu",
+    "title": {
+      "en": "Edo Wakashū Culture",
+      "zh": "江户若众文化（Wakashū）"
+    },
+    "originalName": "若衆（わかしゅ）",
+    "aliases": [
+      "Wakashū",
+      "Shudō",
+      "若众",
+      "众道"
+    ],
+    "summary": {
+      "en": "An Edo-period Japanese social and aesthetic category defined by youthful hairstyle, attire, and male same-sex courtship traditions (shudō).",
+      "zh": "日本江户时期与年龄、发式及服饰相联系的少年社会角色文化，留有大量浮世绘与武士、町人众道文献。"
+    },
+    "body": {
+      "en": "In Edo-period Japan (1603–1868), wakashū designated male youths who had not yet undergone the coming-of-age ceremony (genpuku), distinguished visibly by shaved forelocks (maegami) and long-sleeved garments. Within samurai, monastic, and urban theater circles, wakashū could form structured romantic and mentoring bonds (shudō, 'the way of youths') with older men (nenja), while also appearing in ukiyo-e woodblock prints and popular fiction as objects of desire across both male and female patrons.\n\nArt historians such as Joshua Mostow and Gregory Pflugfelder emphasize that Edo society organized erotic and social roles around age, hairstyle, and hierarchy rather than a modern heterosexual-homosexual binary. Following Meiji-era legal and educational Westernization after 1868, shudō traditions declined and were gradually recast in modern sexological terms.",
+      "zh": "江户时期（1603–1868年）日本社会将尚未行元服成人礼、留前发与长振袖的少年称作“若众”（Wakashū）。无论在武士阶层、寺院还是歌舞伎町人社会中，若众与年长男性（念者，nenja）之间的伴侣与庇护关系称为“众道”（Shudō）；大量浮世绘版画、春画与通俗小说均记录了若众在男女两性视线中兼具吸引力的独特角色。\n\n现代日本史与艺术史研究指出，江户时期的性别与情欲区分很大程度上依附于年龄段、发式礼俗与主从等级，并不等同于近代男女/同异性恋二分；明治维新后随着近代西方法律与教育体系引入，传统若众制度逐渐淡出公开社会秩序。"
+    },
+    "time": {
+      "startYear": 1603,
+      "endYear": 1868,
+      "label": {
+        "en": "Edo Period (1603 – 1868 CE)",
+        "zh": "江户时期（1603年 – 1868年）"
+      },
+      "certainty": "period"
+    },
+    "place": {
+      "name": {
+        "en": "Edo (Tokyo), Japan",
+        "zh": "江户（今日本东京）"
+      },
+      "countryName": {
+        "en": "Japan",
+        "zh": "日本"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 139.7671,
+        "latitude": 35.6812
+      },
+      "precision": "cultural-region",
+      "relation": "representative"
+    },
+    "historiographyNote": {
+      "en": "Documented extensively in Edo woodblock prints, kabuki theater records, and samurai treatises on shudō.",
+      "zh": "史料见于江户浮世绘版画、歌舞伎剧场记录及武士众道规范文献。"
+    },
+    "sources": [
+      {
+        "title": "Cartographies of Desire: Male-Male Sexuality in Japanese Discourse, 1600–1950",
+        "author": "Gregory M. Pflugfelder",
+        "year": 1999,
+        "citation": "University of California Press"
+      },
+      {
+        "title": "A Third Gender: Beautiful Youths in Japanese Edo-Period Prints and Paintings",
+        "author": "Joshua S. Mostow & Asato Ikeda",
+        "year": 2016,
+        "citation": "Royal Ontario Museum / Hotei Publishing"
+      }
+    ]
+  },
+  {
+    "id": "entry_nanshoku_okagami",
+    "slug": "nanshoku-okagami",
+    "title": {
+      "en": "The Great Mirror of Male Love",
+      "zh": "井原西鹤《男色大鉴》"
+    },
+    "originalName": "男色大鑑（なんしょくおおかがみ）",
+    "aliases": [
+      "Nanshoku Ōkagami",
+      "The Great Mirror of Male Love",
+      "Honchō Waka Fūzoku",
+      "男色大鑑"
+    ],
+    "summary": {
+      "en": "A forty-chapter 1687 ukiyo-zōshi prose collection by Osaka writer Ihara Saikaku chronicling samurai shudō loyalty and kabuki actor love.",
+      "zh": "井原西鹤于1687年在大阪刊行的四十篇浮世草子集，前二十篇记武士众道、后二十篇写歌舞伎若众情爱。"
+    },
+    "body": {
+      "en": "Published in Osaka in 1687 (Jōkyō 4) by ukiyo-zōshi prose author Ihara Saikaku (1642–1693), Nanshoku Ōkagami (The Great Mirror of Male Love) comprises forty stories across eight volumes. The first twenty chapters focus on samurai codes of male-male devotion (shudō), honoring sworn oaths, duels, and lifelong loyalty among warriors.\n\nThe second half shifts to urban entertainment quarters in Kyoto, Osaka, and Edo, following kabuki young-male performers (iroko and wakashū) and townsmen patrons through theatrical rivalry, economic survival, and romantic heartbreak. Scholars regard the work as one of early modern East Asia's most detailed literary mirrors of male same-sex social customs.",
+      "zh": "《男色大鉴》（副题“本朝若风俗”）为日本江户时代大阪作家井原西鹤（1642–1693年）于贞享四年（1687年）刊印的浮世草子名著，全书八卷共四十章。前半部二十章着力书写武士阶层的“众道”（Shudō）规范，记述武士间立誓忠信、决斗殉情的故事。\n\n后半部二十章则转向京都、大阪与江户都市剧场及茶屋，描写歌舞伎若众艺人（色子）与町人、僧侣赞助者之间的爱怨悲欢与生计现实。学界将该书视为研究十七世纪末日本近世男性同性文化与剧场社会史的重要文献。"
+    },
+    "time": {
+      "startYear": 1687,
+      "endYear": 1687,
+      "label": {
+        "en": "1687 CE (Jōkyō 4)",
+        "zh": "1687年（日本贞享四年）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Osaka, Japan",
+        "zh": "大阪（日本近世出版中心）"
+      },
+      "countryName": {
+        "en": "Japan",
+        "zh": "日本"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 135.5023,
+        "latitude": 34.6937
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Printed in Osaka in 1687; survives in original Jōkyō woodblock editions held in Japanese archival collections.",
+      "zh": "1687年在大阪刊行，现存贞享四年木刻初印本多件。"
+    },
+    "sources": [
+      {
+        "title": "男色大鑑（貞享四年版）",
+        "author": "井原西鶴",
+        "year": 1687
+      },
+      {
+        "title": "The Great Mirror of Male Love (English Translation & Introduction)",
+        "author": "Paul Gordon Schalow",
+        "year": 1990,
+        "citation": "Stanford University Press"
+      }
+    ]
+  },
+  {
+    "id": "entry_hiratsuka_otake",
+    "slug": "hiratsuka-otake",
+    "title": {
+      "en": "Hiratsuka Raichō & Otake Kōkichi",
+      "zh": "平塚雷鸟与尾竹红吉"
+    },
+    "originalName": "平塚らいてう・尾竹紅吉",
+    "aliases": [
+      "Seitō (Bluestocking)",
+      "Tomimoto Kazue",
+      "青鞜",
+      "富本一枝"
+    ],
+    "summary": {
+      "en": "Early twentieth-century members of the Japanese feminist journal Seitō whose 1912 relationship and letters drew intense public scrutiny.",
+      "zh": "日本近代女性文艺杂志《青鞜》核心同人，1912年平塚雷鸟发表回忆二人亲密关系的散文并引发日本媒体舆论风波。"
+    },
+    "body": {
+      "en": "In 1912, artist Otake Kōkichi (later Tomimoto Kazue, 1893–1966) joined Seitō (Bluestocking), the pioneering Tokyo feminist literary society founded by Hiratsuka Raichō (1886–1971). In the August 1912 issue of Seitō and in essays such as 'Ichinenkan' ('One Year'), Hiratsuka wrote candidly about their intense emotional and romantic attachment, addressing Otake as 'my younger brother' and describing their shared hours in Komagome.\n\nTokyo newspapers sensationalized their closeness alongside the 'Five-Colored Liquor' and Yoshiwara visits as a scandal involving 'New Women.' Although Otake left the group later that year and both women subsequently married men, Hiratsuka's 1912 Seitō writings remain foundational primary texts in modern Japanese women's intimacy and feminist history.",
+      "zh": "1912年（明治四十五年/大正元年），年轻画家尾竹红吉（后改名富本一枝，1893–1966年）加入平塚雷鸟（1886–1971年）在东京创办的女性文艺社团《青鞜》。同年，平塚雷鸟在《青鞜》杂志及《一年间》等文章中公开写下对“红吉”浓烈而亲密的爱慕情感，称对方为“我的少年/弟弟”，留下两人书信与交往的直接文本记录。\n\n二人亲密来往很快与“五色酒事件”“吉原登楼事件”一道被东京报界大肆渲染，成为舆论攻击“新女性”的焦点。尾竹红吉于同年秋离开青鞜社，之后两人各自组建家庭，但1912年留下的这批《青鞜》文章至今仍是研究近代日本女性情谊与亲密关系的重要史料。"
+    },
+    "time": {
+      "startYear": 1912,
+      "endYear": 1912,
+      "label": {
+        "en": "1912 CE (Meiji 45 / Taishō 1)",
+        "zh": "1912年（日本明治末年至大正元年）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Tokyo (Komagome), Japan",
+        "zh": "东京（驹込青鞜社）"
+      },
+      "countryName": {
+        "en": "Japan",
+        "zh": "日本"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 139.7514,
+        "latitude": 35.7245
+      },
+      "precision": "city",
+      "relation": "activity-area"
+    },
+    "historiographyNote": {
+      "en": "Primary documentation survives in the 1912 issues of Seitō and Hiratsuka's published memoirs; scholars read the bond within Taishō 'S-kankei' (girl-girl romance) and New Woman discourse.",
+      "zh": "一手史料见于1912年刊行之《青鞜》杂志文本与平塚雷鸟回忆录；学界常结合大正时期“S关系”与“新女性”舆论背景进行解读。"
+    },
+    "sources": [
+      {
+        "title": "『青鞜』明治45年8月号（平塚らいてう・尾竹紅吉関連記事）",
+        "author": "青鞜社",
+        "year": 1912
+      },
+      {
+        "title": "Lesbian Voices from Japan: The Seitō Era and Beyond",
+        "author": "Sarah Frederick / Gregory Pflugfelder",
+        "year": 2005,
+        "citation": "Turning Point: Seitō and Modern Japanese Women's Writing"
+      }
+    ]
+  },
+  {
+    "id": "entry_yoshiya_monma",
+    "slug": "yoshiya-monma",
+    "title": {
+      "en": "Yoshiya Nobuko & Monma Chiyo",
+      "zh": "吉屋信子与门马千代"
+    },
+    "originalName": "吉屋信子・門馬千代",
+    "aliases": [
+      "Hana Monogatari",
+      "Yoshiya Nobuko Memorial Museum",
+      "花物语",
+      "镰仓吉屋信子纪念馆"
+    ],
+    "summary": {
+      "en": "Japanese novelist Yoshiya Nobuko and mathematics teacher Monma Chiyo, who shared a lifelong partnership from 1923 until Yoshiya's death in 1973.",
+      "zh": "日本作家吉屋信子与数学教师门马千代，自1923年相识后相守半生，二人同居生活与文学档案现存镰仓纪念馆。"
+    },
+    "body": {
+      "en": "Popular Japanese novelist Yoshiya Nobuko (1896–1973), celebrated for her Flower Tales (Hana Monogatari) portraying intense bonds between schoolgirls, met mathematics teacher Monma Chiyo in January 1923 through feminist activist Yamataka Shigeri. Monma soon moved in to manage Yoshiya's household and literary affairs, and the two lived together for fifty years—formalizing their legal tie under Japanese family law when Yoshiya adopted Monma as her legal heir.\n\nIn 1962, they built a traditional residence in Hase, Kamakura, designed by architect Yoshida Isoya. After Yoshiya died in 1973 and was buried at Kōtoku-in, Monma oversaw her collected works and donated the Kamakura house to the city; it remains preserved as the Yoshiya Nobuko Memorial Museum.",
+      "zh": "以描写女学生深挚情谊的《花物语》闻名的日本作家吉屋信子（1896–1973年），于1923年1月经妇女运动家山高茂介绍，结识数学教师门马千代。此后半个世纪里，门马千代辞去教职与吉屋信子共同生活并协助其写作与日常事务；按当时日本法律制度，吉屋信子以收养养女的形式与门马千代确立了法定亲属与继承关系。\n\n1962年二人在神奈川县镰仓市长谷建造新居。1973年吉屋信子逝世并葬于镰仓高德院后，门马千代整理编订其全集年谱，并遵照遗愿将镰仓故居捐赠市政府，即今日春秋对外开放的“吉屋信子纪念馆”。"
+    },
+    "time": {
+      "startYear": 1923,
+      "endYear": 1973,
+      "label": {
+        "en": "1923 – 1973 CE",
+        "zh": "1923年 – 1973年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Kamakura, Kanagawa, Japan",
+        "zh": "镰仓（日本神奈川县）"
+      },
+      "countryName": {
+        "en": "Japan",
+        "zh": "日本"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 139.5467,
+        "latitude": 35.3192
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Documented through Yoshiya's literary estate, biographical chronologies compiled by Monma Chiyo, and Kamakura municipal archives.",
+      "zh": "史料保存于吉屋信子遗稿、门马千代编纂之年谱以及镰仓市吉屋信子纪念馆藏档案。"
+    },
+    "sources": [
+      {
+        "title": "吉屋信子全集（月報・年譜）",
+        "author": "門馬千代 ほか",
+        "year": 1975,
+        "citation": "朝日新聞社"
+      },
+      {
+        "title": "Sisters of the Flesh: Yoshiya Nobuko and Prewar Girls' Fiction",
+        "author": "Michiko Suzuki",
+        "year": 2010,
+        "citation": "Becoming Modern Women: Love and Female Identity in Prewar Japanese Literature (Stanford University Press)"
+      }
+    ]
+  },
+  {
+    "id": "entry_confessions_of_a_mask",
+    "slug": "confessions-of-a-mask",
+    "title": {
+      "en": "Confessions of a Mask (1949)",
+      "zh": "三岛由纪夫《假面的告白》"
+    },
+    "originalName": "仮面の告白（かめんのこくはく）",
+    "aliases": [
+      "Kamen no Kokuhaku",
+      "Yukio Mishima",
+      "假面的告白"
+    ],
+    "summary": {
+      "en": "Yukio Mishima's 1949 semi-autobiographical novel depicting a young man's same-sex desire and efforts to wear a mask of social conformity.",
+      "zh": "三岛由纪夫于1949年在东京出版的半自传体长篇小说，描写主人公青年时期的同性欲望与在社会期待下的自我掩饰。"
+    },
+    "body": {
+      "en": "Published in Tokyo in July 1949 by Kawade Shobō, Confessions of a Mask (Kamen no Kokuhaku) established twenty-four-year-old Yukio Mishima (1925–1970) as a leading postwar Japanese novelist. Told in the first person by a narrator named Kochan, the novel traces his childhood fascination with a painting of Saint Sebastian, his unspoken attraction to male classmates, and his painful attempt to perform conventional heterosexual romance with a young woman named Sonoko.\n\nAppearing just four years after the Second World War, the book broke with standard confessional 'I-novel' etiquette by turning sexual concealment itself—the 'mask' worn before family and society—into its central psychological theme. Literary scholars view it as a landmark of postwar Japanese queer fiction.",
+      "zh": "《假面的告白》为日本作家三岛由纪夫（1925–1970年）于1949年7月由东京河出书房初版的长篇小说，也是其步入文坛的成名作。小说以第一人称“我”（公彦）自叙童年凝视圣塞巴斯蒂安受难图画的震撼、学生时代对同性同窗的暗恋，以及成年后勉强向女性“园子”求爱以图融入世俗期待的挣扎。\n\n作品在战后日本文坛引发广泛讨论：全书不再把自我剖析局限于传统私小说的家庭琐事，而是直接把“在规范面前戴上假面”的同性欲望与伪装心理推作核心主题，成为战后日本文学史上探讨同性爱欲与社会压力的关键文本。"
+    },
+    "time": {
+      "startYear": 1949,
+      "endYear": 1949,
+      "label": {
+        "en": "1949 CE",
+        "zh": "1949年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Tokyo, Japan",
+        "zh": "东京（日本）"
+      },
+      "countryName": {
+        "en": "Japan",
+        "zh": "日本"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 139.7294,
+        "latitude": 35.6862
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "First published in Tokyo in July 1949; studied alongside Mishima's correspondence and postwar Japanese literary debates.",
+      "zh": "1949年7月在东京初版发行，研究多结合三岛由纪夫书信及战后日本文学批评史料加以考察。"
+    },
+    "sources": [
+      {
+        "title": "仮面の告白",
+        "author": "三島由紀夫",
+        "year": 1949,
+        "citation": "河出書房（東京）"
+      },
+      {
+        "title": "Queer Readings of Modern Japanese Literature",
+        "author": "J. Keith Vincent",
+        "year": 2012,
+        "citation": "Two-Timing Modernity: Homosocial Narrative in Modern Japanese Fiction (Harvard University Asia Center)"
+      }
+    ]
+  },
+  {
+    "id": "entry_shibuya_partnership_2015",
+    "slug": "shibuya-partnership-2015",
+    "title": {
+      "en": "2015 Shibuya Partnership Certificate",
+      "zh": "2015年涩谷区伴侣证明制度"
+    },
+    "originalName": "渋谷区パートナーシップ証明書",
+    "aliases": [
+      "Shibuya Same-Sex Partnership Ordinance",
+      "涩谷同性伴侣证明"
+    ],
+    "summary": {
+      "en": "Japan's first municipal same-sex partnership certificate system, launched by Shibuya Ward in Tokyo on November 5, 2015.",
+      "zh": "东京都涩谷区于2015年11月5日正式发放日本首份地方政府同性伴侣关系证明，属地方行政承认而非国家法定婚姻。"
+    },
+    "body": {
+      "en": "Under the 'Shibuya Ward Ordinance Promoting Gender Equality and a Diverse Society' passed in March 2015, Shibuya Ward in Tokyo began accepting applications and issuing same-sex partnership certificates on November 5, 2015. The initiative was the first local-government partnership recognition scheme of its kind in Japan, with Setagaya Ward issuing its own partnership declarations on the same day.\n\nAlthough the certificate does not alter national family-register law (koseki) or create legal marriage under Japan's Civil Code, it established a municipal precedent for housing, hospital visitation, and employment recognition. Hundreds of Japanese municipalities later adopted similar local partnership ordinances across the following decade.",
+      "zh": "依据2015年3月通过的《涩谷区推进男女平等及多样性社会条例》，东京都涩谷区于2015年11月5日正式受理宣誓并颁发“伴侣关系证明书”，成为日本首个在地方自治条例层级承认同性伴侣关系的行政制度（世田谷区亦于同日启动类似宣誓书受理）。\n\n该证明不具有《日本民法典》及户籍（戸籍）上的法律婚姻效力，但为地方公营住宅申请、医院探视及企业福利承认提供了公共凭证；此后十年间，日本各地数百个自治体陆续跟进设立了相似的地方伴侣证明制度。"
+    },
+    "time": {
+      "startYear": 2015,
+      "endYear": 2015,
+      "label": {
+        "en": "November 5, 2015",
+        "zh": "2015年11月5日"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Shibuya, Tokyo, Japan",
+        "zh": "东京涩谷区（日本）"
+      },
+      "countryName": {
+        "en": "Japan",
+        "zh": "日本"
+      },
+      "countryCode": "392",
+      "coordinates": {
+        "longitude": 139.6982,
+        "latitude": 35.6639
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in Shibuya Ward municipal ordinances and public administrative notices from March–November 2015.",
+      "zh": "依据2015年东京都涩谷区议会通过条例原文及区役所公开行政公告。"
+    },
+    "sources": [
+      {
+        "title": "渋谷区男女平等及び多様性を尊重する社会を推進する条例（パートナーシップ証明）",
+        "author": "東京都渋谷区役所",
+        "year": 2015
+      },
+      {
+        "title": "Local Partnership Certificates and Same-Sex Marriage Debates in Japan",
+        "author": "Hanae Kurihara / Mark McLelland",
+        "year": 2017,
+        "citation": "Asian Studies Review / Japanese Municipal Archives"
+      }
+    ]
+  },
+  {
+    "id": "entry_consort_bong_1436",
+    "slug": "consort-bong-1436",
+    "title": {
+      "en": "Deposition of Consort Bong (1436)",
+      "zh": "1436年世子嫔奉氏被废事件"
+    },
+    "originalName": "純嬪 奉氏 廢位事件（1436年）",
+    "aliases": [
+      "Princess Consort Bong",
+      "So-ssang",
+      "纯嫔奉氏",
+      "召双"
+    ],
+    "summary": {
+      "en": "A 1436 Joseon court scandal recorded in the Annals of King Sejong, detailing Crown Princess Bong's deposition after an inquiry into her bond with court maid So-ssang.",
+      "zh": "朝鲜《世宗实录》记载的1436年宫廷事件，记述世子嫔奉氏因与宫女召双之间的行为及审讯证词而被废为庶人。"
+    },
+    "body": {
+      "en": "Recorded in the Annals of King Sejong (Sejong Sillok, Year 18 / 1436), Crown Princess Consort Bong (Sunbin Bong-ssi), second wife of Crown Prince Yi Hyang (later King Munjong), faced formal investigation at the Joseon palace in Hanseong after rumors circulated regarding her relationship with a palace maid named So-ssang. During questioning ordered by King Sejong and Queen Soheon, So-ssang testified that Bong had insisted she stay constantly by her side and sleep with her, detailing physical intimacy alongside coercion and jealousy.\n\nOn the 26th day of the 10th lunar month of 1436, King Sejong deposed Bong to commoner status. While the public royal edict emphasized Confucian grounds such as jealousy and lack of an heir to shield palace dignity, the Veritable Records preserved Sejong's private remarks to royal secretaries citing the relationship with So-ssang—making the 1436 dossier one of the clearest surviving official records of female same-sex intimacy and palace power hierarchy in premodern Korea.",
+      "zh": "据《朝鲜王朝实录·世宗实录》（世宗十八年，1436年）记载，王世子李珦（后来的朝鲜文宗）第二任世子嫔纯嫔奉氏因婚后失宠，在宫中与贴身宫女召双（소쌍）关系极为密切，引起宫廷议论。朝鲜世宗与昭宪王后传召召双审讯后，实录录有召双供词，述及奉氏长期令其伴寝、不许离身，并涉及强迫要求与嫉妒争执等经过。\n\n1436年农历十月二十六日，世宗下诏将奉氏废为庶人。官方公开教旨主要按儒家“七出”列举嫉妒与无子之罪，但《世宗实录》同时实录了世宗私下向承旨道及奉氏与宫女私通内情以致不能容忍的原委，成为前现代朝鲜半岛官方正史中罕见涉及女性同性行为、宫廷等级强迫与礼法规训的详实档案。"
+    },
+    "time": {
+      "startYear": 1436,
+      "endYear": 1436,
+      "label": {
+        "en": "1436 CE (Sejong 18)",
+        "zh": "1436年（朝鲜世宗十八年）"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Hanseong (Seoul), Korea",
+        "zh": "汉城（今韩国首尔景福宫）"
+      },
+      "countryName": {
+        "en": "South Korea",
+        "zh": "韩国"
+      },
+      "countryCode": "410",
+      "coordinates": {
+        "longitude": 126.977,
+        "latitude": 37.5796
+      },
+      "precision": "city",
+      "relation": "court-site"
+    },
+    "historiographyNote": {
+      "en": "Preserved in the official Veritable Records of the Joseon Dynasty (Sejong Sillok, juan 75), compiled from court interrogation transcripts.",
+      "zh": "见载于朝鲜官修《世宗实录》卷七十五，保留了王室审讯供词与国王致承旨口谕。"
+    },
+    "sources": [
+      {
+        "title": "朝鮮王朝實錄·世宗實錄 卷七十五（世宗十八年十月二十六日）",
+        "author": "春秋館史官",
+        "year": "1436年（1454年成书）"
+      },
+      {
+        "title": "Female Same-Sex Relations and Palace Power in Joseon Korea",
+        "author": "JaHyun Kim Haboush / Young-key Kim-Renaud",
+        "year": 2004,
+        "citation": "Korean Studies / National Institute of Korean History"
+      }
+    ]
+  },
+  {
+    "id": "entry_kim_geumwon",
+    "slug": "kim-geumwon",
+    "title": {
+      "en": "Kim Geum-won",
+      "zh": "金锦园（김금원）"
+    },
+    "originalName": "金錦園（김금원）",
+    "aliases": [
+      "Hodong Seorakgi",
+      "湖东西洛记",
+      "三湖亭诗社"
+    ],
+    "summary": {
+      "en": "A late Joseon poet who dressed in male attire at age fourteen in 1830 to travel across Mount Kumgang and Seoul, later recording the journey in Hodong Seorakgi.",
+      "zh": "朝鲜王朝后期女诗人，在游记文集《湖东西洛记》中追述1830年十四岁时改作男装远游金刚山与汉阳的经历。"
+    },
+    "body": {
+      "en": "Born in Wonju, Gangwon Province in 1817, late Joseon poet Kim Geum-won left home at age fourteen in 1830 (Sunjo 30) to see landscapes closed to respectable women under Neo-Confucian seclusion rules. Braiding her hair like a boy and wearing men's traveling clothes, she journeyed roughly a thousand kilometers across Jecheon, Danyang, Mount Kumgang, the Eight Views of Kwandong, and Seoul.\n\nShe later recorded the travelogue and poems in Hodong Seorakgi (Record of Travels East of the Lakes and West of the Capital), earning praise from contemporaries as a 'female Sima Qian.' Later living near the Han River in Seoul, Kim organized the Samhojeong Poetry Society with fellow women writers such as Park Juk-seo and Kim Un-cho.",
+      "zh": "金锦园（1817–？）生于朝鲜江原道原州。1830年（朝鲜纯祖三十年）十四岁时，有感于儒家礼教下女子不得自由远游山水，她遂将发辫束作男童式样、身穿男装离开家乡，先后游历堤川、丹阳、金刚山、关东八景与雪岳山，并抵达汉阳（今首尔），行程约千公里。\n\n她日后将此次行旅见闻与诗作汇编为汉文游记《湖东西洛记》，时人赞其“闺秀司马子长”。晚年居于汉阳汉江畔三湖亭期间，金锦园与朴竹西、金云楚等女诗人结成朝鲜早期女性诗社“三湖亭诗社”。"
+    },
+    "time": {
+      "startYear": 1830,
+      "endYear": 1850,
+      "label": {
+        "en": "1830 – c. 1850 CE",
+        "zh": "1830年 – 19世纪中叶"
+      },
+      "certainty": "approximate"
+    },
+    "place": {
+      "name": {
+        "en": "Wonju, Gangwon, Korea",
+        "zh": "原州（韩国江原道）"
+      },
+      "countryName": {
+        "en": "South Korea",
+        "zh": "韩国"
+      },
+      "countryCode": "410",
+      "coordinates": {
+        "longitude": 127.9202,
+        "latitude": 37.3422
+      },
+      "precision": "city",
+      "relation": "residence"
+    },
+    "historiographyNote": {
+      "en": "Known primarily from her literary travelogue Hodong Seorakgi held in South Korean national collections.",
+      "zh": "主要依据韩国国立图书馆等机构现存金锦园汉文著作《湖东西洛记》传世钞本。"
+    },
+    "sources": [
+      {
+        "title": "湖東西洛記（호동서락기）",
+        "author": "金錦園（김금원）",
+        "year": "19世纪中叶"
+      },
+      {
+        "title": "A Woman's Journey in Male Disguise: Kim Geum-won's Hodong Seorakgi",
+        "author": "National Library of Korea / Korean Women's Literature Studies",
+        "year": 2008
+      }
+    ]
+  },
+  {
+    "id": "entry_sqcf_rainbow_2000",
+    "slug": "sqcf-rainbow-2000",
+    "title": {
+      "en": "2000 Korea Queer Culture Festival",
+      "zh": "2000年韩国酷儿文化节"
+    },
+    "originalName": "퀴어문화축제 무지개2000",
+    "aliases": [
+      "Rainbow 2000",
+      "Seoul Queer Culture Festival",
+      "首尔酷儿文化节",
+      "무지개 2000"
+    ],
+    "summary": {
+      "en": "A two-day gathering held under the name 'Rainbow 2000' in Seoul's Daehangno district, marking the origin of the annual Seoul Queer Culture Festival.",
+      "zh": "2000年在韩国首尔大学路以“Rainbow 2000”之名举办的活动，是后来年度首尔酷儿文化节的起点。"
+    },
+    "body": {
+      "en": "Held in Seoul's Daehangno district in September 2000, 'Queer Culture Festival – Rainbow 2000' brought together roughly fifty participants across a two-day program of cultural events and a small street march. It marked South Korea's first public modern queer pride gathering held openly in urban civic space.\n\nAlthough modest in scale compared with later years, Rainbow 2000 initiated an annual organizational network that grew into the Seoul Queer Culture Festival (SQCF), establishing a lasting civic platform for LGBTQ+ visibility and public advocacy in South Korea.",
+      "zh": "2000年9月，韩国首次面向公众开放的大型多元性别文化活动在首尔大学路举办，当时定名为“酷儿文化节——Rainbow 2000”（퀴어문화축제 무지개2000）。为期两天的活动包含文艺交流与约五十人参与的街头小型游行，标志着韩国当代同志与酷儿社群首次以文化节形式在公共街区公开集结发声。\n\n此次活动虽规模尚小，却直接奠定了此后每年举办的“首尔酷儿文化节”（SQCF）组织基础，逐步发展成为韩国当代最具代表性的年度公共性别平权文化活动。"
+    },
+    "time": {
+      "startYear": 2000,
+      "endYear": 2000,
+      "label": {
+        "en": "2000 CE",
+        "zh": "2000年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Seoul (Daehangno), South Korea",
+        "zh": "首尔（大学路，韩国）"
+      },
+      "countryName": {
+        "en": "South Korea",
+        "zh": "韩国"
+      },
+      "countryCode": "410",
+      "coordinates": {
+        "longitude": 127.0019,
+        "latitude": 37.5821
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Recorded in organizing archives of the Seoul Queer Culture Festival (SQCF) and contemporary South Korean press reports.",
+      "zh": "见载于首尔酷儿文化节组委会历年档案及2000年韩国媒体报道。"
+    },
+    "sources": [
+      {
+        "title": "Seoul Queer Culture Festival Historical Archive (Rainbow 2000)",
+        "author": "SQCF Organizing Committee",
+        "year": 2000
+      },
+      {
+        "title": "Coming Out in South Korea: Queer Visibility and the Seoul Queer Culture Festival",
+        "author": "Timothy Gitzen / John Cho",
+        "year": 2019,
+        "citation": "Journal of Korean Studies"
+      }
+    ]
+  },
+  {
+    "id": "entry_kqff_rainbow_2001",
+    "slug": "kqff-rainbow-2001",
+    "title": {
+      "en": "2001 Rainbow Film Screening",
+      "zh": "2001年彩虹电影放映会"
+    },
+    "originalName": "2001 무지개영화제 (한국퀴어영화제)",
+    "aliases": [
+      "Rainbow Film Festival 2001",
+      "Korea Queer Film Festival",
+      "韩国酷儿电影节",
+      "서울LGBT영화제"
+    ],
+    "summary": {
+      "en": "Film screening program launched under the 2001 'Rainbow 2001' cultural festival in Seoul, later evolving into the annual Korea Queer Film Festival.",
+      "zh": "2001年作为“Rainbow 2001”文化节放映单元在首尔创办，后逐步发展为常设的韩国酷儿电影节（KQFF）。"
+    },
+    "body": {
+      "en": "In 2001, organizers of Seoul's second queer cultural festival ('Rainbow 2001') launched a dedicated cinema program known as the Rainbow Film Festival. Presenting independent domestic and international films addressing same-sex intimacy and gender diversity, the screenings created a public theatrical venue for queer cinema in South Korea.\n\nRenamed successively the Seoul LGBT Film Festival and later the Korea Queer Film Festival (KQFF), the 2001 screening program became an ongoing cultural institution within the Seoul Queer Culture Festival, supporting Korean independent filmmakers and archival film curation.",
+      "zh": "2001年，作为首尔第二届酷儿文化节（“Rainbow 2001”）的重要文化单元，主办方在首尔开设“彩虹电影放映会”（무지개영화제），集中展映国内外关注多元性别与同性情感的独立影像作品，为韩国公众接触相关题材影展打开固定银幕窗口。\n\n该单元此后先后更名为“首尔LGBT电影节”及“韩国酷儿电影节”（KQFF），随首尔酷儿文化节延续至今，推动了韩国本地独立酷儿影像创作与影史资料保存。"
+    },
+    "time": {
+      "startYear": 2001,
+      "endYear": 2001,
+      "label": {
+        "en": "2001 CE",
+        "zh": "2001年"
+      },
+      "certainty": "exact"
+    },
+    "place": {
+      "name": {
+        "en": "Seoul, South Korea",
+        "zh": "首尔（韩国）"
+      },
+      "countryName": {
+        "en": "South Korea",
+        "zh": "韩国"
+      },
+      "countryCode": "410",
+      "coordinates": {
+        "longitude": 126.9896,
+        "latitude": 37.5729
+      },
+      "precision": "city",
+      "relation": "event-site"
+    },
+    "historiographyNote": {
+      "en": "Documented in Korea Queer Film Festival (KQFF) program catalogs and South Korean independent cinema histories.",
+      "zh": "文献见于韩国酷儿电影节（KQFF）历届映展手册及韩国独立电影史研究。"
+    },
+    "sources": [
+      {
+        "title": "Rainbow Film Festival / Korea Queer Film Festival Program Archive (2001–)",
+        "author": "KQFF & SQCF",
+        "year": 2001
       }
     ]
   }

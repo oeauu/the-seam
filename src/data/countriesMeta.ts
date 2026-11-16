@@ -35,6 +35,9 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
       { name: { en: "Taiyuan", zh: "太原市" }, coordinates: [112.5492, 37.8570] },
       { name: { en: "Nanjing", zh: "南京市" }, coordinates: [118.7969, 32.0603] },
       { name: { en: "Hangzhou", zh: "杭州市" }, coordinates: [120.1551, 30.2741] },
+      { name: { en: "Zibo", zh: "淄博市" }, coordinates: [118.0548, 36.8131] },
+      { name: { en: "Puyang", zh: "濮阳市" }, coordinates: [115.0293, 35.7622] },
+      { name: { en: "Linli (Anfu)", zh: "临澧县（清安福）" }, coordinates: [111.6512, 29.4416] },
       { name: { en: "Fuzhou", zh: "福州市" }, coordinates: [119.3062, 26.0753] },
       { name: { en: "Taipei", zh: "台北市" }, coordinates: [121.5654, 25.0330] },
       { name: { en: "Guangzhou", zh: "广州市" }, coordinates: [113.2644, 23.1291] },
@@ -250,8 +253,27 @@ export const COUNTRIES_META: Record<string, CountryMetadata> = {
     },
     cities: [
       { name: { en: "Tokyo", zh: "东京" }, coordinates: [139.6917, 35.6895], isCapital: true },
+      { name: { en: "Osaka", zh: "大阪" }, coordinates: [135.5023, 34.6937] },
+      { name: { en: "Kamakura", zh: "镰仓" }, coordinates: [139.5467, 35.3192] },
       { name: { en: "Kyoto", zh: "京都" }, coordinates: [135.7681, 35.0116] },
       { name: { en: "Nara", zh: "奈良" }, coordinates: [135.8048, 34.6851] }
+    ]
+  },
+  // South Korea
+  "410": {
+    id: "410",
+    codeAlpha3: "KOR",
+    name: { en: "South Korea", zh: "韩国" },
+    center: [127.7669, 35.9078],
+    capital: {
+      name: { en: "Seoul", zh: "首尔" },
+      coordinates: [126.9780, 37.5665],
+      isCapital: true
+    },
+    cities: [
+      { name: { en: "Seoul", zh: "首尔" }, coordinates: [126.9780, 37.5665], isCapital: true },
+      { name: { en: "Wonju", zh: "原州" }, coordinates: [127.9202, 37.3422] },
+      { name: { en: "Busan", zh: "釜山" }, coordinates: [129.0756, 35.1796] }
     ]
   }
 };
